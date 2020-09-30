@@ -9,3 +9,4 @@
 ### gatsby develop for development
 ### gatsby build to build
 ### gatsby serve  to run production build locally
+### if ci/cd not setup through netlify create .env files for production and development *.env.production/.env.development
