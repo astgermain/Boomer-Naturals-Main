@@ -2,7 +2,7 @@
 
 ## Environment setup
 
-### Clone this repo - git clone https://github.com/astgermain/BoomerNaturalsFE
+### Clone this repo - git clone https://github.com/Boomer-Naturals/BoomerNaturalsMain
 ### Install node *Preferable v12 or higher * check with node -v
 ### Navigate to frontend folder 
 ### Npm install - install package stuff
