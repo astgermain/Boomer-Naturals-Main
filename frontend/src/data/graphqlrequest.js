@@ -3,8 +3,7 @@
 
 // Shopify request documentation: https://shopify.dev/tutorials/make-your-first-graphql-request
 
-// TODO: 
-// 1) Setup env variables to store token and other sensitive values
+// Possibly not needed keeping in case we need to use for post requests
 
 const token = `placeholder`
 const url = `placeholder`
