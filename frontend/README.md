@@ -5,6 +5,7 @@ For Gatsby general information see bottom
 
 ## Todo
 - Github Procedure/Code Review/Pull Requests/Merge Conflicts/Branching/etc
+- Communication
 - Testing/QA
 - Requirement Analysis/Priority
 - Design
@@ -19,6 +20,30 @@ For Gatsby general information see bottom
 - Scaleability/Templating/SAAS
 - Cost Analysis of All Software/Dependencies
 - More Legal (Copyrighting/Trademarking/Patenting/Licensing)
+
+## Milestones
+  - M1: Data architecture structuring and GraphQL query(ies)
+  - M2: Pages
+  - M3: Shopping Cart/Account 
+  - M4: Blog
+
+## M1 - Data Architecture Structuring
+- We need to go over what data is neccessary for function of the site and create a query that doesn't include any unneeded data
+**Deliverables**
+- TBD
+
+## M2 - Pages
+- Create functionality for creating pages and editing individual pages
+**Deliverables**
+1. Home Page
+
+## M3 - Shopping Cart/Account
+- Create user account and shopping additions/checkout functionality
+**Deliverables**
+- TBD
+
+## M4 - Blog
+- TBD
 
 ## Security and Liability
 - Security and liability are a big issue and as such all code should hopefully go through code review and any open source, applications, external javascript, or anything of such nature should not be added to this project without careful consideration by the team as a whole
@@ -113,6 +138,9 @@ For Gatsby general information see bottom
 - **Connecting to Shopify GraphQL API**
   - We will be using the gatsby-source-graphql dependencies which is a gatsby package for connecting GraphQL API's to Gatsby's GraphQL
   - Everything you need to know should be here: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-graphql
+
+## Gatsby Image Handling
+  - Read here: https://www.gatsbyjs.com/docs/gatsby-image/
 
 ## Cost/Budget Analysis of Software/Dependencies
 
