@@ -97,3 +97,95 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-blog)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+# Development Notes/Documentation
+
+## Security and Liability
+- Security and liability are a big issue and as such all code should hopefully go through code review and any open source, applications, external javascript, or anything of such nature should not be added to this project without careful consideration by the team as a whole
+
+### Secruity
+- Security is a major issue. In 2019, nearly 4.1 billion records were exposed due to data breaches.
+- While about 60% of security breaches come in the form of phishing or social engineering attacks it is imperative we avoid any potential flaws in code.
+- For us at Boomer there are serveral extremely important security factors to consider
+  1. Exposing API Keys, Passwords, and other sensitive data via poor handling of data
+    - Key considerations include proper handling of any keys and access tokens including but not limited too expirations, transfer over unsecure networks, storing information unencrypted, w/ weak encryption, or in places that could possibly be exposed do to 3rd party vulnerabilities.
+  2. Vulnerabilites in 3rd party software, libraries, frameworks, etc(dependencies)
+    - Many vulnerabilites are found everyday in dependencies like the types listed about and by us using them we take on the responsibility of updating/upgrading/removing any software that has been found to have a vulnerability esp those marked as critical.
+    - Any and all dependencies etc should be carefully documented and and regularly check for security issues.**Github does a decent job of this but not all the work*
+  3. Injection type attacks. Most common injection attacks include SQL injection, Cross Site Scripting(XSS), and LDAP injection. The most common cause is unsanitized user input.
+    - The steps you can take to reduce this risk are:
+    1. Use prepared statements, parameterized queries and stored procedures
+    2. Use appropriate privileges and reduce attack surface by not supplying unecessary functionality
+    3. Trust no user data
+  4. Cross Site Request Forgeries(CSRF or XSRF) - prevent hackers from disguising themselves as other users by using csrf tokens to validate a user
+  5. Buffer overflow: prevented with bounds checking
+  6. Misc: lack of encapsulation, improper error handling, race conditions, malicious dependencies, unsecure encryption(caesar cipher vs SHA256)
+
+### Liability
+- Some things you can do to reduce our liability:
+  - Check any licenses on 3rd party code
+  - Create code that generates logs of anything and everything done
+  - Any action that can or might be considered a B2C contract or agreement should be processed through legal before being added
+
+## Shopfiy GraphQL API and Gatsby
+- Gatsby uses GraphQL to let us pull any and all data we need for components and pages at build time reducing the number of network requests needed and creating a static snapshot of all data we need.
+- Benefits
+  - Greatly reduces the number of networks requests
+  - Most complexities done at build time
+  - Only data that is need is sent to components
+  - Data can be transformed at build time rather than on live site
+    - Ex. Shopify returns order datas in the format mm/dd/yyyy but we can transform that to dd/mm/yy if need be
+  - Data transformations include image processessing for optimal performance
+  - Learn more about data transformations here: https://www.gatsbyjs.com/docs/graphql-concepts/#powerful-data-transformations
+- Things To Consider While Writing Queries
+  - Fragments can be defined and exported to keep code readable and clean or during refactoring
+  - The power of data transformations rather than direct edits/processing of data in React
+  - Data bloat can still be an issue if you over allocate data
+    - Ex. Requesting access to Orders and Customers for a component that only requires Orders
+- Advanced Considerations
+  - Interfaces and Unions used in conjunction with fragments to perform switch statement like type queries that can be used to generate more comprehensive results such as a search. Example Below
+    - Union
+    ```javascript
+    union SearchResult = User | Movie | Book
+
+    type Query {
+      search(text: String!): [SearchResult]!
+    }
+    ```
+    - Interface
+    ```javascript
+    interface Searchable {
+      searchPreviewText: String!
+    } 
+
+    type User implements Searchable {
+      searchPreviewText: String!
+      username: String!
+    }
+
+    type Movie implements Searchable {
+      searchPreviewText: String!
+      directory: String!
+    }
+
+    type Book implements Searchable {
+      searchPreviewText: String!
+      author: String!
+    }
+
+    type Query {
+      search(text: String!): [Searchable]!
+    }
+    ```
+    - Query
+    ```javascript
+    query {
+      search(text: "cat") {
+        searchPreviewText
+      }
+    }
+    ```
+    - Read more about this here: https://medium.com/the-graphqlhub/graphql-tour-interfaces-and-unions-7dd5be35de0d
+  - GraphQL Specifications here: https://spec.graphql.org/October2016/
+  - Gatsby's processing of queries using Relay here: https://relay.dev/docs/en/compiler-architecture.html
+
