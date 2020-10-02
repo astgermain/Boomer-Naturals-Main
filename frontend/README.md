@@ -1,9 +1,11 @@
 # Development Notes/Documentation
+
 For Gatsby general information see bottom
 
 # Table of Contents
 
 ## Todo
+
 - Github Procedure/Code Review/Pull Requests/Merge Conflicts/Branching/etc
 - Communication
 - Testing/QA
@@ -22,58 +24,75 @@ For Gatsby general information see bottom
 - More Legal (Copyrighting/Trademarking/Patenting/Licensing)
 
 ## Milestones
-  - M1: Data architecture structuring and GraphQL query(ies)
-  - M2: Pages
-  - M3: Shopping Cart/Account 
-  - M4: Blog
+
+- M1: Data architecture structuring and GraphQL query(ies)
+- M2: Pages
+- M3: Shopping Cart/Account
+- M4: Blog
 
 ## M1 - Data Architecture Structuring
-- We need to go over what data is neccessary for function of the site and create a query that doesn't include any unneeded data
-**Deliverables**
+
+- We need to go over what data is neccessary for function of the site and create a query that doesn't include any unnecessary data
+  **Deliverables**
 - TBD
 
 ## M2 - Pages
+
 - Create functionality for creating pages and editing individual pages
-**Deliverables**
+  **Deliverables**
+
 1. Home Page
 
 ## M3 - Shopping Cart/Account
+
 - Create user account and shopping additions/checkout functionality
-**Deliverables**
+  **Deliverables**
 - TBD
 
 ## M4 - Blog
+
 - TBD
 
 ## Security and Liability
+
 - Security and liability are a big issue and as such all code should hopefully go through code review and any open source, applications, external javascript, or anything of such nature should not be added to this project without careful consideration by the team as a whole
 
-  ### Secruity/Privacy
+  ### Security/Privacy
+
   Security is a major issue. In 2019, nearly 4.1 billion records were exposed due to data breaches. While about 60% of security breaches come in the form of phishing or social engineering attacks it is imperative we avoid any potential flaws in code.
 
   **For us at Boomer Naturals there are serveral extremely important security factors to consider**
+
   1. Exposing API Keys, Passwords, and other sensitive data via poor handling of data. Besides a leak of login credentials, a leak of our API Key/Password to Shopify would be essentially giving away unrestricted access to everything to an attacker.
-    - Key considerations include proper handling of any keys and access tokens including but not limited too expirations, transfer over unsecure networks, storing information unencrypted, w/ weak encryption, or in places that could possibly be exposed do to 3rd party vulnerabilities.
-    - Learn More here: https://support.google.com/googleapi/answer/6310037?hl=en
+
+  - Key considerations include proper handling of any keys and access tokens including but not limited too expirations, transfer over unsecure networks, storing information unencrypted, w/ weak encryption, or in places that could possibly be exposed do to 3rd party vulnerabilities.
+  - Learn More here: https://support.google.com/googleapi/answer/6310037?hl=en
+
   2. Vulnerabilites in 3rd party software, libraries, frameworks, etc(dependencies)
-    - Many vulnerabilites are found everyday in dependencies like the types listed about and by us using them we take on the responsibility of updating/upgrading/removing any software that has been found to have a vulnerability esp those marked as critical.
-    - Any and all dependencies etc should be carefully documented and and regularly check for security issues.**Github does a decent job of this but not all the work*
+
+  - Many vulnerabilites are found everyday in dependencies like the types listed about and by us using them we take on the responsibility of updating/upgrading/removing any software that has been found to have a vulnerability esp those marked as critical.
+  - Any and all dependencies etc should be carefully documented and and regularly check for security issues.\*_Github does a decent job of this but not all the work_
+
   3. Injection type attacks. Most common injection attacks include SQL injection, Cross Site Scripting(XSS), and LDAP injection. The most common cause is unsanitized user input.
-    - The steps you can take to reduce this risk are:
-      1. Use prepared statements, parameterized queries and stored procedures
-      2. Use appropriate privileges and reduce attack surface by not supplying unecessary functionality
-      3. Trust no user data
+
+  - The steps you can take to reduce this risk are:
+    1. Use prepared statements, parameterized queries and stored procedures
+    2. Use appropriate privileges and reduce attack surface by not supplying unecessary functionality
+    3. Trust no user data
+
   4. Cross Site Request Forgeries(CSRF or XSRF) - prevent hackers from disguising themselves as other users by using csrf tokens to validate a user
   5. Buffer overflow: prevented with bounds checking
   6. Misc: lack of encapsulation, improper error handling, race conditions, malicious dependencies, unsecure encryption(caesar cipher vs SHA256)
 
   ### Liability
+
   - Some things you can do to reduce our liability:
     - Check any licenses on 3rd party code
     - Create code that generates logs of anything and everything done
     - Any action that can or might be considered a B2C contract or agreement should be processed through legal before being added
 
 ## Shopfiy GraphQL API and Gatsby
+
 - Gatsby uses GraphQL to let us pull any and all data we need for components and pages at build time reducing the number of network requests needed and creating a static snapshot of all data we need.
 - **Benefits**
   - Greatly reduces the number of networks requests
@@ -89,8 +108,11 @@ For Gatsby general information see bottom
   - Data bloat can still be an issue if you over allocate data
     - Ex. Requesting access to Orders and Customers for a component that only requires Orders
 - **Advanced Considerations**
+
   - Interfaces and Unions used in conjunction with fragments to perform switch statement like type queries that can be used to generate more comprehensive results such as a search. Example Below
+
     - Union
+
     ```javascript
     union SearchResult = User | Movie | Book
 
@@ -98,11 +120,13 @@ For Gatsby general information see bottom
       search(text: String!): [SearchResult]!
     }
     ```
+
     - Interface
+
     ```javascript
     interface Searchable {
       searchPreviewText: String!
-    } 
+    }
 
     type User implements Searchable {
       searchPreviewText: String!
@@ -123,7 +147,9 @@ For Gatsby general information see bottom
       search(text: String!): [Searchable]!
     }
     ```
+
     - Query
+
     ```javascript
     query {
       search(text: "cat") {
@@ -131,7 +157,9 @@ For Gatsby general information see bottom
       }
     }
     ```
+
     - Read more about this here: https://medium.com/the-graphqlhub/graphql-tour-interfaces-and-unions-7dd5be35de0d
+
   - GraphQL Specifications here: https://spec.graphql.org/October2016/
   - Gatsby's processing of queries using Relay here: https://relay.dev/docs/en/compiler-architecture.html
 
@@ -140,20 +168,23 @@ For Gatsby general information see bottom
   - Everything you need to know should be here: https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-graphql
 
 ## Gatsby Image Handling
-  - Read here: https://www.gatsbyjs.com/docs/gatsby-image/
+
+- Read here: https://www.gatsbyjs.com/docs/gatsby-image/
 
 ## Cost/Budget Analysis of Software/Dependencies
 
-### Netlify 
+### Netlify
+
 Hosting and Serverless Backend, CI/CD, application delivery network infrastructure(Faster distribution, improved server latency and reduced chance of overload), Enterprise Level Software
-  - Starting at $3,000/month. Tailored to team and performance requirements.
-  - 99.99% uptime SLA
-  - 24×7×365 premium support
-  - Enterprise-grade global edge network
-  - High-performance builds with SLAs
-  - Custom contracts & invoicing
-  - Security & compliance review
-  - Pentesting and load testing
+
+- Starting at \$3,000/month. Tailored to team and performance requirements.
+- 99.99% uptime SLA
+- 24×7×365 premium support
+- Enterprise-grade global edge network
+- High-performance builds with SLAs
+- Custom contracts & invoicing
+- Security & compliance review
+- Pentesting and load testing
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
@@ -254,6 +285,3 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-blog)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
-
-
-
