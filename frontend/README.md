@@ -40,7 +40,6 @@ For Gatsby general information see bottom
 
 - Create functionality for creating pages and editing individual pages
   **Deliverables**
-
 1. Home Page
 
 ## M3 - Shopping Cart/Account
