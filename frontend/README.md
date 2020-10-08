@@ -170,6 +170,11 @@ For Gatsby general information see bottom
 
 - Read here: https://www.gatsbyjs.com/docs/gatsby-image/
 
+## Using Data From Shopify To Populate blogs/pages/templates
+
+- Using the data sourced from the Shopify GraphQL API, we can query data into specific components in Gatsby
+- More information on that here: https://www.gatsbyjs.com/docs/recipes/querying-data/
+
 ## Editing Page Specific Head Elements
 
 - Project makes use of React-Helmet which can be used to insert page, blog, and/or template specific head elements such as but not limited to <link> <script> <meta> etc. 
@@ -181,7 +186,13 @@ For Gatsby general information see bottom
 
 ## Cost/Budget Analysis of Software/Dependencies
 
-### Netlify
+### Hosting options
+
+- AWS Amplify/Amplify Console
+
+Hosting and CI/CD for static sites
+
+- Netlify
 
 Hosting and Serverless Backend, CI/CD, application delivery network infrastructure(Faster distribution, improved server latency and reduced chance of overload), Enterprise Level Software
 
