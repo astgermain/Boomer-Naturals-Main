@@ -11,3 +11,9 @@
 ### npm run build to build
 ### npm run serve  to run production build locally
 ### if ci/cd not setup through netlify create .env files for production and development *.env.production/.env.development
+
+
+## Production setup
+
+### npm run build  or  gatsby build
+### npm run serve  or gatsby serve

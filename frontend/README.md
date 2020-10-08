@@ -170,6 +170,15 @@ For Gatsby general information see bottom
 
 - Read here: https://www.gatsbyjs.com/docs/gatsby-image/
 
+## Editing Page Specific Head Elements
+
+- Project makes use of React-Helmet which can be used to insert page, blog, and/or template specific head elements such as but not limited to <link> <script> <meta> etc. 
+- More information here: https://github.com/nfl/react-helmet
+
+## Creating Page Slugs
+
+- Page and or blog slugs are based off of file name. As for templates there should be an option when pulling data to set the slug to product title or such(tbd).
+
 ## Cost/Budget Analysis of Software/Dependencies
 
 ### Netlify
