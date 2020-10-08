@@ -34,6 +34,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <Bio />
         </footer>
       </article>
+      {/*
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -60,6 +61,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
+      */}
     </Layout>
   )
 }
