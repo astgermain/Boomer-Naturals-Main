@@ -2,7 +2,7 @@
 
 ## Environment setup
 
-### Clone this repo - git clone https://github.com/Boomer-Naturals/BoomerNaturalsMain
+### Clone this repo - git clone https://github.com/BoomerNaturals/Boomer-Naturals-Main.git
 ### Install node *Preferable v12 or higher * check with node -v
 ### Install gatsby globally with npm install -g gatsby
 ### Navigate to frontend folder 

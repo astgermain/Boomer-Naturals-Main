@@ -60,7 +60,7 @@ For Gatsby general information see bottom
 
   Security is a major issue. In 2019, nearly 4.1 billion records were exposed due to data breaches. While about 60% of security breaches come in the form of phishing or social engineering attacks it is imperative we avoid any potential flaws in code.
 
-  **For us at Boomer Naturals there are serveral extremely important security factors to consider**
+  **For us at Boomer Naturals there are several extremely important security factors to consider**
 
   1. Exposing API Keys, Passwords, and other sensitive data via poor handling of data. Besides a leak of login credentials, a leak of our API Key/Password to Shopify would be essentially giving away unrestricted access to everything to an attacker.
 
