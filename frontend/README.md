@@ -184,6 +184,11 @@ For Gatsby general information see bottom
 
 - Page and or blog slugs are based off of file name. As for templates there should be an option when pulling data to set the slug to product title or such(tbd).
 
+## Templating and Dynamic Page Creation
+
+- Using layouts and templates
+- More information here: https://www.gatsbyjs.com/blog/2019-05-02-how-to-build-a-blog-with-wordpress-and-gatsby-part-3/#creating-a-page-template
+
 ## Cost/Budget Analysis of Software/Dependencies
 
 ### Hosting options
