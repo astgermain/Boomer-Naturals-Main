@@ -55,7 +55,7 @@ For Gatsby general information see bottom
 ## Gatsby Basics
 
 - Static site generator that still supports dynamic and interactive content.
-- Uses Node, GraphQL, and React
+- Uses Node, GraphQL, and React.
 - Primary benefits are speed, security, and developer experience
 - A wide range of community development and plugins.
 
