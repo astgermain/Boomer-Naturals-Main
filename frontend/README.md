@@ -8,7 +8,7 @@ For Gatsby general information see bottom
 
 - Github Procedure/Code Review/Pull Requests/Merge Conflicts/Branching/etc
 - Communication
-- Testing/QA and Browser Compatability
+- Testing/QA
 - Requirement Analysis/Priority
 - Design
 - Implementation (Functional Requirements vs Non Functional and Features)
@@ -52,18 +52,24 @@ For Gatsby general information see bottom
 
 - TBD
 
-## Design
+## Gatsby Basics
 
-### Header Inspirations
+- Static site generator that still supports dynamic and interactive content.
+- Uses Node, GraphQL, and React
+- Primary benefits are speed, security, and developer experience
+- A wide range of community development and plugins.
 
-- https://cuberto.com/
-- https://sumi.fillinglife.co/en/products
-- https://globekit.co/
-- https://www.minimalsteel.com/nl
+## Hot Reloading
+
+- I like it and we have it
 
 ## Security and Liability
 
 - Security and liability are a big issue and as such all code should hopefully go through code review and any open source, applications, external javascript, or anything of such nature should not be added to this project without careful consideration by the team as a whole
+
+  ### Security with Gatsby
+
+  - Because of the static nature of Gatsby, any breaches of our server would only allow access to HTML files and such so any leaks of security will come from other places(Shopify, API key leaks, passwords, etc.)
 
   ### Security/Privacy
 
@@ -182,6 +188,7 @@ For Gatsby general information see bottom
 ## Using Data From Shopify To Populate blogs/pages/templates
 
 - Using the data sourced from the Shopify GraphQL API, we can query data into specific components in Gatsby
+- The easiest way to do this is to use the GraphiQL page which you can choose all the data you want to display for a certain page/blog/template and then use the Code Exporter to generate the basic component with the query hook and have a page/blog/template with only that information available. This make's pages lightweight and easy to create.
 - More information on that here: https://www.gatsbyjs.com/docs/recipes/querying-data/
 
 ## Editing Page Specific Head Elements
@@ -201,6 +208,8 @@ For Gatsby general information see bottom
 ## Cost/Budget Analysis of Software/Dependencies
 
 ### Hosting options
+
+- Since sites are static we can host really cheap since we don't need a server to run them. CDN's are a great option since they can serve static content really fast..
 
 - AWS Amplify/Amplify Console
 
