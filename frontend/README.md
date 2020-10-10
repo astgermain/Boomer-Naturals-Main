@@ -39,13 +39,13 @@ For Gatsby general information see bottom
 ## M2 - Pages
 
 - Create functionality for creating pages and editing individual pages
-  **Deliverables**
+**Deliverables**
 1. Home Page
 
 ## M3 - Shopping Cart/Account
 
 - Create user account and shopping additions/checkout functionality
-  **Deliverables**
+**Deliverables**
 - TBD
 
 ## M4 - Blog
