@@ -8,7 +8,7 @@ For Gatsby general information see bottom
 
 - Github Procedure/Code Review/Pull Requests/Merge Conflicts/Branching/etc
 - Communication
-- Testing/QA
+- Testing/QA and Browser Compatability
 - Requirement Analysis/Priority
 - Design
 - Implementation (Functional Requirements vs Non Functional and Features)
@@ -51,6 +51,15 @@ For Gatsby general information see bottom
 ## M4 - Blog
 
 - TBD
+
+## Design
+
+### Header Inspirations
+
+- https://cuberto.com/
+- https://sumi.fillinglife.co/en/products
+- https://globekit.co/
+- https://www.minimalsteel.com/nl
 
 ## Security and Liability
 
