@@ -8,12 +8,12 @@ module.exports = {
     description: `Boomer Naturals' proprietary Boomer Botanics is clinically proven to help support and balance many of the body's important systems. Boomer Botanics helps regulate your immune system, ease your pain, and more. Our 30-Day Reusable Face Covers help keep you safe and protected with three layers and nano silver technology.`,
     siteUrl: `https://boomernaturals.com/`,
     social: {
-      twitter: `https://twitter.com/boomernaturals`,
-      facebook: `https://www.facebook.com/boomernaturals`,
-      pintrest: `https://www.pinterest.com/BoomerNaturals/`,
-      linkedin: `https://www.linkedin.com/company/boomernaturals/`,
-      instagram: `https://www.instagram.com/boomernaturals/`,
-      youtube: `https://www.youtube.com/channel/UCiGRPRAzsn8PpJYtbYVZubQ/about`,
+      twitter: `boomernaturals`,
+      facebook: `boomernaturals`,
+      pintrest: `BoomerNaturals/`,
+      linkedin: `company/boomernaturals/`,
+      instagram: `boomernaturals/`,
+      youtube: `channel/UCiGRPRAzsn8PpJYtbYVZubQ/about`,
     },
   },
   plugins: [
