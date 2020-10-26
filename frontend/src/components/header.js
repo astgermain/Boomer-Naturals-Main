@@ -47,15 +47,20 @@ const Header = ({ description, lang, meta, title }) => {
   
   return (
     <div className="header-container">
+        <div className="mobile-header-container">
+            <Link to="/"><img src={logo} alt={logoAlt} className="header-logo" /></Link>
+        </div>
         <div className="header-left">
             <Link to="/"><img src={logo} alt={logoAlt} className="header-logo" /></Link>
         </div>
         <div className="header-right">
-            <Link to="/">Home</Link>
-            <Link to="/">Shop</Link>
-            <Link to="/">Location</Link>
-            <Link to="/">Contact</Link>
-            <Link to="/"><span className="secondary-link">Sale</span></Link>
+            <div className="header-links">
+                <Link to="/">Home</Link>
+                <Link to="/">Shop</Link>
+                <Link to="/">Location</Link>
+                <Link to="/">Contact</Link>
+                <Link to="/"><span className="secondary-link">Sale</span></Link>
+            </div>
             <div className="header-icons">
                 {/* Search Icon SVG */}
                 <div className="header-icon">                   
@@ -199,6 +204,7 @@ const Header = ({ description, lang, meta, title }) => {
 
         
     </div>
+    
   )
 }
 
