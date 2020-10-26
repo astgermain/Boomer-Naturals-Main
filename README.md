@@ -17,3 +17,8 @@
 
 ### npm run build  or  gatsby build
 ### npm run serve  or gatsby serve
+
+## Branches
+
+### mobileAnimations
+Making animations for mobile header.
