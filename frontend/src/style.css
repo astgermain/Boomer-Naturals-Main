@@ -374,6 +374,10 @@ a:focus {
   margin-left: 30px;
 }
 
+.header-link{
+  margin: 10px;
+}
+
 .header-logo {
   max-height: 60px;
 }

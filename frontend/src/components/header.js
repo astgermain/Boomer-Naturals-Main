@@ -55,11 +55,11 @@ const Header = ({ description, lang, meta, title }) => {
         </div>
         <div className="header-right">
             <div className="header-links">
-                <Link to="/">Home</Link>
-                <Link to="/">Shop</Link>
-                <Link to="/">Location</Link>
-                <Link to="/">Contact</Link>
-                <Link to="/"><span className="secondary-link">Sale</span></Link>
+                <Link to="/" className="header-link">Home</Link>
+                <Link to="/" className="header-link">Shop</Link>
+                <Link to="/" className="header-link">Location</Link>
+                <Link to="/" className="header-link">Contact</Link>
+                <Link to="/" className="header-link"><span className="secondary-link">Sale</span></Link>
             </div>
             <div className="header-icons">
                 {/* Search Icon SVG */}
