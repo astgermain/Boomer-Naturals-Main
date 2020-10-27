@@ -198,13 +198,9 @@ const Header = ({ description, lang, meta, title }) => {
                         </svg>
                     </div>
                 </div>
-            </button>
-            
+            </button>  
         </div>
-
-        
     </div>
-    
   )
 }
 

@@ -238,7 +238,6 @@ table thead tr th {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  margin: 10px;
 }
 
 a:hover,
@@ -261,6 +260,58 @@ a:focus {
 .global-wrapper[data-is-root-path="true"] .bio {
   margin-bottom: var(--spacing-20);
 }
+
+/*
+*
+* Start Global Section
+*
+*/
+
+
+.slick-dots {
+  text-align: left;
+}
+
+.slick-slide img {
+  margin: auto;
+}
+
+.main-site-button{
+  display: flex;
+  background: #00A1C6;
+  border-radius: 25px;
+  color: white;
+  border: none;
+  padding: 5px 15px 5px 15px;
+}
+
+.button-text {
+  line-height: 25px;
+  padding-right: 10px;
+}
+
+.text-main{
+ font-family: var(--fontFamily-bold);
+ font-weight: 800;
+ color: #00A1C6;
+ font-size: 48px;
+ line-height: 42px;
+}
+
+.sub-text-main{
+  font-family: var(--fontFamily-reg);
+  font-weight: 800;
+  color: #002f42;
+  font-size: 24px;
+  line-height: 42px;
+}
+
+/*
+*
+* End Global Section
+*
+*/
+
 
 /*
 *
@@ -438,49 +489,7 @@ a:focus {
 *
 */
 
-/*
-*
-* Start Hero Section
-*
-*/
 
-.hero-container {
-  width: 90%;
-  margin-left: 10%;
-  display: flex;
-}
-
-.hero-left {
-  width: 37.5%;
-  max-height: 300px;
-
-  /* Temp code */
-  height: 300px;
-  background-color: red;
-}
-
-.hero-left-img {
-  
-}
-
-.hero-right {
-  width: 62.5%;
-  max-height: 300px;
-
-  /* Temp code */
-  height: 300px;
-  background-color: blue;
-}
-
-.hero-right-img {
-
-}
-
-/*
-*
-* End Hero Section
-*
-*/
 
 .main-heading {
   font-size: var(--fontSize-7);
