@@ -9,6 +9,7 @@ import ReactSlider from "react-slick";
 import { Link } from "gatsby"
 import logo from "../../content/assets/bnlogoheader.png"
 
+
 const Slider = ({dotsVal, arrowsVal, slide1, slide2, slide3}) => {
     const settings = {
         dots: dotsVal,
@@ -16,7 +17,7 @@ const Slider = ({dotsVal, arrowsVal, slide1, slide2, slide3}) => {
         arrows: arrowsVal,
         infinite: true,
         autoplay: true,
-        adaptiveHeight: true,
+        lazyLoad: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1

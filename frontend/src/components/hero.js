@@ -18,7 +18,7 @@ import "../hero.css"
 const Hero = () => {
 
   let leftSlide1 = 
-      <div>
+      <div className="slider-responsive">
         <div className="sub-text-main">Need a Face Mask?</div>
         <div className="text-main">We've Got You Covered</div>
         <Link to="/">
@@ -41,8 +41,9 @@ const Hero = () => {
       </div>;
 
        let leftSlide2 = 
-       <div>
-         <div className="text-main">Only Masks With 3 Layers Of Nano Silver</div>
+       <div className="slider-responsive">
+         <div className="text-main">Let's Shop Masks</div>
+         <div className="sub-text-main">Pick from our varients</div>
          <Link to="/">
              <button className="main-site-button">
              <span className="button-text">Learn More</span> 
@@ -63,9 +64,9 @@ const Hero = () => {
        </div>;
 
         let leftSlide3 = 
-        <div>
-          <div className="sub-text-main">Want To Buy One</div>
+        <div className="slider-responsive">
           <div className="text-main">Get Free Shipping Now</div>
+          <div className="sub-text-main">Want To Buy One</div>
           <Link to="/">
               <button className="main-site-button">
               <span className="button-text">Learn More</span> 

@@ -3,38 +3,45 @@
 * Start Hero Section
 *
 */
-.slider-container {
-    height: 100%;
-}
+
 .hero-container {
     width: 90%;
     margin-left: 10%;
     display: flex;
   }
   
-  .hero-left {
-    width: 30%;
+.slick-slide img {
+    display: block;
+    width: 65vw;
+    margin: 0;
+}
+
+.slider-container {
     max-height: 300px;
-  
-    /* Temp code */
-    height: 300px;
-  }
-  
-  .hero-left-img {
-    
-  }
-  
-  .hero-right {
-    width: 70%;
+    height: 100%;
+}
+
+.hero-right {
+    width: 65vw;
     max-height: 300px;
-  
-    /* Temp code */
-    height: 300px;
-  }
+    /* height: 300px; */
+}
+
+.hero-left {
+    width: 25vw;
+    max-height: 300px;
+    /* height: 300px; */
+}
   
   .hero-right-img {
   
   }
+
+.slider-responsive {
+    flex-wrap: wrap;
+    height: 100%;
+    margin: auto;
+}
   
   /* Slider */
   .slick-slider
@@ -54,6 +61,7 @@
       -ms-touch-action: pan-y;
           touch-action: pan-y;
       -webkit-tap-highlight-color: transparent;
+      height: inherit;
   }
   
   .slick-list
@@ -84,6 +92,7 @@
           -ms-transform: translate3d(0, 0, 0);
            -o-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0);
+              height: inherit;
   }
   
   .slick-track
@@ -124,10 +133,7 @@
   {
       float: right;
   }
-  .slick-slide img
-  {
-      display: block;
-  }
+
   .slick-slide.slick-loading img
   {
       display: none;
