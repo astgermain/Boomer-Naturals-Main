@@ -294,16 +294,16 @@ a:focus {
  font-family: var(--fontFamily-bold);
  font-weight: 800;
  color: #00A1C6;
- font-size: 48px;
- line-height: 42px;
+ font-size: 3vw;
+ line-height: 100%;
 }
 
 .sub-text-main{
   font-family: var(--fontFamily-reg);
   font-weight: 800;
   color: #002f42;
-  font-size: 24px;
-  line-height: 42px;
+  font-size: 1.5vw;
+  line-height: 100%;
 }
 
 /*

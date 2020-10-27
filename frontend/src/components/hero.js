@@ -9,9 +9,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import b1 from "../../content/assets/banner1.jpg"
+import b1 from "../../content/assets/banner3.jpg"
 import b2 from "../../content/assets/banner2.jpg"
-import b3 from "../../content/assets/banner3.jpg"
+import b3 from "../../content/assets/banner1.jpg"
 import Slider from "./slider"
 import "../hero.css"
 
@@ -42,8 +42,8 @@ const Hero = () => {
 
        let leftSlide2 = 
        <div className="slider-responsive">
+         <div className="sub-text-main">Pick From Our Varients</div>
          <div className="text-main">Let's Shop Masks</div>
-         <div className="sub-text-main">Pick from our varients</div>
          <Link to="/">
              <button className="main-site-button">
              <span className="button-text">Learn More</span> 
@@ -65,8 +65,8 @@ const Hero = () => {
 
         let leftSlide3 = 
         <div className="slider-responsive">
-          <div className="text-main">Get Free Shipping Now</div>
-          <div className="sub-text-main">Want To Buy One</div>
+          <div className="sub-text-main">Free Shipping!</div>
+          <div className="text-main">All Orders Over $50</div>
           <Link to="/">
               <button className="main-site-button">
               <span className="button-text">Learn More</span> 
