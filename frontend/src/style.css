@@ -570,15 +570,68 @@ a:focus {
 
 
 @media (max-width: 975px) {
-  .header-container{
-    height: 100px;
-  }
   .mobile-header-container{
     display: flex;
     width: 100%;
     justify-content: center;
     transition: width .8s ease;
   }
+  .header-icons{
+    margin-left: 0px;
+    margin-right: 0px;
+    width:100%;
+  }
+  /* The animation code */
+  @keyframes rightin {
+    0%   {left:-500px; }
+    25%  {left:0px; }
+    50%  {left:0px;}
+    75%  {left:0px; }
+    100% {left:0px; }
+  }
+  .account-icon, .search-icon{
+    position: relative;
+    animation-name: rightin;
+    animation-duration:3s;
+  }
+  @keyframes logodown {
+    0%   {top:-500px; }
+    25%  {top:0px; }
+    50%  {top:0px;}
+    75%  {top:0px; }
+    100% {top:0px; }
+  }
+  .header-logo-bn{
+    margin-left: auto;
+    animation-name: logodown;
+    animation-duration:3s;
+    position: relative;
+  }
+  @keyframes leftin {
+    0%   {left:500px; }
+    25%  {left:0px; }
+    50%  {left:0px;}
+    75%  {left:0px; }
+    100% {left:0px; }
+  }
+  .shopping-icon{
+    margin-left: auto;
+    animation-name: leftin;
+    animation-duration:3s;
+    position: relative;
+  }
+  .g-menu-btn{
+    width: 35px;
+    height: 35px;
+    animation-name: leftin;
+    animation-duration:3s;
+  }
+  /* animation end */
+    .g-menu-btn .dots-wrap {
+    width: 13px;
+    height: 13px;
+  }
+
   .header-left{
     display: none;
   }
@@ -594,13 +647,10 @@ a:focus {
 }
 
 @media (max-width: 675px) {
-  
-  .g-menu-btn .dots-wrap {
-    width: 13px;
-    height: 13px;
-  }
-  .g-menu-btn{
-    width: 35px;
-    height: 35px;
+  .header-container{
+    height: 100px;
+    width:92%;
+    margin-left: 3%;
+    margin-right: 3%;
   }
 }
