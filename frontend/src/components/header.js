@@ -137,8 +137,7 @@ const Header = ({ description, lang, meta, title }) => {
                 </div> 
                 </Link>
                 {/* End Shopping Icon SVG */}
-            </div>
-            <button className="header-menu-button" onClick={handleMenuClick}>
+                <button className="header-menu-button" onClick={handleMenuClick}>
                 <div className="g-menu-btn">
                     <div className="dots-wrap">
                         <div className="dot-row _1">
@@ -192,6 +191,8 @@ const Header = ({ description, lang, meta, title }) => {
                     </div>
                 </div>
             </button>
+            </div>
+           
         </div>
         <div className="header-left">
             <Link to="/"><img src={logo} alt={logoAlt} className="header-logo" /></Link>
@@ -260,7 +261,7 @@ const Header = ({ description, lang, meta, title }) => {
                 {/* End Shopping Icon SVG */}
 
                 {/* Account Icon SVG */}
-                <Link to="/">
+                <Link to="/" className="header-icon">
                     <div className="header-icon-link">
                         <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg">
                             <title>icon</title>

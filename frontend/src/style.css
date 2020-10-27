@@ -597,47 +597,38 @@ a:focus {
   /* The animation code */
   @keyframes rightin {
     0%   {left:-500px; }
-    25%  {left:0px; }
-    50%  {left:0px;}
-    75%  {left:0px; }
     100% {left:0px; }
   }
   .account-icon, .search-icon{
     position: relative;
     animation-name: rightin;
-    animation-duration:3s;
+    animation-duration:1s;
   }
   @keyframes logodown {
     0%   {top:-500px; }
-    25%  {top:0px; }
-    50%  {top:0px;}
-    75%  {top:0px; }
     100% {top:0px; }
   }
   .header-logo-bn{
     margin-left: auto;
     animation-name: logodown;
-    animation-duration:3s;
+    animation-duration:1s;
     position: relative;
   }
   @keyframes leftin {
     0%   {left:500px; }
-    25%  {left:0px; }
-    50%  {left:0px;}
-    75%  {left:0px; }
     100% {left:0px; }
   }
   .shopping-icon{
     margin-left: auto;
     animation-name: leftin;
-    animation-duration:3s;
+    animation-duration:1s;
     position: relative;
   }
   .g-menu-btn{
     width: 35px;
     height: 35px;
     animation-name: leftin;
-    animation-duration:3s;
+    animation-duration:1s;
   }
   /* animation end */
     .g-menu-btn .dots-wrap {
@@ -656,13 +647,14 @@ a:focus {
   }
   .header-menu-button {
     padding-left: 0px;
+    padding: 10px;
   }
 }
 
 @media (max-width: 675px) {
   .header-container{
     height: 100px;
-    width:92%;
+    width:94%;
     margin-left: 3%;
     margin-right: 3%;
   }
