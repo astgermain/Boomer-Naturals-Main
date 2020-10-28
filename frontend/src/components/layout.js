@@ -2,11 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import Header from "./header"
 import Hero from "./hero"
-<<<<<<< HEAD
 import Categories from "./categories"
-=======
 import Email from "./email"
->>>>>>> f22e86bc5dff0409ed03a73f4431eba8639c46ec
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
