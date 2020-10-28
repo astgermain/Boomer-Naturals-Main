@@ -37,6 +37,7 @@
 .hero-left {
     width: 25vw;
     max-height: 300px;
+    background: #e0f1f5;
     /* height: 300px; */
 }
   
@@ -50,7 +51,7 @@
     margin: auto;
     align-content: space-around;
     display: flex;
-    padding: 5px;
+    padding: 10px;
 }
   
   /* Slider */

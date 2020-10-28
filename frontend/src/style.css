@@ -575,6 +575,12 @@ a:focus {
   }
 }
 
+@media (max-width: 1500px) {
+  .text-main{
+    font-size: 2vw;
+  }
+}
+
 @media (max-width: 1000px) {
   .header-left{
     margin-left: 0px;

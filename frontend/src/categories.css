@@ -1,0 +1,41 @@
+.category-container {
+    margin-top: 5vh;
+    margin-left: 12.5vw;
+    margin-right: 12.5vw;
+    display: flex;
+    text-align: center;
+}
+
+.category-group {
+    width: 25%;
+    display: grid;
+}
+
+.full-category {
+    margin: 5px 0px 0px 10px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    background: #00A0C5;
+    color: white;
+}
+
+.half-category {
+    margin: 5px 10px 5px 10px;
+    align-self: center;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    background: #00A0C5;
+    color: white;
+}
+
+.category-text {
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+
+.category-text-half {
+    align-self: center;
+}

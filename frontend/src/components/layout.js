@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Header from "./header"
 import Hero from "./hero"
+import Categories from "./categories"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -34,6 +35,7 @@ const Layout = ({ location, title, children }) => {
 
       <main>
         <Hero />
+        <Categories />
       </main>
       
       <footer>
