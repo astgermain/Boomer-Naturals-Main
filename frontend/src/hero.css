@@ -3,7 +3,14 @@
 * Start Hero Section
 *
 */
+.slick-slide > div {
+    height: inherit;
+}
 
+.slick-slide > div > div {
+    height: inherit;
+    display: flex !important;
+}
 .hero-container {
     width: 90%;
     margin-left: 10%;
@@ -37,10 +44,13 @@
   
   }
 
-.slider-responsive {
+  .slider-responsive {
     flex-wrap: wrap;
     height: 100%;
     margin: auto;
+    align-content: space-around;
+    display: flex;
+    padding: 5px;
 }
   
   /* Slider */
