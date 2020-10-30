@@ -4,6 +4,7 @@ import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
 import Email from "./email"
+import Infocta from "./infocta"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -38,6 +39,7 @@ const Layout = ({ location, title, children }) => {
         <Hero />
         <Categories />
         <Email />
+        <Infocta svg="" maintext="Share Your Story" subtext="" buttontext="Learn More"  />
       </main>
       
       <footer>

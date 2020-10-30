@@ -1,0 +1,19 @@
+/*
+*
+* Start Info CTA Section
+*
+*/
+.infocta-container{
+    max-width: 30%;
+    padding: 4% 4% 12% 4%;
+}
+.grey-line{
+    width: 35%;
+    height: 4px;
+    background-color: lightgray;
+    margin: 8% 0%;
+    border-radius: 25px;
+}
+#infocta-text-sub{
+    font-weight: 100;
+}
