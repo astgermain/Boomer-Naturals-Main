@@ -108,10 +108,10 @@ let rightSlide3 =
   return (
     <div className="hero-container">
         <div className="hero-left">
-          <Slider dotsVal={true} arrowsVal={false} slide1={leftSlide1} slide2={leftSlide2} slide3={leftSlide3}/>
+          <Slider dotsVal={true} autoplay={true} speed={1500} arrowsVal={false} slide1={leftSlide1} slide2={leftSlide2} slide3={leftSlide3}/>
         </div>
         <div className="hero-right">
-          <Slider dotsVal={true} arrowsVal={false} slide1={rightSlide1} slide2={rightSlide2} slide3={rightSlide3}/>
+          <Slider dotsVal={true} autoplay={true} speed={1500} arrowsVal={false} slide1={rightSlide1} slide2={rightSlide2} slide3={rightSlide3}/>
         </div>     
     </div>
   )

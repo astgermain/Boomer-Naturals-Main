@@ -4,6 +4,7 @@ import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
 import Email from "./email"
+import HomeProductFirst from "./homeproductfirst";
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -36,6 +37,7 @@ const Layout = ({ location, title, children }) => {
 
       <main>
         <Hero />
+        <HomeProductFirst />
         <Categories />
         <Email />
       </main>
