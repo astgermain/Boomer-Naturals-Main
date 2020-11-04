@@ -1,6 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React, {useState} from "react"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Slider from "./slider"
+import "../styles/product.css"
+
 
 const HomeProductFirst = () => {
   {
@@ -22,9 +25,27 @@ const HomeProductFirst = () => {
         nodes {
           shopifyId
           title
+          descriptionHtml
+          image {
+            altText
+            src
+          }
+          internal {
+            content
+            description
+            ignoreType
+            mediaType
+          }
           products {
             title
             onlineStoreUrl
+            descriptionHtml
+            availableForSale
+            totalInventory
+            images {
+              altText
+              originalSrc
+            }
             priceRange {
               maxVariantPrice {
                 amount
@@ -53,20 +74,6 @@ const HomeProductFirst = () => {
               }
               availableForSale
             }
-            descriptionHtml
-            availableForSale
-            totalInventory
-          }
-          descriptionHtml
-          image {
-            altText
-            src
-          }
-          internal {
-            content
-            description
-            ignoreType
-            mediaType
           }
         }
       }
@@ -79,25 +86,55 @@ const HomeProductFirst = () => {
 
     For variant color displays, create a stack and loop through the number of displayed you want. 
     If value has been pushed to the stack then don't add an image, but add a size and adjustability to that entry.
+
     
+
   */}
+  const [options, setOptions] = useState("Closed")
+
+  const optionsClick = () => {
+    setOptions("Opened")
+  }
+
   const firstThreeProducts = [data.allShopifyCollection.nodes[0].products[0], data.allShopifyCollection.nodes[0].products[1], data.allShopifyCollection.nodes[0].products[2]]
-  //console.log(data.allShopifyCollection.nodes[0].products[0])
-  let firstThree = <div>hi</div>
+  console.log(data.allShopifyCollection.nodes[0])
+  let firstThree = 
+  <div className="product-container">
+    <Link to="/">
+      <div className="product-header">
+        <span className="product-header-text">{data.allShopifyCollection.nodes[0].products[0].title}</span>
+        <div className="product-header-price"><span className="price-mini">from</span>  <span className="price-mini">${data.allShopifyCollection.nodes[0].products[0].priceRange.minVariantPrice.amount}</span></div>
+      </div>
+    </Link>
+    <Link to="/">
+      <div className="product-images">
+        <img className="product-image" src={data.allShopifyCollection.nodes[0].products[0].images[0].originalSrc} alt={data.allShopifyCollection.nodes[0].products[0].images[0].altText} />
+      </div>
+    </Link>
+
+    <div className="product-button" onClick={optionsClick}>{options}</div>
+    
+  </div>;
+
   {/* 
     
     <pre>{JSON.stringify(data, null, 4)}</pre> 
 
   */}
   return (
-    <div>
-      <pre>{JSON.stringify(data, null, 4)}</pre>
+    <div className="product-slider">
       {data.allShopifyCollection.nodes[0].title}
-      <Slider dotsVal={true} speed={750} autoplay={false} arrowsVal={false} slide1={firstThree}/>
+      <Slider dotsVal={true} speed={750} autoplay={false} arrowsVal={false} slide1={firstThree} />
     </div>
   
   
   )
+}
+
+HomeProductFirst.defaultProps = {
+}
+
+HomeProductFirst.propTypes = {
 }
 
 export default HomeProductFirst

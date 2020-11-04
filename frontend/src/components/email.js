@@ -3,7 +3,7 @@
  */
 import React from "react"
 import { Helmet } from "react-helmet"
-import "../email.css"
+import "../styles/email.css"
 
 const Email = () => {
   return (

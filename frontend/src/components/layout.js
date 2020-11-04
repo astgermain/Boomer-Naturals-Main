@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"

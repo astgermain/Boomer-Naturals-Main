@@ -7,7 +7,6 @@
 import React from "react"
 import ReactSlider from "react-slick";
 import { Link } from "gatsby"
-import logo from "../../content/assets/bnlogoheader.png"
 
 
 const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) => {

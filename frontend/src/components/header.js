@@ -4,10 +4,8 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
-import Image from "gatsby-image"
 import logo from "../../content/assets/bnlogoheader.png"
 
 const Header = ({ description, lang, meta, title }) => {
