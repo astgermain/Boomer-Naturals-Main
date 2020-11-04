@@ -4,27 +4,31 @@
 import React, { useState, useEffect } from "react"
 import "../infocta.css"
 
-const Infocta = (props) => {
+const Infocta = ({svg, maintext, subtext, buttontext}) => {
     const [svg, setSvgimg] = useState("");
     const [maintext, setMaintext] = useState("");
     const [subtext, setSubtext] = useState("");
     const [buttontext, setButtontext] = useState("");
+
+    useEffect(() => {
+        console.log("")
+    }, [svg, maintext, subtext, buttontext])
 
     return(
 
     
         <div className="infocta-container">
 
-    <div className="infocta-svg">{props.svg}</div>
+    <div className="infocta-svg">{svg}</div>
 
-            <div className="infocta-text-main text-main">{props.maintext}</div>
+            <div className="infocta-text-main text-main">{maintext}</div>
             
             <div className="grey-line"></div>
                      
-        <div id="infocta-text-sub" className="sub-text-main">{props.subtext}</div>
+        <div id="infocta-text-sub" className="sub-text-main">{subtext}</div>
                                                                                                                                             
             <button className="main-site-button">
-            <span className="button-text">{props.buttontext}</span> 
+            <span className="button-text">{buttontext}</span> 
             <svg width="25px" height="25px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <title>Group 11</title>
                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -48,7 +52,21 @@ const Infocta = (props) => {
 
 
 
+Infocta.defaultProps = {
+    svg ="svg image",
+    maintext ="Share Your Story",
+    subtext ="More Text",
+    buttontext ="Learn More"
 
+}
+
+Infocta.propTypes = {
+    svg:propTypes.string,
+    maintext:propTypes.string,
+    subtext:propTypes.string,
+    buttontext:propTypes.string
+
+}
 
 
 
