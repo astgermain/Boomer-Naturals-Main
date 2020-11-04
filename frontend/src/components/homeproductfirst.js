@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Slider from "./slider"
+import Product from "./product"
 import "../styles/product.css"
 
 
@@ -90,11 +91,7 @@ const HomeProductFirst = () => {
     
 
   */}
-  const [options, setOptions] = useState("Closed")
-
-  const optionsClick = () => {
-    setOptions("Opened")
-  }
+  {/*
 
   const firstThreeProducts = [data.allShopifyCollection.nodes[0].products[0], data.allShopifyCollection.nodes[0].products[1], data.allShopifyCollection.nodes[0].products[2]]
   console.log(data.allShopifyCollection.nodes[0])
@@ -112,15 +109,18 @@ const HomeProductFirst = () => {
       </div>
     </Link>
 
-    <div className="product-button" onClick={optionsClick}>{options}</div>
+    <div className="product-button">Product Options</div>
     
   </div>;
 
-  {/* 
+   
     
     <pre>{JSON.stringify(data, null, 4)}</pre> 
 
   */}
+
+  let firstThree = <Product />
+
   return (
     <div className="product-slider">
       {data.allShopifyCollection.nodes[0].title}
