@@ -6,7 +6,7 @@ import Product from "./product"
 import "../styles/product.css"
 
 
-const HomeProductFirst = () => {
+const ProductSlider = () => {
   {
     /* Takes a shopify id of a collection and displays it, in this case the Featured collection 
   
@@ -131,10 +131,10 @@ const HomeProductFirst = () => {
   )
 }
 
-HomeProductFirst.defaultProps = {
+ProductSlider.defaultProps = {
 }
 
-HomeProductFirst.propTypes = {
+ProductSlider.propTypes = {
 }
 
-export default HomeProductFirst
+export default ProductSlider
