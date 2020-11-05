@@ -32,15 +32,24 @@ const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) =
                 {/* End Slide 1 */}
 
                 {/* Start Slide 2 */}
-                <div>
-                    {slide2}       
-                </div>
+                {slide2 != undefined ?
+                    <div>
+                        {slide2}       
+                    </div>
+                    :
+                    null
+                }
+                
                 {/* End Slide 2 */}
 
                 {/* Start Slide 3 */}
-                <div>
-                    {slide3}  
-                </div>
+                {slide3 != undefined ?
+                    <div>
+                        {slide3}       
+                    </div>
+                    :
+                    null
+                }
                 {/* End Slide 3 */}
             </ReactSlider>
         </div>

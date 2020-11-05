@@ -8,32 +8,32 @@ import React, {useState} from "react"
 import propTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Product = props => {
+const Product = ({ productInfo }) => {
   const [options, setOptions] = useState("Closed")
 
   const optionsClick = () => {
     setOptions("Opened")
   }
-
+  console.log(productInfo)
   return (
     <div className="product-container">
       <Link to="/">
         <div className="product-header">
-          <span className="product-header-text">{props.title}</span>
+          <span className="product-header-text">{productInfo.title}</span>
           <div className="product-header-price">
             <span className="price-mini">from</span>
-            <span className="price-mini">${props.minPrice}</span>
+            <span className="price-mini">${productInfo.priceRange.minVariantPrice.amount}</span>
           </div>
         </div>
       </Link>
       <Link to="/">
         <div className="product-images">
-          <img className="product-image" src={props.mainImageSrc} alt={props.imageAltText} />
+          <img className="product-image" src={productInfo.images[0].originalSrc} alt={productInfo.images[0].altText} />
         </div>
       </Link>
 
       <div className="product-button" onClick={optionsClick}>
-        {props.productButtonText}
+        Product Options
       </div>
     </div>
   )

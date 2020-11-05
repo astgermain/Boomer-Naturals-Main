@@ -5,7 +5,7 @@ import Slider from "./slider"
 import Product from "./product"
 import "../styles/product.css"
 
-const ProductSlider = () => {
+const ProductSlider = ({ collection }) => {
   {
     /* Takes a shopify id of a collection and displays it, in this case the Featured collection 
   
@@ -82,6 +82,7 @@ const ProductSlider = () => {
       }
     }
   `)
+
   {
     /* 
     Sort variants by color name and group color names
@@ -90,74 +91,59 @@ const ProductSlider = () => {
 
     For variant color displays, create a stack and loop through the number of displayed you want. 
     If value has been pushed to the stack then don't add an image, but add a size and adjustability to that entry.
-
-    
-
   */
   }
-  {
-    /*
 
-  const firstThreeProducts = [data.allShopifyCollection.nodes[0].products[0], data.allShopifyCollection.nodes[0].products[1], data.allShopifyCollection.nodes[0].products[2]]
-  console.log(data.allShopifyCollection.nodes[0])
-  let firstThree = 
-  <div className="product-container">
-    <Link to="/">
-      <div className="product-header">
-        <span className="product-header-text">{data.allShopifyCollection.nodes[0].products[0].title}</span>
-        <div className="product-header-price"><span className="price-mini">from</span>  <span className="price-mini">${data.allShopifyCollection.nodes[0].products[0].priceRange.minVariantPrice.amount}</span></div>
-      </div>
-    </Link>
-    <Link to="/">
-      <div className="product-images">
-        <img className="product-image" src={data.allShopifyCollection.nodes[0].products[0].images[0].originalSrc} alt={data.allShopifyCollection.nodes[0].products[0].images[0].altText} />
-      </div>
-    </Link>
-
-    <div className="product-button">Product Options</div>
-    
-  </div>;
-
-   
-    
-    <pre>{JSON.stringify(data, null, 4)}</pre> 
-
-  */
-  }
   let productStack = []
+  let slideData = []
+  let slider = undefined
 
+  // Pushes collections products up to 9 to a stack
   let populateProductStack = collection => {
-    {
-      /*
-    collection.map((product) => {
-      if(productStack.length < 9){
-        productStack.push(product)
-      }
-    })
-    */
-    }
     for (let i = 0; i < 9; i++) {
       if (collection[i]) productStack.push(collection[i])
     }
   }
 
-  let populateProductSlider = products => {}
+  // Uses the product stack to generate product components
+  let populateProductSliderData = products => {
+    let tempArr = []
+    for (let i = 0; i < products.length; i++) {
+      if (products[i]) {
+        let prod = <Product productInfo={products[i]} />
+        //console.log(products[i])
+        tempArr.push(prod)
+      }
+      if (tempArr.length == 3) {
+        slideData.push(tempArr)
+        tempArr = []
+      }
+    }
+  }
 
-  populateProductStack(data.allShopifyCollection.nodes[0].products)
-  populateProductSlider(productStack)
-
-  let sliderProducts = <Product />
-  console.log(productStack)
-  return (
-    <div className="product-slider">
-      {data.allShopifyCollection.nodes[0].title}
+  // Uses products components to populate Product Slider up to 3
+  let populateSlides = slideData => {
+    let tempSlideData = slideData
+    slider = (
       <Slider
         dotsVal={true}
         speed={750}
         autoplay={false}
         arrowsVal={false}
-        slide1={sliderProducts}
+        slide1={tempSlideData[0] ? tempSlideData[0] : undefined}
+        slide2={tempSlideData[1] ? tempSlideData[1] : undefined}
+        slide3={tempSlideData[2] ? tempSlideData[2] : undefined}
       />
+    )
+  }
+  populateProductStack(data.allShopifyCollection.nodes[0].products)
+  populateProductSliderData(productStack)
+  populateSlides(slideData)
+
+  return (
+    <div className="product-slider">
+      {data.allShopifyCollection.nodes[0].title}
+      {slider}
     </div>
   )
 }
