@@ -2,9 +2,11 @@
  * Info CTA Component 
  */
 import React, { useState, useEffect } from "react"
+import propTypes from 'prop-types'
+import { Link } from "gatsby"
 import "../infocta.css"
 
-const Infocta = ({svg, maintext, subtext, buttontext}) => {
+const Infocta = ({svgProp, maintextProp, subtextProp, buttontextProp}) => {
     const [svg, setSvgimg] = useState("");
     const [maintext, setMaintext] = useState("");
     const [subtext, setSubtext] = useState("");
@@ -19,17 +21,19 @@ const Infocta = ({svg, maintext, subtext, buttontext}) => {
     
         <div className="infocta-container">
 
-    <div className="infocta-svg">{svg}</div>
+    <div className="infocta-svg">{svgProp}</div>
 
-            <div className="infocta-text-main text-main">{maintext}</div>
+            <div id="infocta-text-main" className="text-main">{maintextProp}</div>
             
             <div className="grey-line"></div>
                      
-        <div id="infocta-text-sub" className="sub-text-main">{subtext}</div>
-                                                                                                                                            
-            <button className="main-site-button">
-            <span className="button-text">{buttontext}</span> 
-            <svg width="25px" height="25px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <div id="infocta-text-sub" className="sub-text-main">{subtextProp}</div>
+
+
+        <Link to="/">                                                                                                                              
+            <button id="infocta-button" className="main-site-button">
+            <span className="button-text infocta-btn-text">{buttontextProp}</span> 
+            <svg className="svg-btn" width="25px" height="25px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <title>Group 11</title>
                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                     <g id="Product-Page-Copy-7" transform="translate(-499.000000, -416.000000)">
@@ -41,7 +45,10 @@ const Infocta = ({svg, maintext, subtext, buttontext}) => {
                     </g>
                 </g>
             </svg>
-            </button></div>
+            </button>
+         </Link>
+
+        </div>
         
             
        
@@ -53,18 +60,18 @@ const Infocta = ({svg, maintext, subtext, buttontext}) => {
 
 
 Infocta.defaultProps = {
-    svg ="svg image",
-    maintext ="Share Your Story",
-    subtext ="More Text",
-    buttontext ="Learn More"
+    svgProp:`svg image`,
+    maintextProp:`Share Your Story`,
+    subtextProp:`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
+    buttontextProp:`Learn More`
 
 }
 
 Infocta.propTypes = {
-    svg:propTypes.string,
-    maintext:propTypes.string,
-    subtext:propTypes.string,
-    buttontext:propTypes.string
+    svgProp:propTypes.string,
+    maintextProp:propTypes.string,
+    subtextProp:propTypes.string,
+    buttontextProp:propTypes.string
 
 }
 

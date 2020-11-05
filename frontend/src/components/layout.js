@@ -39,7 +39,7 @@ const Layout = ({ location, title, children }) => {
         <Hero />
         <Categories />
         <Email />
-        <Infocta svg="" maintext="Share Your Story" subtext="" buttontext="Learn More"  />
+        <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />
       </main>
       
       <footer>

@@ -7,6 +7,9 @@
     max-width: 30%;
     padding: 4% 4% 12% 4%;
 }
+#infocta-text-main{
+    font-size: 3vw;
+}
 .grey-line{
     width: 35%;
     height: 4px;
@@ -16,4 +19,28 @@
 }
 #infocta-text-sub{
     font-weight: 100;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding-right: 28%;
+    line-height: 25px;
 }
+#infocta-button{
+    padding:10px 12px 10px 35px!important;
+}
+.svg-btn{
+    margin-left: 40px;
+}
+.infocta-btn-text{
+    
+}
+
+@media (max-width: 1300px) {
+    #infocta-text-sub{
+     padding-right: 12%;
+    }
+  }
+  @media (max-width: 1000px) {
+    #infocta-text-sub{
+     padding-right: 0;
+    }
+  }
