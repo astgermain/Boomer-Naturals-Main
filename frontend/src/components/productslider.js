@@ -129,7 +129,7 @@ const ProductSlider = ({ collection }) => {
       />
     )
   }
-  populateProductSliderData(collection.products.slice(0,9))
+  populateProductSliderData(collection.slice(0,9))
   populateSlides(slideData)
 
   return (
