@@ -5,6 +5,7 @@ import Categories from "./categories"
 import Email from "./email"
 import Infocta from "./infocta"
 import ProductSlider from "./productslider";
+import ProductCarousel from "./product-carousel"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -13,7 +14,7 @@ const Layout = ({ location, title, children }) => {
 
   if (isRootPath) {
     header = (
-      <Header title={title}/>
+      <Header title={title} />
       /*
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
@@ -39,11 +40,12 @@ const Layout = ({ location, title, children }) => {
         <Hero />
         <Categories />
         <Email />
+        <ProductCarousel />
         <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />
       </main>
-      
+
       <footer>
-        
+
       </footer>
     </div>
   )
