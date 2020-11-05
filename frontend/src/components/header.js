@@ -4,10 +4,8 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
-import Image from "gatsby-image"
 import logo from "../../content/assets/bnlogoheader.png"
 
 const Header = ({ description, lang, meta, title }) => {
@@ -46,7 +44,7 @@ const Header = ({ description, lang, meta, title }) => {
   }
   
   return (
-    <div className="header-container">
+    <section className="header-container">
         <div className="mobile-header-container">
             <div className="header-icons">
                 {/* Search Icon SVG */}
@@ -344,7 +342,7 @@ const Header = ({ description, lang, meta, title }) => {
                 </div>
             </button>  
         </div>
-    </div>
+    </section>
   )
 }
 

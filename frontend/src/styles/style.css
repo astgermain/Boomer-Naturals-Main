@@ -1,12 +1,12 @@
 /* CSS Custom Properties Definitions */
 @font-face {
   font-family: "Eina01-Regular";
-  src: url("../static/fonts/Extratype - Eina01-Regular.otf");
+  src: url("../../static/fonts/Extratype - Eina01-Regular.otf");
 } 
 
 @font-face {
   font-family: "Eina01-Bold";
-  src: url("../static/fonts/Extratype - Eina01-Bold.otf");
+  src: url("../../static/fonts/Extratype - Eina01-Bold.otf");
 } 
 :root {
   --maxWidth-none: "none";
@@ -74,6 +74,10 @@
 :after,
 :before {
   box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
 }
 
 html {

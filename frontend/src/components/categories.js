@@ -7,7 +7,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import "../categories.css"
+import "../styles/categories.css"
 
 
 const Categories = () => {

@@ -52,6 +52,13 @@ For Gatsby general information see bottom
 
 - TBD
 
+## Inventory Check/Sold Out Theory/Implementation
+- See info here: https://shopify.dev/tutorials/create-a-checkout-with-storefront-api
+- On build, we want to pull as much information as possible preferably building as often as every 10-30 mins max.
+- During this time, graphql will pull all data including inventoryTotal and totalAvailable
+- On component load for a product, will check if available for sale/displayed and when added doesn't exceed totalAvailable if any left
+- A second check needs to be made on check and decide to use graphql mutations or rest to perform checkout.
+
 ## Gatsby Basics
 
 - Static site generator that still supports dynamic and interactive content.
