@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react"
 // import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import "../styles/product-carousel.css"
-import Product from "./product"
-
+import ProductSlider from "./productslider"
 
 const ProductCarousel = () => {
 
@@ -83,7 +82,6 @@ const ProductCarousel = () => {
     useEffect(() => {
         const [dataFilteredOnClick] = data.allShopifyCollection.nodes.filter(({ title }) => title == clickedNavBtn)
         setRenderedProductsArray(dataFilteredOnClick.products)
-        console.log('clicked data:', dataFilteredOnClick.products)
     }, [clickedNavBtn])
 
     const handleNavClick = (e) => {
@@ -98,17 +96,6 @@ const ProductCarousel = () => {
         </li>
     ))
 
-    const PRODUCTS_LIST_ITEMS = renderedProductsArray.map((productObject, index) => (
-        <li key={index}>
-            <Product
-                title={productObject.title}
-                minPrice={productObject.priceRange.minVariantPrice.amount}
-                mainImageSrc={productObject.images[0].originalSrc}
-                imageAltText={productObject.images[0].altText}
-            />
-        </li>
-    ))
-
     return (
         <div className="product-carousel-container">
             <div className="carousel-nav-links-container">
@@ -120,9 +107,7 @@ const ProductCarousel = () => {
                 </Link>
             </div>
             <div className="product-carousel-container">
-                <ul className="product-carousel-wrapper">
-                    {PRODUCTS_LIST_ITEMS}
-                </ul>
+                <ProductSlider collection={renderedProductsArray} />
             </div>
         </div>
     )
