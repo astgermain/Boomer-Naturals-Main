@@ -3,7 +3,7 @@ import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
 import Email from "./email"
-import HomeProductFirst from "./homeproductfirst";
+import ProductSlider from "./productslider";
 import ProductCarousel from "./product-carousel"
 
 const Layout = ({ location, title, children }) => {
@@ -37,7 +37,7 @@ const Layout = ({ location, title, children }) => {
 
       <main>
         <Hero />
-        <HomeProductFirst />
+        <ProductSlider />
         <Categories />
         <Email />
         <ProductCarousel />
