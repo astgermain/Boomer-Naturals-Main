@@ -37,7 +37,6 @@ const Layout = ({ location, title, children }) => {
 
       <main>
         <Hero />
-        <ProductSlider />
         <Categories />
         <Email />
         <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />

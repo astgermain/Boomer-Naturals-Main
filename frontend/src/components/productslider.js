@@ -14,7 +14,7 @@ const ProductSlider = ({ collection }) => {
   
   */
   }
-
+{/*
   const data = useStaticQuery(graphql`
     {
       allShopifyCollection(
@@ -82,6 +82,7 @@ const ProductSlider = ({ collection }) => {
       }
     }
   `)
+  */}
 
   {
     /* 
@@ -94,16 +95,8 @@ const ProductSlider = ({ collection }) => {
   */
   }
 
-  let productStack = []
   let slideData = []
   let slider = undefined
-
-  // Pushes collections products up to 9 to a stack
-  let populateProductStack = collection => {
-    for (let i = 0; i < 9; i++) {
-      if (collection[i]) productStack.push(collection[i])
-    }
-  }
 
   // Uses the product stack to generate product components
   let populateProductSliderData = products => {
@@ -130,25 +123,26 @@ const ProductSlider = ({ collection }) => {
         speed={750}
         autoplay={false}
         arrowsVal={false}
-        slide1={tempSlideData[0] ? tempSlideData[0] : undefined}
-        slide2={tempSlideData[1] ? tempSlideData[1] : undefined}
-        slide3={tempSlideData[2] ? tempSlideData[2] : undefined}
+        slide1={tempSlideData[0] && tempSlideData[0]}
+        slide2={tempSlideData[1] && tempSlideData[1]}
+        slide3={tempSlideData[2] && tempSlideData[2]}
       />
     )
   }
-  populateProductStack(data.allShopifyCollection.nodes[0].products)
-  populateProductSliderData(productStack)
+  populateProductSliderData(collection.products.slice(0,9))
   populateSlides(slideData)
 
   return (
     <div className="product-slider">
-      {data.allShopifyCollection.nodes[0].title}
+      {collection.title}
       {slider}
     </div>
   )
 }
 
-ProductSlider.defaultProps = {}
+ProductSlider.defaultProps = {
+
+}
 
 ProductSlider.propTypes = {}
 
