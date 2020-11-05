@@ -1,10 +1,9 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Slider from "./slider"
 import Product from "./product"
 import "../styles/product.css"
-
 
 const ProductSlider = () => {
   {
@@ -20,7 +19,10 @@ const ProductSlider = () => {
     {
       allShopifyCollection(
         filter: {
-          products: {elemMatch: {availableForSale: {eq: true}}}, shopifyId: {eq: "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2Nzg4MzgzMzQ2Mg=="}
+          products: { elemMatch: { availableForSale: { eq: true } } }
+          shopifyId: {
+            eq: "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzE2Nzg4MzgzMzQ2Mg=="
+          }
         }
       ) {
         nodes {
@@ -80,7 +82,8 @@ const ProductSlider = () => {
       }
     }
   `)
-  {/* 
+  {
+    /* 
     Sort variants by color name and group color names
     Then offer options for size and adjustability.
 
@@ -90,8 +93,10 @@ const ProductSlider = () => {
 
     
 
-  */}
-  {/*
+  */
+  }
+  {
+    /*
 
   const firstThreeProducts = [data.allShopifyCollection.nodes[0].products[0], data.allShopifyCollection.nodes[0].products[1], data.allShopifyCollection.nodes[0].products[2]]
   console.log(data.allShopifyCollection.nodes[0])
@@ -117,24 +122,48 @@ const ProductSlider = () => {
     
     <pre>{JSON.stringify(data, null, 4)}</pre> 
 
-  */}
+  */
+  }
+  let productStack = []
 
-  let firstThree = <Product />
+  let populateProductStack = collection => {
+    {
+      /*
+    collection.map((product) => {
+      if(productStack.length < 9){
+        productStack.push(product)
+      }
+    })
+    */
+    }
+    for (let i = 0; i < 9; i++) {
+      if (collection[i]) productStack.push(collection[i])
+    }
+  }
 
+  let populateProductSlider = products => {}
+
+  populateProductStack(data.allShopifyCollection.nodes[0].products)
+  populateProductSlider(productStack)
+
+  let sliderProducts = <Product />
+  console.log(productStack)
   return (
     <div className="product-slider">
       {data.allShopifyCollection.nodes[0].title}
-      <Slider dotsVal={true} speed={750} autoplay={false} arrowsVal={false} slide1={firstThree} />
+      <Slider
+        dotsVal={true}
+        speed={750}
+        autoplay={false}
+        arrowsVal={false}
+        slide1={sliderProducts}
+      />
     </div>
-  
-  
   )
 }
 
-ProductSlider.defaultProps = {
-}
+ProductSlider.defaultProps = {}
 
-ProductSlider.propTypes = {
-}
+ProductSlider.propTypes = {}
 
 export default ProductSlider

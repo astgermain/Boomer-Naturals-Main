@@ -295,7 +295,7 @@
       display: inline-block;
   
       width: 35px;
-      height: 10px;
+      height: 5px;
       margin: 0 5px;
       padding: 0;
   
@@ -384,7 +384,7 @@
       line-height: 0 !important;
       display: block;
       width: 35px !important;
-      height: 10px !important;
+      height: 5px !important;
       cursor: pointer;
       color: transparent !important;
       border: 0;
@@ -403,7 +403,7 @@
       top: 0;
       left: 0;
       width: 35px !important;
-      height: 10px !important;
+      height: 5px !important;
       content: '\2022';
       text-align: center;
       opacity: .25;

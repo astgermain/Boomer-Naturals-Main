@@ -44,7 +44,7 @@ const Header = ({ description, lang, meta, title }) => {
   }
   
   return (
-    <div className="header-container">
+    <section className="header-container">
         <div className="mobile-header-container">
             <div className="header-icons">
                 {/* Search Icon SVG */}
@@ -342,7 +342,7 @@ const Header = ({ description, lang, meta, title }) => {
                 </div>
             </button>  
         </div>
-    </div>
+    </section>
   )
 }
 
