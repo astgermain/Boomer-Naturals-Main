@@ -13,8 +13,8 @@
 }
 
 .nav-btn-list-items div {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     width: 3vw;
 }
@@ -22,9 +22,9 @@
 .nav-btn-list-items div span {
     background: var(--color-secondary);
     height: .1rem;
-    width: 1.4vw;
     transition: transform 275ms;
     transform: scaleX(0);
+    width: 1.4vw;
 }
 
 .nav-btn-list-items div span.active {
@@ -41,10 +41,10 @@
 }
 
 .carousel-nav-btn::before {
-    position: absolute;
-    content: attr(value);
-    color: var(--color-heading);
     clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+    color: var(--color-heading);
+    content: attr(value);
+    position: absolute;
     transition: clip-path 275ms ease;
 }
 
@@ -52,6 +52,30 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.redirect-btn {}
+/* .redirect-link {
+    background: var(--color-secondary);
+    border-radius: 3rem;
+    color: #fff;
+    padding: .75rem;
+} */
+
+.redirect-btn {
+    background: #00A1C6;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    margin-left: 3vw;
+    padding: 5px 15px;
+}
+
+/* .redirect-link .redirect-arrow-parent-div {
+    background: #fff;
+    color: var(--color-text);
+    border-radius: 100%;
+    padding: .25rem;
+    text-align: center;
+} */
 
 .product-slider-container {}
