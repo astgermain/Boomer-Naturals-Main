@@ -1,6 +1,3 @@
-/* .product-carousel-container {
-    display: flex;
-} */
 
 .carousel-nav-links-container {}
 
@@ -52,13 +49,6 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
-/* .redirect-link {
-    background: var(--color-secondary);
-    border-radius: 3rem;
-    color: #fff;
-    padding: .75rem;
-} */
-
 .redirect-btn {
     background: #00A1C6;
     border: none;
@@ -69,13 +59,5 @@
     margin-left: 3vw;
     padding: 5px 15px;
 }
-
-/* .redirect-link .redirect-arrow-parent-div {
-    background: #fff;
-    color: var(--color-text);
-    border-radius: 100%;
-    padding: .25rem;
-    text-align: center;
-} */
 
 .product-slider-container {}
