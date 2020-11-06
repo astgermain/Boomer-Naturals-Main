@@ -6,6 +6,8 @@ import Email from "./email"
 import Infocta from "./infocta"
 import ProductSlider from "./productslider";
 import ProductCarousel from "./product-carousel"
+import Featured from "./featured"
+import Search from "./search"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -38,9 +40,11 @@ const Layout = ({ location, title, children }) => {
 
       <main>
         <Hero />
+        <Search />
+        <Featured />
         <Categories />
-        <Email />
         <ProductCarousel />
+        <Email />
         <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />
       </main>
 

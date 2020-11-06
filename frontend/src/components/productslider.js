@@ -108,10 +108,9 @@ const ProductSlider = ({ collection }) => {
     let tempArr = []
     for (let i = 0; i < products.length; i++) {
       if (products[i]) {
-        let prod = <Product productInfo={products[i]} />
+        let prod = <Product key={products[i].shopifyId} productInfo={products[i]} />
         if(products[i].variants.length > 1){
           let prodVariantArr = products[i].variants.map((data)=> {
-            console.log(data)
             return ({
               "@type": "Product",
               image: `${data.image.originalSrc}`,
@@ -190,6 +189,7 @@ const ProductSlider = ({ collection }) => {
 
   return (
     <div className="product-slider">
+      {/* Script is for structured data and SEO purposes            */}
       <script type="application/ld+json">{strucDataJson}</script>
       {collection.title}
       {slider}

@@ -106,14 +106,14 @@ let rightSlide3 =
 </div>;
  
   return (
-    <div className="hero-container">
+    <section className="hero-container">
         <div className="hero-left">
           <Slider dotsVal={false} autoplay={true} autoplaySpeed={3000} arrowsVal={false} slide1={leftSlide1} slide2={leftSlide2} slide3={leftSlide3}/>
         </div>
         <div className="hero-right">
           <Slider dotsVal={true} autoplay={true} autoplaySpeed={1500} arrowsVal={false} slide1={rightSlide1} slide2={rightSlide2} slide3={rightSlide3}/>
         </div>     
-    </div>
+    </section>
   )
 }
 

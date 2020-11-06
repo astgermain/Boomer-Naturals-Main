@@ -5,7 +5,7 @@
 */
 .infocta-container{
     max-width: 30%;
-    padding: 4% 4% 12% 4%;
+    margin-top: 35px;
 }
 #infocta-text-main{
     font-size: 3vw;
