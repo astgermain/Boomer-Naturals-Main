@@ -190,6 +190,7 @@ const ProductSlider = ({ collection }) => {
 
   return (
     <div className="product-slider">
+      {/* Script is for structured data and SEO purposes            */}
       <script type="application/ld+json">{strucDataJson}</script>
       {collection.title}
       {slider}

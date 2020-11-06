@@ -8,9 +8,8 @@
 }
 
 .product-slider {
-    margin-left: 10vw;
-    margin-right: 10vw;
     margin-top: 35px;
+    width: 70%;
 }
 
 .product-container {
