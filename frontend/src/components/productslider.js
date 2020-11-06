@@ -14,7 +14,8 @@ const ProductSlider = ({ collection }) => {
   
   */
   }
-{/*
+  {
+    /*
   const data = useStaticQuery(graphql`
     {
       allShopifyCollection(
@@ -82,7 +83,8 @@ const ProductSlider = ({ collection }) => {
       }
     }
   `)
-  */}
+  */
+  }
 
   {
     /* 
@@ -97,14 +99,61 @@ const ProductSlider = ({ collection }) => {
 
   let slideData = []
   let slider = undefined
+  let collectionSize = 0
+  let prodData = []
 
   // Uses the product stack to generate product components
   let populateProductSliderData = products => {
+    collectionSize = products.length
     let tempArr = []
     for (let i = 0; i < products.length; i++) {
       if (products[i]) {
         let prod = <Product productInfo={products[i]} />
-        //console.log(products[i])
+        if(products[i].variants.length > 1){
+          let prodVariantArr = products[i].variants.map((data)=> {
+            console.log(data)
+            return ({
+              "@type": "Product",
+              image: `${data.image.originalSrc}`,
+              /* TODO: Need URL For Variants */
+              url: `${data.title}`,
+              name: `${products[i].title} ${data.title}`,
+              offers: {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                price: `${data.priceV2.amount}`,
+                "priceCurrency": `${data.priceV2.currencyCode}`
+              },
+              /* TODO: Products need reviews entered in structured data */
+            })
+          })
+          prodData.push({
+            "@type": "ProductGroup",
+            image: `${products[i].images[0].originalSrc}`,
+            /* This URL might be wrong */
+            url: `${products[i].onlineStoreUrl}`,
+            name: `${products[i].title}`,
+            offers: {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              price: `${products[i].title}`,
+              "priceCurrency": "USD"
+            },
+            "hasVariant": prodVariantArr,
+          })
+        }
+        else {
+          prodData.push({
+            "@type": "Product",
+            image: `${products[i].images[0].originalSrc}`,
+            url: `${products[i].onlineStoreUrl}`,
+            name: `${products[i].title}`,
+            offers: {
+              "@type": "Offer",
+              price: `${products[i].title}`,
+            },
+          })
+        }
         tempArr.push(prod)
       }
       if (tempArr.length == 3) {
@@ -129,20 +178,26 @@ const ProductSlider = ({ collection }) => {
       />
     )
   }
-  populateProductSliderData(collection.slice(0,9))
+  populateProductSliderData(collection.slice(0, 9))
   populateSlides(slideData)
+  let strucData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    numberOfItems: `${collectionSize}`,
+    itemListElement: { prodData },
+  }
+  let strucDataJson = JSON.stringify(strucData)
 
   return (
     <div className="product-slider">
+      <script type="application/ld+json">{strucDataJson}</script>
       {collection.title}
       {slider}
     </div>
   )
 }
 
-ProductSlider.defaultProps = {
-
-}
+ProductSlider.defaultProps = {}
 
 ProductSlider.propTypes = {}
 

@@ -66,6 +66,11 @@ const ProductCarousel = () => {
                 originalSrc
               }
               availableForSale
+              quantityAvailable
+              selectedOptions {
+                name
+                value
+              }
             }
           }
         }
