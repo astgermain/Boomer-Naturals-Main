@@ -76,6 +76,7 @@ const ProductCarousel = () => {
     // Array of shopify nodes is in alphabetical order.  Make sure to destructure array in same order 
     const [MOST_POPULAR_DATA, NEW_ARRIVALS_DATA, ON_SALE_DATA] = data.allShopifyCollection.nodes
 
+    // The order of array items is the order the buttons are displayed from top to bottom
     const NAV_TITLE_ARR = [NEW_ARRIVALS_DATA.title, MOST_POPULAR_DATA.title, ON_SALE_DATA.title]
 
     // Products array is updated with array from query data that matches clicked button
@@ -92,7 +93,13 @@ const ProductCarousel = () => {
 
     const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => (
         <li key={index}>
-            <button className="carousel-nav-btn" onClick={handleNavClick} value={title}>{title}</button>
+            <button
+                className={`carousel-nav-btn ${clickedNavBtn == title && "active"}`}
+                onClick={handleNavClick}
+                value={title}
+            >
+                {title}
+            </button>
         </li>
     ))
 
@@ -106,9 +113,7 @@ const ProductCarousel = () => {
                     <div className="redirect-btn">View All</div>
                 </Link>
             </div>
-            <div className="product-carousel-container">
-                <ProductSlider collection={renderedProductsArray} />
-            </div>
+            <ProductSlider collection={renderedProductsArray} />
         </div>
     )
 }
