@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+// Needs regex
+// Needs to pass shopifyId to results page to render products
+// Possible to just have a popup and render results same page
+
 
 const Search = () => {
   const data = useStaticQuery(graphql`
@@ -26,13 +30,6 @@ const Search = () => {
         return <li key={product.shopifyId}>{product.title}</li>
     }))
   },[searchValue])
-  
-
-  
-
-  let handleSearchInput = (e) => {
-      setSearchValue(e.value)
-  }
 
   return (
     <section>
