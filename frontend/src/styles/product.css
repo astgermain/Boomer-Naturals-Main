@@ -54,6 +54,7 @@
     border: 1px solid gainsboro;
     border-bottom: none;
     padding: 10px;
+    background: linear-gradient(-45deg, #e0f1f5 50%, rgba(255, 255, 255, 0.5) 50%);
 }
 
 .product-image {

@@ -102,7 +102,7 @@ const ProductCarousel = () => {
     ))
 
     return (
-        <div className="product-carousel-container">
+        <section className="product-carousel-container">
             <div className="carousel-nav-links-container">
                 <ul className="carousel-nav-wrapper">
                     {NAV_LIST_ITEMS}
@@ -114,7 +114,7 @@ const ProductCarousel = () => {
             <div className="product-carousel-container">
                 <ProductSlider collection={renderedProductsArray} />
             </div>
-        </div>
+        </section>
     )
 }
 

@@ -81,10 +81,10 @@ const Featured = () => {
     }, [])
 
     return (
-        <div className="featured-container">
+        <section className="featured-container">
             <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />
             <ProductSlider collection={data.allShopifyCollection.nodes[0].products} />
-        </div>
+        </section>
     )
 }
 
