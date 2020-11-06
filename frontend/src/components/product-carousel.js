@@ -96,18 +96,23 @@ const ProductCarousel = () => {
         setClickedNavBtn(value)
     }
 
-    const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => (
-        <li key={index}>
-            <button
-                className={`carousel-nav-btn ${clickedNavBtn == title && "active"}`}
-                data-content={title}
-                onClick={handleNavClick}
-                value={title}
-            >
-                {title}
-            </button>
-        </li>
-    ))
+    const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
+        const isActive = clickedNavBtn == title && "active"
+        return (
+            <li key={index} className={`nav-btn-list-items ${isActive}`}>
+                <div>
+                    <span className={isActive}></span>
+                </div>
+                <button
+                    className={`carousel-nav-btn ${isActive}`}
+                    onClick={handleNavClick}
+                    value={title}
+                >
+                    {title}
+                </button>
+            </li>
+        )
+    })
 
     return (
         <div className="product-carousel-container">

@@ -8,6 +8,29 @@
     min-width: 26vw;
 }
 
+.nav-btn-list-items {
+    display: flex;
+}
+
+.nav-btn-list-items div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3vw;
+}
+
+.nav-btn-list-items div span {
+    background: var(--color-secondary);
+    height: .1rem;
+    width: 1.4vw;
+    transition: transform 275ms;
+    transform: scaleX(0);
+}
+
+.nav-btn-list-items div span.active {
+    transform: scaleX(1);
+}
+
 .carousel-nav-btn {
     background: transparent;
     border: none;
