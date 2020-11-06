@@ -1,0 +1,34 @@
+/* .product-carousel-container {
+    display: flex;
+} */
+
+.carousel-nav-links-container {}
+
+.carousel-nav-wrapper {
+    min-width: 26vw;
+}
+
+.carousel-nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    font-weight: var(--fontWeight-normal);
+    padding: var(--spacing-0);
+}
+
+.carousel-nav-btn::before {
+    position: absolute;
+    content: attr(value);
+    color: var(--color-heading);
+    clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+    transition: clip-path 275ms ease;
+}
+
+.carousel-nav-btn.active::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.redirect-btn {}
+
+.product-slider-container {}

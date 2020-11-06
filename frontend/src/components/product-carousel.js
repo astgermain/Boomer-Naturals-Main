@@ -100,6 +100,7 @@ const ProductCarousel = () => {
         <li key={index}>
             <button
                 className={`carousel-nav-btn ${clickedNavBtn == title && "active"}`}
+                data-content={title}
                 onClick={handleNavClick}
                 value={title}
             >
