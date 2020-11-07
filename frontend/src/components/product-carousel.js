@@ -123,7 +123,8 @@ const ProductCarousel = () => {
                     height="25px"
                     viewBox="0 0 34 34"
                     version="1.1"
-                    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="Product-Page-Copy-7" transform="translate(-499.000000, -416.000000)">
                             <rect id="Rectangle-Copy-47" fill="#00A0C5" x="341" y="408" width="206" height="49" rx="24.5"></rect>
                             <g id="Group-11" transform="translate(499.000000, 416.000000)">

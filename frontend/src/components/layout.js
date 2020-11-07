@@ -8,6 +8,7 @@ import ProductSlider from "./productslider";
 import ProductCarousel from "./product-carousel"
 import Featured from "./featured"
 import Search from "./search"
+import AboutFaceMask from "./about-face-mask"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -46,6 +47,7 @@ const Layout = ({ location, title, children }) => {
         <ProductCarousel />
         <Email />
         <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />
+        <AboutFaceMask />
       </main>
 
       <footer>
