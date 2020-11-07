@@ -5,6 +5,7 @@ import Hero from "./hero"
 import Categories from "./categories"
 import Email from "./email"
 import Infocta from "./infocta"
+import Instafeed from "./instafeed"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -40,6 +41,7 @@ const Layout = ({ location, title, children }) => {
         <Categories />
         <Email />
         <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />
+        <Instafeed/>
       </main>
       
       <footer>

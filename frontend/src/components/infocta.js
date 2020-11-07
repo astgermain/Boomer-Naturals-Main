@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from "react"
 import propTypes from 'prop-types'
 import { Link } from "gatsby"
+import Slider from "./slider"
 import "../infocta.css"
 
 const Infocta = ({svgProp, maintextProp, subtextProp, buttontextProp}) => {
