@@ -31,7 +31,7 @@ const Product = ({ productInfo }) => {
     productInfo.priceRange.minVariantPrice.amount
   )
   return (
-    <section className="product-container" vocab="https://schema.org/" typeof="Product">
+    <div className="product-container" vocab="https://schema.org/" typeof="Product">
       <Link to="/">
         <div className="product-header">
           <title className="product-header-text">{productInfo.title}</title>
@@ -54,7 +54,7 @@ const Product = ({ productInfo }) => {
       <div className="product-button" onClick={optionsClick}>
         Product Options
       </div>
-    </section>
+    </div>
   )
 }
 
