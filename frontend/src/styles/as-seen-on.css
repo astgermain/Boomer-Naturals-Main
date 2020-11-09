@@ -1,0 +1,23 @@
+/*
+*
+* Start As Seen On  Section
+*
+*/
+
+.asseenon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+.asseenon-container img {
+  width: 12%;
+}
+.asseenon-container img:hover {
+  opacity: 70%;
+}
+
+@media (max-width: 480px) {
+  .asseenon-container img {
+    width: 14%;
+  }
+}

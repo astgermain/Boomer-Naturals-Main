@@ -2,10 +2,11 @@ import React from "react"
 import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
+import AsSeenOn from "./as-seen-on"
 import Email from "./email"
 import Infocta from "./infocta"
 import Instafeed from "./instafeed"
-import ProductSlider from "./productslider";
+import ProductSlider from "./productslider"
 import ProductCarousel from "./product-carousel"
 import Featured from "./featured"
 import Search from "./search"
@@ -45,13 +46,12 @@ const Layout = ({ location, title, children }) => {
         <Featured />
         <Categories />
         <ProductCarousel />
+        <AsSeenOn />
         <Email />
         <Insta />
       </main>
 
-      <footer>
-
-      </footer>
+      <footer></footer>
     </div>
   )
 }
