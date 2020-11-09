@@ -39,7 +39,7 @@ const Instafeed = ( ) => {
              <div className="reviewer-name">Bobby</div> 
           </div>
           
-        </div>;
+        </div>
 
 
         let instaSlide2 = 
@@ -68,7 +68,7 @@ const Instafeed = ( ) => {
              <div className="review-text">Finally, I found a mask that is comfortable and doesn't fall off my face.</div>
              <div className="reviewer-name">Bobby</div> 
           </div>
-        </div>;
+        </div>
 
 
         let instaSlide3 = 
@@ -97,7 +97,7 @@ const Instafeed = ( ) => {
              <div className="review-text">Finally, I found a mask that is comfortable and doesn't fall off my face.</div>
              <div className="reviewer-name">Bobby</div> 
           </div>
-        </div>;
+        </div>
 
 
 
