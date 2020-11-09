@@ -4,6 +4,7 @@ import "../styles/about-face-mask.css"
 import MainButton from "./main-button"
 
 import MastImg from "../../content/assets/mask.png"
+import MiniInfoModal from "./mini-info-modal"
 
 const AboutFaceMask = () => {
 
@@ -15,7 +16,6 @@ const AboutFaceMask = () => {
     })
 
     const handleHoverEvent = hoveredBtn => {
-
         const changeBtnState = btn =>
             btnState[btn] == "hide"
                 ?
@@ -51,23 +51,37 @@ const AboutFaceMask = () => {
                     onMouseLeave={() => handleHoverEvent(1)}
                     className="pulse-btn pulse-btn-1"
                 >
-                    <div className={`info-modal ${btnState.btnOne}`}>This will say something</div>
+                    <MiniInfoModal currBtnState={btnState.btnOne}>
+                        This will say something
+                    </MiniInfoModal>
                 </span>
                 <span
                     className="pulse-btn pulse-btn-2"
                     onMouseEnter={() => handleHoverEvent(2)}
                     onMouseLeave={() => handleHoverEvent(2)}
-                ></span>
+                >
+                    <MiniInfoModal currBtnState={btnState.btnTwo}>
+                        This will say something
+                    </MiniInfoModal>
+                </span>
                 <span
                     className="pulse-btn pulse-btn-3"
                     onMouseEnter={() => handleHoverEvent(3)}
                     onMouseLeave={() => handleHoverEvent(3)}
-                ></span>
+                >
+                    <MiniInfoModal currBtnState={btnState.btnThree}>
+                        This will say something
+                    </MiniInfoModal>
+                </span>
                 <span
                     className="pulse-btn pulse-btn-4"
                     onMouseEnter={() => handleHoverEvent(4)}
                     onMouseLeave={() => handleHoverEvent(4)}
-                ></span>
+                >
+                    <MiniInfoModal currBtnState={btnState.btnFour}>
+                        This will say something
+                    </MiniInfoModal>
+                </span>
             </div>
             <div className="extra-info-container">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis</p>

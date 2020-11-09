@@ -6,7 +6,7 @@
 }
 
 .about-face-mask-section div {
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
 }
 
 .about-face-mask-section h4 {
@@ -14,6 +14,7 @@
 }
 
 .image-container {
+    margin: 1rem 0;
     width: 75vw;
 }
 
@@ -72,7 +73,16 @@
 
 .info-modal {
     transform: scale(0);
-    transition: transform .5s ease;
+    background: #fff;
+    padding: 1rem;
+    width: 10vw;
+    border: solid 1px var(--color-secondary);
+    border-radius: 35%;
+    position: relative;
+    top: 45%;
+    left: 45%;
+    font-size: 1.5vw;
+    transition: transform .2s ease;
 }
 
 .info-modal.show {
