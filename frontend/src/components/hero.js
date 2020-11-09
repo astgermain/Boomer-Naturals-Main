@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="slider-responsive">
         <div className="sub-text-main">Need a Face Mask?</div>
         <div className="text-main">We've Got You Covered</div>
-        <Link to="/">
+        <Link to="/404">
           <MainButton text="Learn More" />
         </Link>
       </div>;
