@@ -16,9 +16,9 @@ const Instafeed = () => {
           <g
             id="Page-1"
             stroke="none"
-            strokeWidth="1"
+            stroke-width="1"
             fill="none"
-            fillRule="evenodd"
+            fill-rule="evenodd"
           >
             <g
               id="Product-Page-Copy-7"
@@ -26,18 +26,18 @@ const Instafeed = () => {
             >
               <rect
                 id="Rectangle-Copy-46"
-                fillOpacity="0.25"
-                fill="#E0F1F6"
+                fill=""
                 x="0"
                 y="3600"
                 width="1920"
                 height="812"
+                fill-opacity="1"
               ></rect>
               <g
                 id="Group-3"
                 opacity="0.55"
                 transform="translate(865.000000, 3700.000000)"
-                fill="#D7D8DE"
+                fill=""
               >
                 <circle
                   id="Oval-Copy-21"
@@ -70,7 +70,6 @@ const Instafeed = () => {
               </g>
               <rect
                 id="Rectangle-Copy-21"
-                fill="#00A0C5"
                 x="901"
                 y="3735"
                 width="272"
@@ -111,9 +110,9 @@ const Instafeed = () => {
           <g
             id="Page-1"
             stroke="none"
-            strokeWidth="1"
+            stroke-width="1"
             fill="none"
-            fillRule="evenodd"
+            fill-rule="evenodd"
           >
             <g
               id="Product-Page-Copy-7"
@@ -121,18 +120,18 @@ const Instafeed = () => {
             >
               <rect
                 id="Rectangle-Copy-46"
-                fillOpacity="0.25"
-                fill="#E0F1F6"
+                fill=""
                 x="0"
                 y="3600"
                 width="1920"
                 height="812"
+                fill-opacity="1"
               ></rect>
               <g
                 id="Group-3"
                 opacity="0.55"
                 transform="translate(865.000000, 3700.000000)"
-                fill="#D7D8DE"
+                fill=""
               >
                 <circle
                   id="Oval-Copy-21"
@@ -165,7 +164,6 @@ const Instafeed = () => {
               </g>
               <rect
                 id="Rectangle-Copy-21"
-                fill="#00A0C5"
                 x="901"
                 y="3735"
                 width="272"
@@ -206,9 +204,9 @@ const Instafeed = () => {
           <g
             id="Page-1"
             stroke="none"
-            strokeWidth="1"
+            stroke-width="1"
             fill="none"
-            fillRule="evenodd"
+            fill-rule="evenodd"
           >
             <g
               id="Product-Page-Copy-7"
@@ -216,18 +214,18 @@ const Instafeed = () => {
             >
               <rect
                 id="Rectangle-Copy-46"
-                fillOpacity="0.25"
-                fill="#E0F1F6"
+                fill=""
                 x="0"
                 y="3600"
                 width="1920"
                 height="812"
+                fill-opacity="1"
               ></rect>
               <g
                 id="Group-3"
                 opacity="0.55"
                 transform="translate(865.000000, 3700.000000)"
-                fill="#D7D8DE"
+                fill=""
               >
                 <circle
                   id="Oval-Copy-21"
@@ -260,7 +258,6 @@ const Instafeed = () => {
               </g>
               <rect
                 id="Rectangle-Copy-21"
-                fill="#00A0C5"
                 x="901"
                 y="3735"
                 width="272"
