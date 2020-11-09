@@ -7,8 +7,7 @@
 .asseenon-container {
   display: flex;
   justify-content: center;
-  gap: 2%;
-  margin-top: 5%;
+  margin-top: 35px;
 }
 .asseenon-container img {
   width: 12%;
