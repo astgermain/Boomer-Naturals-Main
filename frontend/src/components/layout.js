@@ -50,10 +50,10 @@ const Layout = ({ location, title, children }) => {
         <Insta />
         <AsSeenOn />
         <Email />
-        <Footer />
+        
       </main>
 
-      <footer></footer>
+      <footer><Footer /></footer>
     </div>
   )
 }

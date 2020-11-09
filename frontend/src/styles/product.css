@@ -67,11 +67,14 @@
     cursor: pointer;
     background: #00A0C5;
     line-height: 100%;
-    padding: 10px;
+    padding: 5px;
     font-size: 18px;
     color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 1px solid #002f4240;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }

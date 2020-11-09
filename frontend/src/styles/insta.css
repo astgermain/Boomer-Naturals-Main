@@ -1,6 +1,6 @@
 .main-insta-container {
     display: flex;
-    margin-top: 35px;
+    margin-top: 45px;
     justify-content: space-evenly;
     background: #E0F1F6;
     padding: 35px;
@@ -9,5 +9,6 @@
 .insta-margin {
     margin: 0 12.5vw;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    width: 100%;
 }
