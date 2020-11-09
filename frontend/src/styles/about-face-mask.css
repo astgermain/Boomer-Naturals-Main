@@ -70,6 +70,15 @@
     left: 92%;
 }
 
+.info-modal {
+    transform: scale(0);
+    transition: transform .5s ease;
+}
+
+.info-modal.show {
+    transform: scale(1);
+}
+
 .extra-info-container {
     display: flex;
     justify-content: center;
