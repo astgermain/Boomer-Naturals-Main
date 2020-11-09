@@ -52,7 +52,7 @@ const AboutFaceMask = () => {
                     className="pulse-btn pulse-btn-1"
                 >
                     <MiniInfoModal currBtnState={btnState.btnOne}>
-                        This will say something
+                        Modal 1 Lorem Ipsum
                     </MiniInfoModal>
                 </span>
                 <span
@@ -61,7 +61,7 @@ const AboutFaceMask = () => {
                     onMouseLeave={() => handleHoverEvent(2)}
                 >
                     <MiniInfoModal currBtnState={btnState.btnTwo}>
-                        This will say something
+                        Modal 2 Lorem Ipsum
                     </MiniInfoModal>
                 </span>
                 <span
@@ -70,7 +70,7 @@ const AboutFaceMask = () => {
                     onMouseLeave={() => handleHoverEvent(3)}
                 >
                     <MiniInfoModal currBtnState={btnState.btnThree}>
-                        This will say something
+                        Modal 3 Lorem Ipsum
                     </MiniInfoModal>
                 </span>
                 <span
@@ -79,7 +79,7 @@ const AboutFaceMask = () => {
                     onMouseLeave={() => handleHoverEvent(4)}
                 >
                     <MiniInfoModal currBtnState={btnState.btnFour}>
-                        This will say something
+                        Modal 4 Lorem Ipsum
                     </MiniInfoModal>
                 </span>
             </div>

@@ -79,8 +79,8 @@
     border: solid 1px var(--color-secondary);
     border-radius: 35%;
     position: relative;
-    top: 45%;
-    left: 45%;
+    top: 55%;
+    left: 55%;
     font-size: 1.5vw;
     transition: transform .2s ease;
 }
