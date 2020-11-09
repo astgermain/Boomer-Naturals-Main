@@ -41,7 +41,6 @@ const Layout = ({ location, title, children }) => {
 
       <main>
         <Hero />
-        <Search />
         <Featured />
         <Categories />
         <ProductCarousel />

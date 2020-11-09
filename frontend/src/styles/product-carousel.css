@@ -1,8 +1,17 @@
 
-.carousel-nav-links-container {}
+.product-carousel-container{
+    display: flex;
+    margin: 0 12.5vw;
+}
+
+.carousel-nav-links-container {
+    width: 15vw;
+    display: flex;
+    margin-top: 35px;
+}
 
 .carousel-nav-wrapper {
-    min-width: 26vw;
+    min-width: 15vw;
 }
 
 .nav-btn-list-items {
