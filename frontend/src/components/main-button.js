@@ -3,11 +3,12 @@
  */
 
 import React from "react"
+import { navigate } from "gatsby"
 
+const mainButton = ({ text, link }) => {
 
-const mainButton = ({text}) => {
   return (
-    <button className="main-site-button">
+    <button onClick={() => navigate(link)} className="main-site-button">
       <span className="button-text">{text}</span>
       <svg
         width="25px"
@@ -55,7 +56,9 @@ const mainButton = ({text}) => {
   )
 }
 
-mainButton.defaultProps = {}
+mainButton.defaultProps = {
+  link: "/"
+}
 
 mainButton.propTypes = {}
 
