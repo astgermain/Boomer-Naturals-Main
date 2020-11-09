@@ -7,17 +7,14 @@
 .asseenon-container {
   display: flex;
   justify-content: center;
+  margin: 0 12.5vw;
   margin-top: 35px;
 }
 .asseenon-container img {
-  width: 12%;
+  width: 16.66667%;
 }
 .asseenon-container img:hover {
   opacity: 70%;
 }
 
-@media (max-width: 480px) {
-  .asseenon-container img {
-    width: 14%;
-  }
-}
+

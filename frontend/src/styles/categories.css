@@ -1,10 +1,19 @@
 .category-container {
+<<<<<<< HEAD
   margin-top: 35px;
   margin-left: 12.5vw;
   margin-right: 12.5vw;
   display: flex;
   text-align: center;
   position: relative;
+=======
+    margin-top: 40px;
+    margin-left: 12.5vw;
+    margin-right: 12.5vw;
+    display: flex;
+    text-align: center;
+    position: relative;
+>>>>>>> af8162e0ce312ccb954ee9ca4130b27e6817a5b4
 }
 
 .category-group {

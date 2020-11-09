@@ -97,7 +97,6 @@ body {
 }
 
 footer {
-    padding: var(--spacing-6) var(--spacing-0);
 }
 
 hr {
@@ -392,7 +391,7 @@ a:focus {
     margin: 10px;
     color: #333;
     text-decoration: none;
-    padding-bottom: 1rem;
+    padding-bottom: .5rem;
     position: relative;
 }
 

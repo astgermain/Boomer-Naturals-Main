@@ -12,7 +12,7 @@ import logo6 from "../../content/assets/fox5logo.jpg"
 
 const AsSeenOn = () => {
   return (
-    <div className="asseenon-container">
+    <section className="asseenon-container">
       <img src={logo1} alt="PGA-Magazine-Logo" className="" />
 
       <img src={logo2} alt="ESPN-Logo" className="" />
@@ -24,7 +24,7 @@ const AsSeenOn = () => {
       <img src={logo5} alt="Fox-Business" className="" />
 
       <img src={logo6} alt="Fox-5" className="" />
-    </div>
+    </section>
   )
 }
 
