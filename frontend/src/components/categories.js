@@ -8,6 +8,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import "../styles/categories.css"
+import facemask from "../../content/assets/imagefacemask.png"
 
 
 const Categories = () => {
@@ -15,15 +16,15 @@ const Categories = () => {
   return (
     <section className="category-container">
         {/* Facemask category button */}
-        <Link to="/" className="full-category">
-            <span className="category-text">Face Mask</span>
+        <Link to="/" className="full-category cat1">
+            <span className="category-text">Face Mask</span>   
         </Link>
         {/* Gaiters category button */}
-        <Link to="/" className="full-category">
+        <Link to="/" className="full-category cat2">
             <span className="category-text">Gaiters</span>
         </Link>
         {/* PPE category button */}
-        <Link to="/" className="full-category">
+        <Link to="/" className="full-category cat3">
             <span className="category-text">PPE</span>
         </Link>
         <div className="category-group">
