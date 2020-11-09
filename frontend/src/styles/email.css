@@ -4,11 +4,23 @@
 *
 */
 .email-section{
-    margin-top: 5%;
-    padding: 5% 12%;
+    margin-top: 35px;
+    padding: 5vw 10vw;
     background-color: #00A0C5;
 }
 
+.inner-email-container {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+}
+
+.email-text{
+    width: 45vw;
+}
+.klaviyo-form{
+    width: 35vw;
+}
 /* Text */
 .email-main-text{
     font-family: var(--fontFamily-bold);

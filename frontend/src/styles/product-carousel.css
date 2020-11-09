@@ -2,6 +2,7 @@
 .product-carousel-container{
     display: flex;
     margin: 0 12.5vw;
+    justify-content: space-evenly;
 }
 
 .carousel-nav-links-container {
@@ -27,10 +28,11 @@
 
 .nav-btn-list-items div span {
     background: var(--color-secondary);
-    height: .1rem;
+    height: 2px;
     transition: transform 275ms;
     transform: scaleX(0);
     width: 1.4vw;
+    margin-top: 3px;
 }
 
 .nav-btn-list-items div span.active {
