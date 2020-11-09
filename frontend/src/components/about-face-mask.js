@@ -11,10 +11,10 @@ const AboutFaceMask = () => {
             <h4>About Our Face Mask</h4>
             <div className="image-container">
                 <img src={MastImg} alt="Boomer Naturals Mask Information" width="100%" height="auto"/>
-                <span className="pulse-btn"></span>
-                <span className="pulse-btn"></span>
-                <span className="pulse-btn"></span>
-                <span className="pulse-btn"></span>
+                <span className="pulse-btn pulse-btn-1"></span>
+                <span className="pulse-btn pulse-btn-2"></span>
+                <span className="pulse-btn pulse-btn-3"></span>
+                <span className="pulse-btn pulse-btn-4"></span>
             </div>
             <div className="extra-info-container">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis</p>
