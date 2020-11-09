@@ -8,7 +8,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
 const Footer = props => {
-  return <div>hi</div>
+  return(
+    <section className="footer-container">
+      <div className="footer-bottom">
+        
+      </div>
+    </section>
+  )
 }
 
 Footer.defaultProps = {}

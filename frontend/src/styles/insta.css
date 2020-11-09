@@ -1,6 +1,13 @@
 .main-insta-container {
     display: flex;
-    margin: 0 12.5vw;
     margin-top: 35px;
+    justify-content: space-evenly;
+    background: #E0F1F6;
+    padding: 35px;
+}
+
+.insta-margin {
+    margin: 0 12.5vw;
+    display: flex;
     justify-content: space-evenly;
 }

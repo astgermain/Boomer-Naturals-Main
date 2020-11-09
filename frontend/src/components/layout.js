@@ -11,6 +11,7 @@ import ProductCarousel from "./product-carousel"
 import Featured from "./featured"
 import Search from "./search"
 import Insta from "./insta"
+import Footer from "./footer"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -46,9 +47,10 @@ const Layout = ({ location, title, children }) => {
         <Featured />
         <Categories />
         <ProductCarousel />
+        <Insta />
         <AsSeenOn />
         <Email />
-        <Insta />
+        <Footer />
       </main>
 
       <footer></footer>
