@@ -4,6 +4,7 @@ import Hero from "./hero"
 import Categories from "./categories"
 import Email from "./email"
 import Infocta from "./infocta"
+import Instafeed from "./instafeed"
 import ProductSlider from "./productslider";
 import ProductCarousel from "./product-carousel"
 import Featured from "./featured"
@@ -45,6 +46,7 @@ const Layout = ({ location, title, children }) => {
         <ProductCarousel />
         <Email />
         <Infocta svgProp="svg image" maintextProp="Share Your Story"  buttontextProp="Learn More"  />
+        <Instafeed/>
       </main>
 
       <footer>
