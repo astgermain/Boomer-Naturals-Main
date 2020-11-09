@@ -1,0 +1,6 @@
+.main-insta-container {
+    display: flex;
+    margin: 0 12.5vw;
+    margin-top: 35px;
+    justify-content: space-evenly;
+}

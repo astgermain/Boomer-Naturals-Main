@@ -10,6 +10,7 @@ import ProductSlider from "./productslider"
 import ProductCarousel from "./product-carousel"
 import Featured from "./featured"
 import Search from "./search"
+import Insta from "./insta"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -47,12 +48,7 @@ const Layout = ({ location, title, children }) => {
         <ProductCarousel />
         <AsSeenOn />
         <Email />
-        <Infocta
-          svgProp="svg image"
-          maintextProp="Share Your Story"
-          buttontextProp="Learn More"
-        />
-        <Instafeed />
+        <Insta />
       </main>
 
       <footer></footer>

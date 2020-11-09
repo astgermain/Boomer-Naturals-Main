@@ -1,19 +1,14 @@
-.slider-container {
-    max-height: none;
-    height: 100%;
-}
-
 .product-gradiant {
     background: linear-gradient(-45deg, #92DCE5 50%, rgba(255, 255, 255, 0.5) 50%);
 }
 
 .product-slider {
     margin-top: 35px;
-    width: 60vw;
+    width: 50vw;
 }
 
 .product-container {
-    width: 20vw;
+    width: 16.6667vw;
     padding: 10px;    
 }
 
@@ -56,11 +51,15 @@
     border-bottom: none;
     padding: 10px;
     background: linear-gradient(-45deg, #e0f1f5 50%, rgba(255, 255, 255, 0.5) 50%);
+    height: 60%;
+    width: 100%;    
 }
 
 .product-image {
     position: relative;
     max-width: 15vw;
+    height: 100%;
+    width: auto !important;
 }
 
 .product-button {
