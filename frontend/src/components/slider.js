@@ -7,18 +7,17 @@
 import React from "react"
 import ReactSlider from "react-slick";
 import { Link } from "gatsby"
-import logo from "../../content/assets/bnlogoheader.png"
 
 
-const Slider = ({dotsVal, arrowsVal, slide1, slide2, slide3}) => {
+const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) => {
     const settings = {
         dots: dotsVal,
         fade: 1,
         arrows: arrowsVal,
         infinite: true,
-        autoplay: true,
-        lazyLoad: true,
-        speed: 500,
+        autoplay: autoplay,
+        lazyLoad: false,
+        speed: speed,
         slidesToShow: 1,
         slidesToScroll: 1
     };
@@ -33,15 +32,24 @@ const Slider = ({dotsVal, arrowsVal, slide1, slide2, slide3}) => {
                 {/* End Slide 1 */}
 
                 {/* Start Slide 2 */}
-                <div>
-                    {slide2}       
-                </div>
+                {slide2 != undefined ?
+                    <div>
+                        {slide2}       
+                    </div>
+                    :
+                    null
+                }
+                
                 {/* End Slide 2 */}
 
                 {/* Start Slide 3 */}
-                <div>
-                    {slide3}  
-                </div>
+                {slide3 != undefined ?
+                    <div>
+                        {slide3}       
+                    </div>
+                    :
+                    null
+                }
                 {/* End Slide 3 */}
             </ReactSlider>
         </div>

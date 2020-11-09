@@ -1,9 +1,10 @@
 .category-container {
-    margin-top: 5vh;
+    margin-top: 35px;
     margin-left: 12.5vw;
     margin-right: 12.5vw;
     display: flex;
     text-align: center;
+    position: relative;
 }
 
 .category-group {

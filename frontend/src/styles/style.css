@@ -1,12 +1,12 @@
 /* CSS Custom Properties Definitions */
 @font-face {
   font-family: "Eina01-Regular";
-  src: url("../static/fonts/Extratype - Eina01-Regular.otf");
+  src: url("../../static/fonts/Extratype - Eina01-Regular.otf");
 } 
 
 @font-face {
   font-family: "Eina01-Bold";
-  src: url("../static/fonts/Extratype - Eina01-Bold.otf");
+  src: url("../../static/fonts/Extratype - Eina01-Bold.otf");
 } 
 :root {
   --maxWidth-none: "none";
@@ -74,6 +74,10 @@
 :after,
 :before {
   box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
 }
 
 html {
@@ -181,6 +185,7 @@ ol {
   margin-bottom: var(--spacing-8);
   list-style-position: outside;
   list-style-image: none;
+  list-style-type: none;
 }
 
 ul li,
@@ -282,12 +287,12 @@ a:focus {
   border-radius: 25px;
   color: white;
   border: none;
-  padding: 5px 15px 5px 15px;
+  padding: 5px 10px 5px 10px;
 }
 
 .button-text {
   line-height: 25px;
-  padding-right: 10px;
+  padding: 0px 10px;
 }
 
 .text-main{
@@ -296,6 +301,7 @@ a:focus {
   color: #00A1C6;
   font-size: 3vw;
   line-height: 100%;
+  width: 100%;
 }
 
 .sub-text-main{

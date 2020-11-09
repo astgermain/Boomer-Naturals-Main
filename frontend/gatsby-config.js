@@ -67,7 +67,7 @@ module.exports = {
         // List of collections you want to fetch.
         // Possible values are: 'shop' and 'content'.
         // Defaults to ['shop', 'content'].
-        includeCollections: ["shop", "content"],
+        includeCollections: ["shop", "content", "products"],
   
         // Allow overriding the default queries
         // This allows you to include/exclude extra fields when sourcing nodes
@@ -239,6 +239,7 @@ module.exports = {
                     publishedAt
                     tags
                     title
+                    totalInventory
                     updatedAt
                     variants(first: 250) {
                       edges {
@@ -272,6 +273,7 @@ module.exports = {
                             amount
                             currencyCode
                           }
+                          quantityAvailable
                           requiresShipping
                           selectedOptions {
                             name
