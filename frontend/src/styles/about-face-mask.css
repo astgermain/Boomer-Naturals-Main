@@ -1,0 +1,45 @@
+.about-face-mask-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-face-mask-section div {
+    margin: 1rem 0;
+}
+
+.about-face-mask-section h4 {
+    color: var(--color-secondary);
+}
+
+.image-container {}
+
+.image-container .pulse-btn {}
+
+.extra-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.extra-info-container p {
+    border-left: 4px solid var(--color-secondary);
+    padding-left: 3vw;
+    display: block;
+    text-align: left;
+    width: 50%;
+}
+
+.extra-info-container .redirect-btns {
+    display: flex;
+    color: var(--color-secondary);
+    flex-direction: column;
+    max-width: 9.5rem;
+}
+
+.extra-info-container .redirect-btns a {
+    color: var(--color-secondary);
+    margin: .5rem 0;
+}
