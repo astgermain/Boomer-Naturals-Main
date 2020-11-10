@@ -140,10 +140,15 @@
   
       height: 100%;
       min-height: 1px;
+      pointer-events: none;
   }
   [dir='rtl'] .slick-slide
   {
       float: right;
+  }
+  
+  .slick-active, .slick-current {
+      pointer-events: auto;
   }
 
   .slick-slide.slick-loading img
