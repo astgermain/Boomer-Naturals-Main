@@ -91,29 +91,36 @@ const ProductCarousel = () => {
     setRenderedProductsArray(dataFilteredOnClick.products)
   }, [clickedNavBtn])
 
-  const handleNavClick = (e) => {
-    // value constant is the title of the clicked nav btn
-    const { value } = e.target
-    setClickedNavBtn(value)
-  }
+    const handleNavClick = (e) => {
+        // value constant is the title of the clicked nav btn
+        const { value } = e.target
+        setClickedNavBtn(value)
+    }
 
-  const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
-    const isActive = clickedNavBtn == title && "active"
-    return (
-      <li key={index} className={`nav-btn-list-items ${isActive}`}>
-        <div>
-          <span className={isActive}></span>
-        </div>
-        <button
-          className={`carousel-nav-btn ${isActive}`}
-          onClick={handleNavClick}
-          value={title}
-        >
-          {title}
-        </button>
-      </li>
+    const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
+        const isActive = clickedNavBtn == title && "active"
+        return (
+            <li key={index} className={`nav-btn-list-items ${isActive.toString()}`}>
+                <div>
+                    <span className={isActive.toString()}></span>
+                </div>
+                <button
+                    className={`carousel-nav-btn ${isActive.toString()}`}
+                    onClick={handleNavClick}
+                    value={title}
+                >
+                    {title}
+                </button>
+            </li>
+        )
+    })
+
+    const REDIRECT_LINK = (
+        <Link className="redirect-link" to="/">
+            <MainButton text="View All" />
+        </Link>
     )
-  })
+
 
   return (
     <section className="product-carousel-container">

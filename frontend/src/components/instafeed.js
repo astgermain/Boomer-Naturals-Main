@@ -16,9 +16,9 @@ const Instafeed = () => {
           <g
             id="Page-1"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Product-Page-Copy-7"
@@ -31,7 +31,7 @@ const Instafeed = () => {
                 y="3600"
                 width="1920"
                 height="812"
-                fill-opacity="1"
+                fillOpacity="1"
               ></rect>
               <g
                 id="Group-3"
@@ -77,11 +77,11 @@ const Instafeed = () => {
               ></rect>
               <text
                 id="“"
-                font-family="LucidaGrande, Lucida Grande"
-                font-size="96"
-                font-weight="normal"
-                line-spacing="60"
-                letter-spacing="-1.5"
+                fontFamily="LucidaGrande, Lucida Grande"
+                fontSize="96"
+                fontWeight="normal"
+                linespacing="60"
+                letterSpacing="-1.5"
                 fill="#FFFFFF"
               >
                 <tspan x="916" y="3845">
@@ -110,9 +110,9 @@ const Instafeed = () => {
           <g
             id="Page-1"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Product-Page-Copy-7"
@@ -125,7 +125,7 @@ const Instafeed = () => {
                 y="3600"
                 width="1920"
                 height="812"
-                fill-opacity="1"
+                fillOpacity="1"
               ></rect>
               <g
                 id="Group-3"
@@ -171,11 +171,11 @@ const Instafeed = () => {
               ></rect>
               <text
                 id="“"
-                font-family="LucidaGrande, Lucida Grande"
-                font-size="96"
-                font-weight="normal"
-                line-spacing="60"
-                letter-spacing="-1.5"
+                fontFamily="LucidaGrande, Lucida Grande"
+                fontSize="96"
+                fontWeight="normal"
+                linespacing="60"
+                letterSpacing="-1.5"
                 fill="#FFFFFF"
               >
                 <tspan x="916" y="3845">
@@ -204,9 +204,9 @@ const Instafeed = () => {
           <g
             id="Page-1"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Product-Page-Copy-7"
@@ -219,7 +219,7 @@ const Instafeed = () => {
                 y="3600"
                 width="1920"
                 height="812"
-                fill-opacity="1"
+                fillOpacity="1"
               ></rect>
               <g
                 id="Group-3"
@@ -265,11 +265,11 @@ const Instafeed = () => {
               ></rect>
               <text
                 id="“"
-                font-family="LucidaGrande, Lucida Grande"
-                font-size="96"
-                font-weight="normal"
-                line-spacing="60"
-                letter-spacing="-1.5"
+                fontFamily="LucidaGrande, Lucida Grande"
+                fontSize="96"
+                fontWeight="normal"
+                linespacing="60"
+                letterSpacing="-1.5"
                 fill="#FFFFFF"
               >
                 <tspan x="916" y="3845">

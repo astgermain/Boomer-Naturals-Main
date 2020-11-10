@@ -108,7 +108,7 @@ const ProductSlider = ({ collection }) => {
     let tempArr = []
     for (let i = 0; i < products.length; i++) {
       if (products[i]) {
-        let prod = <Product key={products[i].shopifyId} productInfo={products[i]} />
+        let prod = <Product key={i} productInfo={products[i]} />
         if(products[i].variants.length > 1){
           let prodVariantArr = products[i].variants.map((data)=> {
             return ({
