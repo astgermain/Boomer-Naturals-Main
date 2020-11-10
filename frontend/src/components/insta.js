@@ -27,7 +27,7 @@ const Insta = () => {
         >
           <rect
             id="Rectangle-Copy-46"
-            fill-opacity="0.25"
+            fillOpacity="0.25"
             fill="#E0F1F6"
             x="0"
             y="3600"

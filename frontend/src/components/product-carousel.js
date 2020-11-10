@@ -100,12 +100,12 @@ const ProductCarousel = () => {
     const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
         const isActive = clickedNavBtn == title && "active"
         return (
-            <li key={index} className={`nav-btn-list-items ${isActive}`}>
+            <li key={index} className={`nav-btn-list-items ${isActive.toString()}`}>
                 <div>
-                    <span className={isActive}></span>
+                    <span className={isActive.toString()}></span>
                 </div>
                 <button
-                    className={`carousel-nav-btn ${isActive}`}
+                    className={`carousel-nav-btn ${isActive.toString()}`}
                     onClick={handleNavClick}
                     value={title}
                 >

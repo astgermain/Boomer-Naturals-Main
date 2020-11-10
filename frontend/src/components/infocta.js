@@ -55,7 +55,6 @@ Infocta.defaultProps = {
 }
 
 Infocta.propTypes = {
-    svgProp:propTypes.string,
     maintextProp:propTypes.string,
     subtextProp:propTypes.string,
     buttontextProp:propTypes.string
