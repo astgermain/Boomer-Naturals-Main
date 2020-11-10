@@ -8,41 +8,43 @@ import { Link } from "gatsby"
 import "../styles/product-modal.css"
 
 const ProductModal = ({ data, setModalShow }) => {
-  let whatsAvailable = new Map()
-  {
-    /* Can break if selected options less than 3 */
-  }
   let mainArray = []
-  let array = []
   let dataSet = new Set()
-  mainArray.push(dataSet)
+  let colorSet = new Set()
   data.variants.forEach(variant => {
     if (variant.availableForSale) {
+      dataSet.add(variant)
       variant.selectedOptions.forEach(option => {
-        {
-          /*  */
-        }
         if (option.name == "Color") {
-          if (!dataSet.has(option.value)) {
-            dataSet.add(option.value)
+          if (!colorSet.has(option.value)) {
+            colorSet.add(option.value)
+            let array = []
+            dataSet.forEach(value => {
+              array.push(value)
+            })
             mainArray.push(array)
-            array = [option.value]
+            dataSet.clear()
+            dataSet.add(option.value)
           }
+        } else {
+          dataSet.add(option.value)
         }
-        array.push(option.value)
       })
-      
     }
   })
+  let array = []
+  dataSet.forEach(value => {
+    array.push(value)
+  })
+  mainArray.push(array)
   console.log(mainArray)
   let hideModal = () => {
     setModalShow({})
   }
-  console.log(data)
   return (
     <div className="product-modal">
       <h1>{data.priceRange.minVariantPrice.amount}</h1>
-      <a href="#" className="close" onClick={hideModal}></a>
+      <a className="close" onClick={hideModal}></a>
     </div>
   )
 }

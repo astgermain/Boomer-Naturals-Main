@@ -14,7 +14,7 @@ const Infocta = ({ svgProp, maintextProp, subtextProp, buttontextProp }) => {
     const [buttontext, setButtontext] = useState("");
 
     useEffect(() => {
-        console.log("")
+        
     }, [svg, maintext, subtext, buttontext])
 
     return (
