@@ -79,26 +79,6 @@
   left: 36%;
 }
 
-.info-modal {
-  transform: scale(0);
-  background: #fff;
-  padding: 1rem;
-  width: 20vw;
-  border: solid 1px gainsboro;
-  border-radius: 10px;
-  position: relative;
-  top: 55%;
-  left: 55%;
-  font-size: 1.5vw;
-  transition: transform 0.2s ease;
-  color: var(--color-heading);
-}
-
-.info-modal.show {
-  transform: scale(1);
-  z-index: 100;
-}
-
 .extra-info-container {
   display: flex;
   justify-content: center;
