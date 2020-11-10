@@ -14,7 +14,7 @@ const Infocta = ({ svgProp, maintextProp, subtextProp, buttontextProp }) => {
     const [buttontext, setButtontext] = useState("");
 
     useEffect(() => {
-        
+
     }, [svg, maintext, subtext, buttontext])
 
     return (
@@ -52,9 +52,9 @@ Infocta.defaultProps = {
 }
 
 Infocta.propTypes = {
-    maintextProp:propTypes.string,
-    subtextProp:propTypes.string,
-    buttontextProp:propTypes.string
+    maintextProp: propTypes.string,
+    subtextProp: propTypes.string,
+    buttontextProp: propTypes.string
 }
 
 
