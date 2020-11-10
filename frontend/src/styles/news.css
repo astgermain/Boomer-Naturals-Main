@@ -1,0 +1,29 @@
+.news-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0;
+}
+
+.news-section .slider-container {
+    width: 50vw;
+}
+
+.video-slide {}
+
+.video-details {
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: solid #acc6ce 1px;
+}
+
+.video-slide p {
+    display: inline-block;
+    margin: 0;
+}
+
+.video-slide a {
+    display: inline-block;
+    color: var(--color-secondary);
+}
