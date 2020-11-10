@@ -13,6 +13,7 @@ import Search from "./search"
 import AboutFaceMask from "./about-face-mask"
 import Insta from "./insta"
 import Footer from "./footer"
+import News from "./news"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -52,6 +53,7 @@ const Layout = ({ location, title, children }) => {
         <AsSeenOn />
         <Email />
         <AboutFaceMask />
+        <News />
       </main>
 
       <footer><Footer /></footer>
