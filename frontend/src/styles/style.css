@@ -342,6 +342,10 @@ a:focus {
     transition: width .8s ease;
 }
 
+.hamburger-menu {
+  display: none;
+}
+
 .header-container {
     width: 80%;
     height: 100%;

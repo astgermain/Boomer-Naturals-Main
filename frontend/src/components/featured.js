@@ -28,6 +28,7 @@ const Featured = () => {
           }
           products {
             title
+            shopifyId
             onlineStoreUrl
             descriptionHtml
             availableForSale

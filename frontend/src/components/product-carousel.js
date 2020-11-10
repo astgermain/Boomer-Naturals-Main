@@ -32,6 +32,7 @@ const ProductCarousel = () => {
           }
           products {
             title
+            shopifyId
             onlineStoreUrl
             descriptionHtml
             availableForSale

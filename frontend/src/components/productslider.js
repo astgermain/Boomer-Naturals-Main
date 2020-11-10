@@ -1,9 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, createContext } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Slider from "./slider"
 import Product from "./product"
+import ProductModal from "./product-modal"
 import "../styles/product.css"
+
+export const ProductSliderContext = createContext(null)
 
 const ProductSlider = ({ collection }) => {
   {
@@ -101,14 +104,18 @@ const ProductSlider = ({ collection }) => {
   let slider = undefined
   let collectionSize = 0
   let prodData = []
+  const [modalShow, setModalShow] = useState("")
 
+  const handleModalShow = e => {
+    setModalShow(e)
+  }
   // Uses the product stack to generate product components
   let populateProductSliderData = products => {
     collectionSize = products.length
     let tempArr = []
     for (let i = 0; i < products.length; i++) {
       if (products[i]) {
-        let prod = <Product key={i} productInfo={products[i]} />
+        let prod = <Product key={i} productInfo={products[i]} handleModalShow={handleModalShow} />
         if(products[i].variants.length > 1){
           let prodVariantArr = products[i].variants.map((data)=> {
             return ({
@@ -186,9 +193,9 @@ const ProductSlider = ({ collection }) => {
     itemListElement: { prodData },
   }
   let strucDataJson = JSON.stringify(strucData)
-
   return (
     <div className="product-slider">
+      {modalShow.availableForSale && <ProductModal data={modalShow} setModalShow={setModalShow} />}
       {/* Script is for structured data and SEO purposes            */}
       <script type="application/ld+json">{strucDataJson}</script>
       {collection.title}
