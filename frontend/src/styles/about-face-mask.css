@@ -19,8 +19,8 @@
 
 .image-container .pulse-btn {
   position: relative;
-  top: 50%;
-  left: 50%;
+  /* top: 50%; */
+  /* left: 50%; */
   display: block;
   width: 2vw;
   height: 2vw;
@@ -31,10 +31,11 @@
   box-shadow: 0 0 0 0 rgba(0, 160, 197, 0.5);
   animation: pulse 1.5s infinite;
   color: white;
+  display: inline-flex;
 }
 .image-container .pulse-btn span {
   position: absolute;
-  padding: 1.333vw;
+  padding: .77vw;
   display: flex;
   height: 10px;
   align-items: center;
@@ -59,23 +60,23 @@
 }
 
 .image-container .pulse-btn-1 {
-  top: -8vw;
-  left: 27%;
+  top: -10vw;
+  left: -20%;
 }
 
 .image-container .pulse-btn-2 {
-  top: -20vw;
-  left: 48%;
+  top: -15vw;
+  left: 2%;
 }
 
 .image-container .pulse-btn-3 {
   top: -10vw;
-  left: 64%;
+  left: 10%;
 }
 
 .image-container .pulse-btn-4 {
-  top: -13vw;
-  left: 92%;
+  top: -11vw;
+  left: 36%;
 }
 
 .info-modal {
