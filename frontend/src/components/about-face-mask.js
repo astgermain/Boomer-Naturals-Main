@@ -4,7 +4,6 @@ import "../styles/about-face-mask.css"
 import MainButton from "./main-button"
 
 import MaskImg from "../../content/assets/mask.png"
-import MiniInfoModal from "./mini-info-modal"
 
 const AboutFaceMask = () => {
 
