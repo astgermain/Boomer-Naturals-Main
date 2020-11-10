@@ -11,18 +11,23 @@ const ProductModal = ({ data, setModalShow }) => {
   let mainArray = []
   let dataSet = new Set()
   let colorSet = new Set()
+  let start = true
   data.variants.forEach(variant => {
-    if (variant.availableForSale) {
-      dataSet.add(variant)
+    if (variant.availableForSale) {    
       variant.selectedOptions.forEach(option => {
         if (option.name == "Color") {
           if (!colorSet.has(option.value)) {
             colorSet.add(option.value)
             let array = []
-            dataSet.forEach(value => {
-              array.push(value)
-            })
-            mainArray.push(array)
+            if(!start){
+              dataSet.forEach(value => {
+                array.push(value)
+              })
+              mainArray.push(array)
+            }
+            else{
+              start = false
+            }
             dataSet.clear()
             dataSet.add(option.value)
           }
@@ -30,6 +35,7 @@ const ProductModal = ({ data, setModalShow }) => {
           dataSet.add(option.value)
         }
       })
+      dataSet.add(variant)
     }
   })
   let array = []
