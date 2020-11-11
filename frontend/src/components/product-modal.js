@@ -18,12 +18,9 @@ const ProductModal = ({ data, setModalShow }) => {
         if (option.name == "Color") {
           if (!colorSet.has(option.value)) {
             colorSet.add(option.value)
-            let array = []
             if(!start){
-              dataSet.forEach(value => {
-                array.push(value)
-              })
-              mainArray.push(array)
+              let tmp = new Set(dataSet)
+              mainArray.push(tmp)
             }
             else{
               start = false
@@ -43,7 +40,6 @@ const ProductModal = ({ data, setModalShow }) => {
     array.push(value)
   })
   mainArray.push(array)
-  console.log(mainArray)
   let hideModal = () => {
     setModalShow({})
   }
