@@ -5,6 +5,7 @@ import Slider from "./slider"
 import Product from "./product"
 import ProductModal from "./product-modal"
 import "../styles/product.css"
+import { Fade } from "react-awesome-reveal"
 
 export const ProductSliderContext = createContext(null)
 
@@ -115,10 +116,16 @@ const ProductSlider = ({ collection }) => {
     let tempArr = []
     for (let i = 0; i < products.length; i++) {
       if (products[i].availableForSale) {
-        let prod = <Product key={i} productInfo={products[i]} handleModalShow={handleModalShow} />
-        if(products[i].variants.length > 1){
-          let prodVariantArr = products[i].variants.map((data)=> {
-            return ({
+        let prod = (
+          <Product
+            key={i}
+            productInfo={products[i]}
+            handleModalShow={handleModalShow}
+          />
+        )
+        if (products[i].variants.length > 1) {
+          let prodVariantArr = products[i].variants.map(data => {
+            return {
               "@type": "Product",
               image: `${data.image.originalSrc}`,
               /* TODO: Need URL For Variants */
@@ -126,12 +133,12 @@ const ProductSlider = ({ collection }) => {
               name: `${products[i].title} ${data.title}`,
               offers: {
                 "@type": "Offer",
-                "availability": "https://schema.org/InStock",
+                availability: "https://schema.org/InStock",
                 price: `${data.priceV2.amount}`,
-                "priceCurrency": `${data.priceV2.currencyCode}`
+                priceCurrency: `${data.priceV2.currencyCode}`,
               },
               /* TODO: Products need reviews entered in structured data */
-            })
+            }
           })
           prodData.push({
             "@type": "ProductGroup",
@@ -141,14 +148,13 @@ const ProductSlider = ({ collection }) => {
             name: `${products[i].title}`,
             offers: {
               "@type": "Offer",
-              "availability": "https://schema.org/InStock",
+              availability: "https://schema.org/InStock",
               price: `${products[i].title}`,
-              "priceCurrency": "USD"
+              priceCurrency: "USD",
             },
-            "hasVariant": prodVariantArr,
+            hasVariant: prodVariantArr,
           })
-        }
-        else {
+        } else {
           prodData.push({
             "@type": "Product",
             image: `${products[i].images[0].originalSrc}`,
@@ -167,10 +173,9 @@ const ProductSlider = ({ collection }) => {
         tempArr = []
       }
     }
-    if(tempArr.length > 0){
+    if (tempArr.length > 0) {
       slideData.push(tempArr)
     }
-    
   }
 
   // Uses products components to populate Product Slider up to 3
@@ -198,13 +203,17 @@ const ProductSlider = ({ collection }) => {
   }
   let strucDataJson = JSON.stringify(strucData)
   return (
-    <div className="product-slider">
-      {modalShow.availableForSale && <ProductModal data={modalShow} setModalShow={setModalShow} />}
-      {/* Script is for structured data and SEO purposes            */}
-      <script type="application/ld+json">{strucDataJson}</script>
-      {collection.title}
-      {slider}
-    </div>
+    
+      <div className="product-slider">
+        {modalShow.availableForSale && (
+          <ProductModal data={modalShow} setModalShow={setModalShow} />
+        )}
+        {/* Script is for structured data and SEO purposes            */}
+        <script type="application/ld+json">{strucDataJson}</script>
+        {collection.title}
+        {slider}
+      </div>
+    
   )
 }
 
