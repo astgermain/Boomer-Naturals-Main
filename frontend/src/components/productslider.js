@@ -114,7 +114,7 @@ const ProductSlider = ({ collection }) => {
     collectionSize = products.length
     let tempArr = []
     for (let i = 0; i < products.length; i++) {
-      if (products[i]) {
+      if (products[i].availableForSale) {
         let prod = <Product key={i} productInfo={products[i]} handleModalShow={handleModalShow} />
         if(products[i].variants.length > 1){
           let prodVariantArr = products[i].variants.map((data)=> {
@@ -167,6 +167,10 @@ const ProductSlider = ({ collection }) => {
         tempArr = []
       }
     }
+    if(tempArr.length > 0){
+      slideData.push(tempArr)
+    }
+    
   }
 
   // Uses products components to populate Product Slider up to 3
