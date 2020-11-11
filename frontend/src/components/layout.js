@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
@@ -18,11 +18,17 @@ import News from "./news"
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  
+  const [clickedSearch, setClickedSearch] = useState(false)
+  
+  const handleSearchClick = () => {
+    clickedSearch ? setClickedSearch(false) : setClickedSearch(true)
+  }
+  
   let header
-
   if (isRootPath) {
     header = (
-      <Header title={title} />
+      <Header clickSearch={handleSearchClick} title={title} />
       /*
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
@@ -31,7 +37,7 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <Header />
+      <Header clickSearch={handleSearchClick} />
       /*
       <Link className="header-link-home" to="/">
         {title}
@@ -45,6 +51,7 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
 
       <main>
+        {clickedSearch && <Search />}
         <Hero />
         <Featured />
         <Categories />

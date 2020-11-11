@@ -7,8 +7,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import logo from "../../content/assets/bnlogoheader.png"
+import Search from "./search"
 
-const Header = ({ description, lang, meta, title }) => {
+const Header = ({ description, lang, meta, title, clickSearch }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -52,7 +53,7 @@ const Header = ({ description, lang, meta, title }) => {
         <div className="header-icons">
           {/* Search Icon SVG */}
           <Link to="/">
-            <div className="header-icon search-icon">
+            <div onClick={clickSearch} className="header-icon search-icon">
               <svg
                 width="20px"
                 height="20px"
@@ -373,7 +374,7 @@ const Header = ({ description, lang, meta, title }) => {
         </div>
         <div className="header-icons">
           {/* Search Icon SVG */}
-          <div className="header-icon">
+          <div onClick={clickSearch} className="header-icon">
             <svg
               width="20px"
               height="20px"
