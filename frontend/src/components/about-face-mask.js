@@ -2,27 +2,27 @@ import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql, Link, StaticQuery } from "gatsby"
 import "../styles/about-face-mask.css"
 import MainButton from "./main-button"
-
 import MaskImg from "../../content/assets/mask.png"
+import { Slide } from "react-awesome-reveal"
 
 const AboutFaceMask = () => {
 
-    const [btnState, setBtnState] = useState("1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis")
+    const [btnState, setBtnState] = useState("Click on a button to learn more about our face masks. It's really exciting.")
 
     const handleHoverEvent = hoveredBtn => {
-
+        
         switch (hoveredBtn) {
             case 1:
-                setBtnState("1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis")
+                setBtnState(<Slide direction="right">"1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis"</Slide>)
                 break;
             case 2:
-                setBtnState("2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis")
+                setBtnState(<Slide direction="up">"Perspiciatis voluptatibus corporis 2 Lorem ipsum dolor sit amet consectetur adipisicing elit."</Slide>)
                 break;
             case 3:
-                setBtnState("3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis")
+                setBtnState(<Slide direction="left">"sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis 3 Lorem ipsum dolor"</Slide>)
                 break;
             case 4:
-                setBtnState("4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis")
+                setBtnState(<Slide direction="down">"amet consectetur adipisicing elit. 3 Lorem ipsum dolor sit  Perspiciatis voluptatibus corporis"</Slide>)
                 break;
             default:
                 break;

@@ -7,8 +7,9 @@
 }
 
 .product-slider {
-  margin-top: 35px;
-  width: 50vw;
+  margin-top: 20px;
+  width: 60vw;
+  justify-content: flex-end;
 }
 
 .product-slider-inner {
@@ -23,8 +24,6 @@
 
 .product-header {
   border: 1px solid gainsboro;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   display: flex;
   flex-flow: wrap;
   font-size: var(--fontSize-0);
@@ -52,6 +51,7 @@
 .price-mini {
   display: flex;
   justify-content: flex-end;
+  color: var(--color-secondary)
 }
 
 .product-images {

@@ -2,7 +2,7 @@
 .product-carousel-container{
     display: flex;
     margin: 0 12.5vw;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .carousel-nav-links-container {
