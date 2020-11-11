@@ -43,13 +43,23 @@ const ProductModal = ({ data, setModalShow }) => {
   let hideModal = () => {
     setModalShow({})
   }
+  console.log(mainArray)
+  console.log(data)
   return (
+    
       <Slide direction="up" className="product-modal">
-        <div>
-        <h1>{data.priceRange.minVariantPrice.amount}</h1>
+        <div className="product-modal">
+        <div className="modal-options">
+        <div className="modal-price">from ${data.priceRange.minVariantPrice.amount}</div>
         <a className="close" onClick={hideModal}></a>
         </div>
-        
+        <div className="modal-variants">
+
+        </div>
+        <div className="modal-image">
+
+        </div>
+        </div>
     </Slide>
   )
 }

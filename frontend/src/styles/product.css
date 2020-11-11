@@ -11,6 +11,11 @@
   width: 50vw;
 }
 
+.product-slider-inner {
+    margin-top: 0px;
+    width: 50vw;
+  }
+
 .product-container {
   width: 16.6667vw;
   padding: 10px;

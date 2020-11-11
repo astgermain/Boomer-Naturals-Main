@@ -34,3 +34,22 @@
 .close:after {
   transform: rotate(-45deg);
 }
+
+.modal-price {
+    color: var(--color-secondary)
+}
+
+.modal-options {
+    width: 25%;
+    height: 100%;
+}
+
+.modal-variants {
+    width: 20%;
+    height: 100%;
+}
+
+.modal-image {
+    width: 55%;
+    height: 100%;
+}
