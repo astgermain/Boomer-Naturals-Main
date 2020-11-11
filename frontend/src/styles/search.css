@@ -1,0 +1,9 @@
+.search-form {}
+
+.search-form input {
+    width: 100%;
+    height: 4rem;
+    text-align: center;
+    background: #E0F1F6;
+    border: var(--color-accent) solid 1px;
+}
