@@ -5,7 +5,7 @@ import Slider from "./slider"
 import Product from "./product"
 import ProductModal from "./product-modal"
 import "../styles/product.css"
-import { Fade } from "react-awesome-reveal"
+import { Zoom } from "react-awesome-reveal"
 
 export const ProductSliderContext = createContext(null)
 
@@ -203,7 +203,7 @@ const ProductSlider = ({ collection }) => {
   }
   let strucDataJson = JSON.stringify(strucData)
   return (
-    
+    <Zoom style={{ display: "flex" }} triggerOnce={true} className="product-slider">
       <div className="product-slider">
         {modalShow.availableForSale && (
           <ProductModal data={modalShow} setModalShow={setModalShow} />
@@ -211,9 +211,10 @@ const ProductSlider = ({ collection }) => {
         {/* Script is for structured data and SEO purposes            */}
         <script type="application/ld+json">{strucDataJson}</script>
         {collection.title}
+
         {slider}
       </div>
-    
+    </Zoom>
   )
 }
 

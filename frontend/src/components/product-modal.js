@@ -6,6 +6,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import "../styles/product-modal.css"
+import { Slide } from "react-awesome-reveal"
 
 const ProductModal = ({ data, setModalShow }) => {
   let mainArray = []
@@ -13,16 +14,15 @@ const ProductModal = ({ data, setModalShow }) => {
   let colorSet = new Set()
   let start = true
   data.variants.forEach(variant => {
-    if (variant.availableForSale) {    
+    if (variant.availableForSale) {
       variant.selectedOptions.forEach(option => {
         if (option.name == "Color") {
           if (!colorSet.has(option.value)) {
             colorSet.add(option.value)
-            if(!start){
+            if (!start) {
               let tmp = new Set(dataSet)
               mainArray.push(tmp)
-            }
-            else{
+            } else {
               start = false
             }
             dataSet.clear()
@@ -44,10 +44,13 @@ const ProductModal = ({ data, setModalShow }) => {
     setModalShow({})
   }
   return (
-    <div className="product-modal">
-      <h1>{data.priceRange.minVariantPrice.amount}</h1>
-      <a className="close" onClick={hideModal}></a>
-    </div>
+      <Slide direction="up" className="product-modal">
+        <div>
+        <h1>{data.priceRange.minVariantPrice.amount}</h1>
+        <a className="close" onClick={hideModal}></a>
+        </div>
+        
+    </Slide>
   )
 }
 
