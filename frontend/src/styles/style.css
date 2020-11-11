@@ -290,7 +290,7 @@ a:focus {
 .main-site-button {
     display: flex;
     background: #00A1C6;
-    border-radius: 25px;
+    border-radius: 25px !important;
     color: white;
     border: none;
     padding: 5px 10px 5px 10px;
