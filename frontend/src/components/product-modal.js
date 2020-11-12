@@ -10,12 +10,15 @@ import { Slide } from "react-awesome-reveal"
 
 const ProductModal = ({ data, setModalShow }) => {
   const [quantity, setQuantity] = useState(0)
+  const [selectedVariant, setSelectedVariant] = useState({})
+  const [selectedAgeGroup, setSelectedAgeGroup] = useState("")
+  const [selectedSize, setSelectedSize] = useState("")
+
   let mainArray = []
   let dataSet = new Set()
   let colorSet = new Set()
   let tempHolder = []
   let start = true
-  console.log(data)
   data.variants.forEach(variant => {
     if (variant.availableForSale) {
       variant.selectedOptions.forEach(option => {
@@ -60,8 +63,6 @@ const ProductModal = ({ data, setModalShow }) => {
   let hideModal = () => {
     setModalShow({})
   }
-  console.log(mainArray)
-  console.log(data)
   let priceFormat = price => {
     price *= 100
     price = price.toString()
@@ -80,10 +81,14 @@ const ProductModal = ({ data, setModalShow }) => {
     setQuantity(quantity + 1)
   }
   let generateVariantThumbs = variantData => {
-    console.log(variantData)
+    return variantData.map((data) => {
+      return (
+        <img src={data[0].image.originalSrc} className="variant-thumb" />
+      )
+    })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-
+  
   let handleSub = () => {
     setQuantity(quantity - 1)
   }
@@ -93,8 +98,16 @@ const ProductModal = ({ data, setModalShow }) => {
       <div className="product-modal-inner">
         <div className="modal-options">
           <div className="modal-price">from ${formattedPrice}</div>
-          <div className="modal-type"></div>
-          <div className="modal-size"></div>
+          <div className="modal-type">
+            <div className="adult-type">Adult</div>
+            <div className="kid-type">Children</div>
+          </div>
+          <div className="modal-size">
+            <div className="product-size-option">S</div>
+            <div className="product-size-option">M</div>
+            <div className="product-size-option">L</div>
+            <div className="product-size-option">XL</div>
+          </div>
           <div className="modal-quantity">
             <span>Quantity</span>
             <div className="quantityButton">
@@ -113,8 +126,10 @@ const ProductModal = ({ data, setModalShow }) => {
           <a className="close" onClick={hideModal}></a>
         </div>
         <div className="modal-variants">
-          <span>Select</span>
-          <div className="variants-thumbnails"></div>
+          <span className="variant-text">Select</span>
+          <div className="variants-thumbnails">
+            {variantThumbs}
+          </div>
         </div>
         <div className="modal-image"></div>
       </div>
