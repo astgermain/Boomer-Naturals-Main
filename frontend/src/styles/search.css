@@ -1,4 +1,7 @@
 .search-section {}
+.search-section .close {
+    top: 133px;
+}
 
 .search-section input {
     width: 100%;

@@ -6,7 +6,7 @@ import SearchResults from "./search-results"
 // Needs to pass shopifyId to results page to render products
 // Possible to just have a popup and render results same page
 
-const Search = () => {
+const Search = ({ closeSearch }) => {
 
   const data = useStaticQuery(graphql`
   {
@@ -80,19 +80,22 @@ const Search = () => {
 
   return (
     <section className="search-section">
-      <form onSubmit={handleSubmit} className="search-form">
-        <label>
-          <input
-            name="search"
-            type="input"
-            value={searchValue}
-            onChange={e => setSearchValue(e.target.value)}
-            placeholder="Search Boomer Naturals"
-          />
-        </label>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit} className="search-form">
+          <label>
+            <input
+              name="search"
+              type="input"
+              value={searchValue}
+              onChange={e => setSearchValue(e.target.value)}
+              placeholder="Search Boomer Naturals"
+            />
+          </label>
+        </form>
+        <a className="close" onClick={closeSearch}></a>
+      </div>
       {searchValue && <SearchResults productsArray={searchResults} searchInput={searchValue} />}
-      
+
     </section>
   )
 }
