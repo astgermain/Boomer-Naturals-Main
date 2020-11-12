@@ -1,22 +1,22 @@
 .product-modal {
-    position: absolute;
-    width: 75vw;
-    max-height: 330px;
-    height: 100%;
-    z-index: 10;
-    background: white;
-    display: flex;
-    margin-left: -24.5vw;
+  position: absolute;
+  width: 75vw;
+  max-height: 330px;
+  height: 100%;
+  z-index: 10;
+  background: white;
+  display: flex;
+  margin-left: -24.5vw;
 }
 
 .product-modal-inner {
-    width: 80vw;
-    max-height: 330px;
-    height: 100%;
-    z-index: 9;
-    border: 1px solid gainsboro;
-    display: flex;
-  }
+  width: 80vw;
+  max-height: 330px;
+  height: 100%;
+  z-index: 9;
+  border: 1px solid gainsboro;
+  display: flex;
+}
 
 .close {
   position: absolute;
@@ -47,79 +47,103 @@
 }
 
 .modal-price {
-    color: var(--color-secondary);
-    font-size: var(--fontSize-4);
+  color: var(--color-secondary);
+  font-size: var(--fontSize-4);
+  width: 100%;
 }
 
 .modal-options {
-    width: 25%;
-    height: 100%;
-    border-right: 1px solid gainsboro;
-    padding: 25px;
-    flex-wrap: wrap;
+  width: 25%;
+  height: 100%;
+  border-right: 1px solid gainsboro;
+  padding: 25px;
+  flex-wrap: wrap;
+  display: flex;
+  align-content: space-between;
 }
 
 .modal-variants {
-    width: 20%;
-    height: 100%;
-    border-right: 1px solid gainsboro;
-    display: flex;
-    flex-wrap: wrap;
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid gainsboro;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
 
 .modal-variants span {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 .modal-image {
-    width: 55%;
-    height: 100%;
+  width: 55%;
+  height: 100%;
 }
 
 .modal-quantity {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.modal-quantity span{
-    font-family: var(--fontFamily-reg);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
-.quantityButton {
-    border: 1px solid gainsboro;
-    display: flex;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.quantityButton span{
-    font-family: var(--fontFamily-bold);
-}
-
-.quantityButtonPartL {
-    padding: 0 20px 0 10px;
-    font-size: 15px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none;
-}
-.quantityButtonPartR {
-    padding: 0 10px 0 20px;
-    font-size: 15px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none;
+.modal-quantity span {
+  font-family: var(--fontFamily-reg);
 }
 
 .modal-submit {
-    text-align: center;
-    font-size: var(--fontSize-2);
-    color: var(--color-secondary);
+  text-align: center;
+  font-size: var(--fontSize-2);
+  color: var(--color-secondary);
+  width: 100%;
+}
+
+.quantityButton {
+  border: 1px solid gainsboro;
+  display: flex;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.quantityButton span {
+  font-family: var(--fontFamily-bold);
+}
+
+.quantityButtonPartL {
+  padding: 0 20px 0 10px;
+  font-size: 15px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.quantityButtonPartR {
+  padding: 0 10px 0 20px;
+  font-size: 15px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.variants-thumbnails {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.variant-thumb {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+}
+.variant-text {
+  padding: 10px 0px;
 }
