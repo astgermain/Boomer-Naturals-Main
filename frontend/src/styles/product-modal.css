@@ -1,12 +1,12 @@
 .product-modal {
     position: absolute;
-    width: 74vw;
+    width: 75vw;
     max-height: 330px;
     height: 100%;
     z-index: 10;
     background: white;
     display: flex;
-    margin-left: -24vw;
+    margin-left: -24.5vw;
 }
 
 .product-modal-inner {
@@ -25,6 +25,7 @@
   width: 32px;
   height: 32px;
   opacity: 0.3;
+  cursor: pointer;
 }
 .close:hover {
   opacity: 1;
