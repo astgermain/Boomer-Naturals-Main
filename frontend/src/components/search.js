@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import "../styles/search.css"
+import SearchResults from "./search-results"
 // Needs regex
 // Needs to pass shopifyId to results page to render products
 // Possible to just have a popup and render results same page
@@ -32,10 +33,10 @@ const Search = () => {
       })
     )
   }, [searchValue])
-
+console.log("searchresults ->",searchResults)
   return (
-    <section className="search-form">
-      <form>
+    <section className="search-section">
+      <form className="search-form">
         <label>
           <input
             name="search"
@@ -46,6 +47,7 @@ const Search = () => {
           />
         </label>
       </form>
+        <SearchResults />
     </section>
   )
 }
