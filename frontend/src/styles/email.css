@@ -3,37 +3,38 @@
 * Start Email Capture Section
 *
 */
-.email-section{
-    margin-top: 35px;
-    padding: 5vw 10vw;
-    background-color: #00A0C5;
+.email-section {
+  margin-top: 35px;
+  padding: 5vw 10vw;
+  background-color: #00a0c5;
 }
 
 .inner-email-container {
-    width: 80vw;
-    display: flex;
-    align-items: center;
+  width: 80vw;
+  display: flex;
+  align-items: center;
 }
 
-.email-text{
-    width: 45vw;
+.email-text {
+  width: 45vw;
 }
-.klaviyo-form{
-    width: 35vw;
+.klaviyo-form {
+  width: 35vw;
 }
 /* Text */
-.email-main-text{
-    font-family: var(--fontFamily-bold);
-    font-weight: 800;
-    color: rgb(255, 255, 255);
-    font-size: 3vw;
-    line-height: 100%;
-   }
-.email-sub-text{
-    font-family: var(--fontFamily-reg);
-    font-weight: 100;
-    color: rgb(255, 255, 255);
-    font-size: 1.6vw;
-    line-height: 100%;
+.email-main-text {
+  font-family: var(--fontFamily-bold);
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  font-size: 3vw;
+  line-height: 100%;
+}
+.email-sub-text {
+  font-family: var(--fontFamily-reg);
+  font-weight: 100;
+  color: rgb(255, 255, 255);
+  font-size: 1.6vw;
+  line-height: 100%;
 }
 /* Klayvio Email Capture */
+
