@@ -13,7 +13,7 @@ const ProductModal = ({ data, setModalShow }) => {
   const [selectedVariant, setSelectedVariant] = useState({})
   const [selectedAgeGroup, setSelectedAgeGroup] = useState("")
   const [selectedSize, setSelectedSize] = useState("")
-  
+
   let mainArray = []
   let dataSet = new Set()
   let colorSet = new Set()
@@ -98,8 +98,16 @@ const ProductModal = ({ data, setModalShow }) => {
       <div className="product-modal-inner">
         <div className="modal-options">
           <div className="modal-price">from ${formattedPrice}</div>
-          <div className="modal-type"></div>
-          <div className="modal-size"></div>
+          <div className="modal-type">
+            <div className="adult-type">Adult</div>
+            <div className="kid-type">Children</div>
+          </div>
+          <div className="modal-size">
+            <div className="product-size-option">S</div>
+            <div className="product-size-option">M</div>
+            <div className="product-size-option">L</div>
+            <div className="product-size-option">XL</div>
+          </div>
           <div className="modal-quantity">
             <span>Quantity</span>
             <div className="quantityButton">

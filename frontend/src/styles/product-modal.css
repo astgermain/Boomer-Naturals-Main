@@ -62,18 +62,61 @@
   align-content: space-between;
 }
 
+.modal-type {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.adult-type, .kid-type {
+    padding: 5px 20px;
+    border: 1px solid gainsboro;
+    cursor: pointer;
+    border-radius: 20px;
+    -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.modal-size {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.product-size-option {
+    border: 1px solid gainsboro;
+    padding: 10px;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
 .modal-variants {
-  width: 20%;
-  height: 100%;
-  border-right: 1px solid gainsboro;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid gainsboro;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    align-content: flex-start;
 }
 
 .modal-variants span {
   text-align: center;
   width: 100%;
+  height: 50px;
 }
 
 .modal-image {
@@ -135,14 +178,22 @@
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 5px;
+  padding: 5px;
 }
 
 .variant-thumb {
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 4vw;
+  height: 4vw;
   cursor: pointer;
+  margin: 3px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  border: 1px solid gainsboro;
 }
 .variant-text {
   padding: 10px 0px;
