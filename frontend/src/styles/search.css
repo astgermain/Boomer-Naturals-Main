@@ -7,3 +7,25 @@
     background: #E0F1F6;
     border: var(--color-accent) solid 1px;
 }
+
+.results-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.results-list .product-image {
+    height: auto;
+}
+
+.search-results {
+    z-index: 1;
+    position: absolute;
+    background: #FFF;
+    border: 1px solid;
+    width: 100%;
+}
+
+.results-info {
+    display: block;
+    text-align: center;
+}

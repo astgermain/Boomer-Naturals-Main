@@ -13,17 +13,20 @@ const SearchResults = ({ productsArray, searchInput }) => {
     const PRODUCT_LIST_ITEMS = productsArray.map(
         product =>
             <li key={product.shopifyId}>
-                <Product productInfo={product} />
+                <Product productInfo={product} handleModalShow={handleModalShow} />
             </li>
     )
     
-        const NO_RESULTS_MSG = (
-            <li className="no-results">Your search for "{searchInput}" did not yield any results.</li>
-        )
+    const NO_RESULTS_MSG = (
+        <li className="no-results">Your search for "{searchInput}" did not yield any results.</li>
+    )
     
     return (
         <div className="search-results">
-            <ul>
+            <span className="results-info">
+                Showing {productsArray.length} result{productsArray.length === 1 ? "" : "s"} for "{searchInput}"
+            </span>
+            <ul className="results-list">
                 {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
             </ul>
         </div>
