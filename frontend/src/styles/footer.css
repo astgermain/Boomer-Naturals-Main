@@ -1,138 +1,259 @@
 .footer-container {
-    margin: 0 12.5vw;
+  margin: 0 12.5vw;
 }
 .footer-top {
-    height: 75px;
+  height: 75px;
 }
 
 .footer-bottom {
-    padding: 5vh 0;
-    border-top: 1px solid gainsboro;
-    display: flex;
+  padding: 5vh 0;
+  border-top: 1px solid gainsboro;
+  display: flex;
 }
 
 .footer-bottom-left {
-    width: 70%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-family: var(--fontFamily-reg);
-    font-size: var(--fontSize-0);
-    justify-content: space-between;
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: var(--fontFamily-reg);
+  font-size: var(--fontSize-0);
+  justify-content: space-between;
 }
 
 .footer-bottom-socials {
-    width: 30%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-family: var(--fontFamily-reg);
-    font-size: var(--fontSize-0);
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: var(--fontFamily-reg);
+  font-size: var(--fontSize-0);
 }
 
 .footer-bottom-socials a {
-    margin: 0 0 0 5%;
+  margin: 0 0 0 5%;
 }
 
 .bottom-footer-link {
-    padding: 25px 5px;
+  padding: 25px 5px;
 }
 .bottom-footer-link:after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: var(--color-secondary);
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: var(--color-secondary);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
 }
 
 .bottom-footer-link:after:hover {
-    width: 100%;
-    left: 0;
+  width: 100%;
+  left: 0;
 }
+/* Instagram */
 .instagramIcon {
-    display: inline;
+  display: inline;
 }
 .instagramIcon:hover:before {
-	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	display: initial;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
 }
-
-.iconBorder {
-    fill: var(--color-primary);
-}
-.iconeffect:hover .iconBorder {
-    fill: transparent;
-}
-
-
 
 .iconB {
-    fill: #FFFFFF;
-    -moz-transition: all .3s ease-in;
-	-o-transition: all .3s ease-in;
-	-webkit-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
-	-webkit-animation: iconeff .3s;
-	animation: iconeff .3s;
-	animation-fill-mode: forwards;
+  fill: #ffffff;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
 }
 .iconeffect:hover .iconB {
-    -moz-transition: all .3s ease-in;
-	-o-transition: all .3s ease-in;
-	-webkit-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
-	-webkit-animation: iconeff .3s;
-	animation: iconeff .3s;
-	animation-fill-mode: forwards;
-    fill: url(#rg);
-    
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
+  fill: url(#rg);
 }
 
 .iconB2 {
-    fill: var(--color-primary);
+  fill: var(--color-primary);
 }
 .iconeffect:hover .iconB2 {
-    fill:  var(--color-primary);
+  fill: #ffffff;
 }
 
+/* facebook */
+
+.facebookIcon {
+  display: inline;
+}
+.facebookIcon:hover:before {
+  background: radial-gradient(circle at 30% 107% #3b5998);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+
+.iconC {
+  fill: #ffffff;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
+}
+.iconeffect:hover .iconC {
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
+  fill: #3b5998;
+}
+.iconC2 {
+  fill: var(--color-primary);
+}
+.iconeffect:hover .iconC2 {
+  fill: var(--color-primary);
+}
+
+/* youtube */
+
+.youtubeIcon {
+  display: inline;
+}
+.youtubeIcon:hover:before {
+  background: radial-gradient(circle at 30% 107% #3b5998);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+
+.iconD {
+  fill: #ffffff;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
+}
+.iconeffect:hover .iconD {
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
+  fill: #ff0000;
+}
+
+.iconD2 {
+  fill: #000000;
+}
+.iconeffect:hover .iconD2 {
+  fill: var(--color-primary);
+}
+
+/* twitter */
+.twitterIcon {
+  display: inline;
+}
+.twitterIcon:hover:before {
+  background: radial-gradient(circle at 30% 107%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+.iconE {
+  fill: #ffffff;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
+}
+.iconeffect:hover .iconE {
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
+  fill:#1DA1F2;
+}
+.iconE2 {
+  fill: var(--color-primary);
+}
+.iconeffect:hover .iconE2 {
+  fill: var(--color-primary);
+}
+
+/* all styles social media buttons */
+.iconBorder {
+  fill: var(--color-primary);
+}
+.iconeffect:hover .iconBorder {
+  fill: transparent;
+}
 
 .iconeffect {
-	display: block;
+  display: block;
 }
 
-
 .iconeffect:hover {
-	background: var(--color-primary);
-	border-radius: 50%;
-    line-height: 45px;
-	transform-origin: left;
-	-moz-transition: all .3s ease-in;
-	-o-transition: all .3s ease-in;
-	-webkit-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
-	-webkit-animation: iconeff .3s;
-	animation: iconeff .3s;
-	animation-fill-mode: forwards;
+  background: white;
+  border: 2px solid gainsboro;
+  border-radius: 50%;
+  line-height: 45px;
+  transform-origin: left;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: iconeff 0.3s;
+  animation: iconeff 0.3s;
+  animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes iconeff {
-	0% {
-		width: 45px;
-		height: 0px;
-	}
-	50% {
-		width: 45px;
-		height: 45px;
-	}
-	100% {
-		width: 45px;
-		height: 45px;
-	}
+  0% {
+    width: 45px;
+    height: 0px;
+  }
+  50% {
+    width: 45px;
+    height: 45px;
+  }
+  100% {
+    width: 45px;
+    height: 45px;
+  }
 }
