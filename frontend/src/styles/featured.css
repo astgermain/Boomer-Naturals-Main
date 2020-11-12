@@ -8,6 +8,11 @@
     margin: 20px 12.5vw;
     justify-content: space-between;
 }
+
+.featured-container .infocta-container {
+    padding: 0px 50px;
+    width: 25vw;
+}
 /*
 *
 * End Featured Section

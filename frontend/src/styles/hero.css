@@ -10,6 +10,7 @@
 .slick-slide > div > div {
     height: inherit;
     display: flex !important;
+    
 }
 .hero-container {
     width: 100%;
@@ -75,6 +76,7 @@
           touch-action: pan-y;
       -webkit-tap-highlight-color: transparent;
       height: inherit;
+      width: inherit;
   }
   
   .slick-list

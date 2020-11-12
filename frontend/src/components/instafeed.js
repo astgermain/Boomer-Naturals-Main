@@ -97,7 +97,7 @@ const Instafeed = () => {
           Finally, I found a mask that is comfortable and doesn't fall off my
           face.
         </div>
-        <div className="reviewer-name">Bobby</div>
+        <div className="reviewer-name">Joe</div>
       </div>
     </div>
   )
@@ -188,10 +188,9 @@ const Instafeed = () => {
       </div>
       <div className="review-text-container">
         <div className="review-text">
-          Finally, I found a mask that is comfortable and doesn't fall off my
-          face.
+        Visible, non-interactive elements with click handlers must have at
         </div>
-        <div className="reviewer-name">Bobby 2</div>
+        <div className="reviewer-name">Mama</div>
       </div>
     </div>
   )
@@ -282,10 +281,9 @@ const Instafeed = () => {
       </div>
       <div className="review-text-container">
         <div className="review-text">
-          Finally, I found a mask that is comfortable and doesn't fall off my
-          face.
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
         </div>
-        <div className="reviewer-name">Bobby 3</div>
+        <div className="reviewer-name">Bobby</div>
       </div>
     </div>
   )

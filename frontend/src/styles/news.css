@@ -1,12 +1,16 @@
 .news-section {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 5rem 0;
+    justify-content: space-around;
+    margin: 35px 12.5vw;
+    height: 100%;
+    border-top: 1px solid gainsboro;
 }
 
 .news-section .slider-container {
-    width: 50vw;
+    width: 37.5vw;
+    display: flex;
+    max-height: none;
 }
 
 .video-slide {}
@@ -26,4 +30,17 @@
 .video-slide a {
     display: inline-block;
     color: var(--color-secondary);
+}
+
+.news-section .slick-slide > div > div {
+    height: inherit;
+    display: flex !important;
+    justify-content: center;
+}
+
+.news-section .infocta-container {
+    width: 37.5vw;
+    margin-top: 20px;
+    text-align: left;
+    padding: 100px;
 }
