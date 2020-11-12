@@ -51,6 +51,7 @@ const Product = ({ productInfo, handleModalShow }) => {
         <div className="product-images">
           <img
             className="product-image"
+            // could check image array, and if empty, return a default image
             src={productInfo.images[0].originalSrc}
             alt={productInfo.images[0].altText}
           />
