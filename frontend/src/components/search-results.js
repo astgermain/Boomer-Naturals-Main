@@ -32,6 +32,11 @@ const SearchResults = ({ productsArray, searchInput }) => {
         return `Showing ${arrLength ? showingTxt : 0} result${arrLength === 1 ? "" : "s"} for "${searchInput}"`
     }
 
+    // Renders when there are more items to show than ITEMS_TO_SHOW
+    const SEE_MORE_BTN = (
+        <Link className="see-more-btn" to="/" >See all results ({productsArray.length})</Link>
+    ) 
+
     return (
         <div className="search-results">
             <span className="results-info">
@@ -40,7 +45,7 @@ const SearchResults = ({ productsArray, searchInput }) => {
             <ul className="results-list">
                 {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
             </ul>
-
+            {ITEMS_TO_SHOW < productsArray.length && SEE_MORE_BTN}
         </div>
     )
 }

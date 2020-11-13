@@ -74,6 +74,7 @@ const Search = ({ closeSearch }) => {
     setSearchResults(filteredData)
   }, [searchValue])
 
+  // prevents reload on form submit
   const handleSubmit = (e) => {
     e.preventDefault()
   }
