@@ -48,7 +48,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+      {header}
 
       <main>
         {clickedSearch && <Search />}
@@ -57,10 +57,10 @@ const Layout = ({ location, title, children }) => {
         <Categories />
         <ProductCarousel />
         <Insta />
-        <AsSeenOn />
-        <Email />
         <AboutFaceMask />
         <News />
+        <AsSeenOn />
+        <Email />
       </main>
 
       <footer><Footer /></footer>

@@ -14,6 +14,7 @@ const Product = ({ productInfo, handleModalShow }) => {
   const optionsClick = () => {
       handleModalShow(productInfo)
       setOptions(true)
+      console.log(productInfo)
   }
   
   let priceFormat = price => {

@@ -13,16 +13,16 @@ const AboutFaceMask = () => {
         
         switch (hoveredBtn) {
             case 1:
-                setBtnState(<Slide direction="right">"1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis"</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="right">"1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis"</Slide>)
                 break;
             case 2:
-                setBtnState(<Slide direction="up">"Perspiciatis voluptatibus corporis 2 Lorem ipsum dolor sit amet consectetur adipisicing elit."</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="up">"Perspiciatis voluptatibus corporis 2 Lorem ipsum dolor sit amet consectetur adipisicing elit."</Slide>)
                 break;
             case 3:
-                setBtnState(<Slide direction="left">"sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis 3 Lorem ipsum dolor"</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="left">"sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis 3 Lorem ipsum dolor"</Slide>)
                 break;
             case 4:
-                setBtnState(<Slide direction="down">"amet consectetur adipisicing elit. 3 Lorem ipsum dolor sit  Perspiciatis voluptatibus corporis"</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="down">"amet consectetur adipisicing elit. 3 Lorem ipsum dolor sit  Perspiciatis voluptatibus corporis"</Slide>)
                 break;
             default:
                 break;

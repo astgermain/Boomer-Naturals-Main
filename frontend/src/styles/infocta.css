@@ -30,6 +30,10 @@
     margin-left: 40px;
 }
 
+.infocta-svg {
+    margin-bottom: 15px;
+}
+
 
 @media (max-width: 1300px) {
     #infocta-text-sub{
