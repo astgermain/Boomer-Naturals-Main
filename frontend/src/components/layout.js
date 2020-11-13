@@ -24,7 +24,7 @@ const Layout = ({ location, title, children }) => {
   const handleSearchClick = () => {
     clickedSearch ? setClickedSearch(false) : setClickedSearch(true)
   }
-  
+
   let header
   if (isRootPath) {
     header = (
@@ -51,7 +51,7 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
 
       <main>
-        {clickedSearch && <Search />}
+        {clickedSearch && <Search closeSearch={handleSearchClick} />}
         <Hero />
         <Featured />
         <Categories />
