@@ -14,7 +14,6 @@ const Product = ({ productInfo, handleModalShow }) => {
   const optionsClick = () => {
       handleModalShow(productInfo)
       setOptions(true)
-      console.log(productInfo)
   }
   
   let priceFormat = price => {
@@ -52,7 +51,6 @@ const Product = ({ productInfo, handleModalShow }) => {
         <div className="product-images">
           <img
             className="product-image"
-            // could check image array, and if empty, return a default image
             src={productInfo.images[0].originalSrc}
             alt={productInfo.images[0].altText}
           />
