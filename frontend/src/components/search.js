@@ -1,51 +1,102 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import "../styles/search.css"
+import SearchResults from "./search-results"
 // Needs regex
 // Needs to pass shopifyId to results page to render products
 // Possible to just have a popup and render results same page
 
-const Search = () => {
+const Search = ({ closeSearch }) => {
+
   const data = useStaticQuery(graphql`
-    {
-      allShopifyProduct {
-        nodes {
-          title
+  {
+    allShopifyProduct {
+      nodes {
+        availableForSale
+        descriptionHtml
+        handle
+        id
+        images {
+          altText
+          originalSrc
+        }
+        onlineStoreUrl
+        priceRange {
+          maxVariantPrice {
+            amount
+            currencyCode
+          }
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+        productType
+        shopifyId
+        tags
+        title
+        totalInventory
+        variants {
+          availableForSale
+          id
+          image {
+            altText
+            originalSrc
+          }
+          priceV2 {
+            amount
+            currencyCode
+          }
+          quantityAvailable
+          requiresShipping
+          selectedOptions {
+            name
+            value
+          }
           shopifyId
+          title
         }
       }
     }
-  `)
+  }
+`)
+
   const [searchValue, setSearchValue] = useState("")
   const [searchResults, setSearchResults] = useState()
-  let filteredData
+
   useEffect(() => {
-    filteredData = data.allShopifyProduct.nodes.filter(product => {
-      if (product.title.toLowerCase().match(searchValue.toLowerCase())) {
+    let filteredData = data.allShopifyProduct.nodes.filter(product => {
+      if (product.title.toLowerCase().match(searchValue.toLowerCase()) && product.images.length) {
         return product
       }
     })
 
-    setSearchResults(
-      filteredData.map(product => {
-        return <li key={product.shopifyId}>{product.title}</li>
-      })
-    )
+    setSearchResults(filteredData)
   }, [searchValue])
 
+  // prevents reload on form submit
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <section className="search-form">
-      <form>
-        <label>
-          <input
-            name="search"
-            type="input"
-            value={searchValue}
-            onChange={e => setSearchValue(e.target.value)}
-            placeholder="Search Boomer Naturals"
-          />
-        </label>
-      </form>
+    <section className="search-section">
+      <div>
+        <form onSubmit={handleSubmit} className="search-form">
+          <label>
+            <input
+              name="search"
+              type="input"
+              value={searchValue}
+              onChange={e => setSearchValue(e.target.value)}
+              placeholder="Search Boomer Naturals"
+            />
+          </label>
+        </form>
+        <a className="close" onClick={closeSearch}></a>
+      </div>
+      {searchValue && <SearchResults productsArray={searchResults} searchInput={searchValue} />}
+
     </section>
   )
 }
