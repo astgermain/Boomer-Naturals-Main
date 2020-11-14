@@ -1,32 +1,56 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-
-  // Get all markdown blog posts sorted by date
-  const result = await graphql(
-    `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          nodes {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
+  return graphql(`
+    {
+      allShopifyPage {
+        edges {
+          node {
+            handle
           }
         }
       }
-    `
-  )
+    }
+  `).then(result => {
+    result.data.allShopifyPage.edges.forEach(({ node }) => {
+      const id = node.handle
+      createPage({
+        path: `/${id}/`,
+        component: path.resolve(`./src/templates/pageTemplate.js`),
+        context: {
+          id,
+        },
+      })
+    })
+  })
+}
+// exports.createPages = async ({ graphql, actions, reporter }) => {
+//   const { createPage } = actions
+
+//   // Define a template for blog post
+//   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+
+//   // Get all markdown blog posts sorted by date
+//   const result = await graphql(
+//     `
+//       {
+//         allMarkdownRemark(
+//           sort: { fields: [frontmatter___date], order: DESC }
+//           limit: 1000
+//         ) {
+//           nodes {
+//             fields {
+//               slug
+//             }
+//             frontmatter {
+//               title
+//             }
+//           }
+//         }
+//       }
+//     `
+//   )
 
   if (result.errors) {
     reporter.panicOnBuild(
