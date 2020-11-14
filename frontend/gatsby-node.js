@@ -17,7 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
       const id = node.handle
       createPage({
         path: `/${id}/`,
-        component: path.resolve(`./src/templates/pageTemplate.js`),
+        component: path.resolve(`./src/templates/page-template.js`),
         context: {
           id,
         },
