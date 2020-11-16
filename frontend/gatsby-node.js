@@ -1,13 +1,20 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+
+
+// creates slugs for pages
 exports.createPages = ({ graphql, actions }) => {
+
   const { createPage } = actions
   return graphql(`
     {
       allShopifyPage {
         edges {
           node {
+            title
             handle
+            bodySummary
+            body
           }
         }
       }
@@ -20,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/page-template.js`),
         context: {
           id,
+          node
         },
       })
     })
@@ -52,37 +60,38 @@ exports.createPages = ({ graphql, actions }) => {
 //     `
 //   )
 
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
-    return
-  }
+//   if (result.errors) {
+//     reporter.panicOnBuild(
+//       `There was an error loading your blog posts`,
+//       result.errors
+//     )
+//     return
+//   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+//   const posts = result.data.allMarkdownRemark.nodes
 
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
+//   // Create blog posts pages
+//   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
+//   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1]
-      const next = index === 0 ? null : posts[index - 1]
+//   if (posts.length > 0) {
+//     posts.forEach((post, index) => {
+//       const previous = index === posts.length - 1 ? null : posts[index + 1]
+//       const next = index === 0 ? null : posts[index - 1]
 
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          slug: post.fields.slug,
-          previous,
-          next,
-        },
-      })
-    })
-  }
-}
+//       createPage({
+//         path: post.fields.slug,
+//         component: blogPost,
+//         context: {
+//           slug: post.fields.slug,
+//           previous,
+//           next,
+//         },
+//       })
+//     })
+//   }
+// }
+
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
