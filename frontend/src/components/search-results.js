@@ -1,18 +1,17 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Product from "./product";
 import { Link } from "gatsby"
 import "../styles/search.css"
 
 const SearchResults = ({ productsArray, searchInput }) => {
     const [modalShow, setModalShow] = useState("")
-
     // Num of products to display
     const ITEMS_TO_SHOW = 10
 
     const handleModalShow = e => {
         setModalShow(e)
     }
-    console.log("products from props:", productsArray)
+
 
     // Creates array of product components with length of ITEMS_TO_SHOW amount
     const PRODUCT_LIST_ITEMS = productsArray.slice(0, ITEMS_TO_SHOW).map(
@@ -34,7 +33,7 @@ const SearchResults = ({ productsArray, searchInput }) => {
 
     // Renders when there are more items to show than ITEMS_TO_SHOW
     const SEE_MORE_BTN = (
-        <Link className="see-more-btn" to="/" >See all results ({productsArray.length})</Link>
+        <Link className="see-more-btn" to="/filter" state={{ productsArray }}>See all results ({productsArray.length})</Link>
     ) 
 
     return (

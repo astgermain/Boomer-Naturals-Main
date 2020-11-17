@@ -66,6 +66,17 @@ For Gatsby general information see bottom
 - Primary benefits are speed, security, and developer experience
 - A wide range of community development and plugins.
 
+## Reviews
+
+- Export CSV from Yotpo and create our own reviews component and database
+
+- This code let yotpo reviews appear, but was very sus
+```<script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script><script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script><div id="yotpo-testimonials-custom-tab"></div><div class="yotpo bottomLine" data-yotpo-product-id="ADLT-MSHLD-BLK-M"></div>```
+
+## Subscriptions
+
+- https://docs.boldapps.net/subscriptions/storefront/index.html cdn
+
 ## Hot Reloading
 
 - I like it and we have it

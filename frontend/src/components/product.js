@@ -31,7 +31,7 @@ const Product = ({ productInfo, handleModalShow }) => {
   let formattedPrice = priceFormat(
     productInfo.priceRange.minVariantPrice.amount
   )
-
+ 
   return (
     <div
       className="product-container"
@@ -109,7 +109,7 @@ const Product = ({ productInfo, handleModalShow }) => {
 Product.defaultProps = {
   title: `Product Title`,
   minPrice: `9.99`,
-  mainImageSrc: `https://cdn.shopify.com/s/files/1/0269/0013/6054/products/ADULT1.jpg?v=1604435084`,
+  originalSrc: `https://cdn.shopify.com/s/files/1/0269/0013/6054/products/ADULT1.jpg?v=1604435084`,
   imageAltText: `alt text`,
   productButtonText: `Product Options`,
 }
@@ -117,7 +117,7 @@ Product.defaultProps = {
 Product.propTypes = {
   title: propTypes.string,
   minPrice: propTypes.string,
-  mainImageSrc: propTypes.string,
+  originalSrc: propTypes.string,
   imageAltText: propTypes.string,
   productButtonText: propTypes.string,
 }

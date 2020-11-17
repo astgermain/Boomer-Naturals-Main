@@ -7,12 +7,18 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import "../styles/footer.css"
+import Helmet from "react-helmet"
 import logo from "../../content/assets/bnlogoheader.png"
 
 const Footer = () => {
+
+  let reviews = ('<script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script><script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script><div id="yotpo-testimonials-custom-tab"></div><div class="yotpo bottomLine" data-yotpo-product-id="ADLT-MSHLD-BLK-M"></div>')
+  
   return (
     <section className="footer-container">
-      <div className="footer-top"></div>
+      <div className="footer-top">
+      <div dangerouslySetInnerHTML={{ __html: reviews }} />
+      </div>
       <div className="footer-bottom">
         <div className="footer-bottom-left">
           <Link to="/">
@@ -53,11 +59,11 @@ const Footer = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <radialGradient id="rg" r="150%" cx="30%" cy="107%">
-                <stop stop-color="#fdf497" offset="0" />
-                <stop stop-color="#fdf497" offset="0.05" />
-                <stop stop-color="#fd5949" offset="0.45" />
-                <stop stop-color="#d6249f" offset="0.6" />
-                <stop stop-color="#285AEB" offset="0.9" />
+                <stop stopColor="#fdf497" offset="0" />
+                <stop stopColor="#fdf497" offset="0.05" />
+                <stop stopColor="#fd5949" offset="0.45" />
+                <stop stopColor="#d6249f" offset="0.6" />
+                <stop stopColor="#285AEB" offset="0.9" />
               </radialGradient>
               <title>Instagram Icon</title>
               <g
@@ -226,7 +232,6 @@ const Footer = () => {
                       id="Fill-7"
                       fill="#26293E"
                       className="iconBorder"
-                      
                     ></path>
                     <path
                       d="M7.53149814,21.3416741 C7.9403883,21.3736067 8.35013842,21.3746892 8.75837096,21.3427566 C9.21061369,21.3070354 9.65526846,21.2171911 10.0928411,21.0872958 C10.8116744,20.8740511 11.4814388,20.5460654 12.1051695,20.1098337 C12.2574347,20.0032114 12.4086881,19.8928004 12.573094,19.7331374 C11.8041802,19.6930863 11.1268279,19.4544037 10.5359783,18.9808272 C9.94614046,18.508333 9.52677891,17.8945778 9.28497575,17.1114174 C9.80500431,17.2126275 10.3068217,17.1915195 10.8035805,17.0556707 C10.8000395,16.9896406 9.15952139,16.4722243 8.50695637,15.198168 C8.19332047,14.6293348 8.05319605,14.0069199 8.03447907,13.3498662 C8.03144388,13.252986 8.08455964,13.3044029 8.11187631,13.3200985 C8.45738167,13.5181889 8.82666264,13.6410482 9.21213128,13.7076195 C9.33606805,13.7292687 9.46354587,13.7303512 9.60518789,13.741717 C8.01930314,12.3448014 7.68027285,10.6707758 8.51707366,8.67904796 C8.73712465,8.9361324 8.93289416,9.17427377 9.13878095,9.40267299 C9.68258513,10.0050624 10.2886106,10.5262673 10.9492695,10.976571 C11.8067096,11.561641 12.7248534,11.9989552 13.7062302,12.2836423 C14.3628421,12.4736142 15.0290655,12.5937674 15.7079354,12.6392307 C15.8384485,12.6478904 15.8505892,12.5964735 15.8323781,12.4811914 C15.605245,11.0485546 16.0033602,9.83782222 17.0196417,8.88850412 C17.7329105,8.22279075 18.5888329,7.94135094 19.5403638,8.0100872 C20.423603,8.07395239 21.176835,8.43820044 21.8015775,9.10661997 C21.8658222,9.17535623 21.9275377,9.18130976 22.0115112,9.16074301 C22.6888635,8.9967502 23.335864,8.74886668 23.9418895,8.38191248 C23.9843821,8.35593342 24.0309217,8.33644913 24.1159069,8.29369193 C23.8311052,9.17860361 23.3378875,9.83403361 22.638783,10.3314243 C23.2964066,10.2805487 23.9171022,10.0770461 24.555503,9.80210102 C24.4725412,10.0056036 24.3572042,10.14037 24.2545137,10.2762188 C23.8771389,10.7784806 23.4562598,11.2369028 22.9645596,11.6141404 C22.8760333,11.6823354 22.840117,11.7602726 22.843658,11.8852968 C22.8740099,12.9271653 22.7571552,13.9511732 22.5047289,14.9589441 C22.1405066,16.4116065 21.5359987,17.7359973 20.6815938,18.9315752 C20.0406636,19.8283939 19.2849023,20.5942349 18.4127921,21.226392 C17.7440395,21.710252 17.0267238,22.095608 16.2628686,22.3813777 C15.556682,22.6454981 14.8322843,22.8197743 14.0896754,22.917737 C13.3834887,23.0113699 12.6752786,23.021112 11.969092,22.966989 C11.0706769,22.8977115 10.1960375,22.6893378 9.34770293,22.3597285 C8.70070242,22.1080563 8.0850655,21.7881892 7.49861696,21.4033744 C7.47615658,21.3887612 7.45784429,21.3665707 7.43755913,21.3481689 C7.46765806,21.324896 7.49942634,21.3313907 7.53149814,21.3416741"
