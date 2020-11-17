@@ -393,9 +393,9 @@ a:focus {
 
 .header-link {
     margin: 10px;
-    color: #333;
+    color: var(--color-primary);
     text-decoration: none;
-    padding-bottom: .5rem;
+    padding-bottom: 5px;
     position: relative;
 }
 
