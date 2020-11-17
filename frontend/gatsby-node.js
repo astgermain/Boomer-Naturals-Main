@@ -1,64 +1,97 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+
+// creates slugs for pages
+exports.createPages = ({ graphql, actions }) => {
+
   const { createPage } = actions
-
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-
-  // Get all markdown blog posts sorted by date
-  const result = await graphql(
-    `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          nodes {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
+  return graphql(`
+    {
+      allShopifyPage {
+        edges {
+          node {
+            title
+            handle
+            bodySummary
+            body
           }
         }
       }
-    `
-  )
-
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
-    return
-  }
-
-  const posts = result.data.allMarkdownRemark.nodes
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1]
-      const next = index === 0 ? null : posts[index - 1]
-
+    }
+  `).then(result => {
+    result.data.allShopifyPage.edges.forEach(({ node }) => {
+      const id = node.handle
       createPage({
-        path: post.fields.slug,
-        component: blogPost,
+        path: `/${id}/`,
+        component: path.resolve(`./src/templates/page-template.js`),
         context: {
-          slug: post.fields.slug,
-          previous,
-          next,
+          id,
+          node
         },
       })
     })
-  }
+  })
 }
+// exports.createPages = async ({ graphql, actions, reporter }) => {
+//   const { createPage } = actions
+
+//   // Define a template for blog post
+//   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+
+//   // Get all markdown blog posts sorted by date
+//   const result = await graphql(
+//     `
+//       {
+//         allMarkdownRemark(
+//           sort: { fields: [frontmatter___date], order: DESC }
+//           limit: 1000
+//         ) {
+//           nodes {
+//             fields {
+//               slug
+//             }
+//             frontmatter {
+//               title
+//             }
+//           }
+//         }
+//       }
+//     `
+//   )
+
+//   if (result.errors) {
+//     reporter.panicOnBuild(
+//       `There was an error loading your blog posts`,
+//       result.errors
+//     )
+//     return
+//   }
+
+//   const posts = result.data.allMarkdownRemark.nodes
+
+//   // Create blog posts pages
+//   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
+//   // `context` is available in the template as a prop and as a variable in GraphQL
+
+//   if (posts.length > 0) {
+//     posts.forEach((post, index) => {
+//       const previous = index === posts.length - 1 ? null : posts[index + 1]
+//       const next = index === 0 ? null : posts[index - 1]
+
+//       createPage({
+//         path: post.fields.slug,
+//         component: blogPost,
+//         context: {
+//           slug: post.fields.slug,
+//           previous,
+//           next,
+//         },
+//       })
+//     })
+//   }
+// }
+
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
