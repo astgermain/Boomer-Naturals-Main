@@ -29,26 +29,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.full-category.cat1:hover {
-  background-image: url(../../content/assets/patternmask.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: 0.5s;
-}
-
 .full-category.cat2 {
   background-image: url(../../content/assets/imagegaiter.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-.full-category.cat2:hover {
-  background-image: url(../../content/assets/patterngaiter.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: 0.5s;
 }
 .full-category.cat3 {
   background-image: url(../../content/assets/imageppe.png);
@@ -71,15 +56,48 @@
   align-self: flex-end;
   margin-bottom: 10px;
   color: #ffffff;
+  position: absolute;
 }
-
 .category-text-half {
   align-self: center;
+  position: absolute;
 }
-
-.viewMoretext {
+.viewMoreText {
   display: none;
 }
-.cat1:hover .viewMoreText {
+/* on hover categories */
+
+.full-category:hover .viewMoreText {
+  display: flex;
+  margin: auto;
+}
+.full-category:hover .category-text {
+  display: none;
+}
+.half-category:hover .viewMoreText {
+  display: flex;
+  margin: auto;
+}
+.half-category:hover .category-text-half {
+  display: none;
+}
+
+.overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #24232393;
+}
+.full-category:hover .overlay {
+  opacity: 1;
+  display: flex;
+}
+.half-category:hover .overlay {
+  opacity: 1;
   display: flex;
 }
