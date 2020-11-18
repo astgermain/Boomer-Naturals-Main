@@ -12,6 +12,13 @@ import logo from "../../content/assets/bnlogoheader.png"
 import payments from "../../content/assets/payments.png"
 
 const Footer = () => {
+
+  const handleScroll = () => window.scrollTo({
+    top: 100,
+    left: 100,
+    behavior: 'smooth'
+  })
+
   return (
     <section className="footer-container">
       <div className="footer-top">
@@ -245,10 +252,10 @@ const Footer = () => {
         <div className="footer-top-right">
           <span>Store Hours <br></br><span className="footer-text-reg"> <b>Daily:</b> 8am - 6pm (PST)</span></span>
           <img
-              src={payments}
-              alt="Accepted Payments"
-              className="header-logo"
-            />
+            src={payments}
+            alt="Accepted Payments"
+            className="header-logo"
+          />
         </div>
       </div>
       <div className="footer-bottom">
@@ -274,6 +281,11 @@ const Footer = () => {
           <Link to="/" className="header-link">
             Shipping Policy
           </Link>
+        </div>
+        <div className="footer-bottom-right">
+          <button className="top-scroll-btn" onClick={handleScroll}>
+            Scroll to Top
+          </button>
         </div>
       </div>
     </section>
