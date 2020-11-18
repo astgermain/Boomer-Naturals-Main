@@ -14,8 +14,7 @@ import payments from "../../content/assets/payments.png"
 const Footer = () => {
 
   const handleScroll = () => window.scrollTo({
-    top: 100,
-    left: 100,
+    top: 0,
     behavior: 'smooth'
   })
 
@@ -283,9 +282,9 @@ const Footer = () => {
           </Link>
         </div>
         <div className="footer-bottom-right">
-          <button className="top-scroll-btn" onClick={handleScroll}>
-            Scroll to Top
-          </button>
+          <div className="top-scroll-btn" onClick={handleScroll}>
+            Back to Top
+          </div>
         </div>
       </div>
     </section>
