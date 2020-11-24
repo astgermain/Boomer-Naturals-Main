@@ -3,7 +3,7 @@ import Product from "./product";
 import { Link } from "gatsby"
 import "../styles/search.css"
 
-const SearchResults = ({ productsArray, searchInput }) => {
+const SearchResults = ({ allProducts, productsArray, searchInput }) => {
     const [modalShow, setModalShow] = useState("")
     // Num of products to display
     const ITEMS_TO_SHOW = 10
@@ -33,7 +33,7 @@ const SearchResults = ({ productsArray, searchInput }) => {
 
     // Renders when there are more items to show than ITEMS_TO_SHOW
     const SEE_MORE_BTN = (
-        <Link className="see-more-btn" to="/filter" state={{ productsArray }}>See all results ({productsArray.length})</Link>
+        <Link className="see-more-btn" to="/filter" state={{ allProducts, productsArray }}>See all results ({productsArray.length})</Link>
     ) 
 
     return (

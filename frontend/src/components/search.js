@@ -95,7 +95,7 @@ const Search = ({ closeSearch }) => {
         </form>
         <a className="close" onClick={closeSearch}></a>
       </div>
-      {searchValue && <SearchResults productsArray={searchResults} searchInput={searchValue} />}
+      {searchValue && <SearchResults allProducts={data.allShopifyProduct} productsArray={searchResults} searchInput={searchValue} />}
 
     </section>
   )

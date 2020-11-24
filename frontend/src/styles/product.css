@@ -20,6 +20,7 @@
 .product-container {
   width: 16.6667vw;
   padding: 10px;
+  
 }
 
 .product-header {
@@ -66,15 +67,17 @@
     rgba(255, 255, 255, 0.5) 50%
   );
   */
-  height: 60%;
+  height: 175px;
   width: 100%;
 }
 
 .product-image {
   position: relative;
   max-width: 15vw;
-  height: 100%;
   width: auto !important;
+  max-height: 150px;
+  margin: auto;
+  display: flex;
 }
 
 .product-button {

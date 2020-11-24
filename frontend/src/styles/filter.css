@@ -1,0 +1,95 @@
+.filter-container {
+    display: flex;
+    border-bottom: 1px solid gainsboro;
+}
+
+.filter-sidebar {
+    display: inline-block;
+    width: 20%;
+    flex-wrap: wrap;
+    background: #e0f1f6;
+    padding: 0 5%;
+}
+
+.filter-results {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 35px;
+}
+
+.filter-option {
+    background: transparent;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    font-weight: var(--fontWeight-normal);
+    padding: var(--spacing-0);
+    display: inline-flex;
+    font-family: var(--fontFamily-reg)
+}
+
+.filter-option::before {
+    clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+    color: var(--color-heading);
+    content: attr(value);
+    position: absolute;
+    transition: clip-path 275ms ease;
+}
+
+.filter-option.active::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.list-item {
+    display: flex;
+}
+
+.list-item div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 0;
+    transition: transform 275ms;
+    transform: scaleX(0);
+}
+.list-item.active div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 3vw;
+    transition: transform 275ms;
+    transform: scaleX(1);
+    margin-left: -3vw;
+}
+
+.list-item div span {
+    background: var(--color-secondary);
+    height: 2px;
+    transition: transform 275ms;
+    transform: scaleX(0);
+    width: 1.4vw;
+    margin-top: 3px;
+}
+.list-item div span.nActive {
+    transform: scaleX(0);
+    transition: transform 275ms;
+}
+.list-item div span.active {
+    transform: scaleX(1);
+    transition: transform 275ms;
+}
+
+h4 {
+    font-size: var(--fontSize-2);
+    margin-bottom: 0;
+}
+
+.check-option {
+    display: block;
+}
+
+.checkbox-div {
+    display: inline-flex;
+}
