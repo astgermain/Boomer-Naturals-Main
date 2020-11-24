@@ -9,7 +9,7 @@ import { Link } from "gatsby"
 import logo from "../../content/assets/bnlogoheader.png"
 import Search from "./search"
 
-const Header = ({ description, lang, meta, title, clickSearch }) => {
+const Header = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -38,6 +38,7 @@ const Header = ({ description, lang, meta, title, clickSearch }) => {
     `
   )
   const [hamMenu, setHamMenu] = useState(false)
+  const [clickSearch, setClickedSearch] = useState(false)
   const logoAlt = site?.siteMetadata?.title
 
   const handleMenuClick = () => {
@@ -46,7 +47,9 @@ const Header = ({ description, lang, meta, title, clickSearch }) => {
   const handleMenuClose = () => {
     setHamMenu(false)
   }
-
+  const handleSearchClick = () => {
+    clickSearch ? setClickedSearch(false) : setClickedSearch(true)
+  }
   return (
     <header className="global-header">
       <section className="header-container">
@@ -54,7 +57,7 @@ const Header = ({ description, lang, meta, title, clickSearch }) => {
           <div className="header-icons">
             {/* Search Icon SVG */}
             <Link to="/">
-              <div onClick={clickSearch} className="header-icon search-icon">
+              <div onClick={handleSearchClick} className="header-icon search-icon">
                 <svg
                   width="20px"
                   height="20px"
@@ -375,7 +378,7 @@ const Header = ({ description, lang, meta, title, clickSearch }) => {
           </div>
           <div className="header-icons">
             {/* Search Icon SVG */}
-            <div onClick={clickSearch} className="header-icon">
+            <div onClick={handleSearchClick} className="header-icon">
               <svg
                 width="20px"
                 height="20px"
@@ -666,6 +669,7 @@ const Header = ({ description, lang, meta, title, clickSearch }) => {
         </div>
         <div className={`hamburger-menu ${hamMenu ? "active" : ""}`}></div>
       </section>
+      {clickSearch && <Search closeSearch={handleSearchClick} />}
     </header>
   )
 }

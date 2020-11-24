@@ -2,15 +2,23 @@ import React, { useState, useEffect } from "react"
 import Product from "./product";
 import { Link } from "gatsby"
 import "../styles/search.css"
+import MainButton from "../components/main-button"
 
 const SearchResults = ({ allProducts, productsArray, searchInput }) => {
     const [modalShow, setModalShow] = useState("")
     // Num of products to display
-    const ITEMS_TO_SHOW = 10
+    const ITEMS_TO_SHOW = 12
 
     const handleModalShow = e => {
         setModalShow(e)
     }
+
+    useEffect(() => {
+        document.body.style.overflow = 'hidden'
+        return function cleanup() {
+            document.body.style.overflow = 'scroll'
+          };
+    }, [])
 
 
     // Creates array of product components with length of ITEMS_TO_SHOW amount
@@ -33,18 +41,20 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
 
     // Renders when there are more items to show than ITEMS_TO_SHOW
     const SEE_MORE_BTN = (
-        <Link className="see-more-btn" to="/filter" state={{ allProducts, productsArray }}>See all results ({productsArray.length})</Link>
+        <MainButton text="See Results" link="/filter" state={{ allProducts, productsArray }}/>
     ) 
 
     return (
         <div className="search-results">
-            <span className="results-info">
-                {createResultsInfo(ITEMS_TO_SHOW, productsArray.length)}
-            </span>
+            <div className="results-info">
+            {createResultsInfo(ITEMS_TO_SHOW, productsArray.length)}
+            {0 < productsArray.length && SEE_MORE_BTN}
+            
+            </div>
             <ul className="results-list">
                 {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
             </ul>
-            {ITEMS_TO_SHOW < productsArray.length && SEE_MORE_BTN}
+            
         </div>
     )
 }

@@ -94,6 +94,7 @@ body {
     font-family: var(--fontFamily-bold);
     font-size: var(--fontSize-1);
     color: var(--color-text);
+    overflow: scroll ;
 }
 
 footer {
@@ -381,6 +382,7 @@ a:focus {
 .header-icon {
     margin: 10px;
     display: flex;
+    cursor: pointer;
 }
 
 .header-icon-link {

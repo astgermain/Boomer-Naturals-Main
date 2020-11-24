@@ -9,7 +9,6 @@ import Instafeed from "./instafeed"
 import ProductSlider from "./productslider"
 import ProductCarousel from "./product-carousel"
 import Featured from "./featured"
-import Search from "./search"
 import AboutFaceMask from "./about-face-mask"
 import Insta from "./insta"
 import Footer from "./footer"
@@ -18,17 +17,11 @@ import News from "./news"
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  
-  const [clickedSearch, setClickedSearch] = useState(false)
-  
-  const handleSearchClick = () => {
-    clickedSearch ? setClickedSearch(false) : setClickedSearch(true)
-  }
 
   let header
   if (isRootPath) {
     header = (
-      <Header clickSearch={handleSearchClick} title={title} />
+      <Header title={title} />
       /*
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
@@ -37,7 +30,7 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <Header clickSearch={handleSearchClick} />
+      <Header />
       /*
       <Link className="header-link-home" to="/">
         {title}
@@ -51,7 +44,6 @@ const Layout = ({ location, title, children }) => {
       {header}
 
       <main>
-        {clickedSearch && <Search closeSearch={handleSearchClick} />}
         <Hero />
         <Featured />
         <Categories />

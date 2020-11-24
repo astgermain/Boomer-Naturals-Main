@@ -29,7 +29,7 @@ const Filter = ({ location }) => {
   }
 
   // Creates array of product components with length of ITEMS_TO_SHOW amount
-  const PRODUCT_LIST_ITEMS = location.state.productsArray
+  const PRODUCT_LIST_ITEMS = location.state.state.productsArray
     .slice(0, ITEMS_TO_SHOW)
     .map(product => (
       <div key={product.shopifyId}>
