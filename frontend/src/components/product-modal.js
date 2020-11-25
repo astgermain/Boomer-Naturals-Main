@@ -9,7 +9,7 @@ import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
 
 const ProductModal = ({ data, setModalShow }) => {
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
   const [selectedVariant, setSelectedVariant] = useState({})
   const [selectedAgeGroup, setSelectedAgeGroup] = useState("")
   const [selectedSize, setSelectedSize] = useState("")
@@ -90,7 +90,8 @@ const ProductModal = ({ data, setModalShow }) => {
   let variantThumbs = generateVariantThumbs(mainArray)
   
   let handleSub = () => {
-    setQuantity(quantity - 1)
+    if(quantity > 1)
+    return setQuantity(quantity - 1)
   }
 
   return (
