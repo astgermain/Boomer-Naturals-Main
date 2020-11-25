@@ -43,8 +43,6 @@ const Product = ({ productInfo, handleModalShow }) => {
     setQuantity(quantity - 1)
   }
 
-  console.log(productInfo)
-
   return (
     <div
       className="product-container"
