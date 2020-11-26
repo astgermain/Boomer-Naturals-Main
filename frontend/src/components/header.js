@@ -678,6 +678,7 @@ Header.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  title: `Boomer Naturals`
 }
 
 Header.propTypes = {

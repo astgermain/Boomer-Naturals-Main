@@ -9,7 +9,7 @@ import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
 
 const ProductModal = ({ data, setModalShow }) => {
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
   const [selectedVariant, setSelectedVariant] = useState({})
   const [selectedAgeGroup, setSelectedAgeGroup] = useState("")
   const [selectedSize, setSelectedSize] = useState("")
@@ -81,20 +81,23 @@ const ProductModal = ({ data, setModalShow }) => {
     setQuantity(quantity + 1)
   }
   let generateVariantThumbs = variantData => {
-    return variantData.map((data) => {
-      return (
-        <img src={data[0].image.originalSrc} className="variant-thumb" />
-      )
+    return variantData.map(data => {
+      return <img src={data[0].image.originalSrc} className="variant-thumb" />
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-  
+
   let handleSub = () => {
     setQuantity(quantity - 1)
   }
 
   return (
-    <Slide duration={500} triggerOnce={true} direction="up" className="product-modal">
+    <Slide
+      duration={500}
+      triggerOnce={true}
+      direction="up"
+      className="product-modal"
+    >
       <div className="product-modal-inner">
         <div className="modal-options">
           <div className="modal-price">from ${formattedPrice}</div>
@@ -111,12 +114,12 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-quantity">
             <span>Quantity</span>
             <div className="quantityButton">
-              <div className="quantityButtonPartL" onClick={handleAdd}>
-                <span>+</span>
-              </div>
-              <span>{quantity}</span>
               <div className="quantityButtonPartR" onClick={handleSub}>
                 <span>-</span>
+              </div>
+              <span>{quantity}</span>
+              <div className="quantityButtonPartL" onClick={handleAdd}>
+                <span>+</span>
               </div>
             </div>
           </div>
@@ -127,9 +130,7 @@ const ProductModal = ({ data, setModalShow }) => {
         </div>
         <div className="modal-variants">
           <span className="variant-text">Select</span>
-          <div className="variants-thumbnails">
-            {variantThumbs}
-          </div>
+          <div className="variants-thumbnails">{variantThumbs}</div>
         </div>
         <div className="modal-image"></div>
       </div>

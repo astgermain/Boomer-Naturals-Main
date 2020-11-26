@@ -18,24 +18,37 @@ const Filter = ({ location }) => {
   const [modalShow, setModalShow] = useState("")
   const [ptActive, setPtActive] = useState()
   const [ctActive, setCtActive] = useState()
-  const ITEMS_TO_SHOW = 10
+  const ITEMS_TO_SHOW = 100
 
   // NEEDS USEEFFECT To have props passed if coming from a collection or product type search to set the state
   // for filter options so that they are selected
 
+  // NEEDS CLEAR RESULTS BUTTON
+
+  // NEEDS Search Button to work on filter page
+  let filterParams = new Set()
 
   const handleModalShow = e => {
     setModalShow(e)
   }
-
+  let h = undefined
+  let a = undefined
+  if(location.state){
+    h = location.state.state.productsArray
+    a = location.state.state.allProducts
+    console.log(h)
+  }
   // Creates array of product components with length of ITEMS_TO_SHOW amount
-  const PRODUCT_LIST_ITEMS = location.state.state.productsArray
-    .slice(0, ITEMS_TO_SHOW)
-    .map(product => (
+  
+  const productListItemsGenerate = (i) =>{if(i){
+    return(i.slice(0, ITEMS_TO_SHOW).map(product => (
       <div key={product.shopifyId}>
         <Product productInfo={product} handleModalShow={handleModalShow} />
       </div>
-    ))
+    )))
+  }
+  }
+  const PRODUCT_LIST_ITEMS = productListItemsGenerate(h)
     let handlePtToggle = (e) =>{
       if(ptActive == e.target.value){
 
@@ -52,8 +65,16 @@ const Filter = ({ location }) => {
         setCtActive(e.target.value)
       }
     }
+    let handleCheck = (e, checked) => {
+      if(checked){
+        filterParams.add(e)
+      }
+      else if(filterParams.has(e)){
+        filterParams.delete(e)
+      }
+    }
   return (
-    <body>
+    <div>
       <Header />
       <section className="filter-container">
         <div className="filter-sidebar">
@@ -132,13 +153,13 @@ const Filter = ({ location }) => {
           <div className="filter-size">
             <h4>Size</h4>
             <span className="filter-option">Adult</span>
-            <div className="check-option"><Checkbox /><span className="filter-option">Small</span></div>
-            <div className="check-option"><Checkbox /><span className="filter-option">Medium</span></div>
-            <div className="check-option"><Checkbox /><span className="filter-option">Large</span></div>
-            <div className="check-option"><Checkbox /><span className="filter-option">Extra Large</span></div>
+            <div className="check-option"><Checkbox value="sm" handleCheck={handleCheck} /><span className="filter-option">Small</span></div>
+            <div className="check-option"><Checkbox value="md" handleCheck={handleCheck} /><span className="filter-option">Medium</span></div>
+            <div className="check-option"><Checkbox value="lg" handleCheck={handleCheck} /><span className="filter-option">Large</span></div>
+            <div className="check-option"><Checkbox value="xl" handleCheck={handleCheck} /><span className="filter-option">Extra Large</span></div>
             <span className="filter-option">Child</span>
-            <div className="check-option"><Checkbox /><span className="filter-option">Ages 2-7</span></div>
-            <div className="check-option"><Checkbox /><span className="filter-option">Ages 8-12</span></div>
+            <div className="check-option"><Checkbox value="ts" handleCheck={handleCheck} /><span className="filter-option">Ages 2-7</span></div>
+            <div className="check-option"><Checkbox value="et" handleCheck={handleCheck} /><span className="filter-option">Ages 8-12</span></div>
           </div>
           <div className="filter-color">
             <h4>Colors</h4>
@@ -146,14 +167,14 @@ const Filter = ({ location }) => {
           </div>
           <div className="filter-mask-type">
             <h4>Mask Type</h4>
-            <div className="check-option"><Checkbox /><span className="filter-option">Adjustable</span></div>
-            <div className="check-option"><Checkbox /><span className="filter-option">Non-Adjustable</span></div>
+            <div className="check-option"><Checkbox value="ad" handleCheck={handleCheck} /><span className="filter-option">Adjustable</span></div>
+            <div className="check-option"><Checkbox value="na" handleCheck={handleCheck} /><span className="filter-option">Non-Adjustable</span></div>
           </div>
         </div>
         <div className="filter-results">{PRODUCT_LIST_ITEMS}</div>
       </section>
       <Footer />
-    </body>
+    </div>
   )
 }
 

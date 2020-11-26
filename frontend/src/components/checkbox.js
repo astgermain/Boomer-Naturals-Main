@@ -1,14 +1,13 @@
 import React, { useState } from "react"
 
-const Checkbox = ({}) => {
+const Checkbox = ({value, handleCheck}) => {
   const [checked, setChecked] = useState(false)
-  let handleCheck = () => {
+  let handleChecked = () => {
     setChecked(!checked)
   }
-  console.log(checked)
   return (
     <div className="checkbox-div">
-      <input type="checkbox" onClick={handleCheck} checked={checked} />
+      <input type="checkbox" onClick={handleChecked} checked={checked} value={value}  onChange={handleCheck(value, checked)}/>
     </div>
   )
 }
