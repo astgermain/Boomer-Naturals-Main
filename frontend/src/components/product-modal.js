@@ -88,7 +88,8 @@ const ProductModal = ({ data, setModalShow }) => {
   let variantThumbs = generateVariantThumbs(mainArray)
 
   let handleSub = () => {
-    setQuantity(quantity - 1)
+    if(quantity > 1)
+    return setQuantity(quantity - 1)
   }
 
   return (

@@ -40,7 +40,8 @@ const Product = ({ productInfo, handleModalShow }) => {
   }
 
   let handleSub = () => {
-    setQuantity(quantity - 1)
+    if(quantity > 1)
+    return setQuantity(quantity - 1)
   }
 
   return (

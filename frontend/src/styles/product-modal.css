@@ -63,39 +63,44 @@
 }
 
 .modal-type {
-    display: inline-flex;
-    width: 100%;
-    justify-content: space-around;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
-.adult-type, .kid-type {
-    padding: 5px 20px;
-    border: 1px solid gainsboro;
-    cursor: pointer;
-    border-radius: 20px;
-    -webkit-touch-callout: none; /* iOS Safari */
+.adult-type,
+.kid-type {
+  padding: 5px 20px;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+  border-radius: 20px;
+  -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
+}
+.adult-type:hover,
+.kid-type:hover {
+  background-color: gainsboro;
 }
 
 .modal-size {
-    display: inline-flex;
-    width: 100%;
-    justify-content: space-around;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .product-size-option {
-    border: 1px solid gainsboro;
-    padding: 10px;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    cursor: pointer;
-    -webkit-touch-callout: none; /* iOS Safari */
+  border: 1px solid gainsboro;
+  padding: 10px;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
@@ -103,14 +108,15 @@
   user-select: none;
 }
 
+
 .modal-variants {
-    width: 20%;
-    height: 100%;
-    border-right: 1px solid gainsboro;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
-    align-content: flex-start;
+  width: 20%;
+  height: 100%;
+  border-right: 1px solid gainsboro;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  align-content: flex-start;
 }
 
 .modal-variants span {
