@@ -4,20 +4,21 @@
  *
  */
 
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import "../styles/hamburger.css"
 import { Slide } from "react-awesome-reveal"
 
 const Hamburger = ({ close }) => {
+    const [isShown, setIsShown] = useState(false)
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return function cleanup() {
       document.body.style.overflow = "scroll"
     }
   }, [])
-
+  console.log(isShown)
   return (
     <Slide
       duration={500}
@@ -32,10 +33,11 @@ const Hamburger = ({ close }) => {
           <div className="hamburger-content-top">
             <div className="link-level1">
               <Link to="/" className="ham-link1">
-                <span>Home</span>
+                <span onMouseEnter={() => setIsShown(true)}>Home</span>
+                {isShown && <span>hi</span>}
               </Link>
               <Link to="/" className="ham-link1">
-                <span>About</span>
+                <span onMouseEnter={() => setIsShown(false)}>About</span>
               </Link>
               <Link to="/" className="ham-link1">
                 <span>Shop</span>

@@ -7,7 +7,7 @@ const Checkbox = ({value, handleCheck}) => {
   }
   return (
     <div className="checkbox-div">
-      <input type="checkbox" onClick={handleChecked} checked={checked} value={value}  onChange={handleCheck(value, checked)}/>
+      <input type="checkbox" onClick={handleChecked} defaultChecked={checked} value={value}  onChange={handleCheck(value, checked)}/>
     </div>
   )
 }
