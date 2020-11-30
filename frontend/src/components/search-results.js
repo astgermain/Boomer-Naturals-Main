@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react"
 import Product from "./product";
-import { Link } from "gatsby"
 import "../styles/search.css"
 import MainButton from "../components/main-button"
 
 const SearchResults = ({ allProducts, productsArray, searchInput }) => {
-    const [modalShow, setModalShow] = useState("")
+    const [setModalShow] = useState("")
     // Num of products to display
     const ITEMS_TO_SHOW = 12
 

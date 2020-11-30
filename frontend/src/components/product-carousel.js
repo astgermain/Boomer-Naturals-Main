@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 // import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import "../styles/product-carousel.css"
 import ProductSlider from "./productslider"
 import MainButton from "./main-button"
@@ -88,9 +88,9 @@ const ProductCarousel = () => {
 
   // Products array is updated with array from query data that matches clicked button
   useEffect(() => {
-    const [dataFilteredOnClick] = data.allShopifyCollection.nodes.filter(({ title }) => title == clickedNavBtn)
+    const [dataFilteredOnClick] = data.allShopifyCollection.nodes.filter(({ title }) => title === clickedNavBtn)
     setRenderedProductsArray(dataFilteredOnClick.products)
-  }, [clickedNavBtn])
+  }, [clickedNavBtn, data.allShopifyCollection.nodes])
 
     const handleNavClick = (e) => {
         // value constant is the title of the clicked nav btn
@@ -99,7 +99,7 @@ const ProductCarousel = () => {
     }
 
     const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
-        const isActive = clickedNavBtn == title && "active"
+        const isActive = clickedNavBtn === title && "active"
         return (
             <li key={index} className={`nav-btn-list-items ${isActive.toString()}`}>
                 <div>
@@ -116,11 +116,11 @@ const ProductCarousel = () => {
         )
     })
 
-    const REDIRECT_LINK = (
-        <Link className="redirect-link" to="/">
-            <MainButton text="View All" />
-        </Link>
-    )
+    // const REDIRECT_LINK = (
+    //     <Link className="redirect-link" to="/">
+    //         <MainButton text="View All" />
+    //     </Link>
+    // )
 
 
   return (

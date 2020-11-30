@@ -7,37 +7,14 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import b1 from "../../content/assets/banner1.jpg"
 import b2 from "../../content/assets/banner2.jpg"
 import b3 from "../../content/assets/banner3.jpg"
 import Slider from "./slider"
-import MainButton from "./main-button"
 import "../styles/hero.css"
 
 const Hero = () => {
-
-  let leftSlide1 =
-    <div className="slider-responsive">
-      <div className="sub-text-main">Need a Face Mask?</div>
-      <div className="text-main">We've Got You Covered</div>
-      <MainButton text="Learn More" link="/404" />
-    </div>;
-
-  let leftSlide2 =
-    <div className="slider-responsive">
-      <div className="sub-text-main">Pick From Our Varients</div>
-      <div className="text-main">Let's Shop Masks</div>
-      <MainButton text="Learn More" />
-    </div>;
-
-  let leftSlide3 =
-    <div className="slider-responsive">
-      <div className="sub-text-main">Free Shipping!</div>
-      <div className="text-main">All Orders Over $50</div>
-      <MainButton text="Learn More" />
-    </div>;
 
   let rightSlide1 =
     <div>
