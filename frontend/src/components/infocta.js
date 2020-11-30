@@ -3,15 +3,14 @@
  */
 import React, { useState, useEffect } from "react"
 import propTypes from 'prop-types'
-import { Link } from "gatsby"
 import "../styles/infocta.css"
 import MainButton from "./main-button"
 
 const Infocta = ({ svgProp, maintextProp, subtextProp, buttontextProp }) => {
-    const [svg, setSvgimg] = useState("");
-    const [maintext, setMaintext] = useState("");
-    const [subtext, setSubtext] = useState("");
-    const [buttontext, setButtontext] = useState("");
+    const [svg ] = useState("");
+    const [maintext] = useState("");
+    const [subtext] = useState("");
+    const [buttontext] = useState("");
 
     useEffect(() => {
 

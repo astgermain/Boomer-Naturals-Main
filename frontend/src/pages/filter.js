@@ -5,9 +5,7 @@
  *  or all product type of page
  */
 
-import React, { useState, useEffect } from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React, { useState } from "react"
 import "../styles/filter.css"
 import Product from "../components/product"
 import Header from "../components/header"
@@ -15,7 +13,7 @@ import Footer from "../components/footer"
 import Checkbox from "../components/checkbox"
 
 const Filter = ({ location }) => {
-  const [modalShow, setModalShow] = useState("")
+  const [setModalShow] = useState("")
   const [ptActive, setPtActive] = useState()
   const [ctActive, setCtActive] = useState()
   const ITEMS_TO_SHOW = 100
@@ -32,10 +30,10 @@ const Filter = ({ location }) => {
     setModalShow(e)
   }
   let h = undefined
-  let a = undefined
+  // let a = undefined
   if(location.state){
     h = location.state.state.productsArray
-    a = location.state.state.allProducts
+    // a = location.state.state.allProducts
     console.log(h)
   }
   // Creates array of product components with length of ITEMS_TO_SHOW amount
@@ -50,7 +48,7 @@ const Filter = ({ location }) => {
   }
   const PRODUCT_LIST_ITEMS = productListItemsGenerate(h)
     let handlePtToggle = (e) =>{
-      if(ptActive == e.target.value){
+      if(ptActive === e.target.value){
 
         setPtActive(null)
       }else{
@@ -58,7 +56,7 @@ const Filter = ({ location }) => {
       }
     }
     let handleCtToggle = (e) =>{
-      if(ctActive == e.target.value){
+      if(ctActive === e.target.value){
 
         setCtActive(null)
       }else{
@@ -82,31 +80,31 @@ const Filter = ({ location }) => {
             <h4>Product Type</h4>
             <div className='list-item active'>
               <div>
-                <span className={'fm'==ptActive ? 'active' : 'nActive'}></span>
+                <span className={'fm'===ptActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="fm" onClick={handlePtToggle} className='filter-option'>Face Mask</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'gt'==ptActive ? 'active' : 'nActive'}></span>
+                <span className={'gt'===ptActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="gt" onClick={handlePtToggle} className='filter-option'>Gaiter</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'ppe'==ptActive ? 'active' : 'nActive'}></span>
+                <span className={'ppe'===ptActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="ppe" onClick={handlePtToggle} className='filter-option'>PPE</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'wl'==ptActive ? 'active' : 'nActive'}></span>
+                <span className={'wl'===ptActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="wl" onClick={handlePtToggle} className='filter-option'>Wellness</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'bo'==ptActive ? 'active' : 'nActive'}></span>
+                <span className={'bo'===ptActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="bo" onClick={handlePtToggle} className='filter-option'>Botanics</button>
             </div>
@@ -115,37 +113,37 @@ const Filter = ({ location }) => {
             <h4>Collection Type</h4>
             <div className='list-item active'>
               <div>
-                <span className={'ap'==ctActive ? 'active' : 'nActive'}></span>
+                <span className={'ap'===ctActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="ap" onClick={handleCtToggle} className='filter-option'>All Products</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'na'==ctActive ? 'active' : 'nActive'}></span>
+                <span className={'na'===ctActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="na" onClick={handleCtToggle} className='filter-option'>New Arrivals</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'mp'==ctActive ? 'active' : 'nActive'}></span>
+                <span className={'mp'===ctActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="mp" onClick={handleCtToggle} className='filter-option'>Most Popular</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'fs'==ctActive ? 'active' : 'nActive'}></span>
+                <span className={'fs'===ctActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="fs" onClick={handleCtToggle} className='filter-option'>Flash Sale</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'gi'==ctActive ? 'active' : 'nActive'}></span>
+                <span className={'gi'===ctActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="gi" onClick={handleCtToggle} className='filter-option'>Gift Ideas</button>
             </div>
             <div className='list-item active'>
               <div>
-                <span className={'b'==ctActive ? 'active' : 'nActive'}></span>
+                <span className={'b'===ctActive ? 'active' : 'nActive'}></span>
               </div>
               <button value="b" onClick={handleCtToggle} className='filter-option'>Bundles</button>
             </div>

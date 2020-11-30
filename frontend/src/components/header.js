@@ -57,7 +57,12 @@ const Header = ({ description, lang, meta, title }) => {
           <div className="header-icons">
             {/* Search Icon SVG */}
             <Link to="/">
-              <div onClick={handleSearchClick} className="header-icon search-icon">
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={handleSearchClick}
+                className="header-icon search-icon"
+              >
                 <svg
                   width="20px"
                   height="20px"
@@ -378,7 +383,7 @@ const Header = ({ description, lang, meta, title }) => {
           </div>
           <div className="header-icons">
             {/* Search Icon SVG */}
-            <div onClick={handleSearchClick} className="header-icon">
+            <div role="button" tabIndex={0} onClick={handleSearchClick} className="header-icon">
               <svg
                 width="20px"
                 height="20px"
@@ -678,7 +683,7 @@ Header.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
-  title: `Boomer Naturals`
+  title: `Boomer Naturals`,
 }
 
 Header.propTypes = {
