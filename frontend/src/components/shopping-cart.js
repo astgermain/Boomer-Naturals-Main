@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react"
 import Client from 'shopify-buy'
 
+const { GATSBY_STOREFRONT_TOKEN } = process.env
+
 const ShoppingCart = () => {
     const client = Client.buildClient({
         domain: 'boomerfacemasks.myshopify.com',
-        storefrontAccessToken: ''
+        storefrontAccessToken: GATSBY_STOREFRONT_TOKEN
     })
     client.checkout.create()
         .then((checkout) => {
