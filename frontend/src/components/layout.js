@@ -13,6 +13,7 @@ import AboutFaceMask from "./about-face-mask"
 import Insta from "./insta"
 import Footer from "./footer"
 import News from "./news"
+import ShoppingCart from "./shopping-cart"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -44,6 +45,7 @@ const Layout = ({ location, title, children }) => {
       {header}
 
       <main>
+        <ShoppingCart />
         <Hero />
         <Featured />
         <Categories />
