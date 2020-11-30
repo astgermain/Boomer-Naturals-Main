@@ -33,8 +33,7 @@ const Filter = ({ location }) => {
   // let a = undefined
   if(location.state){
     h = location.state.state.productsArray
-    // a = location.state.state.allProducts
-    console.log(h)
+    //a = location.state.state.allProducts
   }
   // Creates array of product components with length of ITEMS_TO_SHOW amount
   
@@ -64,13 +63,16 @@ const Filter = ({ location }) => {
       }
     }
     let handleCheck = (e, checked) => {
+      
       if(checked){
         filterParams.add(e)
       }
       else if(filterParams.has(e)){
         filterParams.delete(e)
       }
+      console.log(filterParams)
     }
+   
   return (
     <div>
       <Header />

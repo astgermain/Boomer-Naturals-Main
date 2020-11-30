@@ -33,15 +33,12 @@
 }
 
 .product-header-text {
-  width: 75%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  align-self: center;
-  max-height: 56px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  padding-right: 2.5%;
+    width: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-self: center;
+    max-height: 56px;
+    display: flex;
 }
 
 .product-header-price {

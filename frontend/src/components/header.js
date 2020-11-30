@@ -8,6 +8,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import logo from "../../content/assets/bnlogoheader.png"
 import Search from "./search"
+import Hamburger from "./hamburger"
 
 const Header = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(
@@ -42,11 +43,9 @@ const Header = ({ description, lang, meta, title }) => {
   const logoAlt = site?.siteMetadata?.title
 
   const handleMenuClick = () => {
-    setHamMenu(true)
+    hamMenu ? setHamMenu(false) : setHamMenu(true)
   }
-  const handleMenuClose = () => {
-    setHamMenu(false)
-  }
+  
   const handleSearchClick = () => {
     clickSearch ? setClickedSearch(false) : setClickedSearch(true)
   }
@@ -672,7 +671,7 @@ const Header = ({ description, lang, meta, title }) => {
             </div>
           </button>
         </div>
-        <div className={`hamburger-menu ${hamMenu ? "active" : ""}`}></div>
+        {hamMenu == true && <Hamburger close={handleMenuClick}/>}
       </section>
       {clickSearch && <Search closeSearch={handleSearchClick} />}
     </header>
