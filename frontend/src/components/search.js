@@ -72,7 +72,7 @@ const Search = ({ closeSearch }) => {
     })
 
     setSearchResults(filteredData)
-  }, [searchValue])
+  }, [searchValue, data.allShopifyProduct.nodes ])
 
   // prevents reload on form submit
   const handleSubmit = (e) => {
@@ -82,7 +82,7 @@ const Search = ({ closeSearch }) => {
   return (
     <section className="search-section">
       <div>
-        <form onSubmit={handleSubmit} className="search-form">
+        <form  onSubmit={handleSubmit} className="search-form">
           <label>
             <input
               name="search"
@@ -93,7 +93,7 @@ const Search = ({ closeSearch }) => {
             />
           </label>
         </form>
-        <a className="close" onClick={closeSearch}></a>
+        <button className="close" onClick={closeSearch}> </button>
       </div>
       {searchValue && <SearchResults allProducts={data.allShopifyProduct} productsArray={searchResults} searchInput={searchValue} />}
 

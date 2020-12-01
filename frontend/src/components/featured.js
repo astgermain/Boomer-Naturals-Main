@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, {useEffect } from "react"
 // import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import ProductSlider from "./productslider"
 import Infocta from "./infocta"
 import "../styles/featured.css"

@@ -3,11 +3,8 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import "../styles/footer.css"
-import Helmet from "react-helmet"
 import logo from "../../content/assets/bnlogoheader.png"
 import payments from "../../content/assets/payments.png"
 
@@ -282,7 +279,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="footer-bottom-right">
-          <div className="top-scroll-btn" onClick={handleScroll}>
+          <div role="button" tabIndex={0} className="top-scroll-btn" onClick={handleScroll}>
             Back to Top
           </div>
         </div>

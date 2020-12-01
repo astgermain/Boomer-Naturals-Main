@@ -3,16 +3,11 @@
  */
 
 import React, { useState } from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
 
 const ProductModal = ({ data, setModalShow }) => {
   const [quantity, setQuantity] = useState(1)
-  const [selectedVariant, setSelectedVariant] = useState({})
-  const [selectedAgeGroup, setSelectedAgeGroup] = useState("")
-  const [selectedSize, setSelectedSize] = useState("")
 
   let mainArray = []
   let dataSet = new Set()
@@ -22,7 +17,7 @@ const ProductModal = ({ data, setModalShow }) => {
   data.variants.forEach(variant => {
     if (variant.availableForSale) {
       variant.selectedOptions.forEach(option => {
-        if (option.name == "Color") {
+        if (option.name === "Color") {
           if (!colorSet.has(option.value)) {
             colorSet.add(option.value)
             if (!start) {
@@ -82,14 +77,19 @@ const ProductModal = ({ data, setModalShow }) => {
   }
   let generateVariantThumbs = variantData => {
     return variantData.map(data => {
-      return <img src={data[0].image.originalSrc} className="variant-thumb" />
+      return (
+        <img
+          src={data[0].image.originalSrc}
+          className="variant-thumb"
+          alt="thumb-nail"
+        />
+      )
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
 
   let handleSub = () => {
-    if(quantity > 1)
-    return setQuantity(quantity - 1)
+    if (quantity > 1) return setQuantity(quantity - 1)
   }
 
   return (
@@ -115,11 +115,21 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-quantity">
             <span>Quantity</span>
             <div className="quantityButton">
-              <div className="quantityButtonPartR" onClick={handleSub}>
+              <div
+                role="button"
+                tabIndex={0}
+                className="quantityButtonPartR"
+                onClick={handleSub}
+              >
                 <span>-</span>
               </div>
               <span>{quantity}</span>
-              <div className="quantityButtonPartL" onClick={handleAdd}>
+              <div
+                role="button"
+                tabIndex={0}
+                className="quantityButtonPartL"
+                onClick={handleAdd}
+              >
                 <span>+</span>
               </div>
             </div>
@@ -127,7 +137,7 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-submit">
             <span>Select Size</span>
           </div>
-          <a className="close" onClick={hideModal}></a>
+          <button className="close" onClick={hideModal}> </button>
         </div>
         <div className="modal-variants">
           <span className="variant-text">Select</span>

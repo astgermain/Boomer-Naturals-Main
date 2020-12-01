@@ -5,9 +5,9 @@
   text-align: center;
 }
 
-.about-face-mask-section div {
-  /* margin: 1rem 0; */
-}
+/* .about-face-mask-section div {
+  margin: 1rem 0; 
+} */
 
 .about-face-mask-section h4 {
   color: var(--color-secondary);
@@ -36,7 +36,7 @@
 .image-container .pulse-btn span {
   position: absolute;
   font-size: 1.5vw;
-  height: 2.75vw;
+  height: 2.65vw;
 }
 
 .image-container .pulse-btn:hover {

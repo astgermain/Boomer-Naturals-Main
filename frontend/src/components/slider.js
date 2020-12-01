@@ -6,7 +6,6 @@
 
 import React from "react"
 import ReactSlider from "react-slick";
-import { Link } from "gatsby"
 
 
 const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) => {
@@ -32,7 +31,7 @@ const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) =
                 {/* End Slide 1 */}
 
                 {/* Start Slide 2 */}
-                {slide2 != undefined ?
+                {slide2 !== undefined ?
                     <div>
                         {slide2}       
                     </div>
@@ -43,7 +42,7 @@ const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) =
                 {/* End Slide 2 */}
 
                 {/* Start Slide 3 */}
-                {slide3 != undefined ?
+                {slide3 !== undefined ?
                     <div>
                         {slide3}       
                     </div>

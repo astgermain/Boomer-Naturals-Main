@@ -23,7 +23,7 @@ const VidIframe = ({ url, title, link }) => (
 
 const News = () => {
     const videoSVG = (
-        <svg width="30px" height="19px" viewBox="0 0 30 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink">
+        <svg width="30px" height="19px" viewBox="0 0 30 19" version="1.1" xmlns="http://www.w3.org/1999/xlink">
             <title>icon</title>
             <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                 <g id="Product-Page-Copy-7" transform="translate(-1176.000000, -4549.000000)" fill="#26293E">
