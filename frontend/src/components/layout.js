@@ -12,9 +12,24 @@ import Footer from "./footer"
 import News from "./news"
 import ShoppingCart from "./shopping-cart"
 
+import Client from 'shopify-buy'
+const { GATSBY_STOREFRONT_TOKEN } = process.env
+
+
+// Client object with methods for
+// creating checkout and other methods
+const client = Client.buildClient({
+  domain: 'boomerfacemasks.myshopify.com',
+  storefrontAccessToken: GATSBY_STOREFRONT_TOKEN
+})
+// Context that will be used in other components
+export const ClientContext = React.createContext(client)
+
+  
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  console.log(client)
 
   let header
   if (isRootPath) {
@@ -38,24 +53,26 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div className="" data-is-root-path={isRootPath}>
-      {header}
+    <ClientContext.Provider value={client}>
+      <div className="" data-is-root-path={isRootPath}>
+        {header}
 
-      <main>
-        <ShoppingCart />
-        <Hero />
-        <Featured />
-        <Categories />
-        <ProductCarousel />
-        <Insta />
-        <AboutFaceMask />
-        <News />
-        <AsSeenOn />
-        <Email />
-      </main>
+        <main>
+          <ShoppingCart />
+          <Hero />
+          <Featured />
+          <Categories />
+          <ProductCarousel />
+          <Insta />
+          <AboutFaceMask />
+          <News />
+          <AsSeenOn />
+          <Email />
+        </main>
 
-      <footer><Footer /></footer>
-    </div>
+        <footer><Footer /></footer>
+      </div>
+    </ClientContext.Provider>
   )
 }
 
