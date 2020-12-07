@@ -10,37 +10,11 @@ import logo from "../../content/assets/bnlogoheader.png"
 import Search from "./search"
 import Hamburger from "./hamburger"
 
-const Header = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-          childImageSharp {
-            fixed(width: 50, height: 50, quality: 95) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        site {
-          siteMetadata {
-            title
-            description
-            social {
-              facebook
-              instagram
-              linkedin
-              pintrest
-              twitter
-              youtube
-            }
-          }
-        }
-      }
-    `
-  )
+const Header = ({ title, data }) => {
+
   const [hamMenu, setHamMenu] = useState(false)
   const [clickSearch, setClickedSearch] = useState(false)
-  const logoAlt = site?.siteMetadata?.title
+  const logoAlt = title
 
   const handleMenuClick = () => {
     hamMenu ? setHamMenu(false) : setHamMenu(true)
@@ -673,7 +647,7 @@ const Header = ({ description, lang, meta, title }) => {
         </div>
         {hamMenu == true && <Hamburger close={handleMenuClick}/>}
       </section>
-      {clickSearch && <Search closeSearch={handleSearchClick} />}
+      {clickSearch && <Search closeSearch={handleSearchClick} data={data} />}
     </header>
   )
 }

@@ -100,7 +100,6 @@ exports.createPages = async ({ graphql, actions }) => {
     })
     //Create Product Pages
     result.data.allShopifyProduct.edges.forEach(({ node }) => {
-      console.log(node.handle)
       const id = node.handle
       createPage({
         path: `product/${id}/`,

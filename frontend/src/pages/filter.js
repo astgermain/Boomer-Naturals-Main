@@ -70,7 +70,6 @@ const Filter = ({ location }) => {
       else if(filterParams.has(e)){
         filterParams.delete(e)
       }
-      console.log(filterParams)
     }
    
   return (
