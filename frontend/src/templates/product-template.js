@@ -12,7 +12,6 @@ const ProductTemplate = ({ data, pageContext, location }) => {
     // const siteTitle = data.site.siteMetadata?.title || `Title`
     // const { previous, next } = pageContext
     const { handle, title, bodySummary, body } = pageContext.node
-    console.log(pageContext.node)
     return (
         <div>
         {/* <Layout location={location} title={siteTitle}> */}

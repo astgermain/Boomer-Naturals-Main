@@ -18,7 +18,6 @@ const Hamburger = ({ close }) => {
       document.body.style.overflow = "scroll"
     }
   }, [])
-  console.log(isShown)
   return (
     <Slide
       duration={500}

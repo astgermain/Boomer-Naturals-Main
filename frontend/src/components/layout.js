@@ -10,15 +10,83 @@ import AboutFaceMask from "./about-face-mask"
 import Insta from "./insta"
 import Footer from "./footer"
 import News from "./news"
+import { useStaticQuery, graphql } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
+  const data = useStaticQuery(graphql`
+    {
+      allShopifyProduct {
+        nodes {
+          availableForSale
+          descriptionHtml
+          handle
+          id
+          images {
+            altText
+            originalSrc
+            localFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          onlineStoreUrl
+          priceRange {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          productType
+          shopifyId
+          tags
+          title
+          totalInventory
+          variants {
+            availableForSale
+            id
+            image {
+              altText
+              originalSrc
+              localFile {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+            priceV2 {
+              amount
+              currencyCode
+            }
+            quantityAvailable
+            requiresShipping
+            selectedOptions {
+              name
+              value
+            }
+            shopifyId
+            title
+          }
+        }
+      }
+    }
+  `)
+
   let header
   if (isRootPath) {
     header = (
-      <Header title={title} />
+      <Header title={title} data={data} />
       /*
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
@@ -27,7 +95,7 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <Header />
+      <Header data={data} />
       /*
       <Link className="header-link-home" to="/">
         {title}
@@ -52,7 +120,9 @@ const Layout = ({ location, title, children }) => {
         <Email />
       </main>
 
-      <footer><Footer /></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }
