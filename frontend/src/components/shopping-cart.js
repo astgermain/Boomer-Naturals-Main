@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react"
-import Client from 'shopify-buy'
+import React, { useState, useEffect, useContext } from "react"
 
-const { GATSBY_STOREFRONT_TOKEN } = process.env
+import { ClientContext } from "./layout"
 
 const ShoppingCart = () => {
 
     const [checkout, setCheckout] = useState({})
+    const client = useContext(ClientContext)
 
     useEffect(() => {
-        const client = Client.buildClient({
-            domain: 'boomerfacemasks.myshopify.com',
-            storefrontAccessToken: GATSBY_STOREFRONT_TOKEN
-        })
-        console.log('client', client)
         client.checkout.create()
             .then((checkout) => {
                 setCheckout(checkout)
             })
     }, [])
-    console.log('checkout:', checkout)
     return (
         <div>
-            Hello from Shopping Cart
         </div>
     )
 }
