@@ -7,6 +7,7 @@
 import React, { useState } from "react"
 import propTypes from "prop-types"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 const Product = ({ productInfo, handleModalShow }) => {
   const [options, setOptions] = useState(false)
@@ -40,8 +41,7 @@ const Product = ({ productInfo, handleModalShow }) => {
   }
 
   let handleSub = () => {
-    if(quantity > 1)
-    return setQuantity(quantity - 1)
+    if (quantity > 1) return setQuantity(quantity - 1)
   }
 
   return (
@@ -63,15 +63,27 @@ const Product = ({ productInfo, handleModalShow }) => {
           </Link>
           <Link to="/">
             <div className="product-images">
-              <img
+              {/*<img
                 className="product-image"
                 src={productInfo.images[0].originalSrc}
                 alt={productInfo.images[0].altText}
               />
+              */}
+              <Img
+                fixed={productInfo.images[0].localFile.childImageSharp.fluid}
+                alt={productInfo.images[0].altText}
+                objectFit="cover"
+                objectPosition="50% 50%"
+              />
             </div>
           </Link>
 
-          <div className="product-button" onClick={optionsClick}>
+          <div
+            className="product-button"
+            role="button"
+            tabIndex={0}
+            onClick={optionsClick}
+          >
             <span>Product Options</span>
             <svg
               width="25px"
@@ -149,16 +161,28 @@ const Product = ({ productInfo, handleModalShow }) => {
             </div>
 
             <div className="flex-add-minus">
-              <div className="qty-add-num" onClick={handleAdd}>
+              <div
+                className="qty-add-num"
+                role="button"
+                tabIndex={0}
+                onClick={handleAdd}
+              >
                 <span>+</span>
               </div>
-              <div className="qty-minus-num" onClick={handleSub}>
+              <div
+                className="qty-minus-num"
+                role="button"
+                tabIndex={0}
+                onClick={handleSub}
+              >
                 <span>-</span>
               </div>
             </div>
 
             <div
               className="product-button"
+              role="button"
+              tabIndex={0}
               id="add-to-cart-btn"
               onClick={optionsClick}
             >

@@ -8,23 +8,102 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
+      allShopifyProduct {
+        edges {
+          node {
+            id
+            availableForSale
+            createdAt
+            descriptionHtml
+            description
+            handle
+            images {
+              originalSrc
+              altText
+              id
+            }
+            onlineStoreUrl
+            options {
+              id
+              name
+              shopifyId
+              values
+            }
+            priceRange {
+              maxVariantPrice {
+                amount
+                currencyCode
+              }
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            productType
+            shopifyId
+            tags
+            title
+            totalInventory
+            variants {
+              availableForSale
+              id
+              image {
+                altText
+                originalSrc
+                id
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+              quantityAvailable
+              requiresShipping
+              selectedOptions {
+                name
+                value
+              }
+              shopifyId
+              sku
+              title
+              weight
+              weightUnit
+            }
+          }
+        }
+      }
       allShopifyPage {
         edges {
           node {
             title
             handle
-            bodySummary
             body
+            bodySummary
           }
         }
       }
     }
   `).then(result => {
+    if(result.errors){
+      Promise.reject(result.errors)
+    }
+    //Create Regular Pages
     result.data.allShopifyPage.edges.forEach(({ node }) => {
       const id = node.handle
       createPage({
         path: `/${id}/`,
         component: path.resolve(`./src/templates/page-template.js`),
+        context: {
+          id,
+          node
+        },
+      })
+    })
+    //Create Product Pages
+    result.data.allShopifyProduct.edges.forEach(({ node }) => {
+      const id = node.handle
+      createPage({
+        path: `product/${id}/`,
+        component: path.resolve(`./src/templates/product-template.js`),
         context: {
           id,
           node

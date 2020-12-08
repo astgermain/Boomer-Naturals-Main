@@ -1,3 +1,7 @@
+const fs = require('fs');
+const gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(fs);
+
 module.exports = {
   siteMetadata: {
     title: `Boomer Naturals`,
@@ -422,7 +426,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
+              maxWidth: 620,
             },
           },
           {

@@ -8,45 +8,18 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import logo from "../../content/assets/bnlogoheader.png"
 import Search from "./search"
+import Hamburger from "./hamburger"
 
-const Header = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-          childImageSharp {
-            fixed(width: 50, height: 50, quality: 95) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        site {
-          siteMetadata {
-            title
-            description
-            social {
-              facebook
-              instagram
-              linkedin
-              pintrest
-              twitter
-              youtube
-            }
-          }
-        }
-      }
-    `
-  )
+const Header = ({ title, data }) => {
+
   const [hamMenu, setHamMenu] = useState(false)
   const [clickSearch, setClickedSearch] = useState(false)
-  const logoAlt = site?.siteMetadata?.title
+  const logoAlt = title
 
   const handleMenuClick = () => {
-    setHamMenu(true)
+    hamMenu ? setHamMenu(false) : setHamMenu(true)
   }
-  const handleMenuClose = () => {
-    setHamMenu(false)
-  }
+  
   const handleSearchClick = () => {
     clickSearch ? setClickedSearch(false) : setClickedSearch(true)
   }
@@ -57,7 +30,12 @@ const Header = ({ description, lang, meta, title }) => {
           <div className="header-icons">
             {/* Search Icon SVG */}
             <Link to="/">
-              <div onClick={handleSearchClick} className="header-icon search-icon">
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={handleSearchClick}
+                className="header-icon search-icon"
+              >
                 <svg
                   width="20px"
                   height="20px"
@@ -378,7 +356,7 @@ const Header = ({ description, lang, meta, title }) => {
           </div>
           <div className="header-icons">
             {/* Search Icon SVG */}
-            <div onClick={handleSearchClick} className="header-icon">
+            <div role="button" tabIndex={0} onClick={handleSearchClick} className="header-icon">
               <svg
                 width="20px"
                 height="20px"
@@ -667,9 +645,9 @@ const Header = ({ description, lang, meta, title }) => {
             </div>
           </button>
         </div>
-        <div className={`hamburger-menu ${hamMenu ? "active" : ""}`}></div>
+        {hamMenu == true && <Hamburger close={handleMenuClick}/>}
       </section>
-      {clickSearch && <Search closeSearch={handleSearchClick} />}
+      {clickSearch && <Search closeSearch={handleSearchClick} data={data} />}
     </header>
   )
 }
@@ -678,7 +656,7 @@ Header.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
-  title: `Boomer Naturals`
+  title: `Boomer Naturals`,
 }
 
 Header.propTypes = {

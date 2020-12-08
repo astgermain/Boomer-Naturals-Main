@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import Slider from "./slider"
 import "../styles/instafeed.css"
 import bottomleftimg from "../../content/assets/instagramgreenmask.png"
@@ -304,20 +303,20 @@ const Instafeed = () => {
         </div>
         <div className="bottom-left-img">
           <Link to="/">
-            <img src={bottomleftimg} alt="instagram-image" className="" />
+            <img src={bottomleftimg} alt="instagram" className="" />
           </Link>
         </div>
       </div>
       <div className="insta-right">
         <div className="top-right-img">
           <Link to="/">
-            <img src={toprightimg} alt="instagram-image" className="" />
+            <img src={toprightimg} alt="instagram" className="" />
           </Link>
         </div>
 
         <div className="bottom-right-img">
           <Link to="/">
-            <img src={bottomrightimg} alt="instagram-image" className="" />
+            <img src={bottomrightimg} alt="instagram" className="" />
           </Link>
         </div>
       </div>

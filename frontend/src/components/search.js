@@ -1,81 +1,30 @@
 import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import "../styles/search.css"
 import SearchResults from "./search-results"
 // Needs regex
 // Needs to pass shopifyId to results page to render products
 // Possible to just have a popup and render results same page
 
-const Search = ({ closeSearch }) => {
-
-  const data = useStaticQuery(graphql`
-  {
-    allShopifyProduct {
-      nodes {
-        availableForSale
-        descriptionHtml
-        handle
-        id
-        images {
-          altText
-          originalSrc
-        }
-        onlineStoreUrl
-        priceRange {
-          maxVariantPrice {
-            amount
-            currencyCode
-          }
-          minVariantPrice {
-            amount
-            currencyCode
-          }
-        }
-        productType
-        shopifyId
-        tags
-        title
-        totalInventory
-        variants {
-          availableForSale
-          id
-          image {
-            altText
-            originalSrc
-          }
-          priceV2 {
-            amount
-            currencyCode
-          }
-          quantityAvailable
-          requiresShipping
-          selectedOptions {
-            name
-            value
-          }
-          shopifyId
-          title
-        }
-      }
-    }
-  }
-`)
+const Search = ({ closeSearch, data }) => {
 
   const [searchValue, setSearchValue] = useState("")
   const [searchResults, setSearchResults] = useState()
 
   useEffect(() => {
     let filteredData = data.allShopifyProduct.nodes.filter(product => {
-      if (product.title.toLowerCase().match(searchValue.toLowerCase()) && product.images.length) {
+      if (
+        product.title.toLowerCase().match(searchValue.toLowerCase()) &&
+        product.images.length
+      ) {
         return product
       }
     })
 
     setSearchResults(filteredData)
-  }, [searchValue])
+  }, [searchValue, data.allShopifyProduct.nodes])
 
   // prevents reload on form submit
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
   }
 
@@ -93,10 +42,17 @@ const Search = ({ closeSearch }) => {
             />
           </label>
         </form>
-        <a className="close" onClick={closeSearch}></a>
+        <button className="close" onClick={closeSearch}>
+          {" "}
+        </button>
       </div>
-      {searchValue && <SearchResults allProducts={data.allShopifyProduct} productsArray={searchResults} searchInput={searchValue} />}
-
+      {searchValue && (
+        <SearchResults
+          allProducts={data.allShopifyProduct}
+          productsArray={searchResults}
+          searchInput={searchValue}
+        />
+      )}
     </section>
   )
 }

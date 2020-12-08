@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql, Link, StaticQuery } from "gatsby"
+import React, { useState } from "react"
+import { Link } from "gatsby"
 import "../styles/about-face-mask.css"
 import MainButton from "./main-button"
 import MaskImg from "../../content/assets/mask.png"
@@ -35,26 +35,38 @@ const AboutFaceMask = () => {
             <div className="image-container">
                 <img src={MaskImg} alt="Boomer Naturals Mask Information" width="100%" height="auto" />
                 <div
+                    role = "button"
+                    tabIndex={0}
                     onClick={() => handleHoverEvent(1)}
+                    onKeyDown={() => handleHoverEvent(1)}
                     className="pulse-btn pulse-btn-1"
                 >
                     <span>+</span>
                 </div>
                 <div
+                    role = "button"
+                    tabIndex={0}
                     className="pulse-btn pulse-btn-2"
                     onClick={() => handleHoverEvent(2)}
+                    onKeyDown={() => handleHoverEvent(2)}
                 >
                     <span>+</span>
                 </div>
                 <div
+                    role = "button"
+                    tabIndex={0}
                     className="pulse-btn pulse-btn-3"
                     onClick={() => handleHoverEvent(3)}
+                    onKeyDown={() => handleHoverEvent(3)}
                 >
                     <span>+</span>
                 </div>
                 <div
+                    role = "button" 
+                    tabIndex={0}
                     className="pulse-btn pulse-btn-4"
                     onClick={() => handleHoverEvent(4)}
+                    onKeyDown={() => handleHoverEvent(4)}
                 >
                     <span>+</span>
                 </div>

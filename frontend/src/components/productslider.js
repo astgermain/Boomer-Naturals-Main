@@ -1,6 +1,4 @@
 import React, { useState, createContext } from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
 import Slider from "./slider"
 import Product from "./product"
 import ProductModal from "./product-modal"
@@ -10,16 +8,15 @@ import { Zoom } from "react-awesome-reveal"
 export const ProductSliderContext = createContext(null)
 
 const ProductSlider = ({ collection }) => {
-  {
     /* Takes a shopify id of a collection and displays it, in this case the Featured collection 
   
   pageInfo probably not needed and totalCount
   bottom descriptionHTML shows nothign but may show collection text
   
   */
-  }
-  {
+
     /*
+  {
   const data = useStaticQuery(graphql`
     {
       allShopifyCollection(
@@ -87,10 +84,11 @@ const ProductSlider = ({ collection }) => {
       }
     }
   `)
-  */
   }
+  */
 
-  {
+
+
     /* 
     Sort variants by color name and group color names
     Then offer options for size and adjustability.
@@ -99,7 +97,6 @@ const ProductSlider = ({ collection }) => {
     For variant color displays, create a stack and loop through the number of displayed you want. 
     If value has been pushed to the stack then don't add an image, but add a size and adjustability to that entry.
   */
-  }
 
   let slideData = []
   let slider = undefined
@@ -168,7 +165,7 @@ const ProductSlider = ({ collection }) => {
         }
         tempArr.push(prod)
       }
-      if (tempArr.length == 3) {
+      if (tempArr.length === 3) {
         slideData.push(tempArr)
         tempArr = []
       }

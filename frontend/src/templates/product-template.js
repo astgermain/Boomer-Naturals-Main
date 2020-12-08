@@ -1,12 +1,17 @@
+
 import React from "react"
+import { Link, graphql } from "gatsby"
+
 import Footer from "../components/footer"
 import Header from "../components/header"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-const PageTemplate = ({ data, pageContext, location }) => {
+const ProductTemplate = ({ data, pageContext, location }) => {
     // const post = data.markdownRemark
     // const siteTitle = data.site.siteMetadata?.title || `Title`
     // const { previous, next } = pageContext
-    const { body } = pageContext.node
+    const { handle, title, bodySummary, body } = pageContext.node
     return (
         <div>
         {/* <Layout location={location} title={siteTitle}> */}
@@ -64,7 +69,7 @@ const PageTemplate = ({ data, pageContext, location }) => {
     )
 }
 
-export default PageTemplate
+export default ProductTemplate
 
 // export const pageQuery = graphql`
 //   query PageBySlug($slug: String!) {
