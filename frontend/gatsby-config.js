@@ -22,6 +22,13 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: 'https://boomerfacemasks.myshopify.com/api/graphql',
+        headers: 'X-Shopify-Storefront-Access-Token: 5060f93e1d5681a9d90371c49cf1a0db'
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,

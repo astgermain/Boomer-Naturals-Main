@@ -9,10 +9,12 @@
     "email": "andrew.s@boomernaturals.com"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.4",
     "@material-ui/styles": "^4.10.0",
     "axios": "^0.20.0",
     "gatsby": "^2.24.87",
     "gatsby-image": "^2.7.0",
+    "gatsby-plugin-apollo": "^3.0.2",
     "gatsby-plugin-feed": "^2.5.13",
     "gatsby-plugin-google-analytics": "^2.3.15",
     "gatsby-plugin-manifest": "^2.4.32",
