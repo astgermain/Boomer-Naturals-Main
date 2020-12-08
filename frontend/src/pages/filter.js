@@ -152,6 +152,7 @@ const Filter = ({ location }) => {
           <div className="filter-size">
             <h4>Size</h4>
             <span className="filter-option">Adult</span>
+    {/*Checkbox needs Clear Check prop for clear filters button*/}
             <div className="check-option"><Checkbox value="sm" handleCheck={handleCheck} /><span className="filter-option">Small</span></div>
             <div className="check-option"><Checkbox value="md" handleCheck={handleCheck} /><span className="filter-option">Medium</span></div>
             <div className="check-option"><Checkbox value="lg" handleCheck={handleCheck} /><span className="filter-option">Large</span></div>
