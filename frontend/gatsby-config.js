@@ -22,11 +22,15 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-apollo',
+      resolve: `gatsby-plugin-apollo-shopify`,
       options: {
-        uri: 'https://boomerfacemasks.myshopify.com/api/graphql',
-        headers: 'X-Shopify-Storefront-Access-Token: 5060f93e1d5681a9d90371c49cf1a0db'
-      }
+        shopName: `boomerfacemasks`,
+        accessToken: `5060f93e1d5681a9d90371c49cf1a0db`,
+        // Optionally set the API version you want to use. For a list of available API versions,
+        // see: https://shopify.dev/concepts/about-apis/versioning/release-notes
+        // Defaults to unspecified/oldest stable
+        apiVersion: "2020-10",
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

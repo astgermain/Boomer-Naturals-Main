@@ -70,7 +70,7 @@ const Product = ({ productInfo, handleModalShow }) => {
               />
               */}
               <Img
-                fixed={productInfo.images[0].localFile.childImageSharp.fluid}
+                fluid={productInfo.images[0].localFile.childImageSharp.fluid}
                 alt={productInfo.images[0].altText}
                 objectFit="cover"
                 objectPosition="50% 50%"

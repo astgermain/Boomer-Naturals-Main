@@ -13,6 +13,11 @@ import News from "./news"
 import ShoppingCart from "./shopping-cart"
 import { useStaticQuery, graphql } from "gatsby"
 import Client from 'shopify-buy'
+import Register from './register'
+import StoreContext from "../util/store"
+
+
+/*
 const { GATSBY_STOREFRONT_TOKEN } = process.env
 
 
@@ -24,12 +29,11 @@ const client = Client.buildClient({
 })
 // Context that will be used in other components
 export const ClientContext = React.createContext(client)
-
+*/
   
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  console.log(client)
 
   const data = useStaticQuery(graphql`
     {
@@ -120,17 +124,17 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <ClientContext.Provider value={client}>
+    
       <div className="" data-is-root-path={isRootPath}>
         {header}
 
         <main>
-          <ShoppingCart />
           <Hero />
           <Featured />
           <Categories />
           <ProductCarousel />
           <Insta />
+          <Register />
           <AboutFaceMask />
           <News />
           <AsSeenOn />
@@ -141,7 +145,6 @@ const Layout = ({ location, title, children }) => {
           <Footer />
         </footer>
       </div>
-    </ClientContext.Provider>
   )
 }
 

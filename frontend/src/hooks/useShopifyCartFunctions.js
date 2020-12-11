@@ -1,3 +1,4 @@
+/*
 import { useEffect, useReducer, useMemo } from 'react';
 import shopify from 'shopify-buy';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
@@ -129,3 +130,4 @@ const useShopifyFunctions = () => {
 };
 
 export default useShopifyFunctions;
+*/
