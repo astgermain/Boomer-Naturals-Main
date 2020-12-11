@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useContext } from "react"
 
-import { Store } from "../util/store"
+//import { Store } from "../util/store"
 
-const ShoppingCart = () => {
-  console.log('Cart: ', Store)
+const ShoppingCart = (props) => {
+  console.log('Cart: ', props)
   const [checkout, setCheckout] = useState({})
-  const { checkoutContext, toggleCart, removeFromCart } = useContext(Store)
-
+  //const { checkoutContext, toggleCart, removeFromCart } = useContext(Store)
+/*
   useEffect(() => {
     checkoutContext.create().then(createdCheckout => {
       setCheckout(createdCheckout)
     })
   }, [])
+  */
   return <div></div>
+  
 }
 
 export default ShoppingCart
