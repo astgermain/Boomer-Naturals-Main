@@ -22,12 +22,18 @@
   position: absolute;
   right: 32px;
   top: 10px;
-  width: 32px;
-  height: 32px;
+  width: 45px;
+  height: 45px;
   opacity: 0.3;
   cursor: pointer;
-  border:none;
+  border: none;
   background-color: transparent;
+  border: solid 1px #333;
+  border-radius: 100px!important;
+  padding: 5px;
+}
+#hamburgerclose {
+  top: 20px;
 }
 .close:hover {
   opacity: 1;
@@ -35,7 +41,8 @@
 .close:before,
 .close:after {
   position: absolute;
-  left: 15px;
+  left: 20px;
+  top:6px;
   content: " ";
   height: 33px;
   width: 2px;
@@ -109,7 +116,6 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
-
 
 .modal-variants {
   width: 20%;
