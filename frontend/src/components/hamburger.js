@@ -28,7 +28,7 @@ const Hamburger = ({ close }) => {
       <section className="hamburger-container">
         {/*  */}
         <div className="hamburger-content">
-          <a className="close" onClick={close}></a>
+          <a id="hamburgerclose" className="close" onClick={close}></a>
           <div className="hamburger-content-top">
             <div className="link-level1">
               <Link to="/" className="ham-link1">
