@@ -128,7 +128,12 @@
 }
 
 .modal-image {
+  display: flex;
+  justify-content: center;
   width: 55%;
+  height: 100%;
+}
+.modal-image img{
   height: 100%;
 }
 
@@ -183,9 +188,8 @@
 }
 
 .variants-thumbnails {
-  display: inline-flex;
+  display: inline-block;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   padding: 5px;
 }
 
@@ -201,7 +205,8 @@
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
-  border: 1px solid gainsboro;
+  background: transparent;
+  border: none !important;
 }
 .variant-text {
   padding: 10px 0px;
