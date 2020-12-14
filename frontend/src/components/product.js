@@ -63,18 +63,14 @@ const Product = ({ productInfo, handleModalShow }) => {
           </Link>
           <Link to="/">
             <div className="product-images">
-              {/*<img
-                className="product-image"
-                src={productInfo.images[0].originalSrc}
-                alt={productInfo.images[0].altText}
-              />
-              */}
+              {/*
               <Img
                 fluid={productInfo.images[0].localFile.childImageSharp.fluid}
                 alt={productInfo.images[0].altText}
                 objectFit="cover"
                 objectPosition="50% 50%"
               />
+              */}
             </div>
           </Link>
 
