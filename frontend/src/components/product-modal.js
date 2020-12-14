@@ -2,12 +2,24 @@
  * Modal component for quick buy feature
  */
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
+import Img from "gatsby-image"
 
 const ProductModal = ({ data, setModalShow }) => {
   const [quantity, setQuantity] = useState(1)
+  const [mainImage, setMainImage] = useState(data.images[0].originalSrc)
+  const [mainImageAlt, setMainImageAlt] = useState(data.images[0].altText)
+ 
+  let variantSelected = ( data ) =>{
+    setMainImage(data[0].image.originalSrc);
+    setMainImageAlt(data[0].image.altText);
+  }
+  useEffect(() => {
+  }, [])
+
+ 
 
   let mainArray = []
   let dataSet = new Set()
@@ -77,12 +89,15 @@ const ProductModal = ({ data, setModalShow }) => {
   }
   let generateVariantThumbs = variantData => {
     return variantData.map(data => {
+      console.log(data)
       return (
+      <button className="variant-thumb" onClick={() => variantSelected(data)}  >
         <img
           src={data[0].image.originalSrc}
           className="variant-thumb"
           alt="thumb-nail"
         />
+      </button>
       )
     })
   }
@@ -91,6 +106,8 @@ const ProductModal = ({ data, setModalShow }) => {
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
+  console.log("data set:", data)
+  console.log('mainarray:', mainArray)
 
   return (
     <Slide
@@ -115,6 +132,15 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-quantity">
             <span>Quantity</span>
             <div className="quantityButton">
+            <div
+                role="button"
+                tabIndex={0}
+                className="quantityButtonPartL"
+                onClick={handleAdd}
+              >
+                <span>+</span>
+              </div>
+              <span>{quantity}</span>
               <div
                 role="button"
                 tabIndex={0}
@@ -122,15 +148,6 @@ const ProductModal = ({ data, setModalShow }) => {
                 onClick={handleSub}
               >
                 <span>-</span>
-              </div>
-              <span>{quantity}</span>
-              <div
-                role="button"
-                tabIndex={0}
-                className="quantityButtonPartL"
-                onClick={handleAdd}
-              >
-                <span>+</span>
               </div>
             </div>
           </div>
@@ -143,7 +160,12 @@ const ProductModal = ({ data, setModalShow }) => {
           <span className="variant-text">Select</span>
           <div className="variants-thumbnails">{variantThumbs}</div>
         </div>
-        <div className="modal-image"></div>
+        <div className="modal-image">
+        <img
+                src={mainImage}
+                alt={mainImageAlt}
+              />
+        </div>
       </div>
     </Slide>
   )
