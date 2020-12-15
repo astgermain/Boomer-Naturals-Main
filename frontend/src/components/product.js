@@ -8,6 +8,7 @@ import React, { useState } from "react"
 import propTypes from "prop-types"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+import errorImg from "../../content/assets/errorImg.png"
 
 const Product = ({ productInfo, handleModalShow }) => {
   const [options, setOptions] = useState(false)
@@ -44,6 +45,28 @@ const Product = ({ productInfo, handleModalShow }) => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
 
+  let fluidImage = () => {
+    try {
+      return(
+      <Img
+        fluid={productInfo.images[0].localFile.childImageSharp.fluid}
+        alt={productInfo.images[0].altText}
+        objectFit="cover"
+        objectPosition="50% 50%"
+      />
+      )
+    }
+    catch {
+      return(
+        <img
+         src={errorImg}
+          alt="error image"
+         className="errorProductImg"
+        />
+        )
+    }
+  }
+
   return (
     <div
       className="product-container"
@@ -62,20 +85,7 @@ const Product = ({ productInfo, handleModalShow }) => {
             </div>
           </Link>
           <Link to="/">
-            <div className="product-images">
-              {/*<img
-                className="product-image"
-                src={productInfo.images[0].originalSrc}
-                alt={productInfo.images[0].altText}
-              />
-              */}
-              <Img
-                fixed={productInfo.images[0].localFile.childImageSharp.fluid}
-                alt={productInfo.images[0].altText}
-                objectFit="cover"
-                objectPosition="50% 50%"
-              />
-            </div>
+            <div className="product-images">{fluidImage()}</div>
           </Link>
 
           <div
@@ -144,11 +154,7 @@ const Product = ({ productInfo, handleModalShow }) => {
           </Link>
           <Link to="/">
             <div className="product-images">
-              <img
-                className="product-image"
-                src={productInfo.images[0].originalSrc}
-                alt={productInfo.images[0].altText}
-              />
+              {fluidImage()}
             </div>
           </Link>
 

@@ -2,12 +2,47 @@
  * Modal component for quick buy feature
  */
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
+import errorImg from "../../content/assets/errorImg.png"
 
 const ProductModal = ({ data, setModalShow }) => {
+  let x = () => {
+    try{
+      return (
+        [data.images[0].originalSrc, data.images[0].altText]
+      )
+    }
+    catch {
+      return (
+        [errorImg, "error image"]
+      )
+    }
+  }
   const [quantity, setQuantity] = useState(1)
+  const [mainImage, setMainImage] = useState(x()[0])
+  const [mainImageAlt, setMainImageAlt] = useState(x()[1])
+ 
+  let variantSelected = ( data ) =>{
+    try{
+      setMainImage(data[0].image.originalSrc);
+    }
+    catch{
+      setMainImage(errorImg);
+    }
+    try{
+      setMainImageAlt(data[0].image.altText);
+    }
+    catch{
+      setMainImageAlt("error image");
+    }
+    
+  }
+  useEffect(() => {
+  }, [])
+
+ 
 
   let mainArray = []
   let dataSet = new Set()
@@ -77,13 +112,27 @@ const ProductModal = ({ data, setModalShow }) => {
   }
   let generateVariantThumbs = variantData => {
     return variantData.map(data => {
-      return (
-        <img
-          src={data[0].image.originalSrc}
-          className="variant-thumb"
-          alt="thumb-nail"
-        />
-      )
+      try {
+        return (
+          <button className="variant-thumb" onClick={() => variantSelected(data)}  >
+          <img
+            src={data[0].image.originalSrc}
+            className="variant-thumb"
+            alt={data[0].image.altText}
+          />
+          </button>
+        )
+      } catch {
+        return (
+          <button className="variant-thumb" onClick={() => variantSelected(data)}  >
+          <img
+            src={errorImg}
+            className="variant-thumb"
+            alt="error image"
+          />
+          </button>
+        )
+      }
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
@@ -91,6 +140,8 @@ const ProductModal = ({ data, setModalShow }) => {
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
+  console.log("data set:", data)
+  console.log('mainarray:', mainArray)
 
   return (
     <Slide
@@ -115,6 +166,15 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-quantity">
             <span>Quantity</span>
             <div className="quantityButton">
+            <div
+                role="button"
+                tabIndex={0}
+                className="quantityButtonPartL"
+                onClick={handleAdd}
+              >
+                <span>+</span>
+              </div>
+              <span>{quantity}</span>
               <div
                 role="button"
                 tabIndex={0}
@@ -123,27 +183,25 @@ const ProductModal = ({ data, setModalShow }) => {
               >
                 <span>-</span>
               </div>
-              <span>{quantity}</span>
-              <div
-                role="button"
-                tabIndex={0}
-                className="quantityButtonPartL"
-                onClick={handleAdd}
-              >
-                <span>+</span>
-              </div>
             </div>
           </div>
           <div className="modal-submit">
             <span>Select Size</span>
           </div>
-          <button className="close" onClick={hideModal}> </button>
+          <button className="close" onClick={hideModal}>
+            {" "}
+          </button>
         </div>
         <div className="modal-variants">
           <span className="variant-text">Select</span>
           <div className="variants-thumbnails">{variantThumbs}</div>
         </div>
-        <div className="modal-image"></div>
+        <div className="modal-image">
+        <img
+                src={mainImage}
+                alt={mainImageAlt}
+              />
+        </div>
       </div>
     </Slide>
   )
