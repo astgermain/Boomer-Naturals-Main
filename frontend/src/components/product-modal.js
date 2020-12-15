@@ -5,6 +5,7 @@
 import React, { useState } from "react"
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
+import errorImg from "../../content/assets/errorImg.png"
 
 const ProductModal = ({ data, setModalShow }) => {
   const [quantity, setQuantity] = useState(1)
@@ -77,13 +78,23 @@ const ProductModal = ({ data, setModalShow }) => {
   }
   let generateVariantThumbs = variantData => {
     return variantData.map(data => {
-      return (
-        <img
-          src={data[0].image.originalSrc}
-          className="variant-thumb"
-          alt="thumb-nail"
-        />
-      )
+      try {
+        return (
+          <img
+            src={data[0].image.originalSrc}
+            className="variant-thumb"
+            alt={data[0].image.altText}
+          />
+        )
+      } catch {
+        return (
+          <img
+            src={errorImg}
+            className="variant-thumb"
+            alt="error image"
+          />
+        )
+      }
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
@@ -137,7 +148,9 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-submit">
             <span>Select Size</span>
           </div>
-          <button className="close" onClick={hideModal}> </button>
+          <button className="close" onClick={hideModal}>
+            {" "}
+          </button>
         </div>
         <div className="modal-variants">
           <span className="variant-text">Select</span>
