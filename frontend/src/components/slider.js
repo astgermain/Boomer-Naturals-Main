@@ -15,7 +15,7 @@ const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) =
         arrows: arrowsVal,
         infinite: true,
         autoplay: autoplay,
-        lazyLoad: false,
+        lazyLoad: true,
         speed: speed,
         slidesToShow: 1,
         slidesToScroll: 1

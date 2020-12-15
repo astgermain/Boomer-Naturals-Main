@@ -8,13 +8,36 @@ import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
 
 const ProductModal = ({ data, setModalShow }) => {
+  let x = () => {
+    try{
+      return (
+        [data.images[0].originalSrc, data.images[0].altText]
+      )
+    }
+    catch {
+      return (
+        [errorImg, "error image"]
+      )
+    }
+  }
   const [quantity, setQuantity] = useState(1)
-  const [mainImage, setMainImage] = useState(data.images[0].originalSrc)
-  const [mainImageAlt, setMainImageAlt] = useState(data.images[0].altText)
+  const [mainImage, setMainImage] = useState(x()[0])
+  const [mainImageAlt, setMainImageAlt] = useState(x()[1])
  
   let variantSelected = ( data ) =>{
-    setMainImage(data[0].image.originalSrc);
-    setMainImageAlt(data[0].image.altText);
+    try{
+      setMainImage(data[0].image.originalSrc);
+    }
+    catch{
+      setMainImage(errorImg);
+    }
+    try{
+      setMainImageAlt(data[0].image.altText);
+    }
+    catch{
+      setMainImageAlt("error image");
+    }
+    
   }
   useEffect(() => {
   }, [])
