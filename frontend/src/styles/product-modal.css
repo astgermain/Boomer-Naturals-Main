@@ -22,12 +22,18 @@
   position: absolute;
   right: 32px;
   top: 10px;
-  width: 32px;
-  height: 32px;
+  width: 45px;
+  height: 45px;
   opacity: 0.3;
   cursor: pointer;
-  border:none;
+  border: none;
   background-color: transparent;
+  border: solid 1px #333;
+  border-radius: 100px!important;
+  padding: 5px;
+}
+#hamburgerclose {
+  top: 20px;
 }
 .close:hover {
   opacity: 1;
@@ -35,7 +41,8 @@
 .close:before,
 .close:after {
   position: absolute;
-  left: 15px;
+  left: 20px;
+  top:6px;
   content: " ";
   height: 33px;
   width: 2px;
@@ -110,7 +117,6 @@
   user-select: none;
 }
 
-
 .modal-variants {
   width: 20%;
   height: 100%;
@@ -128,7 +134,12 @@
 }
 
 .modal-image {
+  display: flex;
+  justify-content: center;
   width: 55%;
+  height: 100%;
+}
+.modal-image img{
   height: 100%;
 }
 
@@ -183,9 +194,8 @@
 }
 
 .variants-thumbnails {
-  display: inline-flex;
+  display: inline-block;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   padding: 5px;
 }
 
@@ -201,7 +211,8 @@
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
-  border: 1px solid gainsboro;
+  background: transparent;
+  border: none !important;
 }
 .variant-text {
   padding: 10px 0px;
