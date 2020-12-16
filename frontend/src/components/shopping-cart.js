@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
 import CartItem from './cart-item'
-//import { Store } from "../util/store"
 /**
  * addToCart - variantId, quantity, setIsLoading
  * buyNow - productID, quantity, setIsLoading
@@ -23,19 +22,14 @@ const ShoppingCart = (props) => {
 
   const PRODUCTS_IN_CART = checkout.lineItems
 
-  // const [checkout, setCheckout] = useState({})
-
+  useEffect(() => {
+    console.log('PRODS IN CART',PRODUCTS_IN_CART)
+  }, [PRODUCTS_IN_CART])
+  
   return (
     <h1>ShoppingCart</h1>
   )
-  //const { checkoutContext, toggleCart, removeFromCart } = useContext(Store)
-  /*
-    useEffect(() => {
-      checkoutContext.create().then(createdCheckout => {
-        setCheckout(createdCheckout)
-      })
-    }, [])
-    */
+  
 }
 
 export default ShoppingCart
