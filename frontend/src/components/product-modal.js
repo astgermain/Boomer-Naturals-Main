@@ -2,12 +2,16 @@
  * Modal component for quick buy feature
  */
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import store from '../util/store'
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
 
 const ProductModal = ({ data, setModalShow }) => {
+
+  const { addToCart } = useContext(store)
+
   let x = () => {
     try{
       return (
@@ -143,6 +147,17 @@ const ProductModal = ({ data, setModalShow }) => {
   console.log("data set:", data)
   console.log('mainarray:', mainArray)
 
+  // Temporary for testing
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleAddToCart = e => {
+    // in the future this will use the 
+    // values grabbed from state to
+    // update the cart
+    const VARIANT_ID = data.variants[0].id.split('Shopify__ProductVariant__').join('')
+    addToCart(VARIANT_ID, 1, setIsLoading)
+  }
+
   return (
     <Slide
       duration={500}
@@ -186,6 +201,8 @@ const ProductModal = ({ data, setModalShow }) => {
             </div>
           </div>
           <div className="modal-submit">
+            {/* Add to cart button for testing */}
+            <button onClick={handleAddToCart} className="add-to-cart">Add to Cart</button>
             <span>Select Size</span>
           </div>
           <button className="close" onClick={hideModal}>

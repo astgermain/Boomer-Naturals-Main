@@ -63,6 +63,7 @@ const ProductCarousel = () => {
             tags
             variants {
               title
+              id
               selectedOptions {
                 name
                 value
