@@ -11,7 +11,6 @@ import Img from "gatsby-image"
 import errorImg from "../../content/assets/errorImg.png"
 
 const Product = ({ productInfo, handleModalShow }) => {
-  console.log('product info:',productInfo)
   const [options, setOptions] = useState(false)
   const [quantity, setQuantity] = useState(1)
 
