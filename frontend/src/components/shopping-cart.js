@@ -24,6 +24,25 @@ const ShoppingCart = (props) => {
 
   const PRODUCTS_IN_CART = checkout.lineItems
 
+  const SHOPPING_CART_ITEMS = (
+    <ul>
+      {
+        PRODUCTS_IN_CART.map(({ title, variant }) => (
+          <li key={variant.id}>
+            <CartItem
+              productTitle={title}
+              variantTitle={variant.title}
+              price={variant.price}
+              imgSrc={variant.image.src}
+              imgAltText={variant.image.altText}
+              extraData={variant}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  )
+
   useEffect(() => {
     console.log('PRODS IN CART', PRODUCTS_IN_CART)
 
@@ -39,7 +58,10 @@ const ShoppingCart = (props) => {
           <h3>YOUR CART</h3>
         </header>
         <div className="shopping-cart-body">
-    
+          {
+            PRODUCTS_IN_CART &&
+            SHOPPING_CART_ITEMS
+          }
         </div>
         <footer>
           <span>Free Shipping on All Orders Over $50</span>
