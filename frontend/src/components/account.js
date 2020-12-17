@@ -103,8 +103,9 @@ const Account = () => {
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
-console.log(customerAccessToken.accessToken)
+  try {
   return (
+     
     <Query
       query={GET_CUSTOMER_OBJECT}
       variables={{
@@ -117,7 +118,14 @@ console.log(customerAccessToken.accessToken)
         return <button name="info" onClick={()=>console.log(data)}>click for data</button>
       }}
     </Query>
+      
   )
+    }
+   catch{
+        return(
+            <div>No account data, not logged in</div>
+        )
+    }
 }
 
 export default Account

@@ -31,12 +31,9 @@ const Hamburger = ({ close }) => {
     setPage("default")
     setFooterMenuDir('down')
     setFooterMenuTrack(!footerMenuTrack)
-    
-    
-
     setTimeout(()=>{
       setShowFooter(!showFooter)
-    },500)
+    },600)
     
   }
   
@@ -48,10 +45,6 @@ const Hamburger = ({ close }) => {
     setFooterMenuDir('up')
     setShowFooter(!showFooter)
     setFooterMenuTrack(!footerMenuTrack)
-    
-  }
-  const closeMenu = () => {
-    setShowFooter(!showFooter)
     
   }
 
@@ -170,7 +163,7 @@ const Hamburger = ({ close }) => {
         {/*bottom footer v */}
 
         <div
-          style={{ display: showFooter ? "none" : "block" }}
+          style={{ opacity: showFooter ? 0 : 1 }}
           className="footerV"
         >
           <button onClick={createMenu}>Expand Footer V</button>
