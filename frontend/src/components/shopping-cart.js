@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import CartItem from './cart-item'
+import { Slide } from "react-awesome-reveal"
+
 /**
  * addToCart - variantId, quantity, setIsLoading
  * buyNow - productID, quantity, setIsLoading
@@ -24,10 +26,18 @@ const ShoppingCart = (props) => {
 
   useEffect(() => {
     console.log('PRODS IN CART',PRODUCTS_IN_CART)
+
   }, [PRODUCTS_IN_CART])
   
   return (
-    <h1>ShoppingCart</h1>
+    <Slide
+      triggerOnce={true}
+      direction="right"
+    >
+      <div style={{height: "100vh"}}>
+        <h1>Welcome to shopping cart</h1>
+      </div>
+    </Slide>
   )
   
 }

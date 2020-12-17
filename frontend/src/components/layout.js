@@ -129,9 +129,10 @@ const Layout = ({ location, title, children }) => {
         <React.Fragment>
           <div className="" data-is-root-path={isRootPath}>
             {header}
-
+            <aside>
+              <ShoppingCart context={context} />
+            </aside>
             <main>
-              <ShoppingCart context={context}/>
               <Login />
               <Hero />
               <Featured />
@@ -144,7 +145,6 @@ const Layout = ({ location, title, children }) => {
               <AsSeenOn />
               <Email />
             </main>
-
             <footer>
               <Footer />
             </footer>
