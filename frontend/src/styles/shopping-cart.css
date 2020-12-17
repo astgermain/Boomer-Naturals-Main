@@ -1,0 +1,18 @@
+/* SHOPPING CART MAIN */
+
+.shopping-cart-wrapper {
+    /* padding: 100rem; */
+}
+
+.shopping-cart-body {
+    /* padding: 100rem; */
+}
+
+/* INDIVIDUAL ITEMS */
+
+.cart-item-wrapper {}
+
+.cart-item-wrapper img{
+    border-radius: 50%;
+    width: 5%;
+}

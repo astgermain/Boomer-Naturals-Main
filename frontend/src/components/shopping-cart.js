@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import CartItem from './cart-item'
 import { Slide } from "react-awesome-reveal"
+import "../styles/shopping-cart.css"
 
 /**
  * addToCart - variantId, quantity, setIsLoading
@@ -27,15 +28,17 @@ const ShoppingCart = (props) => {
   const SHOPPING_CART_ITEMS = (
     <ul>
       {
-        PRODUCTS_IN_CART.map(({ title, variant }) => (
+        PRODUCTS_IN_CART.map(({ title, quantity, variant }) => (
           <li key={variant.id}>
             <CartItem
               productTitle={title}
               variantTitle={variant.title}
+              quantity={quantity}
               price={variant.price}
               imgSrc={variant.image.src}
               imgAltText={variant.image.altText}
               extraData={variant}
+              linkToProduct={"/"} //need to update
             />
           </li>
         ))
@@ -61,6 +64,7 @@ const ShoppingCart = (props) => {
           {
             PRODUCTS_IN_CART &&
             SHOPPING_CART_ITEMS
+            // Need to add component for "no items in cart"
           }
         </div>
         <footer>
