@@ -12,7 +12,7 @@ import { Slide } from "react-awesome-reveal"
  */
 const ShoppingCart = (props) => {
   console.log('Cart: ', props)
-  
+
   const {
     addToCart,
     buyNow,
@@ -25,21 +25,29 @@ const ShoppingCart = (props) => {
   const PRODUCTS_IN_CART = checkout.lineItems
 
   useEffect(() => {
-    console.log('PRODS IN CART',PRODUCTS_IN_CART)
+    console.log('PRODS IN CART', PRODUCTS_IN_CART)
 
   }, [PRODUCTS_IN_CART])
-  
+
   return (
     <Slide
       triggerOnce={true}
       direction="right"
     >
-      <div style={{height: "100vh"}}>
-        <h1>Welcome to shopping cart</h1>
-      </div>
+      <section classname="shopping-cart-wrapper" style={{ height: "100vh" }}>
+        <header>
+          <h3>YOUR CART</h3>
+        </header>
+        <div className="shopping-cart-body">
+    
+        </div>
+        <footer>
+          <span>Free Shipping on All Orders Over $50</span>
+        </footer>
+      </section>
     </Slide>
   )
-  
+
 }
 
 export default ShoppingCart
