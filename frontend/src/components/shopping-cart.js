@@ -56,7 +56,7 @@ const ShoppingCart = (props) => {
       triggerOnce={true}
       direction="right"
     >
-      <section classname="shopping-cart-wrapper" style={{ height: "100vh" }}>
+      <section className="shopping-cart-wrapper">
         <header>
           <h3>YOUR CART</h3>
         </header>
