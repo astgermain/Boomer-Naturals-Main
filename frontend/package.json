@@ -9,7 +9,7 @@
     "email": "andrew.s@boomernaturals.com"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.4",
+    "@apollo/client": "^3.3.6",
     "@material-ui/styles": "^4.10.0",
     "axios": "^0.20.0",
     "gatsby": "^2.24.87",

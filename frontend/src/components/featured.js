@@ -65,6 +65,7 @@ const Featured = () => {
             tags
             variants {
               title
+              id
               selectedOptions {
                 name
                 value

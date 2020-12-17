@@ -2,19 +2,46 @@
  * Modal component for quick buy feature
  */
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import store from '../util/store'
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
-import Img from "gatsby-image"
+import errorImg from "../../content/assets/errorImg.png"
 
 const ProductModal = ({ data, setModalShow }) => {
+
+  const { addToCart } = useContext(store)
+
+  let x = () => {
+    try{
+      return (
+        [data.images[0].originalSrc, data.images[0].altText]
+      )
+    }
+    catch {
+      return (
+        [errorImg, "error image"]
+      )
+    }
+  }
   const [quantity, setQuantity] = useState(1)
-  const [mainImage, setMainImage] = useState(data.images[0].originalSrc)
-  const [mainImageAlt, setMainImageAlt] = useState(data.images[0].altText)
+  const [mainImage, setMainImage] = useState(x()[0])
+  const [mainImageAlt, setMainImageAlt] = useState(x()[1])
  
   let variantSelected = ( data ) =>{
-    setMainImage(data[0].image.originalSrc);
-    setMainImageAlt(data[0].image.altText);
+    try{
+      setMainImage(data[0].image.originalSrc);
+    }
+    catch{
+      setMainImage(errorImg);
+    }
+    try{
+      setMainImageAlt(data[0].image.altText);
+    }
+    catch{
+      setMainImageAlt("error image");
+    }
+    
   }
   useEffect(() => {
   }, [])
@@ -89,16 +116,27 @@ const ProductModal = ({ data, setModalShow }) => {
   }
   let generateVariantThumbs = variantData => {
     return variantData.map(data => {
-      console.log(data)
-      return (
-      <button className="variant-thumb" onClick={() => variantSelected(data)}  >
-        <img
-          src={data[0].image.originalSrc}
-          className="variant-thumb"
-          alt="thumb-nail"
-        />
-      </button>
-      )
+      try {
+        return (
+          <button className="variant-thumb" onClick={() => variantSelected(data)}  >
+          <img
+            src={data[0].image.originalSrc}
+            className="variant-thumb"
+            alt={data[0].image.altText}
+          />
+          </button>
+        )
+      } catch {
+        return (
+          <button className="variant-thumb" onClick={() => variantSelected(data)}  >
+          <img
+            src={errorImg}
+            className="variant-thumb"
+            alt="error image"
+          />
+          </button>
+        )
+      }
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
@@ -108,6 +146,17 @@ const ProductModal = ({ data, setModalShow }) => {
   }
   console.log("data set:", data)
   console.log('mainarray:', mainArray)
+
+  // Temporary for testing
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleAddToCart = e => {
+    // in the future this will use the 
+    // values grabbed from state to
+    // update the cart
+    const VARIANT_ID = data.variants[0].id.split('Shopify__ProductVariant__').join('')
+    addToCart(VARIANT_ID, 1, setIsLoading)
+  }
 
   return (
     <Slide
@@ -152,9 +201,13 @@ const ProductModal = ({ data, setModalShow }) => {
             </div>
           </div>
           <div className="modal-submit">
+            {/* Add to cart button for testing */}
+            <button onClick={handleAddToCart} className="add-to-cart">Add to Cart</button>
             <span>Select Size</span>
           </div>
-          <button className="close" onClick={hideModal}> </button>
+          <button className="close" onClick={hideModal}>
+            {" "}
+          </button>
         </div>
         <div className="modal-variants">
           <span className="variant-text">Select</span>

@@ -4,6 +4,12 @@ For Gatsby general information see bottom
 
 # Table of Contents
 
+## ISSUES
+
+- \ <--- this symbol breaks search
+- search product modals do not work on filter and dropdown
+-
+
 ## Todo
 
 - Github Procedure/Code Review/Pull Requests/Merge Conflicts/Branching/etc

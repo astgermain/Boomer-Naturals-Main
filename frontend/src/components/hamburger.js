@@ -14,15 +14,19 @@ import HamburgerShop from "./hamburger-shop"
 import FooterVContent from "./hamburger-footer-v"
 
 const Hamburger = ({ close }) => {
+
   const [isShown, setIsShown] = useState(false)
   const [footerMenuTrack, setFooterMenuTrack] = useState(false)
   const [footerMenuReverse, setFooterMenuReverse] = useState("up")
+  const [shown, setShown] = useState(false)
+
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return function cleanup() {
       document.body.style.overflow = "scroll"
     }
   }, [])
+
   const yeetFooterMenu = () => {
     setFooterMenuTrack(!footerMenuTrack)
     setFooterMenuReverse("down")
@@ -66,17 +70,25 @@ const Hamburger = ({ close }) => {
   }
   
 
+
+  const yeetHamburgerMenu = () => {
+    setShown(!shown)
+  }
+
   return (
     <Slide
       duration={500}
       triggerOnce={true}
       direction="right"
       className="hamburger-container"
+      reverse={shown}
     >
       <section className="hamburger-container">
         <div className="hamburger-content">
-          <a id="hamburgerclose" className="close" onClick={close}></a>
-          <div className="hamburger-content-left">
+
+          <a id="hamburgerclose" className="close" onClick={yeetHamburgerMenu}></a>
+          <div className="hamburger-content-top">
+
             <div className="link-level1">
               <button onClick={sayHello}>
                 <Link to="/" className="ham-link1">

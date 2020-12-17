@@ -200,7 +200,7 @@ const ProductSlider = ({ collection }) => {
   }
   let strucDataJson = JSON.stringify(strucData)
   return (
-    <Zoom style={{ display: "flex" }} triggerOnce={true} className="product-slider">
+    <Zoom style={{ display: "flex" }} triggerOnce={true} fraction={.75}  className="product-slider">
       <div className="product-slider-inner">
         {modalShow.availableForSale && (
           <ProductModal data={modalShow} setModalShow={setModalShow} />
