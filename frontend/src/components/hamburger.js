@@ -13,70 +13,75 @@ import HamburgerShop from "./hamburger-shop"
 import FooterVContent from "./hamburger-footer-v"
 
 const Hamburger = ({ close }) => {
-
   const [isShown, setIsShown] = useState(false)
-  const [footerMenuTrack, setFooterMenuTrack] = useState(false)
-  const [footerMenuReverse, setFooterMenuReverse] = useState("up")
+  const [footerMenuTrack, setFooterMenuTrack] = useState(true)
+  const [footerMenuDir, setFooterMenuDir] = useState("up")
   const [shown, setShown] = useState(false)
   const [dir, setDir] = useState("right")
+  const [page, setPage] = useState("default")
+  const [showFooter, setShowFooter] = useState(false)
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return function cleanup() {
       document.body.style.overflow = "scroll"
     }
-  }, [])
+  }, [page])
 
   const yeetFooterMenu = () => {
+    setPage("default")
+    setFooterMenuDir('down')
     setFooterMenuTrack(!footerMenuTrack)
-    setFooterMenuReverse("down")
+    
+    
+
+    setTimeout(()=>{
+      setShowFooter(!showFooter)
+    },500)
     
   }
-  const [page, setPage] = useState("default")
+  
   const sayHello = () => {
     console.log("Hello!")
   }
   const createMenu = () => {
-    setShowFooter(!showFooter)
     setPage("footer")
+    setFooterMenuDir('up')
+    setShowFooter(!showFooter)
     setFooterMenuTrack(!footerMenuTrack)
+    
   }
   const closeMenu = () => {
     setShowFooter(!showFooter)
-    setPage("default")
-    setFooterMenuReverse("up")
+    
   }
 
-  const [showFooter, setShowFooter] = useState(false)
   const footerMenu = () => {
-    return showFooter ? (
+    return (
       <Slide
         duration={500}
-        triggerOnce={false}
-        direction={footerMenuReverse}
+        triggerOnce={true}
+        direction={footerMenuDir}
         className=""
         reverse={footerMenuTrack}
       >
+        
         <div className="footerVcontent">
           <button onClick={yeetFooterMenu} className="slidebutton">
             Collapse Footer V
           </button>
         </div>
         <FooterVContent />
-      </Slide>
-    ) : (
-      <Slide></Slide>
+    </Slide>
     )
   }
-  
-
 
   const yeetHamburgerMenu = () => {
     setDir("left")
     setShown(!shown)
     setDir("right")
-    setTimeout(()=>{
+    setTimeout(() => {
       close()
-    },500)
+    }, 500)
   }
 
   return (
@@ -89,10 +94,12 @@ const Hamburger = ({ close }) => {
     >
       <section className="hamburger-container">
         <div className="hamburger-content">
-
-          <a id="hamburgerclose" className="close" onClick={yeetHamburgerMenu}></a>
+          <a
+            id="hamburgerclose"
+            className="close"
+            onClick={yeetHamburgerMenu}
+          ></a>
           <div className="hamburger-content-top">
-
             <div className="link-level1">
               <button onClick={sayHello}>
                 <Link to="/" className="ham-link1">
@@ -156,7 +163,7 @@ const Hamburger = ({ close }) => {
 
             {page === "shop" && <HamburgerShop />}
 
-            {footerMenu()}
+            {showFooter ? footerMenu() : <div></div>}
           </div>
         </div>
 
@@ -167,9 +174,8 @@ const Hamburger = ({ close }) => {
           className="footerV"
         >
           <button onClick={createMenu}>Expand Footer V</button>
-</div>
-          <div className="hamburger-content-bottom"></div>
         </div>
+        <div className="hamburger-content-bottom"></div>
       </section>
     </Slide>
   )
