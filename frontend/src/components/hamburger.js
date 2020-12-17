@@ -13,6 +13,7 @@ import { Slide } from "react-awesome-reveal"
 const Hamburger = ({ close }) => {
     const [isShown, setIsShown] = useState(false)
     const [shown, setShown] = useState(false)
+    const [dir, setDir] = useState("right")
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return function cleanup() {
@@ -20,13 +21,18 @@ const Hamburger = ({ close }) => {
     }
   }, [])
   const yeetHamburgerMenu = () => {
+    setDir("left")
     setShown(!shown)
+    setDir("right")
+    setTimeout(()=>{
+      close()
+    },500)
   }
   return (
     <Slide
       duration={500}
       triggerOnce={true}
-      direction="right"
+      direction={dir}
       className="hamburger-container"
       reverse={shown}
     >
