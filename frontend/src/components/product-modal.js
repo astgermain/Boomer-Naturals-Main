@@ -9,11 +9,11 @@ import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
 
 const ProductModal = ({ data, setModalShow }) => {
-
+console.log('data modal->', data)
   const { addToCart } = useContext(store)
 
   let x = () => {
-    try{
+    try {
       return (
         [data.images[0].originalSrc, data.images[0].altText]
       )
@@ -27,26 +27,33 @@ const ProductModal = ({ data, setModalShow }) => {
   const [quantity, setQuantity] = useState(1)
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
- 
-  let variantSelected = ( data ) =>{
-    try{
+  const [selectedVariantId, setSelectedVariantId] = useState('')
+  
+  const [selectedSize, setSelectedSize] = useState('')
+  const [selectedColor, setSelectedColor] = useState('')
+
+  let handleVariantSelection = (data) => {
+    // sets color value to state from what user selects
+    setSelectedColor(data[0].selectedOptions[0].value)
+    setSelectedVariantId(data[0].id.split('Shopify__ProductVariant__').join(''))
+    try {
       setMainImage(data[0].image.originalSrc);
     }
-    catch{
+    catch {
       setMainImage(errorImg);
     }
-    try{
+    try {
       setMainImageAlt(data[0].image.altText);
     }
-    catch{
+    catch {
       setMainImageAlt("error image");
     }
-    
+
   }
   useEffect(() => {
   }, [])
 
- 
+
 
   let mainArray = []
   let dataSet = new Set()
@@ -118,22 +125,22 @@ const ProductModal = ({ data, setModalShow }) => {
     return variantData.map(data => {
       try {
         return (
-          <button className="variant-thumb" onClick={() => variantSelected(data)}  >
-          <img
-            src={data[0].image.originalSrc}
-            className="variant-thumb"
-            alt={data[0].image.altText}
-          />
+          <button className="variant-thumb" onClick={() => handleVariantSelection(data)}  >
+            <img
+              src={data[0].image.originalSrc}
+              className="variant-thumb"
+              alt={data[0].image.altText}
+            />
           </button>
         )
       } catch {
         return (
-          <button className="variant-thumb" onClick={() => variantSelected(data)}  >
-          <img
-            src={errorImg}
-            className="variant-thumb"
-            alt="error image"
-          />
+          <button className="variant-thumb" onClick={() => handleVariantSelection(data)}  >
+            <img
+              src={errorImg}
+              className="variant-thumb"
+              alt="error image"
+            />
           </button>
         )
       }
@@ -144,8 +151,6 @@ const ProductModal = ({ data, setModalShow }) => {
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
-  console.log("data set:", data)
-  console.log('mainarray:', mainArray)
 
   // Temporary for testing
   const [isLoading, setIsLoading] = useState(false)
@@ -155,7 +160,7 @@ const ProductModal = ({ data, setModalShow }) => {
     // values grabbed from state to
     // update the cart
     const VARIANT_ID = data.variants[0].id.split('Shopify__ProductVariant__').join('')
-    addToCart(VARIANT_ID, 1, setIsLoading)
+    addToCart(selectedVariantId, 1, setIsLoading)
   }
 
   return (
@@ -181,7 +186,7 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-quantity">
             <span>Quantity</span>
             <div className="quantityButton">
-            <div
+              <div
                 role="button"
                 tabIndex={0}
                 className="quantityButtonPartL"
@@ -214,10 +219,10 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="variants-thumbnails">{variantThumbs}</div>
         </div>
         <div className="modal-image">
-        <img
-                src={mainImage}
-                alt={mainImageAlt}
-              />
+          <img
+            src={mainImage}
+            alt={mainImageAlt}
+          />
         </div>
       </div>
     </Slide>
