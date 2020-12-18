@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 
-const CartItem = ({ productTitle, variantTitle, quantity, price, imgSrc, imgAltText, linkToProduct, removeFromCart, lineItemId, extraData }) => {
-    const handlePlus = () => {
-        console.log("+1")
-    }
+const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgSrc, imgAltText, linkToProduct, removeFromCart, addToCart, lineItemId, extraData }) => {
+    const [isLoading, setIsLoading] = useState(false)
+    
+    const handleRemove = () => removeFromCart(lineItemId)
+    
+    const handlePlus = () => addToCart(variantId, 1, setIsLoading)
+
     const handleMinus = () => {
-        console.log("-1")
+        // removes from cart if qty will equal zero
+        if (quantity - 1 === 0) handleRemove()
+        addToCart(variantId, -1, setIsLoading)
     }
-    const handleRemove = () => {
-        removeFromCart(lineItemId)
-        console.log('removed')
-    }
+
     const TOTAL_PRICE = (parseFloat(price) * parseInt(quantity)).toFixed(2)
     
     return (

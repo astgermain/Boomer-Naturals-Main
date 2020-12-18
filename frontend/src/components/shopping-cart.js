@@ -39,7 +39,9 @@ const ShoppingCart = (props) => {
               imgAltText={variant.image.altText}
               extraData={variant}
               lineItemId={id}
+              variantId={variant.id}
               removeFromCart={removeFromCart}
+              addToCart={addToCart}
               linkToProduct={"/"} //need to update
             />
           </li>
