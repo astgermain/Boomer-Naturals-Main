@@ -50,6 +50,10 @@ const ShoppingCart = (props) => {
     </ul>
   )
 
+  const NO_CART_ITEMS = (
+    <p>No Products in your cart.</p>
+  )
+
   useEffect(() => {
     console.log('PRODS IN CART', PRODUCTS_IN_CART)
 
@@ -66,9 +70,11 @@ const ShoppingCart = (props) => {
         </header>
         <div className="shopping-cart-body">
           {
-            PRODUCTS_IN_CART &&
-            SHOPPING_CART_ITEMS
-            // Need to add component for "no items in cart"
+            PRODUCTS_IN_CART.length
+              ?
+              SHOPPING_CART_ITEMS
+              :
+              NO_CART_ITEMS
           }
         </div>
         <footer>
