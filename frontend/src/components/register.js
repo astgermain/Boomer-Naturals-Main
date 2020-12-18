@@ -1,48 +1,85 @@
-  
 import React, { useState } from "react"
 import gql from "graphql-tag"
 import { Mutation, Query } from "react-apollo"
+import { Slide } from "react-awesome-reveal"
 
 const CUSTOMER_REGISTER = gql`
-mutation customerCreate($input: CustomerCreateInput!) {
-  customerCreate(input: $input) {
-    customer {
-      id
-    }
-    customerUserErrors {
-      code
-      field
-      message
+  mutation customerCreate($input: CustomerCreateInput!) {
+    customerCreate(input: $input) {
+      customer {
+        id
+      }
+      customerUserErrors {
+        code
+        field
+        message
+      }
     }
   }
-}
 `
 
 const RegisterForm = () => {
-    const [firstName, setFirstName] = useState(null)
+  const [firstName, setFirstName] = useState(null)
   const [lastName, setLastName] = useState(null)
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
-  return(
+  const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
+  return (
     <Mutation mutation={CUSTOMER_REGISTER}>
-        {customerRegister => {
-          return (
-            <p>hi</p>
-          )
-        }}
-      </Mutation>
+      {customerRegister => {
+        return (
+          <div className="login-form">
+            <form
+              onSubmit={e => {
+                e.preventDefault()
+                customerRegister({
+                  variables: {
+                    input: {
+                      email: email,
+                      password: password,
+                    },
+                  },
+                })
+                  .then(result => {
+                    console.log(result.data.customerCreate)
+                    /*
+                    handleCustomerAccessToken(
+                      result.data.customerCreate.customerAccessToken
+                    )
+                    */
+                    if (result.data.customerCreate.customerUserErrors.length) {
+                      setIncorrectCredMsg("Username or Password is incorrect")
+                    }
+                  })
+                  .catch(err => {
+                    alert(err)
+                    console.error(err)
+                  })
+              }}
+            >
+              <input
+                type="email"
+                onChange={e => setEmail(e.target.value)}
+              ></input>
+              <input
+                type="password"
+                onChange={e => setPassword(e.target.value)}
+              ></input>
+              <button type="submit">Register</button>
+            </form>
+          </div>
+        )
+      }}
+    </Mutation>
   )
 }
 
 const Register = () => {
-    return (
-      <div>
-       
-            <RegisterForm />
-       </div>   
-        
-      
-    )
-  }
+  return (
+    <Slide>
+      <RegisterForm />
+    </Slide>
+  )
+}
 
 export default Register

@@ -16,11 +16,16 @@ const LOGIN_USER = gql`
         message
       }
     }
+    customer{
+        id
+    }
   }
 `
 
+
+
 const Login = ({}) => {
-  const { setValue } = useContext(StoreContext)
+  const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
   const [message, setMessage] = useState(``)
@@ -28,7 +33,7 @@ const Login = ({}) => {
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
-  useEffect(() => {}, [email, password])
+
 
   return (
     <Mutation mutation={LOGIN_USER}>
@@ -78,7 +83,6 @@ const Login = ({}) => {
         )
       }}
     </Mutation>
-  )
-}
+  )}
 
 export default Login
