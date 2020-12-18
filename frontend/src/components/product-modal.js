@@ -34,8 +34,14 @@ console.log('data modal->', data)
 
   let handleVariantSelection = (data) => {
     // sets color value to state from what user selects
-    setSelectedColor(data[0].selectedOptions[0].value)
-    setSelectedVariantId(data[0].id.split('Shopify__ProductVariant__').join(''))
+
+    try {
+      setSelectedColor(data[0].selectedOptions[0].value)
+      setSelectedVariantId(data[0].id.split('Shopify__ProductVariant__').join(''))
+    }
+    catch {
+      console.log('selection error')
+    }
     try {
       setMainImage(data[0].image.originalSrc);
     }
