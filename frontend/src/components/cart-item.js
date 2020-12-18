@@ -33,7 +33,7 @@ const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgS
             </div>
             <div>
                 <input onClick={handleMinus} type="button" value="-"/>
-                <input type="number" value={quantity}/>
+                <input type="number" value={quantity} readOnly/>
                 <input onClick={handlePlus} type="button" value="+"/>
                 <button onClick={handleRemove}>Remove</button>
             </div>
