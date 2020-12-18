@@ -28,8 +28,8 @@ const ShoppingCart = (props) => {
   const SHOPPING_CART_ITEMS = (
     <ul>
       {
-        PRODUCTS_IN_CART.map(({ title, quantity, variant }) => (
-          <li key={variant.id}>
+        PRODUCTS_IN_CART.map(({ title, quantity, variant, id }) => (
+          <li key={id}>
             <CartItem
               productTitle={title}
               variantTitle={variant.title}
@@ -38,6 +38,8 @@ const ShoppingCart = (props) => {
               imgSrc={variant.image.src}
               imgAltText={variant.image.altText}
               extraData={variant}
+              lineItemId={id}
+              removeFromCart={removeFromCart}
               linkToProduct={"/"} //need to update
             />
           </li>
