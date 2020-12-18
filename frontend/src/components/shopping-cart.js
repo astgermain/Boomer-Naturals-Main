@@ -75,7 +75,6 @@ const ShoppingCart = (props) => {
               SHOPPING_CART_ITEMS
               :
               NO_CART_ITEMS
-            // Need to add component for "no items in cart"
           }
         </div>
         <footer>

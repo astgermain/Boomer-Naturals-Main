@@ -104,18 +104,8 @@ console.log('data modal->', data)
   let hideModal = () => {
     setModalShow({})
   }
-  let priceFormat = price => {
-    price *= 100
-    price = price.toString()
-    if (price.length < 3) {
-      price = "0." + price
-    } else {
-      price =
-        price.slice(0, price.length - 2) + "." + price.slice(price.length - 2)
-    }
-    return price
-  }
 
+  let priceFormat = price => parseFloat(price).toFixed(2)
   let formattedPrice = priceFormat(data.priceRange.minVariantPrice.amount)
 
   let handleAdd = () => {
@@ -160,7 +150,7 @@ console.log('data modal->', data)
     // values grabbed from state to
     // update the cart
     const VARIANT_ID = data.variants[0].id.split('Shopify__ProductVariant__').join('')
-    addToCart(selectedVariantId, 1, setIsLoading)
+    addToCart(selectedVariantId, quantity, setIsLoading)
   }
 
   return (
