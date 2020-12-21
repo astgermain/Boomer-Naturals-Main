@@ -9,7 +9,7 @@ const Featured = () => {
   const data = useStaticQuery(graphql`
     {
       allShopifyCollection(
-        filter: { title: { regex: "/Featured Masks/" } }
+        filter: { title: { regex: "/Featured Covers/" } }
         sort: { fields: title }
       ) {
         nodes {
@@ -132,6 +132,22 @@ const Featured = () => {
     </svg>
   )
 
+  let pSlide = () => {
+    try {
+      return (
+        <ProductSlider
+          collection={data.allShopifyCollection.nodes[0].products}
+        />
+      )
+    } catch {
+      return (
+        <div>
+          <span>Product collection needs to be updated</span>
+        </div>
+      )
+    }
+  }
+
   return (
     <section className="featured-container">
       <Infocta
@@ -139,7 +155,7 @@ const Featured = () => {
         maintextProp="Let's Shop"
         buttontextProp="View All"
       />
-      <ProductSlider collection={data.allShopifyCollection.nodes[0].products} />
+      {pSlide}
     </section>
   )
 }
