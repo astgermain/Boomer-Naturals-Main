@@ -27,44 +27,43 @@ const Hamburger = ({ close }) => {
     }
   }, [page])
 
-  const yeetFooterMenu = () => {
-    setPage("default")
-    setFooterMenuDir('down')
+  const yeetFooterMenu = (page) => {
+    setFooterMenuDir("down")
     setFooterMenuTrack(!footerMenuTrack)
-    setTimeout(()=>{
+    setTimeout(() => {
+      setPage(page)
       setShowFooter(!showFooter)
-    },600)
-    
+    }, 600)
   }
-  
+
   const sayHello = () => {
     console.log("Hello!")
   }
   const createMenu = () => {
-    setPage("footer")
-    setFooterMenuDir('up')
+    setPage("default")
+    setFooterMenuDir("up")
     setShowFooter(!showFooter)
     setFooterMenuTrack(!footerMenuTrack)
-    
   }
 
   const footerMenu = () => {
     return (
-      <Slide
-        duration={500}
-        triggerOnce={true}
-        direction={footerMenuDir}
-        className=""
-        reverse={footerMenuTrack}
-      >
-        
+      <div className="footerVcontainer">
         <div className="footerVcontent">
-          <button onClick={yeetFooterMenu} className="slidebutton">
+          <button onClick={() => yeetFooterMenu("default")} className="slidebutton">
             Collapse Footer V
           </button>
         </div>
-        <FooterVContent />
-    </Slide>
+        <Slide
+          duration={500}
+          triggerOnce={false}
+          direction={footerMenuDir}
+          className=""
+          reverse={footerMenuTrack}
+        >
+          <FooterVContent />
+        </Slide>
+      </div>
     )
   }
 
@@ -75,6 +74,15 @@ const Hamburger = ({ close }) => {
     setTimeout(() => {
       close()
     }, 500)
+  }
+
+  const openSideMenu = (page) =>{
+      if(showFooter){
+        yeetFooterMenu(page)
+      }
+      else{
+        setPage(page)
+      }
   }
 
   return (
@@ -102,31 +110,31 @@ const Hamburger = ({ close }) => {
                 </Link>
               </button>
 
-              <button onClick={() => setPage("shop")}>
+              <button onClick={() => openSideMenu("shop") }>
                 <Link to="/" className="ham-link1">
                   <span className="links">Shop</span>
                 </Link>
               </button>
 
-              <button onClick={sayHello}>
+              <button onClick={() => openSideMenu("botanics") }>
                 <Link to="/" className="ham-link1">
                   <span className="links">Boomer Botanics</span>
                 </Link>
               </button>
 
-              <button onClick={sayHello}>
+              <button onClick={() => openSideMenu("news") }>
                 <Link to="/" className="ham-link1">
                   <span className="links">In The News</span>
                 </Link>
               </button>
 
-              <button onClick={sayHello}>
+              <button onClick={() => openSideMenu("locations") }>
                 <Link to="/" className="ham-link1">
                   <span className="links">Locations</span>
                 </Link>
               </button>
 
-              <button onClick={sayHello}>
+              <button onClick={() => openSideMenu("about") }>
                 <Link to="/" className="ham-link1">
                   <span
                     className="links"
@@ -137,7 +145,7 @@ const Hamburger = ({ close }) => {
                 </Link>
               </button>
 
-              <button onClick={sayHello}>
+              <button onClick={() => openSideMenu("sale") }>
                 <Link to="/" className="ham-link1">
                   <span className="links">Sale</span>
                 </Link>
@@ -154,18 +162,23 @@ const Hamburger = ({ close }) => {
               </div>
             )}
 
-            {page === "shop" && <HamburgerShop />}
+            {page === "shop" &&   
+            <Slide
+            duration={500}
+            triggerOnce={false}
+            direction={"right"}
+          ><HamburgerShop/>
+          </Slide>
+         }
 
+         
             {showFooter ? footerMenu() : <div></div>}
           </div>
         </div>
 
         {/*bottom footer v */}
 
-        <div
-          style={{ opacity: showFooter ? 0 : 1 }}
-          className="footerV"
-        >
+        <div style={{ opacity: showFooter ? 0 : 1 }} className="footerV">
           <button onClick={createMenu}>Expand Footer V</button>
         </div>
         <div className="hamburger-content-bottom"></div>

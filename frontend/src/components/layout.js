@@ -142,7 +142,6 @@ const Layout = ({ location, title, children }) => {
               <Categories />
               <ProductCarousel />
               <Insta />
-              <Register />
               <AboutFaceMask />
               <News />
               <AsSeenOn />
