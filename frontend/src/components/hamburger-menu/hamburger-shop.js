@@ -5,7 +5,7 @@
  */
 import React from "react"
 import { Link } from "gatsby"
-import "../styles/hamburger-shop.css"
+import "../../styles/hamburger-shop.css"
 
 const HamburgerShop = () =>{
 

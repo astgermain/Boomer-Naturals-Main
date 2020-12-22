@@ -5,8 +5,8 @@
  */
 import React from "react"
 import { Link } from "gatsby"
-import "../styles/hamburger.css"
-import payments from "../../content/assets/payments.png"
+import "../../styles/hamburger.css"
+import payments from "../../../content/assets/payments.png"
 
 const FooterVContent = () =>{
 

@@ -8,7 +8,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import logo from "../../content/assets/bnlogoheader.png"
 import Search from "./search"
-import Hamburger from "./hamburger"
+import Hamburger from "./hamburger-menu/hamburger"
 
 const Header = ({ title, data }) => {
 
