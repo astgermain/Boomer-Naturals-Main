@@ -18,6 +18,9 @@
     font-family: var(--fontFamily-bold);
     font-size: var(--fontSize-4);
 }
+.underline-me{
+    text-decoration: underline;
+}
 .btm-shop-links{
     font-family: var(--fontFamily-reg);
     font-size: var(--fontSize-2);
