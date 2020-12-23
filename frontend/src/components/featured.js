@@ -133,17 +133,14 @@ const Featured = () => {
   )
 
   let pSlide = () => {
-    try {
-      return (
-        <ProductSlider
-          collection={data.allShopifyCollection.nodes[0].products}
-        />
+    try{
+      return(
+      <ProductSlider collection={data.allShopifyCollection.nodes[0].products} />
       )
-    } catch {
-      return (
-        <div>
-          <span>Product collection needs to be updated</span>
-        </div>
+    }
+    catch {
+      return(
+      <div>Update collection title</div>
       )
     }
   }
@@ -155,7 +152,8 @@ const Featured = () => {
         maintextProp="Let's Shop"
         buttontextProp="View All"
       />
-      {pSlide}
+      {pSlide()}
+      
     </section>
   )
 }
