@@ -298,6 +298,7 @@ a:focus {
     color: white;
     border: none;
     padding: 5px 10px 5px 10px;
+    cursor: pointer;
 }
 
 .button-text {

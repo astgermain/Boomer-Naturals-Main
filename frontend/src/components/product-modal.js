@@ -9,7 +9,6 @@ import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
 
 const ProductModal = ({ data, setModalShow }) => {
-console.log('data modal->', data)
   const { addToCart } = useContext(store)
 
   let x = () => {
