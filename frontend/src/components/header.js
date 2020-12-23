@@ -10,7 +10,7 @@ import logo from "../../content/assets/bnlogoheader.png"
 import Search from "./search"
 import Hamburger from "./hamburger-menu/hamburger"
 
-const Header = ({ title, data }) => {
+const Header = ({ title, data, setUpdatedSearch }) => {
 
   const [hamMenu, setHamMenu] = useState(false)
   const [clickSearch, setClickedSearch] = useState(false)
@@ -647,7 +647,7 @@ const Header = ({ title, data }) => {
         </div>
         {hamMenu == true && <Hamburger close={handleMenuClick}/>}
       </section>
-      {clickSearch && <Search closeSearch={handleSearchClick} data={data} />}
+      {clickSearch && <Search closeSearch={handleSearchClick} data={data} setUpdatedSearch={setUpdatedSearch} />}
     </header>
   )
 }

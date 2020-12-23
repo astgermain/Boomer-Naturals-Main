@@ -76,9 +76,7 @@ const RegisterForm = () => {
 
 const Register = () => {
   return (
-    <Slide>
       <RegisterForm />
-    </Slide>
   )
 }
 

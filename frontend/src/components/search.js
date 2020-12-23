@@ -5,23 +5,28 @@ import SearchResults from "./search-results"
 // Needs to pass shopifyId to results page to render products
 // Possible to just have a popup and render results same page
 
-const Search = ({ closeSearch, data }) => {
+const Search = ({ closeSearch, data, setUpdatedSearch }) => {
 
   const [searchValue, setSearchValue] = useState("")
-  const [searchResults, setSearchResults] = useState()
-
+  const [searchResults, setSearchResults] = useState({})
+  const [allProds, setAllProds] = useState({})
   useEffect(() => {
-    let filteredData = data.allShopifyProduct.nodes.filter(product => {
-      if (
-        product.title.toLowerCase().match(searchValue.toLowerCase()) &&
-        product.images.length
-      ) {
-        return product
+    
+      let filteredData = data.allShopifyProduct.nodes.filter(product => {
+        if (
+          product.title.toLowerCase().match(searchValue.toLowerCase()) &&
+          product.images.length
+          
+        ) {
+          return product
+        }
+      })
+      setAllProds(data.allShopifyProduct.nodes)
+      setSearchResults(filteredData)
+      setUpdatedSearch(filteredData)
+      return function cleanup() {
       }
-    })
-
-    setSearchResults(filteredData)
-  }, [searchValue, data.allShopifyProduct.nodes])
+  }, [searchValue])
 
   // prevents reload on form submit
   const handleSubmit = e => {
@@ -48,7 +53,7 @@ const Search = ({ closeSearch, data }) => {
       </div>
       {searchValue && (
         <SearchResults
-          allProducts={data.allShopifyProduct}
+          allProducts={allProds}
           productsArray={searchResults}
           searchInput={searchValue}
         />
