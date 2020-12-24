@@ -47,6 +47,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-yotpo",
+      options: {
+        appKey: "aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq",
+        appSecret: "dxBkPArDNQfUx67lBqarnOn1dJJhzWWdKRd7VnoA",
+      },
+    },
+    {
       //Easier way to do gatsby-source-graphql for shopify graphql apis
       resolve: "gatsby-source-shopify",
       options: {
