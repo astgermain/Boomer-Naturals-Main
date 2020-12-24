@@ -70,7 +70,31 @@ const ProductTemplate = ({ data, pageContext, location }) => {
 }
 
 export default ProductTemplate
-
+//Yotpo reviews
+// {
+//   reviews: allYotpoProductReview {
+//     nodes {
+//       productIdentifier
+//       score
+//       sentiment
+//       votesUp
+//       votesDown
+//       title
+//       name
+//       email
+//       reviewerType
+//       content
+//     }
+//   }
+  
+//   ratings: allYotpoProductBottomline {
+//     nodes {
+//       productIdentifier
+//       totalReviews
+//       score
+//     }
+//   }
+// }
 // export const pageQuery = graphql`
 //   query PageBySlug($slug: String!) {
 //     site {
@@ -90,3 +114,4 @@ export default ProductTemplate
 //     }
 //   }
 // `
+

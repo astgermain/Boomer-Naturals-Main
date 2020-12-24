@@ -40,6 +40,20 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-zendesk-chat',
+      options: {
+        zendeskKey: '1530f724-c8ec-445c-aa78-ba2a973dfe14',
+         // enableDuringDevelop: true,Optional. Disables Zendesk chat widget when running Gatsby dev server. Defaults to true.
+      },
+    },
+    {
+      resolve: "gatsby-source-yotpo",
+      options: {
+        appKey: "aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq",
+        appSecret: "dxBkPArDNQfUx67lBqarnOn1dJJhzWWdKRd7VnoA",
+      },
+    },
+    {
       //Easier way to do gatsby-source-graphql for shopify graphql apis
       resolve: "gatsby-source-shopify",
       options: {
