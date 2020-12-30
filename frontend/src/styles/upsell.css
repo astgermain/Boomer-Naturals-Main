@@ -9,3 +9,34 @@
    top: 0px;
    left: 0px;
 }
+.upsell-header{
+    color:var(--color-primary);
+}
+.recent-add-to-cart{
+    width:70%;
+}
+.you-might-like{
+    width:40%;
+}
+.you-might-like .close{
+    border:none;
+    right: 0px;
+    top: -10px;
+}
+/* buttons */
+.continue-shop-upsell{
+    color:#ffffff;
+    height: 45px;
+    border: none;
+    border-radius: 20px 20px 20px 20px !important;
+    background:var(--color-secondary);
+    padding: 0px 15px;
+}
+.view-cart-upsell{
+    color:#ffffff;
+    height: 45px;
+    border: none;
+    border-radius: 20px 20px 20px 20px !important;
+    background:var(--color-primary);
+    padding: 0px 15px;
+}

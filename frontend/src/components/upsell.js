@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react'
-import CartItem from './cart-item'
 import { Link } from 'gatsby'
 import StoreContext from '../util/store'
 import "../styles/upsell.css"

@@ -205,7 +205,8 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-submit">
             {/* Add to cart button for testing */}
             <button onClick={handleAddToCart} className="add-to-cart">Add to Cart</button>
-            { upsellShow && <UpSell setupsellShow={setupsellShow} upsellShow={upsellShow} />}
+          { upsellShow && <UpSell setupsellShow={setupsellShow} upsellShow={upsellShow} />}
+            
             <span>Select Size</span>
             
           </div>
