@@ -7,7 +7,7 @@ import { Slide } from "react-awesome-reveal"
 
 const AboutFaceMask = () => {
 
-    const [btnState, setBtnState] = useState("Click on a button to learn more about our face masks. It's really exciting.")
+    const [btnState, setBtnState] = useState("Click on a button to learn more about our face covers. It's really exciting.")
 
     const handleHoverEvent = hoveredBtn => {
         
@@ -31,7 +31,7 @@ const AboutFaceMask = () => {
 
     return (
         <section className="about-face-mask-section">
-            <h4>About Our Face Mask</h4>
+            <h4>About Our Face Cover</h4>
             <div className="image-container">
                 <img src={MaskImg} alt="Boomer Naturals Mask Information" width="100%" height="auto" />
                 <div
@@ -75,7 +75,7 @@ const AboutFaceMask = () => {
                 <p>{btnState}</p>
                 <div className="redirect-btns">
                     <MainButton text="Learn More" />
-                    <Link to="/">Customize Mask</Link>
+                    <Link to="/">Customize Face Cover</Link>
                 </div>
             </div>
         </section>

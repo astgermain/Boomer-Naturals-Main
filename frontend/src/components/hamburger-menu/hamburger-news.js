@@ -18,16 +18,16 @@ const HamburgerNews = () =>{
               <Link to="/southvietnam" className="btm-shop-links">
                 <span className="btm-shop-links">Silver and S.Vietnam</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/investorrelations" className="btm-shop-links">
                 <span className="btm-shop-links">Investor Relations</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/donations" className="btm-shop-links">
                 <span className="btm-shop-links" >Donations</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/interviews" className="btm-shop-links">
                 <span className="btm-shop-links" >Interviews</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/blog" className="btm-shop-links">
                 <span className="btm-shop-links" >Blog</span>
               </Link>
             </div>

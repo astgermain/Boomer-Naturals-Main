@@ -13,7 +13,7 @@ const Categories = () => {
     <section className="category-container">
       {/* Facemask category button */}
       <Link to="/" className="full-category cat1">
-       <span className="category-text">Face Mask</span>
+       <span className="category-text">Face Cover</span>
        <div className="overlay">
          <div className="viewMoreText">View More</div>  
        </div>

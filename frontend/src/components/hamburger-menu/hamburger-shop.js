@@ -13,43 +13,43 @@ const HamburgerShop = () =>{
         <div className="hamburger-content-shop">
             <span className="dashed"></span>
             <div className="shop-links">
-              <Link to="/" className="shop-collection-link">
+              <Link to="/allcollections" className="shop-collection-link">
                 <span className="shop-c-links">Shop Collection</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/newarrivals" className="btm-shop-links">
                 <span className="btm-shop-links">New Arrivals</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
-                <span className="btm-shop-links" >Face Masks & Best Sellers</span>
+              <Link to="/bestsellers" className="btm-shop-links">
+                <span className="btm-shop-links" >Face Covers & Best Sellers</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
-                <span className="btm-shop-links" >Adult Face Masks</span>
+              <Link to="/adultfacecovers" className="btm-shop-links">
+                <span className="btm-shop-links" >Adult Face Covers</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
-                <span className="btm-shop-links" >Child Face Masks</span>
+              <Link to="/childfacecovers" className="btm-shop-links">
+                <span className="btm-shop-links" >Child Face Covers</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
-                <span className="btm-shop-links" >Custom Face Masks</span>
+              <Link to="/customfacecovers" className="btm-shop-links">
+                <span className="btm-shop-links" >Custom Face Covers</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/boomerbotanics" className="btm-shop-links">
                 <span className="btm-shop-links" >Boomer Botanics</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/pets" className="btm-shop-links">
                 <span className="btm-shop-links" >Pet Products</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/skincarewellness" className="btm-shop-links">
                 <span className="btm-shop-links" >Skin Care & Wellness Supplements</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/bundles" className="btm-shop-links">
                 <span className="btm-shop-links">Shop Bundles</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/allproducts" className="btm-shop-links">
                 <span className="btm-shop-links" >Shop All Products</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/giftcards" className="btm-shop-links">
                 <span className="btm-shop-links" >Gift Cards</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/wholesale" className="btm-shop-links">
                 <span className="btm-shop-links" >Wholesale</span>
               </Link>
             </div>
