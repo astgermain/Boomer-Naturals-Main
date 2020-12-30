@@ -169,7 +169,8 @@ const ProductModal = ({ data, setModalShow }) => {
     >
       <div className="product-modal-inner">
         <div className="modal-options">
-          <div className="modal-price">from ${formattedPrice}</div>
+          <div className="modal-price">from ${formattedPrice} <span className="selectsize-text">Select Size</span></div>
+          
           <div className="modal-type">
             <div className="adult-type">Adult</div>
             <div className="kid-type">Children</div>
@@ -206,8 +207,6 @@ const ProductModal = ({ data, setModalShow }) => {
             {/* Add to cart button for testing */}
             <button onClick={handleAddToCart} className="add-to-cart">Add to Cart</button>
           { upsellShow && <UpSell setupsellShow={setupsellShow} upsellShow={upsellShow} />}
-            
-            <span>Select Size</span>
             
           </div>
           <button className="close" onClick={hideModal}>
