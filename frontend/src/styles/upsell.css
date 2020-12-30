@@ -31,6 +31,7 @@
     border-radius: 20px 20px 20px 20px !important;
     background:var(--color-secondary);
     padding: 0px 15px;
+    cursor: pointer;
 }
 .view-cart-upsell{
     color:#ffffff;
@@ -39,4 +40,5 @@
     border-radius: 20px 20px 20px 20px !important;
     background:var(--color-primary);
     padding: 0px 15px;
+    cursor: pointer;
 }

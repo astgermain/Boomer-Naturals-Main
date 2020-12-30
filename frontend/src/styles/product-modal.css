@@ -229,6 +229,7 @@
   background:var(--color-secondary);
   padding: 0px 15px;
   margin-top:10px ;
+  cursor: pointer;
 }
 .selectsize-text{
     font-family: var(--fontFamily-bold)!important;

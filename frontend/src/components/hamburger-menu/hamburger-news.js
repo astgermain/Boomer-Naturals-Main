@@ -15,7 +15,7 @@ const HamburgerNews = () =>{
               <Link to="/" className="shop-collection-link">
                 <span className="shop-c-links underline-me">In The News</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/southvietnam" className="btm-shop-links">
                 <span className="btm-shop-links">Silver and S.Vietnam</span>
               </Link>
               <Link to="/" className="btm-shop-links">
