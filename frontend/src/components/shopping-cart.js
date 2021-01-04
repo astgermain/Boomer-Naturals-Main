@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
+import store from '../util/store'
 import CartItem from './cart-item'
 import { Slide } from "react-awesome-reveal"
 import "../styles/shopping-cart.css"
@@ -11,9 +12,8 @@ import "../styles/shopping-cart.css"
  * setValue - value
  * toggleCart
  */
-const ShoppingCart = (props) => {
-  console.log('Cart: ', props)
-
+const ShoppingCart = () => {
+  
   const {
     addToCart,
     buyNow,
@@ -21,8 +21,8 @@ const ShoppingCart = (props) => {
     removeFromCart,
     setValue,
     toggleCart
-  } = props.context
-
+  } = useContext(store)
+  
   const PRODUCTS_IN_CART = checkout.lineItems
 
   const SHOPPING_CART_ITEMS = (
