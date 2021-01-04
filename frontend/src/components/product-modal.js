@@ -32,14 +32,15 @@ const ProductModal = ({ data, setModalShow }) => {
   const [selectedVariantId, setSelectedVariantId] = useState('')
   
   const [selectedSize, setSelectedSize] = useState('')
+  const [selectedType, setSelectedType] = useState('')
   const [selectedColor, setSelectedColor] = useState('')
   const [upsellShow, setupsellShow] = useState(false);
 
   let handleVariantSelection = (data) => {
-    // sets color value to state from what user selects
-
     try {
+      // sets color value to state from what user selects
       setSelectedColor(data[0].selectedOptions[0].value)
+      console.log('selected data:', data)
       setSelectedVariantId(data[0].id.split('Shopify__ProductVariant__').join(''))
     }
     catch {
@@ -146,7 +147,7 @@ const ProductModal = ({ data, setModalShow }) => {
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-
+console.log('main array: ', mainArray)
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
