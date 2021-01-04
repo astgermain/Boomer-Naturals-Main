@@ -3,6 +3,14 @@
 .main-banner{
 	text-align: center;
 }
+.vietnam-banner{
+    width: 100%;
+    height: auto;
+}
+.vietnam-mobile-banner{
+    width: 100%;
+    height: auto;
+}
 
 /*buttons*/                                      
 .v-shopnow-btn{
@@ -134,7 +142,7 @@ iframe{
 ul.v-yellowman{
   position:absolute;
   left:52%;
-  top:400%;
+  top:270%;
   width:14%;
   text-align:left;
   list-style:disc;
@@ -160,18 +168,12 @@ ul.v-yellowman{
   grid-template-columns: 50% 50%;
   grid-gap:65px;
 }
-
-/* 
-                                      
-@media only screen and (max-width: 1200px) {
-
-}
-                                      
+                                     
 @media only screen and (max-width: 768px) {
-.v-mobile-banner{
+.vietnam-mobile-banner{
   display:block!important;
 }
-.v-desktop-banner{
+.vietnam-banner{
   display:none;
 }
 .v-shopnow-btn{
@@ -183,7 +185,7 @@ h4, h3{
 body p{
 	font-size: 2vw
 }
-.v-shopnow-btn.absolute{
+.v-shopnow-btn.v-absolute{
     left:39%;
     top:45vw;
 }
@@ -263,19 +265,19 @@ iframe{
   margin-left:34%;
   font-size:1.7vw;
 } 
-
-                                          
+}
+                                            
 @media only screen and (max-width: 480px) {
-.shopnow-btn{
+.v-shopnow-btn{
   font-size:3vw;
   font-weight:bold;
   padding:10px 30px;
 }
-.shopnow-btn.absolute{
+.v-shopnow-btn.v-absolute{
   left:36%;
   top:43vw;
 }
-.grid-me-top{
+.v-grid-me-top{
  display: grid;
   grid-template-columns: 50% 50%;
   grid-gap:20px;
@@ -286,10 +288,10 @@ h4, h3{
 body p{
 	font-size: 3.5vw;
 }
-.desktoptop-text{
+.v-desktoptop-text{
   display:none;
 }
-.mobiletop-text{
+.v-mobiletop-text{
   display:block!important;
   margin-left:10%;
   margin-right:10%;
@@ -297,107 +299,97 @@ body p{
   
   
   
-.grid-me{
+.v-grid-me{
   grid-template-columns: 70%;
   grid-template-rows:none;
   grid-gap:22px;
 }
-.grid-me-single{
+.v-grid-me-single{
 	grid-template-columns:70%;
 	margin-top: 22px;
 }
- .topic-btn{
+ .v-topic-btn{
    font-size:3.2vw;
  }
-.island-heading{
+.v-island-heading{
    margin-left:0;
 }
-.island{
+.v-island{
 	width: 50vw;
 }
-.island-margin{
+.v-island-margin{
 	margin-left: -4%;
 }
-.island-desktop{
+.v-island-desktop{
     display:none;
 }
-.island-mobile{
+.v-island-mobile{
     display:block!important;
 	margin-right: 6%;
 	margin-left: 28%;
 }
-.island-p{
+.v-island-p{
 	margin-left: 22%;
 }
-ul.yellowman{
+ul.v-yellowman{
    top:44.3%;
   width:28%;
 }
-.li-size{
+.v-li-size{
   font-size:2.3vw;
   padding-top:12px;
 }
   
   
-.walkingmen-img{
+.v-walkingmen-img{
 	width: 40%;
     height:380px;
     margin-top:14px;
 }
-.video-mobile{
+.v-video-mobile{
   margin-left:14%;
 }
 iframe{
   width:72vw;
   height:50vw;
 }
-.videop-desktop{
+.v-videop-desktop{
   display:none;
 }
-.videop-mobile{
+.v-videop-mobile{
   display:block!important;
 }
-.mobile-p{
+.v-mobile-p{
   width:86%;
 }
-.center-me{
+.v-center-me{
   width:70%;
 }
-.circle-container{
+.v-circle-container{
   margin:6%;
 }
-.circle-img{
+.v-circle-img{
   width:35vw;
 }
-.circlep-desktop{
+.v-circlep-desktop{
   display:none;
 }
-.circlep-mobile{
+.v-circlep-mobile{
   display:block!important;
   margin-left:25%;
 }
   
-.blueline-text{
+.v-blueline-text{
   font-size:2.7vw;
   margin-left:25%;
 }
-.icon-img{
- width:10%; 
 }
-.icon-img.num-one{
-  margin-right: 10px;
-    }
-.icon-img{
-  width:20%;
-  margin-bottom: 6%;
-	}
   
-} 
-Iphone X
+/* Iphone X */
 
-@media only screen and (max-width: 375px) {  
-ul.yellowman{
+ @media only screen and (max-width: 375px) {  
+ul.v-yellowman{
    top:45%;
   width:27%;
 }
-} */
+}  

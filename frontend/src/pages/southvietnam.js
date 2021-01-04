@@ -9,7 +9,6 @@ import vietnammen from "../../content/assets/vietnammen.jpg"
 import vietnamgraph from "../../content/assets/vietnamgraph.png"
 import "../styles/vietnam.css"
 
-
 const Vietnam = () => {
     
 
