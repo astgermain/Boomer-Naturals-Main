@@ -113,28 +113,30 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <>
-      <div className="" data-is-root-path={isRootPath}>
-        {header}
+      <div className="layout-body-wrapper" data-is-root-path={isRootPath}>
         <aside className="shopping-cart-aside">
           <ShoppingCart />
         </aside>
-        <main className="main-section">
-          <Login />
-          <Register />
-          <Account />
-          <Hero />
-          <Featured />
-          <Categories />
-          <ProductCarousel />
-          <Insta />
-          <AboutFaceMask />
-          <News />
-          <AsSeenOn />
-          <Email />
-        </main>
-        <footer>
-          <Footer />
-        </footer>
+        <div>
+          {header}
+          <main className="main-section">
+            <Login />
+            <Register />
+            <Account />
+            <Hero />
+            <Featured />
+            <Categories />
+            <ProductCarousel />
+            <Insta />
+            <AboutFaceMask />
+            <News />
+            <AsSeenOn />
+            <Email />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
       </div>
     </>
   )
