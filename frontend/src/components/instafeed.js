@@ -93,7 +93,7 @@ const Instafeed = () => {
       </div>
       <div className="review-text-container">
         <div className="review-text">
-          Finally, I found a mask that is comfortable and doesn't fall off my
+          Finally, I found a cover that is comfortable and doesn't fall off my
           face.
         </div>
         <div className="reviewer-name">Joe</div>

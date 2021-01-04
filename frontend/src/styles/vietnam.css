@@ -1,0 +1,403 @@
+/* Vietnam Page CSS */
+
+.main-banner{
+	text-align: center;
+}
+
+/*buttons*/                                      
+.v-shopnow-btn{
+	background-color: #00afc1;
+	color: #FFF;
+	padding: 10px 60px;
+	border: none;
+    font-size: 1.5vw;
+    border-radius: 0!important;
+}
+.v-shopnow-btn.v-absolute{
+    position:absolute;
+    top:26vw;
+    left:43%;
+}
+.v-shopnow-btn:hover{
+    opacity:.7; 
+    cursor: pointer;                                 
+}
+.container-btn-shop-now{
+    text-align: center;
+    margin: 5%;
+}
+                                     
+.v-flex-me{
+     display:flex;
+     justify-content:center;
+ }
+.v-grid-me{
+	display: grid;
+	grid-template-columns: 25% 25%;
+	grid-template-rows: 40% 40%;
+	grid-gap: 40px;
+}
+.v-grid-me-single{
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 25%;
+	grid-template-rows: 90%;
+    margin-top:40px;
+}
+.v-center-me{
+  width:46%;
+  margin:auto;
+}
+.v-island{
+  width:22vw;
+  margin-top:4%;
+  float:left;
+  shape-outside:url('https://cdn.shopify.com/s/files/1/0269/0013/6054/files/BN_Vietnam_2.png?v=1596738908');
+  shape-margin:35px;
+}
+.v-island-margin{
+   margin-left:27%;
+}
+.v-circle{
+	border-radius: 50%;
+	float: left;
+	shape-outside: circle();
+	margin: 25px;
+}   
+                                      
+                                      
+ 
+.firsth4{
+    text-align:right!important; 
+    margin-top:4%!important;
+}
+                                      
+ h4 {
+	color: #00afc1;
+    font-size:2vw;                                  
+}
+h3{
+	font-size: 2vw;
+	text-align: center;
+    line-height:1.2;
+}  
+body p{
+    font-size: 1.2vw;
+    font-family:var(--fontFamily-reg);
+}
+.v-font-me{
+  font-size:2vw!important;
+
+}
+.v-text-center{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.v-li-size{
+  font-size:1vw;
+  padding-top:5px;
+}
+.v-island-heading{
+  text-align:left;
+}
+.v-island-p{
+ margin-left:44%;
+}
+                                      
+.v-topic-btn{
+	font-size: 1.1vw;
+    font-weight: bolder;
+    padding: 25px;
+	background-color: #FFF;
+    border:none;
+    border-radius:2px;
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(209,209,209,0.75);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(209,209,209,0.75);box-shadow: 0px 0px 8px 1px rgba(209,209,209,0.75);
+    width:100%;
+    height:100%;
+    border-radius: 0!important;
+}
+.v-topic-btn:hover{
+	-webkit-box-shadow: 0px 0px 8px 1px rgba(0,174,193,1);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(0,174,193,1);
+    box-shadow: 0px 0px 8px 1px rgba(0,174,193,1);
+    cursor: pointer;
+
+} 
+iframe{
+  width:23vw;
+  height:19vw;
+}
+.v-yellowman-img{
+  width:45%;
+}
+ul.v-yellowman{
+  position:absolute;
+  left:52%;
+  top:400%;
+  width:14%;
+  text-align:left;
+  list-style:disc;
+}
+.v-walkingmen-img{
+  width:28%;
+}
+.v-circle-container{
+  margin-top:40px;
+  margin-left:27%;
+}
+.v-circle-img{
+  width:19vw;
+}
+.v-blueline-text{
+  border-left:#00afc1 5px solid;
+  padding-left:20px;
+  margin-left:23%;
+  font-size:1vw;
+} 
+.v-grid-me-top{
+ display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap:65px;
+}
+
+/* 
+                                      
+@media only screen and (max-width: 1200px) {
+
+}
+                                      
+@media only screen and (max-width: 768px) {
+.v-mobile-banner{
+  display:block!important;
+}
+.v-desktop-banner{
+  display:none;
+}
+.v-shopnow-btn{
+	font-size: 2vw;
+}
+h4, h3{
+	font-size: 3vw;
+}
+body p{
+	font-size: 2vw
+}
+.v-shopnow-btn.absolute{
+    left:39%;
+    top:45vw;
+}
+.v-topic-btn{
+	font-size: 2vw;
+}
+.v-grid-me{
+	grid-template-columns: 40% 40%;
+	
+}
+.v-grid-me-single{
+    grid-template-columns:40%;
+}
+.v-island{
+	width: 30vw;
+    shape-margin:28px;
+}
+.v-island-margin{
+  margin-left:12%;
+}
+.v-island-heading{
+  margin-left:39%;
+}
+.v-island-p{
+  margin-left:42%;
+}
+.v-yellowman-img{
+  width:100%;
+}
+ul.v-yellowman{
+  left:56%;
+  top:41%;
+  width:25%;
+}
+.v-li-size{
+  font-size:2vw;
+}
+.v-center-me{
+  width:61%;
+  margin-top:0px!important;
+}
+iframe{
+  width:60vw;
+  height:40vw;
+}
+.v-video-mobile{
+  margin-left:20%;
+  display:block;
+}
+.v-desktop-p{
+  display:none;
+}
+.v-mobile-p{
+  display:block!important;
+  margin-top:10px;
+  width:78%;
+}
+.v-videop-last-desktop{
+  display:none;
+}
+.v-videop-last-mobile{
+  display:block!important;
+}
+.v-walkingmen-container{
+  justify-content:end;
+}
+.v-walkingmen-img{
+  width:50%;
+}
+.v-circle-container{
+  margin-left:14%;
+}
+.v-circle-img{
+  width:32vw;
+}
+.v-blueline-text{
+  margin-left:34%;
+  font-size:1.7vw;
+} 
+
+                                          
+@media only screen and (max-width: 480px) {
+.shopnow-btn{
+  font-size:3vw;
+  font-weight:bold;
+  padding:10px 30px;
+}
+.shopnow-btn.absolute{
+  left:36%;
+  top:43vw;
+}
+.grid-me-top{
+ display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap:20px;
+}
+h4, h3{
+	font-size: 5vw;
+}
+body p{
+	font-size: 3.5vw;
+}
+.desktoptop-text{
+  display:none;
+}
+.mobiletop-text{
+  display:block!important;
+  margin-left:10%;
+  margin-right:10%;
+}
+  
+  
+  
+.grid-me{
+  grid-template-columns: 70%;
+  grid-template-rows:none;
+  grid-gap:22px;
+}
+.grid-me-single{
+	grid-template-columns:70%;
+	margin-top: 22px;
+}
+ .topic-btn{
+   font-size:3.2vw;
+ }
+.island-heading{
+   margin-left:0;
+}
+.island{
+	width: 50vw;
+}
+.island-margin{
+	margin-left: -4%;
+}
+.island-desktop{
+    display:none;
+}
+.island-mobile{
+    display:block!important;
+	margin-right: 6%;
+	margin-left: 28%;
+}
+.island-p{
+	margin-left: 22%;
+}
+ul.yellowman{
+   top:44.3%;
+  width:28%;
+}
+.li-size{
+  font-size:2.3vw;
+  padding-top:12px;
+}
+  
+  
+.walkingmen-img{
+	width: 40%;
+    height:380px;
+    margin-top:14px;
+}
+.video-mobile{
+  margin-left:14%;
+}
+iframe{
+  width:72vw;
+  height:50vw;
+}
+.videop-desktop{
+  display:none;
+}
+.videop-mobile{
+  display:block!important;
+}
+.mobile-p{
+  width:86%;
+}
+.center-me{
+  width:70%;
+}
+.circle-container{
+  margin:6%;
+}
+.circle-img{
+  width:35vw;
+}
+.circlep-desktop{
+  display:none;
+}
+.circlep-mobile{
+  display:block!important;
+  margin-left:25%;
+}
+  
+.blueline-text{
+  font-size:2.7vw;
+  margin-left:25%;
+}
+.icon-img{
+ width:10%; 
+}
+.icon-img.num-one{
+  margin-right: 10px;
+    }
+.icon-img{
+  width:20%;
+  margin-bottom: 6%;
+	}
+  
+} 
+Iphone X
+
+@media only screen and (max-width: 375px) {  
+ul.yellowman{
+   top:45%;
+  width:27%;
+}
+} */

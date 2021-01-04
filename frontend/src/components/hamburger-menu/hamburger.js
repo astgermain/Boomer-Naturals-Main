@@ -116,31 +116,31 @@ const Hamburger = ({ close }) => {
               </button>
 
               <button onClick={() => openSideMenu("shop") }>
-                <Link to="/" className="ham-link1">
+                <Link className="ham-link1">
                   <span className="links">Shop</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("botanics") }>
-                <Link to="/" className="ham-link1">
+                <Link className="ham-link1">
                   <span className="links">Boomer Botanics</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("news") }>
-                <Link to="/" className="ham-link1">
+                <Link className="ham-link1">
                   <span className="links">In The News</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("locations") }>
-                <Link to="/" className="ham-link1">
+                <Link className="ham-link1">
                   <span className="links">Locations</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("about") }>
-                <Link to="/" className="ham-link1">
+                <Link className="ham-link1">
                   <span
                     className="links"
                     onMouseEnter={() => setIsShown(false)}
@@ -151,7 +151,7 @@ const Hamburger = ({ close }) => {
               </button>
 
               <button onClick={() => openSideMenu("sale") }>
-                <Link to="/" className="ham-link1">
+                <Link className="ham-link1">
                   <span className="links">Sale</span>
                 </Link>
               </button>
