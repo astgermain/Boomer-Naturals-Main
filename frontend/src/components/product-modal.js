@@ -7,6 +7,9 @@ import store from '../util/store'
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
+import UpSell from './upsell'
+import "../styles/upsell.css"
+
 
 const ProductModal = ({ data, setModalShow }) => {
   const { addToCart } = useContext(store)
@@ -30,6 +33,7 @@ const ProductModal = ({ data, setModalShow }) => {
   
   const [selectedSize, setSelectedSize] = useState('')
   const [selectedColor, setSelectedColor] = useState('')
+  const [upsellShow, setupsellShow] = useState(false);
 
   let handleVariantSelection = (data) => {
     // sets color value to state from what user selects
@@ -150,7 +154,11 @@ const ProductModal = ({ data, setModalShow }) => {
     // update the cart
     const VARIANT_ID = data.variants[0].id.split('Shopify__ProductVariant__').join('')
     addToCart(selectedVariantId, quantity, setIsLoading)
+    //upsells products onclick add to cart 
+    setupsellShow(true);
   }
+  
+  
 
   return (
     <Slide
@@ -161,7 +169,8 @@ const ProductModal = ({ data, setModalShow }) => {
     >
       <div className="product-modal-inner">
         <div className="modal-options">
-          <div className="modal-price">from ${formattedPrice}</div>
+          <div className="modal-price">from ${formattedPrice} <span className="selectsize-text">Select Size</span></div>
+          
           <div className="modal-type">
             <div className="adult-type">Adult</div>
             <div className="kid-type">Children</div>
@@ -197,7 +206,8 @@ const ProductModal = ({ data, setModalShow }) => {
           <div className="modal-submit">
             {/* Add to cart button for testing */}
             <button onClick={handleAddToCart} className="add-to-cart">Add to Cart</button>
-            <span>Select Size</span>
+          { upsellShow && <UpSell setupsellShow={setupsellShow} upsellShow={upsellShow} />}
+            
           </div>
           <button className="close" onClick={hideModal}>
             {" "}
@@ -212,8 +222,9 @@ const ProductModal = ({ data, setModalShow }) => {
             src={mainImage}
             alt={mainImageAlt}
           />
-        </div>
+        </div> 
       </div>
+     
     </Slide>
   )
 }

@@ -15,10 +15,10 @@ const HamburgerSale = () =>{
               <Link to="/" className="shop-collection-link">
                 <span className="shop-c-links underline-me">Sale</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/dailysale" className="btm-shop-links">
                 <span className="btm-shop-links">Daily Sale</span>
               </Link>
-              <Link to="/" className="btm-shop-links">
+              <Link to="/flashsale" className="btm-shop-links">
                 <span className="btm-shop-links">Flash Sale</span>
               </Link>
             </div>
