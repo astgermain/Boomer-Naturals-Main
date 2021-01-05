@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
@@ -14,7 +14,7 @@ import ShoppingCart from "./shopping-cart"
 import { useStaticQuery, graphql } from "gatsby"
 // import Client from "shopify-buy"
 import Register from "./register"
-// import StoreContext from "../util/store"
+import StoreContext from "../util/store"
 import Login from "./login"
 import Account from "./account"
 
@@ -22,6 +22,8 @@ import Account from "./account"
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  const { isCartOpen, toggleCart } = useContext(StoreContext)
+  console.log('the cartttt', isCartOpen)
 
   const data = useStaticQuery(graphql`
     {
@@ -113,10 +115,12 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <>
-      <div className="layout-body-wrapper" data-is-root-path={isRootPath}>
-        <aside className="shopping-cart-aside">
+      {/* Overlay for when shopping cart is opened */}
+      <div className={`layout-body-wrapper ${isCartOpen && 'active'}`} data-is-root-path={isRootPath}>
+        <aside className={`shopping-cart-aside ${!isCartOpen && 'inactive'}`}>
           <ShoppingCart />
         </aside>
+        <div className={`screen-overlay ${isCartOpen && 'active'}`} onClick={isCartOpen && toggleCart}></div>
         <div>
           {header}
           <main className="main-section">
@@ -137,6 +141,7 @@ const Layout = ({ location, title, children }) => {
             <Footer />
           </footer>
         </div>
+
       </div>
     </>
   )

@@ -2,7 +2,8 @@
  * Header Component
  */
 
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
+import StoreContext from "../util/store"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
@@ -14,15 +15,17 @@ const Header = ({ title, data, setUpdatedSearch }) => {
 
   const [hamMenu, setHamMenu] = useState(false)
   const [clickSearch, setClickedSearch] = useState(false)
+  const { toggleCart } = useContext(StoreContext)
+
   const logoAlt = title
 
-  const handleMenuClick = () => {
-    hamMenu ? setHamMenu(false) : setHamMenu(true)
-  }
-  
-  const handleSearchClick = () => {
-    clickSearch ? setClickedSearch(false) : setClickedSearch(true)
-  }
+
+
+  const handleMenuClick = () => setHamMenu(!hamMenu)
+  const handleSearchClick = () => setClickedSearch(!clickSearch)
+
+  const handleShoppingCartClick = () => toggleCart()
+
   return (
     <header className="global-header">
       <section className="header-container">
@@ -201,7 +204,10 @@ const Header = ({ title, data, setUpdatedSearch }) => {
 
             {/* Shopping Icon SVG */}
             <Link className="shopping-icon" to="/">
-              <div className="header-icon">
+              <div
+                role="button"
+                onClick={handleShoppingCartClick}
+                className="header-icon">
                 <svg
                   width="21px"
                   height="20px"
@@ -435,7 +441,10 @@ const Header = ({ title, data, setUpdatedSearch }) => {
             {/* End Search Icon SVG */}
 
             {/* Shopping Icon SVG */}
-            <div className="header-icon">
+            <div
+              role="button"
+              onClick={handleShoppingCartClick}
+              className="header-icon">
               <svg
                 width="21px"
                 height="20px"
@@ -645,7 +654,7 @@ const Header = ({ title, data, setUpdatedSearch }) => {
             </div>
           </button>
         </div>
-        {hamMenu == true && <Hamburger close={handleMenuClick}/>}
+        {hamMenu == true && <Hamburger close={handleMenuClick} />}
       </section>
       {clickSearch && <Search closeSearch={handleSearchClick} data={data} setUpdatedSearch={setUpdatedSearch} />}
     </header>
