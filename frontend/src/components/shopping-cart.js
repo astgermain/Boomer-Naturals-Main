@@ -24,8 +24,9 @@ const ShoppingCart = () => {
   } = useContext(store)
   useEffect(() => {
     if (isCartOpen) document.body.style.overflow = "hidden"
+    if (!isCartOpen) document.body.style.overflow = "scroll"
   }, [isCartOpen])
-  
+
   const PRODUCTS_IN_CART = checkout.lineItems
 
   const SHOPPING_CART_ITEMS = (
