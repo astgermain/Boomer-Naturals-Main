@@ -1,0 +1,16 @@
+/* Product template page styles */
+
+
+
+
+
+
+
+
+
+.product-price{
+    color: #00a0c5;
+}
+.quantity-addcart-container{
+    display: flex;
+}
