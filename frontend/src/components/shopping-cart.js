@@ -13,15 +13,18 @@ import "../styles/shopping-cart.css"
  * toggleCart
  */
 const ShoppingCart = () => {
-  
   const {
     addToCart,
+    isCartOpen,
     buyNow,
     checkout,
     removeFromCart,
     setValue,
     toggleCart
   } = useContext(store)
+  useEffect(() => {
+    if (isCartOpen) document.body.style.overflow = "hidden"
+  }, [isCartOpen])
   
   const PRODUCTS_IN_CART = checkout.lineItems
 

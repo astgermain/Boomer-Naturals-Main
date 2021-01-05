@@ -35,7 +35,6 @@
     z index needs to be more than
     screen overlay
     */
-    height: auto;
     z-index: 999;
     background-color: aliceblue;
 }
