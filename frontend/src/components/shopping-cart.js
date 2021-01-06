@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
+import store from '../util/store'
 import CartItem from './cart-item'
 import { Slide } from "react-awesome-reveal"
 import "../styles/shopping-cart.css"
@@ -11,17 +12,20 @@ import "../styles/shopping-cart.css"
  * setValue - value
  * toggleCart
  */
-const ShoppingCart = (props) => {
-  console.log('Cart: ', props)
-
+const ShoppingCart = () => {
   const {
     addToCart,
+    isCartOpen,
     buyNow,
     checkout,
     removeFromCart,
     setValue,
     toggleCart
-  } = props.context
+  } = useContext(store)
+  useEffect(() => {
+    if (isCartOpen) document.body.style.overflow = "hidden"
+    if (!isCartOpen) document.body.style.overflow = "scroll"
+  }, [isCartOpen])
 
   const PRODUCTS_IN_CART = checkout.lineItems
 
@@ -58,7 +62,6 @@ const ShoppingCart = (props) => {
     console.log('PRODS IN CART', PRODUCTS_IN_CART)
 
   }, [PRODUCTS_IN_CART])
-
   return (
     <Slide
       triggerOnce={true}
@@ -69,6 +72,7 @@ const ShoppingCart = (props) => {
           <h3>YOUR CART</h3>
         </header>
         <div className="shopping-cart-body">
+          <div>Already have an account? <a href="/">Login</a></div>
           {
             PRODUCTS_IN_CART.length
               ?

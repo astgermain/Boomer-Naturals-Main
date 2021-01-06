@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
@@ -12,28 +12,17 @@ import Footer from "./footer"
 import News from "./news"
 import ShoppingCart from "./shopping-cart"
 import { useStaticQuery, graphql } from "gatsby"
-import Client from "shopify-buy"
+// import Client from "shopify-buy"
 import Register from "./register"
 import StoreContext from "../util/store"
 import Login from "./login"
 
-/*
-const { GATSBY_STOREFRONT_TOKEN } = process.env
-
-
-// Client object with methods for
-// creating checkout and other methods
-const client = Client.buildClient({
-  domain: 'boomerfacemasks.myshopify.com',
-  storefrontAccessToken: GATSBY_STOREFRONT_TOKEN
-})
-// Context that will be used in other components
-export const ClientContext = React.createContext(client)
-*/
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  const { isCartOpen, toggleCart } = useContext(StoreContext)
+  console.log('the cartttt', isCartOpen)
 
   const data = useStaticQuery(graphql`
     {
@@ -124,34 +113,35 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <StoreContext.Consumer>
-      {context => (
-        <React.Fragment>
-          <div className="" data-is-root-path={isRootPath}>
-            {header}
-            <aside>
-              <ShoppingCart context={context} />
-            </aside>
-            <main>
-              <Login />
-              <Register />
-              <Hero />
-              <Featured />
-              <Categories />
-              <ProductCarousel />
-              <Insta />
-              <AboutFaceMask />
-              <News />
-              <AsSeenOn />
-              <Email />
-            </main>
-            <footer>
-              <Footer />
-            </footer>
-          </div>
-        </React.Fragment>
-      )}
-    </StoreContext.Consumer>
+    <>
+      {/* Overlay for when shopping cart is opened */}
+      <div className={`layout-body-wrapper ${isCartOpen && 'active'}`} data-is-root-path={isRootPath}>
+        <aside className={`shopping-cart-aside ${!isCartOpen && 'inactive'}`}>
+          <ShoppingCart />
+        </aside>
+        <div className={`screen-overlay ${isCartOpen && 'active'}`} onClick={isCartOpen && toggleCart}></div>
+        <div>
+          {header}
+          <main className="main-section">
+            <Login />
+            <Register />   
+            <Hero />
+            <Featured />
+            <Categories />
+            <ProductCarousel />
+            <AboutFaceMask />
+            <Insta />
+            <News />
+            <AsSeenOn />
+            <Email />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
+      </div>
+    </>
+
   )
 }
 
