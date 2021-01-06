@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import "../styles/search.css"
 import SearchResults from "./search-results"
+import { Mutation } from "react-apollo"
+import gql from "graphql-tag"
+import StoreContext from "../util/store"
 // Needs regex
 // Needs to pass shopifyId to results page to render products
 // Possible to just have a popup and render results same page
@@ -10,6 +13,8 @@ const Search = ({ closeSearch, data, setUpdatedSearch }) => {
   const [searchValue, setSearchValue] = useState("")
   const [searchResults, setSearchResults] = useState({})
   const [allProds, setAllProds] = useState({})
+  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { sortedData, setSortedValue } = useContext(StoreContext)
   useEffect(() => {
     
       let filteredData = data.allShopifyProduct.nodes.filter(product => {
@@ -22,8 +27,7 @@ const Search = ({ closeSearch, data, setUpdatedSearch }) => {
         }
       })
       setAllProds(data.allShopifyProduct.nodes)
-      setSearchResults(filteredData)
-      setUpdatedSearch(filteredData)
+      setSortedValue(filteredData)
       return function cleanup() {
       }
   }, [searchValue])
@@ -54,7 +58,7 @@ const Search = ({ closeSearch, data, setUpdatedSearch }) => {
       {searchValue && (
         <SearchResults
           allProducts={allProds}
-          productsArray={searchResults}
+          productsArray={sortedData}
           searchInput={searchValue}
         />
       )}

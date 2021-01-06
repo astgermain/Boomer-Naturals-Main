@@ -5,13 +5,15 @@
  *  or all product type of page
  */
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import "../styles/filter.css"
 import Product from "../components/product"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import Checkbox from "../components/checkbox"
 import { useStaticQuery, graphql } from "gatsby"
+import StoreContext from "../util/store"
+
 
 const Filter = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -85,6 +87,7 @@ const Filter = ({ location }) => {
   const [ptActive, setPtActive] = useState()
   const [ctActive, setCtActive] = useState()
   const [updatedSearch, setUpdatedSearch] = useState({})
+  const { sortedData, setSortedValue } = useContext(StoreContext)
   const ITEMS_TO_SHOW = 100
 
   // NEEDS USEEFFECT To have props passed if coming from a collection or product type search to set the state
@@ -101,12 +104,7 @@ const Filter = ({ location }) => {
   const handleModalShow = e => {
     setModalShow(e)
   }
-  let h = undefined
-  // let a = undefined
-  if(location.state){
-    h = location.state.state.productsArray
-    //a = location.state.state.allProducts
-  }
+  let h = [...sortedData]
  
   // Creates array of product components with length of ITEMS_TO_SHOW amount
   
@@ -244,7 +242,7 @@ const Filter = ({ location }) => {
             <div className="check-option"><Checkbox value="na" handleCheck={handleCheck} /><span className="filter-option">Non-Adjustable</span></div>
           </div>
         </div>
-        <div className="filter-results">{productListItemsGenerate(updatedSearch)}</div>
+        <div className="filter-results">{PRODUCT_LIST_ITEMS}</div>
       </section>
       <Footer />
     </div>

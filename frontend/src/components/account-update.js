@@ -1,11 +1,20 @@
 import React, { useState, useContext, useEffect } from "react"
-import { Mutation } from "react-apollo"
+import { Query, Mutation } from "react-apollo"
 import gql from "graphql-tag"
-import StoreContext from "../util/store"
+import StoreContext, { defaultStoreContext } from "../util/store"
 
-const LOGIN_USER = gql`
-  mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
-    customerAccessTokenCreate(input: $input) {
+const USER_UPDATE = gql`
+  mutation customerUpdate(
+    $customerAccessToken: String!
+    $customer: CustomerUpdateInput!
+  ) {
+    customerUpdate(
+      customerAccessToken: $customerAccessToken
+      customer: $customer
+    ) {
+      customer {
+        id
+      }
       customerAccessToken {
         accessToken
         expiresAt
@@ -19,68 +28,64 @@ const LOGIN_USER = gql`
   }
 `
 
-
-
-const Login = ({}) => {
+const AccountUpdate = ({ passedCustomer, passedCustomerAccessToken }) => {
+  console.log("hi", passedCustomer)
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
-  const [message, setMessage] = useState(``)
-  const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
-
-
+  let newCustomerData = {
+    email: "themail12@ymail.com",
+    firstName: "andrew",
+    lastName: "st germain",
+    password: "TtaJL5zi8ZeyXP!",
+    phone: null,
+  }
   return (
-    <Mutation mutation={LOGIN_USER}>
-      {loginFunc => {
+    <Mutation mutation={USER_UPDATE}>
+      {updateFunc => {
         return (
-          <div className="login-form">
+          <div className="update-form">
             <form
               onSubmit={e => {
                 e.preventDefault()
-                loginFunc({
+                updateFunc({
                   variables: {
-                    input: {
-                      email: email,
-                      password: password,
-                    },
+                    customerAccessToken: passedCustomerAccessToken,
+                    customer: newCustomerData,
                   },
                 })
                   .then(result => {
-                    console.log(result)
+                    console.log("result", result)
                     handleCustomerAccessToken(
                       result.data.customerAccessTokenCreate.customerAccessToken
                     )
-                    if (
-                      result.data.customerAccessTokenCreate.customerUserErrors
-                        .length
-                    ) {
-                      setIncorrectCredMsg("Username or Password is incorrect")
-                      alert(incorrectCredMsg)
-                    }
                   })
                   .catch(err => {
                     alert(err)
-                    console.error(err)
+                    console.error("error", err)
                   })
               }}
             >
+              <span>E-Mail</span>
               <input
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               ></input>
+              <span>Password</span>
               <input
                 type="password"
                 onChange={e => setPassword(e.target.value)}
               ></input>
-              <button type="submit">Login</button>
+              <button type="submit">Update Info</button>
             </form>
           </div>
         )
       }}
     </Mutation>
-  )}
+  )
+}
 
-export default Login
+export default AccountUpdate

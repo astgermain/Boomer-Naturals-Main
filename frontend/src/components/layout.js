@@ -16,7 +16,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Register from "./register"
 import StoreContext from "../util/store"
 import Login from "./login"
-import Account from "./account"
 
 
 const Layout = ({ location, title, children }) => {
@@ -125,14 +124,13 @@ const Layout = ({ location, title, children }) => {
           {header}
           <main className="main-section">
             <Login />
-            <Register />
-            <Account />
+            <Register />   
             <Hero />
             <Featured />
             <Categories />
             <ProductCarousel />
-            <Insta />
             <AboutFaceMask />
+            <Insta />
             <News />
             <AsSeenOn />
             <Email />
@@ -141,9 +139,9 @@ const Layout = ({ location, title, children }) => {
             <Footer />
           </footer>
         </div>
-
       </div>
     </>
+
   )
 }
 

@@ -16,6 +16,7 @@ export const defaultStoreContext = {
   //shop: {},
   //filteredType: "all",
   //filteredSort: "featured",
+  sortedData: {},
   customerAccessToken: null,
   setValue: () => {},
   buyNow: async () => {},
@@ -24,6 +25,7 @@ export const defaultStoreContext = {
   //addVariantToCartAndBuyNow: () => {},
   //removeLineItem: () => {},
   //updateLineItem: () => {},
+  
 }
 
 const StoreContext = React.createContext(defaultStoreContext)
