@@ -14,6 +14,9 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const { previous, next } = pageContext
   const [quantity, setQuantity] = useState(1)
+  const [selectedSize, setSelectedSize] = useState('')
+  const [selectedColor, setSelectedColor] = useState('')
+
   const { handle, title, description, descriptionHtml } = pageContext.node
   
   console.log(pageContext.node)
@@ -42,11 +45,35 @@ const ProductTemplate = ({ data, pageContext, location }) => {
         return('From $', priceFormat(pageContext.node.priceRange.minVariantPrice.amount))
       }
   }
+  //product name
+  const ProductName = pageContext.node.title
   //product options
   const FirstOptionName = pageContext.node.options[0].name
   const SecondOptionName = pageContext.node.options[1].name
-  const FirstOptionOptions = pageContext.node.options[0].values
+  const FirstOptionOptions = pageContext.node.variants
   const SecondOptionOptions = pageContext.node.options[1].values
+//size
+  const generateOptOptions2 = SecondOptionOptions.map( sizeOption =>{
+    return(
+      <button className="size-options">
+        {sizeOption}
+          </button>
+    )
+  }
+  )
+  //color
+  const generateOptOptions1 = FirstOptionOptions.map( colorOption =>{
+    return(
+      <button className="color-options">
+       <img
+              src={colorOption.image.originalSrc}
+              className="variant-thumb-template"
+            />
+          </button>
+    )
+  }
+  )
+
 
 
 //quantity
@@ -67,17 +94,18 @@ let handleSub = () => {
             /> */}
       <HeaderTrail />
 
-      <div className="product-container">
-        <ImageDisplay data={data} />
+      <div className="product-container-template">
+        <ImageDisplay data={data} pageContext={pageContext}/>
 
         <div className="right-side-container">
         <div className='product-price'><FormattedPrice/></div>
-        
+        <div>{ProductName}</div>
+
 
         <div>{SecondOptionName}</div>
-        <div>{SecondOptionOptions}</div>
+        <div className="size-option-container">{generateOptOptions2}</div>
         <div>{FirstOptionName}</div>
-        <div>{FirstOptionOptions}</div>
+        <div>{generateOptOptions1}</div>
 
 
         <span>Quantity</span>

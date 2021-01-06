@@ -1,9 +1,12 @@
 import React from 'react'
+import "../../styles/product-template.css"
 
 
 const ImageDisplay = () => {
     return ( 
-        <div></div>
+        <div className="product-image-section">
+            <span>hello</span>
+        </div>
      );
 }
  
