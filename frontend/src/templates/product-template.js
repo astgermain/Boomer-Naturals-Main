@@ -6,20 +6,39 @@ import Header from "../components/header"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../styles/product-template.css"
+import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
 import HeaderTrail from "./template-components/header-trail"
 import ImageDisplay from "./template-components/product-image-display"
+import errorImg from "../../content/assets/errorImg.png"
 
 const ProductTemplate = ({ data, pageContext, location }) => {
   // const post = data.markdownRemark
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const { previous, next } = pageContext
+  console.log(location)
+  let x = () => {
+    try {
+      return (
+        [pageContext.node.images[0].originalSrc, pageContext.node.images[0].altText]
+      )
+    }
+    catch {
+      return (
+        [errorImg, "error image"]
+      )
+    }
+  }
   const [quantity, setQuantity] = useState(1)
   const [selectedSize, setSelectedSize] = useState('')
   const [selectedColor, setSelectedColor] = useState('')
+  const [mainImage, setMainImage] = useState(x()[0])
+  const [mainImageAlt, setMainImageAlt] = useState(x()[1])
+  const [selectedVariantId, setSelectedVariantId] = useState('')
+  const [upsellShow, setupsellShow] = useState(false);
 
   const { handle, title, description, descriptionHtml } = pageContext.node
   
-  console.log(pageContext.node)
+  
 
 //price
   let priceFormat = price => {
@@ -47,7 +66,122 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   }
   //product name
   const ProductName = pageContext.node.title
+  const FirstWordProductName = ProductName.split(' ')[0]
+  const RestOfProductName = ProductName.substr(ProductName.indexOf(" ") + 1);
+  const ProductNameAdjust = () =>{
+    if(FirstWordProductName === 'Kids' || FirstWordProductName === 'Adult'){
+      return(
+        <div className="name-adjust-container">
+          <span>{FirstWordProductName}</span>
+          <div className="product-name name-adjust">{RestOfProductName}</div>
+        </div>
+      )
+    } else {
+      return(
+        <div className="product-name">{ProductName}</div>
+      )
+    }
+    
+  } 
+
   //product options
+
+  let mainArray = []
+  let dataSet = new Set()
+  let colorSet = new Set()
+  let tempHolder = []
+  let start = true
+  pageContext.node.variants.forEach(variant => {
+    if (variant.availableForSale) {
+      variant.selectedOptions.forEach(option => {
+        if (option.name === "Color") {
+          if (!colorSet.has(option.value)) {
+            colorSet.add(option.value)
+            if (!start) {
+              let tmp = []
+              tempHolder.forEach(val => {
+                tmp.push(val)
+              })
+              let options = new Set()
+              dataSet.forEach(value => {
+                options.add(value)
+              })
+              tmp.push(options)
+              mainArray.push(tmp)
+              tempHolder = []
+            } else {
+              start = false
+            }
+            dataSet.clear()
+            dataSet.add(option.value)
+          }
+        } else {
+          dataSet.add(option.value)
+        }
+      })
+      tempHolder.push(variant)
+    }
+  })
+  let tSet = []
+  tempHolder.forEach(val => {
+    tSet.push(val)
+  })
+  let rSet = new Set()
+  dataSet.forEach(value => {
+    rSet.add(value)
+  })
+  tSet.push(rSet)
+  mainArray.push(tSet)
+
+
+  
+  let generateVariantThumbs = variantData => {
+    return variantData.map(data => {
+      try {
+        return (
+          <button className="color-options" onClick={() => handleVariantSelection(data)}  >
+            <img
+              src={data[0].image.originalSrc}
+              className="variant-thumb-template"
+              alt={data[0].image.altText}
+            />
+          </button>
+        )
+      } catch {
+        return (
+          <button className="variant-thumb" onClick={() => handleVariantSelection(data)}  >
+            <img
+              src={errorImg}
+              className="variant-thumb"
+              alt="error image"
+            />
+          </button>
+        )
+      }
+    })
+  }
+  let variantThumbs = generateVariantThumbs(mainArray)
+  let handleVariantSelection = (data) => {
+    // sets color value to state from what user selects
+    setSelectedColor(data[0].selectedOptions[0].value)
+    setSelectedVariantId(data[0].id.split('Shopify__ProductVariant__').join(''))
+    try {
+      setMainImage(data[0].image.originalSrc);
+    }
+    catch {
+      setMainImage(errorImg);
+    }
+    try {
+      setMainImageAlt(data[0].image.altText);
+    }
+    catch {
+      setMainImageAlt("error image");
+    }
+
+  }
+
+  
+
   const FirstOptionName = pageContext.node.options[0].name
   const SecondOptionName = pageContext.node.options[1].name
   const FirstOptionOptions = pageContext.node.variants
@@ -61,18 +195,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
     )
   }
   )
-  //color
-  const generateOptOptions1 = FirstOptionOptions.map( colorOption =>{
-    return(
-      <button className="color-options">
-       <img
-              src={colorOption.image.originalSrc}
-              className="variant-thumb-template"
-            />
-          </button>
-    )
-  }
-  )
+  
 
 
 
@@ -92,25 +215,25 @@ let handleSub = () => {
                 title={post.frontmatter.title}
                 description={post.frontmatter.description || post.excerpt}
             /> */}
-      <HeaderTrail />
+      <HeaderTrail data={data} pageContext={pageContext} location={location}/>
 
       <div className="product-container-template">
         <ImageDisplay data={data} pageContext={pageContext}/>
 
         <div className="right-side-container">
         <div className='product-price'><FormattedPrice/></div>
-        <div>{ProductName}</div>
+        <ProductNameAdjust/>
 
 
         <div>{SecondOptionName}</div>
         <div className="size-option-container">{generateOptOptions2}</div>
         <div>{FirstOptionName}</div>
-        <div>{generateOptOptions1}</div>
+        <div className="color-options-container">{variantThumbs}</div>
 
 
-        <span>Quantity</span>
+        <span>Quantity</span> 
         <div className="quantity-addcart-container">
-          <div className="quantityButton">
+         <div className="quantityButtonTemplate">
               <div
                 role="button"
                 tabIndex={0}
@@ -129,16 +252,22 @@ let handleSub = () => {
                 <span>+</span>
               </div>
             </div>
-            <button className="add-to-cart">Add to Cart</button>
+            <button className="add-to-cart add-cart-template">Add to Cart</button>
         </div>
-        
+
+        <div className="safe-checkout-container">
+          <img src={safecheckoutlogo} alt="Guaranteed Safe Checkout" className="safecheckoutlogo" />
+        </div>
         </div>
       </div>
 
-      <section
+      <div className="">
+        <section
         dangerouslySetInnerHTML={{ __html: descriptionHtml }}
         itemProp="articleBody"
       />
+      </div>
+      
 
       <Footer />
     </div>
