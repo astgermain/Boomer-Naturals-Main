@@ -177,7 +177,8 @@ button,
 input {
   /* 1 */
   overflow: visible;
-  border-radius: 20px 0 0 20px !important;
+  /* border-radius: 20px 0 0 20px !important; */
+  border-radius: 20px 0 0 20px;
 }
 
 /**
@@ -200,7 +201,8 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
-  border-radius: 0 20px 20px 0 !important;
+  /* border-radius: 0 20px 20px 0 !important; */
+  border-radius: 0 20px 20px 0;
 }
 
 /**
