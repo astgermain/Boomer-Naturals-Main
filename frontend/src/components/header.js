@@ -647,7 +647,7 @@ const Header = ({ title, data, setUpdatedSearch }) => {
         </div>
         {hamMenu == true && <Hamburger close={handleMenuClick}/>}
       </section>
-      {clickSearch && <Search closeSearch={handleSearchClick} data={data} setUpdatedSearch={setUpdatedSearch} />}
+      {clickSearch && <Search closeSearch={handleSearchClick} data={data} />}
     </header>
   )
 }

@@ -16,7 +16,6 @@ import Client from "shopify-buy"
 import Register from "./register"
 import StoreContext from "../util/store"
 import Login from "./login"
-import Account from "./account"
 
 /*
 const { GATSBY_STOREFRONT_TOKEN } = process.env
@@ -136,7 +135,6 @@ const Layout = ({ location, title, children }) => {
             <main>
               <Login />
               <Register />
-              <Account />
               <Hero />
               <Featured />
               <Categories />

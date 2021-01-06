@@ -70,12 +70,20 @@ const Provider = ({ children }) => {
         isCartOpen,
         toggleCart,
         loading,
+        sortedData: getLocalStorage("sortedData"),
         customerAccessToken: getLocalStorage("customerAccessToken"),
         setValue: value => {
           isBrowser &&
             localStorage.setItem("customerAccessToken", JSON.stringify(value))
           updateStore(state => {
             return { ...state, customerAccessToken: value }
+          })
+        },
+        setSortedValue: value => {
+          isBrowser &&
+            localStorage.setItem("sortedData", JSON.stringify(value))
+          updateStore(state => {
+            return { ...state, sortedData: value }
           })
         },
         buyNow: async (productID, quantity, setIsLoading) => {
