@@ -62,7 +62,6 @@ const ShoppingCart = () => {
     console.log('PRODS IN CART', PRODUCTS_IN_CART)
 
   }, [PRODUCTS_IN_CART])
-
   return (
     <Slide
       triggerOnce={true}
@@ -73,6 +72,7 @@ const ShoppingCart = () => {
           <h3>YOUR CART</h3>
         </header>
         <div className="shopping-cart-body">
+          <div>Already have an account? <a href="/">Login</a></div>
           {
             PRODUCTS_IN_CART.length
               ?

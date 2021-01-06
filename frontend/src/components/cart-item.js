@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgSrc, imgAltText, linkToProduct, removeFromCart, addToCart, lineItemId, extraData }) => {
     const [isLoading, setIsLoading] = useState(false)
-    
+
     const handleRemove = () => removeFromCart(lineItemId)
-    
+
     const handlePlus = () => addToCart(variantId, 1, setIsLoading)
 
     const handleMinus = () => {
@@ -14,7 +14,6 @@ const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgS
     }
 
     const TOTAL_PRICE = (parseFloat(price) * parseInt(quantity)).toFixed(2)
-    
     return (
         <div className="cart-item-wrapper">
             <div>
@@ -25,17 +24,17 @@ const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgS
             <div>
                 <a href={linkToProduct}><h5>{productTitle}</h5></a>
                 <span>{variantTitle}</span>
-                <div>
-                    <span>{TOTAL_PRICE}</span>
-                    <br />
-                    <span>{price}</span>
+                <div className="cart-qty-adjuster">
+                    <button onClick={handleMinus}>-</button>
+                    <input type="number" value={quantity} readOnly />
+                    <button onClick={handlePlus}>+</button>
                 </div>
+                <button onClick={handleRemove}>Remove</button>
             </div>
             <div>
-                <input onClick={handleMinus} type="button" value="-"/>
-                <input type="number" value={quantity} readOnly/>
-                <input onClick={handlePlus} type="button" value="+"/>
-                <button onClick={handleRemove}>Remove</button>
+                <span>{TOTAL_PRICE}</span>
+                <br />
+                <span>{price}</span>
             </div>
         </div>
     )
