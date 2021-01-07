@@ -10,6 +10,7 @@ import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
 import HeaderTrail from "./template-components/header-trail"
 import ImageDisplay from "./template-components/product-image-display"
 import errorImg from "../../content/assets/errorImg.png"
+import SuggestedProducts from "./template-components/suggested-products"
 
 const ProductTemplate = ({ data, pageContext, location }) => {
   // const post = data.markdownRemark
@@ -261,12 +262,14 @@ let handleSub = () => {
         </div>
       </div>
 
-      <div className="">
+      <div>
         <section
         dangerouslySetInnerHTML={{ __html: descriptionHtml }}
         itemProp="articleBody"
       />
       </div>
+
+      <SuggestedProducts/>
       
 
       <Footer />

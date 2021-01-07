@@ -6,11 +6,15 @@
     color: white;
     font-family: var(--fontFamily-reg);
     text-transform: capitalize;
+    padding: 22px 12%;
 }
-.headtrail-container a{
+.headtrail-text{
     color: white;
     font-family: var(--fontFamily-reg);
-
+}
+#headtrail-last{
+    font-family: var(--fontFamily-bold);
+    color: white;
 }
 .product-container-template{
     display: flex;
@@ -110,4 +114,18 @@
 }
 .safecheckoutlogo{
     width:90%;
+}
+
+
+/* bottom description section */
+.shopify-Tabs-panel{
+    display: flex;
+    justify-self: center;
+}
+.mask-description{
+    width:60%;
+}
+/* suggested product section */
+.suggested-products-container{
+    margin: 0 20%;
 }

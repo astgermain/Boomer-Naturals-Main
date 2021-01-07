@@ -15,11 +15,11 @@ const HeaderTrail = ({data, pageContext, location}) => {
 
     return ( 
     <div className="headtrail-container">
-        <a href={UrlLocationOrigin}><span>Home </span></a>
-        <span>></span>
-        <a><span>{FirstPathName}</span></a>
-        <span>></span>
-        <a href={SecondPathNameUrl}><span>{SecondPathName}</span></a>
+        <a className="headtrail-text" href={UrlLocationOrigin}><span>Home </span></a>
+        <span>> </span>
+        <a className="headtrail-text"><span>{FirstPathName}</span></a>
+        <span> > </span>
+        <a id="headtrail-last" href={SecondPathNameUrl}><span>{SecondPathName}</span></a>
     </div>
      );
 }
