@@ -8,9 +8,9 @@ import Account from "../components/account"
 import Register from "../components/register"
 import Login from "../components/login"
 import StoreContext from "../util/store"
+import Layout from "../components/layout"
 
-
-const Profile = ({}) => {
+const Profile = ({location}) => {
   const [clickedNavBtn, setClickedNavBtn] = useState("New Arrivals")
   const handleNavClick = e => {
     // value constant is the title of the clicked nav btn
@@ -36,17 +36,11 @@ const Profile = ({}) => {
     )
   })
   return (
-    <StoreContext.Consumer>
-      {context => (
-        <React.Fragment>
-          <Header />
-          <Account />
-          <Login />
-          <Register />
-          <Footer />
-        </React.Fragment>
-      )}
-    </StoreContext.Consumer>
+    <Layout location={location}>
+      <Account />
+      <Login />
+      <Register />
+    </Layout>
   )
 }
 

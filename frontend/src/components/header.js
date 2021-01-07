@@ -523,7 +523,7 @@ const Header = ({ title, data, setUpdatedSearch }) => {
             {/* End Shopping Icon SVG */}
 
             {/* Account Icon SVG */}
-            <Link to="/" className="header-icon">
+            <Link to="/profile" className="header-icon">
               <div className="header-icon-link">
                 <svg
                   width="22px"

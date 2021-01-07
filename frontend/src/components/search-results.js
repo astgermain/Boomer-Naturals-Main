@@ -21,7 +21,6 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
 
 
     // Creates array of product components with length of ITEMS_TO_SHOW amount
-    console.log('fdsafa', productsArray)
     const PRODUCT_LIST_ITEMS = productsArray.slice(0, ITEMS_TO_SHOW).map(
         product =>
             <li key={product.shopifyId}>

@@ -16,13 +16,14 @@ import { useStaticQuery, graphql } from "gatsby"
 import Register from "./register"
 import StoreContext from "../util/store"
 import Login from "./login"
+import HomeLayout from "./home-layout"
+import Filter from "../pages/filter"
 
-
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const { isCartOpen, toggleCart } = useContext(StoreContext)
-  console.log('the cartttt', isCartOpen)
+  console.log("the cartttt", isCartOpen)
 
   const data = useStaticQuery(graphql`
     {
@@ -91,19 +92,26 @@ const Layout = ({ location, title, children }) => {
     }
   `)
 
-  let header
+  let content
+  console.log(children)
   if (isRootPath) {
-    header = (
-      <Header title={title} data={data} />
+    content = (
+      
+        
+        <HomeLayout />
+        
+      
       /*
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
       */
     )
-  } else {
-    header = (
-      <Header data={data} />
+  } 
+  else {
+    content = (
+      
+      children
       /*
       <Link className="header-link-home" to="/">
         {title}
@@ -115,33 +123,24 @@ const Layout = ({ location, title, children }) => {
   return (
     <>
       {/* Overlay for when shopping cart is opened */}
-      <div className={`layout-body-wrapper ${isCartOpen && 'active'}`} data-is-root-path={isRootPath}>
-        <aside className={`shopping-cart-aside ${!isCartOpen && 'inactive'}`}>
+      <div
+        className={`layout-body-wrapper ${isCartOpen && "active"}`}
+        data-is-root-path={isRootPath}
+      >
+        <aside className={`shopping-cart-aside ${!isCartOpen && "inactive"}`}>
           <ShoppingCart />
         </aside>
-        <div className={`screen-overlay ${isCartOpen && 'active'}`} onClick={isCartOpen && toggleCart}></div>
-        <div>
-          {header}
-          <main className="main-section">
-            <Login />
-            <Register />   
-            <Hero />
-            <Featured />
-            <Categories />
-            <ProductCarousel />
-            <AboutFaceMask />
-            <Insta />
-            <News />
-            <AsSeenOn />
-            <Email />
-          </main>
-          <footer>
-            <Footer />
-          </footer>
-        </div>
+        <div
+          className={`screen-overlay ${isCartOpen && "active"}`}
+          onClick={isCartOpen && toggleCart}
+        ></div>
+        <Header data={data} />
+        {content}
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </>
-
   )
 }
 
