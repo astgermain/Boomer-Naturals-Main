@@ -23,7 +23,6 @@ const Layout = ({ location, title, children}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const { isCartOpen, toggleCart } = useContext(StoreContext)
-  console.log("the cartttt", isCartOpen)
 
   const data = useStaticQuery(graphql`
     {
@@ -132,7 +131,7 @@ const Layout = ({ location, title, children}) => {
         </aside>
         <div
           className={`screen-overlay ${isCartOpen && "active"}`}
-          onClick={isCartOpen && toggleCart}
+          onClick={isCartOpen ? toggleCart : undefined}
         ></div>
         <Header data={data} />
         {content}
