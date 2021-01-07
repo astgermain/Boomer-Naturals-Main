@@ -16,27 +16,29 @@ const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgS
     const TOTAL_PRICE = (parseFloat(price) * parseInt(quantity)).toFixed(2)
     return (
         <div className="cart-item-wrapper">
-            <div>
+            <div className="variant-icon-wrapper">
                 <a href={linkToProduct}>
                     <img src={imgSrc} alt={imgAltText} />
                 </a>
             </div>
-            <div style={{ textAlign: 'left' }}>
-                <a href={linkToProduct}><h5 style={{ marginTop: '0' }}>{productTitle}</h5></a>
-                <span style={{ fontStyle: 'italic', color: 'var(--color-text-light)' }}>{variantTitle}</span>
-                <div>
-                    <div className="cart-qty-adjuster">
-                        <button onClick={handleMinus}>-</button>
-                        <input type="number" value={quantity} readOnly />
-                        <button onClick={handlePlus}>+</button>
+            <div className="cart-item-content-wrapper">
+                <div style={{ textAlign: 'left', margin: '1rem' }}>
+                    <a href={linkToProduct}><h5 style={{ marginTop: '0' }}>{productTitle}</h5></a>
+                    <span className="variant-title">{variantTitle}</span>
+                    <div className="qty-display-wrapper">
+                        <div className="cart-qty-adjuster">
+                            <button onClick={handleMinus}>-</button>
+                            <input type="number" value={quantity} readOnly />
+                            <button onClick={handlePlus}>+</button>
+                        </div>
+                        <button className="remove-item-btn" onClick={handleRemove}>Remove</button>
                     </div>
-                    <button onClick={handleRemove}>Remove</button>
                 </div>
-            </div>
-            <div>
-                <span style={{ color: 'var(--color-heading)' }}>{TOTAL_PRICE}</span>
-                <br />
-                <span style={{ color: 'var(--color-text-light)' }}>{price}</span>
+                <div style={{ margin: '1rem' }}>
+                    <span style={{ color: 'var(--color-heading)' }}>{TOTAL_PRICE}</span>
+                    <br />
+                    <span style={{ color: 'var(--color-text-light)' }}>{price}</span>
+                </div>
             </div>
         </div>
     )
