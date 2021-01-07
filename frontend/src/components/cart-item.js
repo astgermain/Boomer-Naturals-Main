@@ -21,20 +21,22 @@ const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgS
                     <img src={imgSrc} alt={imgAltText} />
                 </a>
             </div>
-            <div>
-                <a href={linkToProduct}><h5>{productTitle}</h5></a>
-                <span>{variantTitle}</span>
-                <div className="cart-qty-adjuster">
-                    <button onClick={handleMinus}>-</button>
-                    <input type="number" value={quantity} readOnly />
-                    <button onClick={handlePlus}>+</button>
+            <div style={{ textAlign: 'left' }}>
+                <a href={linkToProduct}><h5 style={{ marginTop: '0' }}>{productTitle}</h5></a>
+                <span style={{ fontStyle: 'italic', color: 'var(--color-text-light)' }}>{variantTitle}</span>
+                <div>
+                    <div className="cart-qty-adjuster">
+                        <button onClick={handleMinus}>-</button>
+                        <input type="number" value={quantity} readOnly />
+                        <button onClick={handlePlus}>+</button>
+                    </div>
+                    <button onClick={handleRemove}>Remove</button>
                 </div>
-                <button onClick={handleRemove}>Remove</button>
             </div>
             <div>
-                <span>{TOTAL_PRICE}</span>
+                <span style={{ color: 'var(--color-heading)' }}>{TOTAL_PRICE}</span>
                 <br />
-                <span>{price}</span>
+                <span style={{ color: 'var(--color-text-light)' }}>{price}</span>
             </div>
         </div>
     )
