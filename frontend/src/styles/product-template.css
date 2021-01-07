@@ -1,0 +1,131 @@
+/* Product template page styles */
+.headtrail-container{
+    background-color: #00a0c5;
+    height: 70px;
+    width: 100%;
+    color: white;
+    font-family: var(--fontFamily-reg);
+    text-transform: capitalize;
+    padding: 22px 12%;
+}
+.headtrail-text{
+    color: white;
+    font-family: var(--fontFamily-reg);
+}
+#headtrail-last{
+    font-family: var(--fontFamily-bold);
+    color: white;
+}
+.product-container-template{
+    display: flex;
+    justify-content:center;
+    margin:30px 0px;
+}
+
+/* images */
+.product-image-section{
+    width: 35%;
+}
+
+
+
+
+
+
+/* right side options */
+.right-side-container{
+    width:25%;
+}
+.product-price{
+    color: #00a0c5;
+    font-size:2vw;
+}
+.product-name{
+    font-size: 1.5vw;
+    margin-bottom: 30px;
+}
+.name-adjust-container{
+    margin-top:20px;
+}
+.name-adjust{
+    color: #00a0c5;
+}
+.size-option-container{
+    display: flex;
+    margin: 10px 0px 30px 0px;
+}
+.size-options{
+    border-radius: 20px 20px 20px 20px!important;
+    border:solid 1px black;
+    background-color: white;
+    padding:5px 10px;
+    font-family: var(--fontFamily-reg);
+    margin-right: 10px;
+}
+.size-options:hover{
+    border:solid 1px #00a0c5;
+    color:#00a0c5;
+}
+.size-options:active{
+    background-color: #00a0c5;
+    border:solid 1px #00a0c5;
+    color:white;
+    font-family: var(--fontFamily-bold);
+}
+.color-options-container{
+    margin: 10px 0px 30px 0px;
+}
+.color-options{
+    border:none;
+    background-color: transparent;
+    padding:0px;
+}
+.variant-thumb-template{
+    width: 3vw;
+    height: 3vw;
+    cursor: pointer;
+    margin: 3px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: transparent;
+}
+.variant-thumb-template:hover{
+    border: solid 2px  #00a0c5;
+}
+
+.quantity-addcart-container{
+    display: flex;
+}
+.quantityButtonTemplate{
+    margin-top:10px;
+    margin-right: 25px;
+    border: 1px solid gainsboro;
+    display: flex;
+    padding: 8px;
+    border-radius: 20px;
+}
+.add-cart-template{
+    padding: 0px 45px!important;
+}
+.safe-checkout-container{
+    margin-top: 50px;
+}
+.safecheckoutlogo{
+    width:90%;
+}
+
+
+/* bottom description section */
+.shopify-Tabs-panel{
+    display: flex;
+    justify-self: center;
+}
+.mask-description{
+    width:60%;
+}
+/* suggested product section */
+.suggested-products-container{
+    margin: 0 20%;
+}
