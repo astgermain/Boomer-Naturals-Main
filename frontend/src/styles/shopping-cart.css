@@ -119,7 +119,6 @@
 /* CART QTY ADJUSTER */
 
 .cart-qty-adjuster {
-    /* width: 100%; */
     margin-right: 2rem;
 }
 
@@ -129,6 +128,9 @@
     border: 1px var(--color-text-light) solid;
     background: aliceblue;
     width: 1.5rem;
+}
+.cart-qty-adjuster button {
+    cursor: pointer;
 }
 
 .cart-qty-adjuster input {
