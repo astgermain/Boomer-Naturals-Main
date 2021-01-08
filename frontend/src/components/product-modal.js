@@ -165,7 +165,6 @@ console.log('main array: ', mainArray)
     setupsellShow(true);
   }
   
-  
 
   return (
     <Slide

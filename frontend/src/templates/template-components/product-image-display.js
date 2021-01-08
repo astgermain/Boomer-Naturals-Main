@@ -2,10 +2,13 @@ import React from 'react'
 import "../../styles/product-template.css"
 
 
-const ImageDisplay = () => {
+const ImageDisplay = ({mainImage, mainImageAlt}) => {
     return ( 
         <div className="product-image-section">
-            <span>hello</span>
+            <img className="product-temp-image"
+                src={mainImage}
+                alt={mainImageAlt}
+            />
         </div>
      );
 }

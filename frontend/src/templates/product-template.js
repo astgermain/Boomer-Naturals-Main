@@ -1,5 +1,7 @@
+
 import React, { useState, useContext } from "react"
 import { Link, graphql } from "gatsby"
+
 
 import Footer from "../components/footer"
 import Header from "../components/header"
@@ -16,7 +18,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   // const post = data.markdownRemark
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const { previous, next } = pageContext
-  console.log(location)
+  console.log(pageContext)
   let x = () => {
     try {
       return [
@@ -32,8 +34,10 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   const [selectedColor, setSelectedColor] = useState("")
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
-  const [selectedVariantId, setSelectedVariantId] = useState("")
-  const [upsellShow, setupsellShow] = useState(false)
+  const [selectedVariantId, setSelectedVariantId] = useState('')
+  const [upsellShow, setupsellShow] = useState(false);
+  const [bottomTabs, setbottomTabs] = useState('description');
+
 
   const { handle, title, description, descriptionHtml } = pageContext.node
 
@@ -202,7 +206,8 @@ const ProductTemplate = ({ data, pageContext, location }) => {
       <HeaderTrail data={data} pageContext={pageContext} location={location} />
 
       <div className="product-container-template">
-        <ImageDisplay data={data} pageContext={pageContext} />
+        <ImageDisplay data={data} pageContext={pageContext} mainImage={mainImage} mainImageAlt={mainImageAlt}/>
+
 
         <div className="right-side-container">
           <div className="product-price">
@@ -251,14 +256,77 @@ const ProductTemplate = ({ data, pageContext, location }) => {
         </div>
       </div>
 
-      <div>
-        <section
-          dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-          itemProp="articleBody"
-        />
-      </div>
 
-      <SuggestedProducts />
+      <div className="mask-description">
+        <div className="bottomtab-container">
+          <ul>
+              <li className="bottomtab-button active" onClick={() => setbottomTabs("description")}>
+                                                    <Link className="">
+                                                      <span className="">Description</span>
+                                                    </Link>
+                                                  </li>
+
+                                                  <li className="bottomtab-button" onClick={() => setbottomTabs("shipping")}>
+                                                    <Link className="">
+                                                      <span className="">Shipping</span>
+                                                    </Link>
+                                                  </li>
+
+                                                  <li className="bottomtab-button" onClick={() => setbottomTabs("sizing")}>
+                                                    <Link className="">
+                                                      <span className="">Sizing Info</span>
+                                                    </Link>
+                                                  </li>
+
+                                                  <li className="bottomtab-button" onClick={() => setbottomTabs("review")}>
+                                                    <Link className="">
+                                                      <span className="">Review</span>
+                                                    </Link>
+                </li>
+          </ul>
+          <div className="lineline"></div>
+                  
+        </div>
+        </div>
+
+        <div className="bottomtab-content">
+          {bottomTabs === "description" &&  
+                  <section
+                  dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+                  itemProp="articleBody"
+                />}
+                {bottomTabs === "shipping" &&  
+                <div>
+                   <p>Most orders ship in 1-3 Business Days. We appreciate your business, and we fulfill and ship orders as quickly as we can. Please be patient and know that we strive to ship your order in a timely manner. Please feel free to contact us to check on your order. </p>
+                  <p>CONTACT US:<br/>
+                      For questions about an order, information about our privacy practices, or if you have a concern or complaint, please contact us by email at info@boomernaturals.com or by phone (702) 960-4843, or by mail at the following:<br/>
+                      Boomer Naturals<br/>
+                      8670 W Cheyenne Ave #120, Las Vegas, NV 89129, United States<br/>
+                      (702) 960-4843
+                  </p>
+                </div>
+                 }
+                 {bottomTabs === "sizing" &&  
+                  <section
+                  dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+                  itemProp="articleBody"
+                />}
+                {bottomTabs === "review" &&  
+                  <section
+                  dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+                  itemProp="articleBody"
+                />}
+        </div>
+          
+
+                  
+                  
+  
+
+      <SuggestedProducts data={data}/>
+      
+
+
     </Layout>
   )
 }
