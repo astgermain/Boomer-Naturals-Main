@@ -23,7 +23,7 @@ const Layout = ({ location, title, children}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const { isCartOpen, toggleCart } = useContext(StoreContext)
-  console.log("the cartttt", isCartOpen)
+  console.log('Store',StoreContext)
 
   const data = useStaticQuery(graphql`
     {
@@ -93,7 +93,6 @@ const Layout = ({ location, title, children}) => {
   `)
 
   let content
-  console.log(children)
   if (isRootPath) {
     content = (
       

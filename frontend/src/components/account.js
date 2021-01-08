@@ -101,31 +101,6 @@ const GET_CUSTOMER_OBJECT = gql`
   }
 `
 
-const USER_UPDATE = gql`
-  mutation customerUpdate(
-    $customerAccessToken: String!
-    $customer: CustomerUpdateInput!
-  ) {
-    customerUpdate(
-      customerAccessToken: $customerAccessToken
-      customer: $customer
-    ) {
-      customer {
-        id
-      }
-      customerAccessToken {
-        accessToken
-        expiresAt
-      }
-      customerUserErrors {
-        code
-        field
-        message
-      }
-    }
-  }
-`
-
 const Account = () => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
@@ -135,6 +110,7 @@ const Account = () => {
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
+
   try {
     return (
       <Query
@@ -144,18 +120,13 @@ const Account = () => {
         }}
       >
         {data => {
+          console.log(customerAccessToken.accessToken)
+          console.log("Query data: ", data)
           let updatedCustomer
           try {
             updatedCustomer = data.data.customer
           } catch {
-            updatedCustomer = {
-              accpetsMarketing: true,
-              email: 'themail123@ymail.com',
-              firstName: "andrew",
-              lastName: "st germain",
-              password: "TtaJL5zi8ZeyXP!",
-              phone: '3106969341',
-            }
+            updatedCustomer = {}
           }
 
           let {
@@ -166,7 +137,7 @@ const Account = () => {
             addresses,
             defaultAddress,
             orders,
-          } = data.data.customer || ""
+          } = updatedCustomer || ""
           let {
             address1,
             address2,
@@ -185,11 +156,14 @@ const Account = () => {
           } catch {
             phone1 = ""
           }
-          console.log(defaultAddress)
+
           return (
             <section>
               <button name="info" onClick={() => console.log(data)}>
                 click for data
+              </button>
+              <button name="info" onClick={() => data.refetch()}>
+                Refetch
               </button>
               <div>First Name: {firstName ? firstName : "No first name"}</div>
               <div>Last Name: {lastName ? lastName : "No last name"}</div>
@@ -256,10 +230,7 @@ const Account = () => {
                   ""
                 )}
               </div>
-              <AccountUpdate
-                passedCustomer={updatedCustomer}
-                passedCustomerAccessToken={customerAccessToken.accessToken}
-              />
+              <AccountUpdate data={data} />
             </section>
           )
         }}

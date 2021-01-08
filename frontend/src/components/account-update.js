@@ -28,21 +28,24 @@ const USER_UPDATE = gql`
   }
 `
 
-const AccountUpdate = ({ passedCustomer, passedCustomerAccessToken }) => {
-  console.log("hi", passedCustomer)
+const AccountUpdate = ({ data }) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
+  const [firstName, setFirstName] = useState(``)
+  const [lastName, setLastName] = useState(``)
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
   let newCustomerData = {
-    email: "themail12@ymail.com",
-    firstName: "andrew",
-    lastName: "st germain",
-    password: "TtaJL5zi8ZeyXP!",
+    email: email,
+    firstName: firstName,
+    lastName: lastName,
+    password: password,
     phone: null,
   }
+  console.log(data)
+  console.log('update token ',customerAccessToken)
   return (
     <Mutation mutation={USER_UPDATE}>
       {updateFunc => {
@@ -53,34 +56,55 @@ const AccountUpdate = ({ passedCustomer, passedCustomerAccessToken }) => {
                 e.preventDefault()
                 updateFunc({
                   variables: {
-                    customerAccessToken: passedCustomerAccessToken,
+                    customerAccessToken: customerAccessToken.accessToken,
                     customer: newCustomerData,
                   },
                 })
                   .then(result => {
                     console.log("result", result)
+                    if(result.data.customerUpdate.customerAccessToken === null){
+                      result.data.customerUpdate.customerUserErrors.map(msg => {
+                        alert(msg.message)
+                      })
+                    }
+                    else{
                     handleCustomerAccessToken(
-                      result.data.customerAccessTokenCreate.customerAccessToken
+                      result.data.customerUpdate.customerAccessToken
                     )
+                    alert('Success')
+                    }
                   })
                   .catch(err => {
                     alert(err)
                     console.error("error", err)
                   })
+                  data.refetch()
               }}
             >
+              {/*p = TtaJL5zi8ZeyXP! */}
+              <span>First Name</span>
+              <input
+                type="text"
+                onChange={e => setFirstName(e.target.value)}
+              ></input>
+              <span>Last Name</span>
+              <input
+                type="text"
+                onChange={e => setLastName(e.target.value)}
+              ></input>
               <span>E-Mail</span>
               <input
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               ></input>
-              <span>Password</span>
+              <span>New Password</span>
               <input
                 type="password"
                 onChange={e => setPassword(e.target.value)}
               ></input>
               <button type="submit">Update Info</button>
             </form>
+            <button type="submit" onClick={() => handleCustomerAccessToken(null)}>Logout</button>
           </div>
         )
       }}

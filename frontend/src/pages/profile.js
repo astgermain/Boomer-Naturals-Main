@@ -27,7 +27,7 @@ const Profile = ({location}) => {
         </div>
         <button
           className={`carousel-nav-btn ${isActive.toString()}`}
-          onClick={handleNavClick}
+          onClick={() => handleNavClick()}
           value={title}
         >
           {title}
