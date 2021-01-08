@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Header from "./header"
 import Hero from "./hero"
 import Categories from "./categories"
@@ -12,29 +12,18 @@ import Footer from "./footer"
 import News from "./news"
 import ShoppingCart from "./shopping-cart"
 import { useStaticQuery, graphql } from "gatsby"
-import Client from "shopify-buy"
+// import Client from "shopify-buy"
 import Register from "./register"
 import StoreContext from "../util/store"
 import Login from "./login"
-import Account from "./account"
+import HomeLayout from "./home-layout"
+import Filter from "../pages/filter"
 
-/*
-const { GATSBY_STOREFRONT_TOKEN } = process.env
-
-
-// Client object with methods for
-// creating checkout and other methods
-const client = Client.buildClient({
-  domain: 'boomerfacemasks.myshopify.com',
-  storefrontAccessToken: GATSBY_STOREFRONT_TOKEN
-})
-// Context that will be used in other components
-export const ClientContext = React.createContext(client)
-*/
-
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  const { isCartOpen, toggleCart } = useContext(StoreContext)
+  console.log('Store',StoreContext)
 
   const data = useStaticQuery(graphql`
     {
@@ -103,19 +92,25 @@ const Layout = ({ location, title, children }) => {
     }
   `)
 
-  let header
+  let content
   if (isRootPath) {
-    header = (
-      <Header title={title} data={data} />
+    content = (
+      
+        
+        <HomeLayout />
+        
+      
       /*
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
       */
     )
-  } else {
-    header = (
-      <Header data={data} />
+  } 
+  else {
+    content = (
+      
+      children
       /*
       <Link className="header-link-home" to="/">
         {title}
@@ -125,35 +120,26 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <StoreContext.Consumer>
-      {context => (
-        <React.Fragment>
-          <div className="" data-is-root-path={isRootPath}>
-            {header}
-            <aside>
-              <ShoppingCart context={context} />
-            </aside>
-            <main>
-              <Login />
-              <Register />
-              <Account />
-              <Hero />
-              <Featured />
-              <Categories />
-              <ProductCarousel />
-              <Insta />
-              <AboutFaceMask />
-              <News />
-              <AsSeenOn />
-              <Email />
-            </main>
-            <footer>
-              <Footer />
-            </footer>
-          </div>
-        </React.Fragment>
-      )}
-    </StoreContext.Consumer>
+    <>
+      {/* Overlay for when shopping cart is opened */}
+      <div
+        className={`layout-body-wrapper ${isCartOpen && "active"}`}
+        data-is-root-path={isRootPath}
+      >
+        <aside className={`shopping-cart-aside ${!isCartOpen && "inactive"}`}>
+          <ShoppingCart />
+        </aside>
+        <div
+          className={`screen-overlay ${isCartOpen && "active"}`}
+          onClick={isCartOpen && toggleCart}
+        ></div>
+        <Header data={data} />
+        {content}
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </>
   )
 }
 

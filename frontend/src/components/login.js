@@ -16,9 +16,6 @@ const LOGIN_USER = gql`
         message
       }
     }
-    customer{
-        id
-    }
   }
 `
 
@@ -52,15 +49,17 @@ const Login = ({}) => {
                   },
                 })
                   .then(result => {
-                    console.log(result)
+                    console.log('login result', result)
                     handleCustomerAccessToken(
                       result.data.customerAccessTokenCreate.customerAccessToken
                     )
+                    console.log(customerAccessToken)
                     if (
                       result.data.customerAccessTokenCreate.customerUserErrors
                         .length
                     ) {
                       setIncorrectCredMsg("Username or Password is incorrect")
+                      alert(incorrectCredMsg)
                     }
                   })
                   .catch(err => {
