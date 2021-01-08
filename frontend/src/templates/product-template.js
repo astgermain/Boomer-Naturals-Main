@@ -1,5 +1,5 @@
-import React, {useState, useContext} from "react"
-import { Link, graphql} from "gatsby"
+import React, { useState, useContext } from "react"
+import { Link, graphql } from "gatsby"
 
 import Footer from "../components/footer"
 import Header from "../components/header"
@@ -19,29 +19,25 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   console.log(location)
   let x = () => {
     try {
-      return (
-        [pageContext.node.images[0].originalSrc, pageContext.node.images[0].altText]
-      )
-    }
-    catch {
-      return (
-        [errorImg, "error image"]
-      )
+      return [
+        pageContext.node.images[0].originalSrc,
+        pageContext.node.images[0].altText,
+      ]
+    } catch {
+      return [errorImg, "error image"]
     }
   }
   const [quantity, setQuantity] = useState(1)
-  const [selectedSize, setSelectedSize] = useState('')
-  const [selectedColor, setSelectedColor] = useState('')
+  const [selectedSize, setSelectedSize] = useState("")
+  const [selectedColor, setSelectedColor] = useState("")
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
-  const [selectedVariantId, setSelectedVariantId] = useState('')
-  const [upsellShow, setupsellShow] = useState(false);
+  const [selectedVariantId, setSelectedVariantId] = useState("")
+  const [upsellShow, setupsellShow] = useState(false)
 
   const { handle, title, description, descriptionHtml } = pageContext.node
-  
-  
 
-//price
+  //price
   let priceFormat = price => {
     price *= 100
     price = price.toString()
@@ -58,32 +54,33 @@ const ProductTemplate = ({ data, pageContext, location }) => {
     if (
       pageContext.node.priceRange.minVariantPrice.amount ===
       pageContext.node.priceRange.maxVariantPrice.amount
-    ){
-      return('$'+priceFormat(pageContext.node.priceRange.minVariantPrice.amount))
+    ) {
+      return (
+        "$" + priceFormat(pageContext.node.priceRange.minVariantPrice.amount)
+      )
+    } else {
+      return (
+        "From $",
+        priceFormat(pageContext.node.priceRange.minVariantPrice.amount)
+      )
     }
-      else{
-        return('From $', priceFormat(pageContext.node.priceRange.minVariantPrice.amount))
-      }
   }
   //product name
   const ProductName = pageContext.node.title
-  const FirstWordProductName = ProductName.split(' ')[0]
-  const RestOfProductName = ProductName.substr(ProductName.indexOf(" ") + 1);
-  const ProductNameAdjust = () =>{
-    if(FirstWordProductName === 'Kids' || FirstWordProductName === 'Adult'){
-      return(
+  const FirstWordProductName = ProductName.split(" ")[0]
+  const RestOfProductName = ProductName.substr(ProductName.indexOf(" ") + 1)
+  const ProductNameAdjust = () => {
+    if (FirstWordProductName === "Kids" || FirstWordProductName === "Adult") {
+      return (
         <div className="name-adjust-container">
           <span>{FirstWordProductName}</span>
           <div className="product-name name-adjust">{RestOfProductName}</div>
         </div>
       )
     } else {
-      return(
-        <div className="product-name">{ProductName}</div>
-      )
+      return <div className="product-name">{ProductName}</div>
     }
-    
-  } 
+  }
 
   //product options
 
@@ -134,13 +131,14 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   tSet.push(rSet)
   mainArray.push(tSet)
 
-
-  
   let generateVariantThumbs = variantData => {
     return variantData.map(data => {
       try {
         return (
-          <button className="color-options" onClick={() => handleVariantSelection(data)}  >
+          <button
+            className="color-options"
+            onClick={() => handleVariantSelection(data)}
+          >
             <img
               src={data[0].image.originalSrc}
               className="variant-thumb-template"
@@ -150,91 +148,76 @@ const ProductTemplate = ({ data, pageContext, location }) => {
         )
       } catch {
         return (
-          <button className="variant-thumb" onClick={() => handleVariantSelection(data)}  >
-            <img
-              src={errorImg}
-              className="variant-thumb"
-              alt="error image"
-            />
+          <button
+            className="variant-thumb"
+            onClick={() => handleVariantSelection(data)}
+          >
+            <img src={errorImg} className="variant-thumb" alt="error image" />
           </button>
         )
       }
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-  let handleVariantSelection = (data) => {
+  let handleVariantSelection = data => {
     // sets color value to state from what user selects
     setSelectedColor(data[0].selectedOptions[0].value)
-    setSelectedVariantId(data[0].id.split('Shopify__ProductVariant__').join(''))
+    setSelectedVariantId(data[0].id.split("Shopify__ProductVariant__").join(""))
     try {
-      setMainImage(data[0].image.originalSrc);
-    }
-    catch {
-      setMainImage(errorImg);
+      setMainImage(data[0].image.originalSrc)
+    } catch {
+      setMainImage(errorImg)
     }
     try {
-      setMainImageAlt(data[0].image.altText);
+      setMainImageAlt(data[0].image.altText)
+    } catch {
+      setMainImageAlt("error image")
     }
-    catch {
-      setMainImageAlt("error image");
-    }
-
   }
-
-  
 
   const FirstOptionName = pageContext.node.options[0].name
   const SecondOptionName = pageContext.node.options[1].name
   const FirstOptionOptions = pageContext.node.variants
   const SecondOptionOptions = pageContext.node.options[1].values
-//size
-  const generateOptOptions2 = SecondOptionOptions.map( sizeOption =>{
-    return(
-      <button className="size-options">
-        {sizeOption}
-          </button>
-    )
+  //size
+  const generateOptOptions2 = SecondOptionOptions.map(sizeOption => {
+    return <button className="size-options">{sizeOption}</button>
+  })
+
+  //quantity
+  let handleAdd = () => {
+    setQuantity(quantity + 1)
   }
-  )
-  
-
-
-
-//quantity
-let handleAdd = () => {
-  setQuantity(quantity + 1)
-}
-let handleSub = () => {
-  if (quantity > 1) return setQuantity(quantity - 1)
-}
-//addtocart
+  let handleSub = () => {
+    if (quantity > 1) return setQuantity(quantity - 1)
+  }
+  //addtocart
 
   return (
-    <div>
-      <Header />
+    <Layout location={location}>
       {/* <SEO
                 title={post.frontmatter.title}
                 description={post.frontmatter.description || post.excerpt}
             /> */}
-      <HeaderTrail data={data} pageContext={pageContext} location={location}/>
+      <HeaderTrail data={data} pageContext={pageContext} location={location} />
 
       <div className="product-container-template">
-        <ImageDisplay data={data} pageContext={pageContext}/>
+        <ImageDisplay data={data} pageContext={pageContext} />
 
         <div className="right-side-container">
-        <div className='product-price'><FormattedPrice/></div>
-        <ProductNameAdjust/>
+          <div className="product-price">
+            <FormattedPrice />
+          </div>
+          <ProductNameAdjust />
 
+          <div>{SecondOptionName}</div>
+          <div className="size-option-container">{generateOptOptions2}</div>
+          <div>{FirstOptionName}</div>
+          <div className="color-options-container">{variantThumbs}</div>
 
-        <div>{SecondOptionName}</div>
-        <div className="size-option-container">{generateOptOptions2}</div>
-        <div>{FirstOptionName}</div>
-        <div className="color-options-container">{variantThumbs}</div>
-
-
-        <span>Quantity</span> 
-        <div className="quantity-addcart-container">
-         <div className="quantityButtonTemplate">
+          <span>Quantity</span>
+          <div className="quantity-addcart-container">
+            <div className="quantityButtonTemplate">
               <div
                 role="button"
                 tabIndex={0}
@@ -253,27 +236,30 @@ let handleSub = () => {
                 <span>+</span>
               </div>
             </div>
-            <button className="add-to-cart add-cart-template">Add to Cart</button>
-        </div>
+            <button className="add-to-cart add-cart-template">
+              Add to Cart
+            </button>
+          </div>
 
-        <div className="safe-checkout-container">
-          <img src={safecheckoutlogo} alt="Guaranteed Safe Checkout" className="safecheckoutlogo" />
-        </div>
+          <div className="safe-checkout-container">
+            <img
+              src={safecheckoutlogo}
+              alt="Guaranteed Safe Checkout"
+              className="safecheckoutlogo"
+            />
+          </div>
         </div>
       </div>
 
       <div>
         <section
-        dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-        itemProp="articleBody"
-      />
+          dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+          itemProp="articleBody"
+        />
       </div>
 
-      <SuggestedProducts/>
-      
-
-      <Footer />
-    </div>
+      <SuggestedProducts />
+    </Layout>
   )
 }
 
