@@ -26,9 +26,9 @@
 .product-image-section{
     width: 35%;
 }
-
-
-
+.product-temp-image{
+    width:70%;
+}
 
 
 
@@ -118,14 +118,94 @@
 
 
 /* bottom description section */
+.bottomtab-button{
+    border:none;
+    border-radius: 0!important;
+    background-color: transparent;
+    padding:0px!important;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.bottomtab-container{
+    width:100%;
+    height: auto;
+    padding-bottom:20px;
+    margin-top: 20px;
+    
+
+}
 .shopify-Tabs-panel{
     display: flex;
     justify-self: center;
 }
-.mask-description{
+.mask-description, .bottomtab-content{
     width:60%;
+    margin: 0 20%;
 }
 /* suggested product section */
 .suggested-products-container{
     margin: 0 20%;
 }
+.suggestimage{
+    width:100%;
+}
+.product-display-container{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.suggest-holder{
+    width: 20%;
+}
+
+
+
+  .mask-description::after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+  .mask-description > .bottomtab-container > ul,
+  li {
+    list-style-type: none;
+    text-decoration: none;
+  }
+  .mask-description > .bottomtab-container > ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-top: 4px solid transparent;
+  }
+  .mask-description > .bottomtab-container > ul > li {
+    text-align: center;
+    position: relative;
+    display: block;
+    float: left;
+  }
+  .mask-description > .bottomtab-container > ul > li span{
+    display: block;
+    text-align: left;
+    padding: 20px 0px 20px 0px;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+  }
+  .mask-description > .bottomtab-container > ul > li.active,
+  .mask-description > .bottomtab-container > ul > li:hover {
+    box-shadow: 0 4px 0 #00a0c5;
+    margin-right: 20px;
+  }
+  .lineline{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-top: 4px solid gainsboro;
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    margin-top: 64px;
+
+  }
+  .mask-description > .bottomtab-container > ul > li.active:active{
+  }
+

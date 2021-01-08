@@ -158,7 +158,6 @@ const ProductModal = ({ data, setModalShow }) => {
     setupsellShow(true);
   }
   
-  
 
   return (
     <Slide
