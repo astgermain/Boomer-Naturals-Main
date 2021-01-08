@@ -92,7 +92,6 @@ const Layout = ({ location, title, children}) => {
   `)
 
   let content
-  console.log(children)
   if (isRootPath) {
     content = (
       

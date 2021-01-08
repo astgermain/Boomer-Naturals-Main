@@ -49,10 +49,11 @@ const Login = ({}) => {
                   },
                 })
                   .then(result => {
-                    console.log(result)
+                    console.log('login result', result)
                     handleCustomerAccessToken(
                       result.data.customerAccessTokenCreate.customerAccessToken
                     )
+                    console.log(customerAccessToken)
                     if (
                       result.data.customerAccessTokenCreate.customerUserErrors
                         .length
