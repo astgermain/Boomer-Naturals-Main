@@ -31,6 +31,18 @@ const ShoppingCart = () => {
   const SUBTOTAL_PRICE = checkout.subtotalPrice
   const TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING = (50 - parseFloat(SUBTOTAL_PRICE)).toFixed(2)
 
+  const differenceToDisplay = (currentDifference) => {
+    if (currentDifference > 0) {
+      return (
+        <p>Add <span>{currentDifference}</span> more for <strong>FREE SHIPPING!</strong></p>
+      ) 
+    } else {
+      return (
+        <p>Congratulations! You've earned <strong>FREE SHIPPING!</strong></p>
+      )
+    }
+  }
+
   const SHOPPING_CART_ITEMS = (
     <ul>
       {
@@ -86,7 +98,7 @@ const ShoppingCart = () => {
         </div>
         <footer>
           <div className="totals-display">
-            <p>Add <span>{TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING}</span> more for <strong>FREE SHIPPING!</strong></p>
+            {differenceToDisplay(TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING)}
             <p>Subtotal ${SUBTOTAL_PRICE}</p>
             <p>Tax Calculated at checkout</p>
             <p>Shipping Calculated at checkout</p>
