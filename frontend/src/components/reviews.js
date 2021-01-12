@@ -16,7 +16,7 @@ const Reviews = () => {
         data-price="Product Price"
         data-currency="Price Currency"
         data-name="Product Title"
-        data-url="https://boomernaturals.com/products/adult-multi-use-protective-face-cover-in-stock-now"
+        data-url="/products/adult-multi-use-protective-face-cover-in-stock-now"
         data-image-url="The product image url"
       ></div>
     </section>
