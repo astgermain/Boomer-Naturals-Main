@@ -1,6 +1,6 @@
 /* OVERLAY */
 
-.screen-overlay {
+/* .screen-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,13 +19,14 @@
     visibility: visible;
     -webkit-transition: opacity .25s ease, visibility 0s ease;
     transition: opacity .25s ease, visibility 0s ease;
-}
+} */
 
 /* LAYOUT */
 
 .layout-body-wrapper.active {
-    display: flex;
-    flex-direction: row-reverse;
+    /* display: flex; */
+    /* flex-direction: row-reverse; */
+    width: 73%;
 }
 
 /* SHOPPING CART ASIDE */

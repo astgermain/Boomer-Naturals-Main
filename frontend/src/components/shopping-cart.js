@@ -23,8 +23,7 @@ const ShoppingCart = () => {
     toggleCart
   } = useContext(store)
   useEffect(() => {
-    if (isCartOpen) document.body.style.overflow = "hidden"
-    if (!isCartOpen) document.body.style.overflow = "scroll"
+    console.log('do something')
   }, [isCartOpen])
 
   const PRODUCTS_IN_CART = checkout.lineItems
