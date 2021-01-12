@@ -34,11 +34,11 @@ const ShoppingCart = () => {
   const differenceToDisplay = (currentDifference) => {
     if (currentDifference > 0) {
       return (
-        <p>Add <span>{currentDifference}</span> more for <strong>FREE SHIPPING!</strong></p>
+        <p>Add <span className="difference-num">{currentDifference}</span> more for <strong>FREE SHIPPING!</strong></p>
       ) 
     } else {
       return (
-        <p>Congratulations! You've earned <strong>FREE SHIPPING!</strong></p>
+        <p>Congratulations!<br></br>You've earned <strong>FREE SHIPPING!</strong></p>
       )
     }
   }
@@ -99,9 +99,20 @@ const ShoppingCart = () => {
         <footer>
           <div className="totals-display">
             {differenceToDisplay(TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING)}
-            <p>Subtotal ${SUBTOTAL_PRICE}</p>
-            <p>Tax Calculated at checkout</p>
-            <p>Shipping Calculated at checkout</p>
+            <table className="checkout-details-table">
+              <tr>
+                <td>Subtotal</td>
+                <td className="right-table-data">${SUBTOTAL_PRICE}</td>
+              </tr>
+              <tr>
+                <td>Tax</td>
+                <td className="right-table-data">Calculated at checkout</td>
+              </tr>
+              <tr>
+                <td>Shipping</td>
+                <td className="right-table-data">Calculated at checkout</td>
+              </tr>
+            </table>
           </div>
           <div className="cart-redirect-btns">
             <a href={'/'}>VIEW MY CART</a>

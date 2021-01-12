@@ -53,12 +53,33 @@
     width: 27vw;
 }
 
+.shopping-cart-wrapper footer {
+    width: 90%;
+}
+
 .shopping-cart-body {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.difference-num {
+    color: var(--color-secondary);
+}
+
+.totals-display {
+    text-align: left;
+    color: var(--color-text-light);
+}
+
+.totals-display strong{
+    color: var(--color-text);
+}
+
+.checkout-details-table .right-table-data {
+    text-align: right;
 }
 
 /* INDIVIDUAL ITEMS */
