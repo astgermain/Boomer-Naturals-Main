@@ -47,10 +47,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-yotpo",
+      resolve: 'gatsby-source-yotpo-shopify',
       options: {
-        appKey: "aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq",
-        appSecret: "dxBkPArDNQfUx67lBqarnOn1dJJhzWWdKRd7VnoA",
+      shopName: `boomerfacemasks`,
+      shopifyAccessToken: `5060f93e1d5681a9d90371c49cf1a0db`,
+      yotpoAppKey: 'aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq',
       },
     },
     {
