@@ -22,6 +22,7 @@ const HomeLayout = () => {
   return (
     <main className="main-section">
       <Login />
+      <Reviews />
       <Register />
       <Hero />
       <Featured />
