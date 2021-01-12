@@ -1,6 +1,6 @@
 
-import React, { useState, useContext } from "react"
-import { Link, graphql } from "gatsby"
+import React, { useState, useContext, useEffect } from "react"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 
 import Footer from "../components/footer"
@@ -13,6 +13,7 @@ import HeaderTrail from "./template-components/header-trail"
 import ImageDisplay from "./template-components/product-image-display"
 import errorImg from "../../content/assets/errorImg.png"
 import SuggestedProducts from "./template-components/suggested-products"
+import SizingInfo from "./template-components/sizing-info"
 
 const ProductTemplate = ({ data, pageContext, location }) => {
   // const post = data.markdownRemark
@@ -37,6 +38,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   const [selectedVariantId, setSelectedVariantId] = useState('')
   const [upsellShow, setupsellShow] = useState(false);
   const [bottomTabs, setbottomTabs] = useState('description');
+ 
 
 
   const { handle, title, description, descriptionHtml } = pageContext.node
@@ -136,13 +138,16 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   mainArray.push(tSet)
 
   let generateVariantThumbs = variantData => {
+    console.log("vdata", variantData)
     return variantData.map(data => {
       try {
         return (
           <button
+          key={ Math.random(2)}
             className="color-options"
             onClick={() => handleVariantSelection(data)}
           >
+            {/* <span>{data[0].title}</span> */}
             <img
               src={data[0].image.originalSrc}
               className="variant-thumb-template"
@@ -178,16 +183,31 @@ const ProductTemplate = ({ data, pageContext, location }) => {
       setMainImageAlt("error image")
     }
   }
+let oName 
+  let optionData = pageContext.node.options.map(option =>{
+    if(option.name === "Title" ){
+      return <></>
+    }else if(option.name === "Color" || option.name === "color"){
+      oName=option.name
+      return <div key={ Math.random(2) }></div>
 
-  const FirstOptionName = pageContext.node.options[0].name
-  const SecondOptionName = pageContext.node.options[1].name
-  const FirstOptionOptions = pageContext.node.variants
-  const SecondOptionOptions = pageContext.node.options[1].values
-  //size
-  const generateOptOptions2 = SecondOptionOptions.map(sizeOption => {
-    return <button className="size-options">{sizeOption}</button>
+    } 
+    console.log("OPTIONS!!!!", option)
+    let values = option.values.map(value => {
+      return <button key={ Math.random(2)} className="size-options">{value}</button>
+    })
+    return(
+      <div key={ Math.random(2)}>
+        <div>{option.name}</div>
+      {values}
+      </div>
+    )
   })
 
+  console.log("thisone", pageContext.node)
+  
+  //size
+  
   //quantity
   let handleAdd = () => {
     setQuantity(quantity + 1)
@@ -215,9 +235,10 @@ const ProductTemplate = ({ data, pageContext, location }) => {
           </div>
           <ProductNameAdjust />
 
-          <div>{SecondOptionName}</div>
-          <div className="size-option-container">{generateOptOptions2}</div>
-          <div>{FirstOptionName}</div>
+            {optionData}
+          {/* <div>{SecondOptionName}</div> */}
+          {/* <div className="size-option-container">{generateOptOptions2}</div> */}
+          <div>{oName}</div>
           <div className="color-options-container">{variantThumbs}</div>
 
           <span>Quantity</span>
@@ -261,27 +282,17 @@ const ProductTemplate = ({ data, pageContext, location }) => {
         <div className="bottomtab-container">
           <ul>
               <li className="bottomtab-button active" onClick={() => setbottomTabs("description")}>
-                                                    <Link className="">
+                                                    
                                                       <span className="">Description</span>
-                                                    </Link>
                                                   </li>
-
                                                   <li className="bottomtab-button" onClick={() => setbottomTabs("shipping")}>
-                                                    <Link className="">
                                                       <span className="">Shipping</span>
-                                                    </Link>
                                                   </li>
-
                                                   <li className="bottomtab-button" onClick={() => setbottomTabs("sizing")}>
-                                                    <Link className="">
                                                       <span className="">Sizing Info</span>
-                                                    </Link>
                                                   </li>
-
                                                   <li className="bottomtab-button" onClick={() => setbottomTabs("review")}>
-                                                    <Link className="">
                                                       <span className="">Review</span>
-                                                    </Link>
                 </li>
           </ul>
           <div className="lineline"></div>
@@ -307,10 +318,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
                 </div>
                  }
                  {bottomTabs === "sizing" &&  
-                  <section
-                  dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-                  itemProp="articleBody"
-                />}
+                  <SizingInfo pageContext={pageContext}/>}
                 {bottomTabs === "review" &&  
                   <section
                   dangerouslySetInnerHTML={{ __html: descriptionHtml }}

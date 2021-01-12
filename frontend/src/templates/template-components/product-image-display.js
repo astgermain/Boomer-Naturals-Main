@@ -8,6 +8,7 @@ const ImageDisplay = ({mainImage, mainImageAlt}) => {
             <img className="product-temp-image"
                 src={mainImage}
                 alt={mainImageAlt}
+                
             />
         </div>
      );
