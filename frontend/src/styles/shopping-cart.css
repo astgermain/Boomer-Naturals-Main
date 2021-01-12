@@ -1,6 +1,6 @@
 /* OVERLAY */
 
-.screen-overlay {
+/* .screen-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,13 +19,14 @@
     visibility: visible;
     -webkit-transition: opacity .25s ease, visibility 0s ease;
     transition: opacity .25s ease, visibility 0s ease;
-}
+} */
 
 /* LAYOUT */
 
 .layout-body-wrapper.active {
-    display: flex;
-    flex-direction: row-reverse;
+    /* display: flex; */
+    /* flex-direction: row-reverse; */
+    width: 73%;
 }
 
 /* SHOPPING CART ASIDE */
@@ -53,12 +54,41 @@
     width: 27vw;
 }
 
+.shopping-cart-wrapper header {
+    font-size: 2rem;
+    text-align: left;
+}
+.shopping-cart-wrapper header h3{
+    display: block;
+}
+
+.shopping-cart-wrapper footer {
+    width: 85%;
+}
+
 .shopping-cart-body {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.difference-num {
+    color: var(--color-secondary);
+}
+
+.totals-display {
+    text-align: left;
+    color: var(--color-text-light);
+}
+
+.totals-display strong {
+    color: var(--color-text);
+}
+
+.checkout-details-table .right-table-data {
+    text-align: right;
 }
 
 /* INDIVIDUAL ITEMS */
@@ -69,11 +99,13 @@
     justify-content: space-between;
     font-size: .75rem;
 }
+
 .cart-item-wrapper {
     padding-bottom: 5px;
     position: relative;
 }
-.cart-item-wrapper:before{
+
+.cart-item-wrapper:before {
     content: "";
     position: absolute;
     width: 95%;
@@ -82,6 +114,7 @@
     left: 3%;
     border-bottom: 1px solid var(--color-text-light);
 }
+
 .cart-item-wrapper h5 {
     font-size: .75rem;
 }
@@ -108,6 +141,7 @@
     font-style: italic;
     color: var(--color-text-light);
 }
+
 /* QTY DISPLAY WRAPPER */
 
 .qty-display-wrapper {
@@ -129,6 +163,7 @@
     background: aliceblue;
     width: 1.5rem;
 }
+
 .cart-qty-adjuster button {
     cursor: pointer;
 }
@@ -145,4 +180,31 @@
     cursor: pointer;
     color: var(--color-secondary);
     padding: 0;
+}
+
+/* REDIRECT BUTTONS */
+
+.cart-redirect-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-redirect-btns a {
+    display: block;
+    width: 80%;
+    margin: 4px 0;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.cart-redirect-btns a.view-cart {
+    color: var(--color-text);
+    border: 1px var(--color-text) solid;
+
+}
+
+.cart-redirect-btns a.checkout {
+    color: aliceblue;
+    background-color: var(--color-secondary);
 }

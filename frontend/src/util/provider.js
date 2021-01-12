@@ -102,15 +102,17 @@ const Provider = ({ children }) => {
 
           navigate(addItem.webUrl)
         },
-        addToCart: async (variantId, quantity, setIsLoading) => {
+        addToCart: async (variantId, quantity, setIsLoading, customAttributes = null) => {
           setIsLoading(true)
           console.log(variantId, quantity)
           const lineItem = [
             {
               variantId: variantId,
               quantity: quantity,
+              customAttributes: [customAttributes]
             },
           ]
+          
 
           const newCheckout = await store.client.checkout.addLineItems(
             checkout.id,
