@@ -42,7 +42,6 @@ const AccountUpdate = ({ data }) => {
     firstName: firstName,
     lastName: lastName,
     password: password,
-    phone: null,
   }
   console.log(data)
   console.log('update token ',customerAccessToken)

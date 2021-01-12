@@ -66,6 +66,8 @@ const Product = ({ productInfo, handleModalShow }) => {
         )
     }
   }
+  console.log(productInfo)
+  console.log('hi')
 
   return (
     <div
@@ -75,9 +77,9 @@ const Product = ({ productInfo, handleModalShow }) => {
     >
       {areMultipleVariants ? (
         <div className="multiple-varient-product">
-          <Link to="/">
+          <Link to={productInfo.onlineStoreUrl}>
             <div className="product-header">
-              <title className="product-header-text">{productInfo.title}</title>
+              <title  className="product-header-text">{productInfo.title}</title>
               <div className="product-header-price">
                 <span className="price-mini">from</span>
                 <span className="price-mini">${formattedPrice}</span>
