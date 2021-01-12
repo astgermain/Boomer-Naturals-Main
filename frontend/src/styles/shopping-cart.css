@@ -54,6 +54,14 @@
     width: 27vw;
 }
 
+.shopping-cart-wrapper header {
+    font-size: 2rem;
+    text-align: left;
+}
+.shopping-cart-wrapper header h3{
+    display: block;
+}
+
 .shopping-cart-wrapper footer {
     width: 85%;
 }

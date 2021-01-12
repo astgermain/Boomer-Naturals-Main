@@ -84,6 +84,7 @@ const ShoppingCart = () => {
       <section className="shopping-cart-wrapper">
         <header>
           <h3>My Cart</h3>
+          <button className="close" onClick={toggleCart}></button>
         </header>
         <div className="shopping-cart-body">
           <div>Already have an account? <a href="/">Login</a></div>
