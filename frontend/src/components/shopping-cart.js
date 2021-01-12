@@ -115,8 +115,8 @@ const ShoppingCart = () => {
             </table>
           </div>
           <div className="cart-redirect-btns">
-            <a href={'/'}>VIEW MY CART</a>
-            <a href={checkout.webUrl}>CHECK OUT</a>
+            <a className="view-cart" href={'/'}>VIEW MY CART</a>
+            <a className="checkout" href={checkout.webUrl}>CHECK OUT</a>
           </div>
         </footer>
       </section>
