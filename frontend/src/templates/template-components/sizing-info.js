@@ -3,7 +3,6 @@ import React from 'react'
 const SizingInfo = ({pageContext}) => {
 
     const productType = pageContext.node.productType
-    console.log("HERE!", productType)
 
     const SwitchingSizingInfo = () =>{
         switch (productType) {
@@ -15,6 +14,18 @@ const SizingInfo = ({pageContext}) => {
                 return(
                     <div>Neck Gaiter size</div>
                 )
+            case 'Pillow':
+                    return(
+                        <div>Pillow size</div>
+                    )
+            case 'Sheets':
+                    return(
+                         <div>Sheet size</div>
+                    )
+            case 'Socks':
+                    return(
+                         <div>sock size </div>
+                     )
                 default:
                     return (
                       <div>No Sizing Available</div>
@@ -24,12 +35,6 @@ const SizingInfo = ({pageContext}) => {
 
 
 
-
-    //mask sizes
-    
-    //gaiter sizes
-
-    //
 
     return ( 
         <SwitchingSizingInfo/>
