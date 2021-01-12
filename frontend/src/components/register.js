@@ -49,6 +49,7 @@ const RegisterForm = () => {
                     */
                     if (result.data.customerCreate.customerUserErrors.length) {
                       setIncorrectCredMsg("Username or Password is incorrect")
+                      alert({incorrectCredMsg})
                     }
                   })
                   .catch(err => {

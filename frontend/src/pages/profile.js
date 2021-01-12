@@ -9,6 +9,7 @@ import Register from "../components/register"
 import Login from "../components/login"
 import StoreContext from "../util/store"
 import Layout from "../components/layout"
+import PasswordRecover from "../components/password-recover"
 
 const Profile = ({location}) => {
   const [clickedNavBtn, setClickedNavBtn] = useState("New Arrivals")
@@ -40,6 +41,7 @@ const Profile = ({location}) => {
       <Account />
       <Login />
       <Register />
+      <PasswordRecover />
     </Layout>
   )
 }
