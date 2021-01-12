@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useContext } from "react"
 import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
 import StoreContext from "../util/store"
