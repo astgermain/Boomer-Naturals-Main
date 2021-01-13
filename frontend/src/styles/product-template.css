@@ -129,7 +129,6 @@
 .bottomtab-container{
     width:100%;
     height: auto;
-    padding-bottom:20px;
     margin-top: 20px;
     
 
@@ -206,3 +205,25 @@
     margin-top: 64px;
 
   }
+
+  /* reviews */
+  .yotpo .yotpo-bottomline .yotpo-icon-star, .yotpo .yotpo-bottomline .yotpo-icon-half-star, .yotpo .yotpo-bottomline .yotpo-icon-empty-star {
+    color: orange!important;
+}
+.yotpo .yotpo-review .yotpo-header .yotpo-review-stars .yotpo-icon, .yotpo .yotpo-comment .yotpo-header .yotpo-review-stars .yotpo-icon, .yotpo .yotpo-question .yotpo-header .yotpo-review-stars .yotpo-icon, .yotpo .yotpo-onsite-upload .yotpo-header .yotpo-review-stars .yotpo-icon {
+    color: orange!important;
+}
+.yotpo .yotpo-small-box {
+    display: none!important;
+}
+.yotpo .yotpo-regular-box{
+    border-top:0px!important;
+}
+.yotpo .write-review .yotpo-header .yotpo-icon {
+    color: orange;
+}
+
+
+.disable{
+    display:none;
+}

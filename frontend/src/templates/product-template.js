@@ -1,7 +1,5 @@
-
 import React, { useState, useContext, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-
 
 import Footer from "../components/footer"
 import Header from "../components/header"
@@ -14,12 +12,12 @@ import ImageDisplay from "./template-components/product-image-display"
 import errorImg from "../../content/assets/errorImg.png"
 import SuggestedProducts from "./template-components/suggested-products"
 import SizingInfo from "./template-components/sizing-info"
+import Reviews from "./template-components/reviews"
 
 const ProductTemplate = ({ data, pageContext, location }) => {
   // const post = data.markdownRemark
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const { previous, next } = pageContext
-  console.log(pageContext)
   let x = () => {
     try {
       return [
@@ -35,11 +33,13 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   const [selectedColor, setSelectedColor] = useState("")
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
-  const [selectedVariantId, setSelectedVariantId] = useState('')
-  const [upsellShow, setupsellShow] = useState(false);
-  const [bottomTabs, setbottomTabs] = useState('description');
- 
+  const [selectedVariantId, setSelectedVariantId] = useState("")
+  const [upsellShow, setupsellShow] = useState(false)
+  const [bottomTabs, setbottomTabs] = useState("description")
 
+  console.log(bottomTabs)
+
+  
 
   const { handle, title, description, descriptionHtml } = pageContext.node
 
@@ -138,12 +138,11 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   mainArray.push(tSet)
 
   let generateVariantThumbs = variantData => {
-    console.log("vdata", variantData)
     return variantData.map(data => {
       try {
         return (
           <button
-          key={ Math.random(2)}
+            key={Math.random(2)}
             className="color-options"
             onClick={() => handleVariantSelection(data)}
           >
@@ -183,31 +182,31 @@ const ProductTemplate = ({ data, pageContext, location }) => {
       setMainImageAlt("error image")
     }
   }
-let oName 
-  let optionData = pageContext.node.options.map(option =>{
-    if(option.name === "Title" ){
+  let oName
+  let optionData = pageContext.node.options.map(option => {
+    if (option.name === "Title") {
       return <></>
-    }else if(option.name === "Color" || option.name === "color"){
-      oName=option.name
-      return <div key={ Math.random(2) }></div>
-
-    } 
-    console.log("OPTIONS!!!!", option)
+    } else if (option.name === "Color" || option.name === "color") {
+      oName = option.name
+      return <div key={Math.random(2)}></div>
+    }
     let values = option.values.map(value => {
-      return <button key={ Math.random(2)} className="size-options">{value}</button>
+      return (
+        <button key={Math.random(2)} className="size-options">
+          {value}
+        </button>
+      )
     })
-    return(
-      <div key={ Math.random(2)}>
+    return (
+      <div key={Math.random(2)}>
         <div>{option.name}</div>
-      {values}
+        {values}
       </div>
     )
   })
 
-  console.log("thisone", pageContext.node)
-  
   //size
-  
+
   //quantity
   let handleAdd = () => {
     setQuantity(quantity + 1)
@@ -216,6 +215,10 @@ let oName
     if (quantity > 1) return setQuantity(quantity - 1)
   }
   //addtocart
+
+const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
+const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
+
 
   return (
     <Layout location={location}>
@@ -226,8 +229,12 @@ let oName
       <HeaderTrail data={data} pageContext={pageContext} location={location} />
 
       <div className="product-container-template">
-        <ImageDisplay data={data} pageContext={pageContext} mainImage={mainImage} mainImageAlt={mainImageAlt}/>
-
+        <ImageDisplay
+          data={data}
+          pageContext={pageContext}
+          mainImage={mainImage}
+          mainImageAlt={mainImageAlt}
+        />
 
         <div className="right-side-container">
           <div className="product-price">
@@ -235,7 +242,7 @@ let oName
           </div>
           <ProductNameAdjust />
 
-            {optionData}
+          {optionData}
           {/* <div>{SecondOptionName}</div> */}
           {/* <div className="size-option-container">{generateOptOptions2}</div> */}
           <div>{oName}</div>
@@ -277,64 +284,75 @@ let oName
         </div>
       </div>
 
-
       <div className="mask-description">
         <div className="bottomtab-container">
           <ul>
-              <li className="bottomtab-button active" onClick={() => setbottomTabs("description")}>
-                                                    
-                                                      <span className="">Description</span>
-                                                  </li>
-                                                  <li className="bottomtab-button" onClick={() => setbottomTabs("shipping")}>
-                                                      <span className="">Shipping</span>
-                                                  </li>
-                                                  <li className="bottomtab-button" onClick={() => setbottomTabs("sizing")}>
-                                                      <span className="">Sizing Info</span>
-                                                  </li>
-                                                  <li className="bottomtab-button" onClick={() => setbottomTabs("review")}>
-                                                      <span className="">Review</span>
-                </li>
+            <li
+              className={`bottomtab-button ${ bottomTabs === "description" ? 'active' : ''}`}
+              onClick={() => setbottomTabs("description")}
+            >
+              <span className="">Description</span>
+            </li>
+            <li
+              className={`bottomtab-button ${ bottomTabs === "shipping" ? 'active' : ''}`}
+              onClick={() => setbottomTabs("shipping")}
+            >
+              <span className="">Shipping</span>
+            </li>
+            <li
+              className={`bottomtab-button ${ bottomTabs === "sizing" ? 'active' : ''}`}
+              onClick={() => setbottomTabs("sizing")}
+            >
+              <span className="">Sizing Info</span>
+            </li>
+            <li
+              className={`bottomtab-button ${ bottomTabs === "review" ? 'active' : ''}`}
+              onClick={() => setbottomTabs("review")}
+            >
+              <span className="">Review</span>
+            </li>
           </ul>
           <div className="lineline"></div>
-                  
         </div>
-        </div>
+      </div>
 
-        <div className="bottomtab-content">
-          {bottomTabs === "description" &&  
-                  <section
-                  dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-                  itemProp="articleBody"
-                />}
-                {bottomTabs === "shipping" &&  
-                <div>
-                   <p>Most orders ship in 1-3 Business Days. We appreciate your business, and we fulfill and ship orders as quickly as we can. Please be patient and know that we strive to ship your order in a timely manner. Please feel free to contact us to check on your order. </p>
-                  <p>CONTACT US:<br/>
-                      For questions about an order, information about our privacy practices, or if you have a concern or complaint, please contact us by email at info@boomernaturals.com or by phone (702) 960-4843, or by mail at the following:<br/>
-                      Boomer Naturals<br/>
-                      8670 W Cheyenne Ave #120, Las Vegas, NV 89129, United States<br/>
-                      (702) 960-4843
-                  </p>
-                </div>
-                 }
-                 {bottomTabs === "sizing" &&  
-                  <SizingInfo pageContext={pageContext}/>}
-                {bottomTabs === "review" &&  
-                  <section
-                  dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-                  itemProp="articleBody"
-                />}
-        </div>
-          
+      <div className="bottomtab-content">
+       <section className={`${bottomTabs === "description" ? '' : 'disable'}`}
+            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+            itemProp="articleBody"
+          />
+        
+          <div className={`${bottomTabs === "shipping" ? '' : 'disable'}`}>
+            <p>
+              Most orders ship in 1-3 Business Days. We appreciate your
+              business, and we fulfill and ship orders as quickly as we can.
+              Please be patient and know that we strive to ship your order in a
+              timely manner. Please feel free to contact us to check on your
+              order.{" "}
+            </p>
+            <p>
+              CONTACT US:
+              <br />
+              For questions about an order, information about our privacy
+              practices, or if you have a concern or complaint, please contact
+              us by email at info@boomernaturals.com or by phone (702) 960-4843,
+              or by mail at the following:
+              <br />
+              Boomer Naturals
+              <br />
+              8670 W Cheyenne Ave #120, Las Vegas, NV 89129, United States
+              <br />
+              (702) 960-4843
+            </p>
+          </div>
 
-                  
-                  
-  
+        
+          <SizingInfo SizingDisable={SizingDisable}  pageContext={pageContext} />
+        
+          <Reviews ReviewDisable={ReviewDisable} pageContext={pageContext} data={data} location={location} />
+      </div>
 
-      <SuggestedProducts data={data}/>
-      
-
-
+      <SuggestedProducts data={data} />
     </Layout>
   )
 }

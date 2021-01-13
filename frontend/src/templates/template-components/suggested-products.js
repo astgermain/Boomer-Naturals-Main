@@ -97,8 +97,6 @@ const SuggestedProducts = () => {
     ON_SALE_DATA,
   ] = data.allShopifyCollection.nodes
     
-    console.log('hi')
-    console.log(MOST_POPULAR_DATA)
     return ( 
         <div className="suggested-products-container">
             <span>Suggested Products</span>

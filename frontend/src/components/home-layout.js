@@ -16,13 +16,12 @@ import { useStaticQuery, graphql } from "gatsby"
 import Register from "./register"
 import StoreContext from "../util/store"
 import Login from "./login"
-import Reviews from "./reviews"
+import Reviews from "../templates/template-components/reviews"
 
 const HomeLayout = () => {
   return (
     <main className="main-section">
       <Login />
-      <Reviews />
       <Register />
       <Hero />
       <Featured />

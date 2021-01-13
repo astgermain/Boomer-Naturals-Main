@@ -13,6 +13,7 @@ import "../styles/upsell.css"
 
 const ProductModal = ({ data, setModalShow }) => {
   const { addToCart } = useContext(store)
+  console.log("HEY!", data)
 
   let x = () => {
     try {
