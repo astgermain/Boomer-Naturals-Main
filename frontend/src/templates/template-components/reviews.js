@@ -14,7 +14,6 @@ const Reviews = ({ data, pageContext, location, ReviewDisable}) => {
   const DataUrl = pageContext.node.onlineStoreUrl
   const DataImage = pageContext.node.images[0]
 
-console.log("hiiihihi", DataId)
 
   return (
     <section className={ReviewDisable}>
