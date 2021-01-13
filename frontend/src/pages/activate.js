@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import ActivateByURL from "../components/activate-by-url"
+import React from "react"
+import ActivateByURL from "../components/profile-items/activate-by-url"
 import Layout from "../components/layout"
 
 

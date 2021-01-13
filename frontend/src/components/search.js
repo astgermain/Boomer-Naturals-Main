@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import "../styles/search.css"
 import SearchResults from "./search-results"
-import { Mutation } from "react-apollo"
-import gql from "graphql-tag"
 import StoreContext from "../util/store"
 // Needs regex
 // Needs to pass shopifyId to results page to render products

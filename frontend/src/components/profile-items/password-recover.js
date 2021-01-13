@@ -32,7 +32,7 @@ const PasswordRecover = () => {
                   },
                 })
                   .then(result => {
-                    console.log('result',result.data)
+                    //console.log('result',result.data)
                     if (result.data.customerRecover.customerUserErrors.length) {
                       setIncorrectCredMsg("E-Mail doesn't exist")
                       alert({incorrectCredMsg})

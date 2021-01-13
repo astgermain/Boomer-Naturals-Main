@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 // import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import ProductSlider from "./productslider"
-import Infocta from "./infocta"
-import "../styles/featured.css"
+import ProductSlider from "../productslider"
+import Infocta from "../infocta"
+import "../../styles/featured.css"
 
 const Featured = () => {
   const data = useStaticQuery(graphql`

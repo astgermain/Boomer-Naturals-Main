@@ -61,8 +61,8 @@ const ShoppingCart = () => {
   )
 
   useEffect(() => {
-    console.log('PRODS IN CART', PRODUCTS_IN_CART)
-    console.log('Checkout: ', checkout)
+    //console.log('PRODS IN CART', PRODUCTS_IN_CART)
+    //console.log('Checkout: ', checkout)
 
   }, [PRODUCTS_IN_CART])
   return (

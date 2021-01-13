@@ -1,7 +1,7 @@
 /*
     NEEDS STYLING
-
-    Recovers password using url sent to account email entered in password recover
+    
+   activates using url sent to account email entered in password recover
 
     In Shopify-Settings-Notifications-PasswordReset
     URL NEEDS TO BE UPDATED TO GO TO THE RESET PAGE FOR THIS APP
@@ -9,17 +9,15 @@
     EXAMPLE HERE: https://shopify.dev/tutorials/update-customer-data-with-storefront-api#update-the-account-invite-template
 */
 
-
 import React, { useState, useContext } from "react"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
-import StoreContext from "../util/store"
-import GetPathURL from "../components/get-path-url"
+import StoreContext from "../../util/store"
+import GetPathURL from "./get-path-url"
 
-
-const PASSWORD_RECOVER_BY_URL = gql`
-  mutation customerResetByUrl($resetUrl: URL!, $password: String!) {
-    customerResetByUrl(resetUrl: $resetUrl, password: $password) {
+const ACTIVATE_BY_URL = gql`
+  mutation customerActivateByUrl($activationUrl: URL!, $password: String!) {
+    customerActivateByUrl(activationUrl: $activationUrl, password: $password) {
       customer {
         id
       }
@@ -36,60 +34,59 @@ const PASSWORD_RECOVER_BY_URL = gql`
   }
 `
 
-const PasswordRecoverByURL = (location) => {
+const ActivateByURL = ({ activationURL }) => {
   const [password, setPassword] = useState(null)
-  const [password2, setPassword2] = useState(null)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
   let url = GetPathURL()
+
   return (
-    <Mutation mutation={PASSWORD_RECOVER_BY_URL}>
-      {passwordRecoverByUrl => {
+    <Mutation mutation={ACTIVATE_BY_URL}>
+      {activateByUrl => {
         return (
-          <div className="recover-form">
+          <div className="activate-form">
             <form
               onSubmit={e => {
                 e.preventDefault()
-                if(password == password2){
-                  passwordRecoverByUrl({
+                activateByUrl({
                   variables: {
-                    resetUrl: url,
-                    password: password
+                    activationUrl: url,
+                    password: password,
                   },
-                  })
+                })
                   .then(result => {
-                    console.log("result", result.data)
-                    if (result.data.customerResetByUrl.customerUserErrors.length) {
-                      setIncorrectCredMsg("E-Mail doesn't exist")
+                    //console.log("result", result.data)
+                    if (
+                      result.data.customerActivateByUrl.customerUserErrors.length
+                    ) {
+                      setIncorrectCredMsg(
+                        "E-Mail has not registered, please register"
+                      )
                       alert({ incorrectCredMsg })
                     } else {
-
                       /* Example success
 
-                      result.data.customerResetByUrl
+                      result.data.customerActivateByUrl
                         -customer {id}
                         -customerAccessToken {accessToken, expiresAt}
                         -customerUserErrors { [] }
 
                       */
                       //update customerAccessToken
-                      handleCustomerAccessToken(result.data.customerResetByUrl.customerAccessToken)
-                      //Alert and redirect
-                      alert(
-                        "Password has been reset *redirect here"
+                      handleCustomerAccessToken(
+                        result.data.customerActivateByUrl.customerAccessToken
                       )
+                      //Alert and redirect
+                      alert("Account has been activated *redirect here")
                     }
                   })
                   .catch(err => {
-                    alert("Reset URL has expired or is invalid")
-                    //console.error(err)
+                    alert(err)
+                    console.error(err)
                   })
-                }else{
-                  alert('Passwords do not match')
-                }
               }}
             >
               <span>Password</span>
@@ -97,12 +94,7 @@ const PasswordRecoverByURL = (location) => {
                 type="password"
                 onChange={e => setPassword(e.target.value)}
               ></input>
-              <span>Confirm Password</span>
-              <input
-                type="password"
-                onChange={e => setPassword2(e.target.value)}
-              ></input>
-              <button type="submit">Reset Password</button>
+              <button type="submit">Activate Account</button>
             </form>
           </div>
         )
@@ -111,4 +103,4 @@ const PasswordRecoverByURL = (location) => {
   )
 }
 
-export default PasswordRecoverByURL
+export default ActivateByURL

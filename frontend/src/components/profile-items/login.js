@@ -1,13 +1,14 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
+import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
-import { Mutation, Query } from "react-apollo"
-import { Slide } from "react-awesome-reveal"
+import StoreContext from "../../util/store"
 
-const CUSTOMER_REGISTER = gql`
-  mutation customerCreate($input: CustomerCreateInput!) {
-    customerCreate(input: $input) {
-      customer {
-        id
+const LOGIN_USER = gql`
+  mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
+    customerAccessTokenCreate(input: $input) {
+      customerAccessToken {
+        accessToken
+        expiresAt
       }
       customerUserErrors {
         code
@@ -18,21 +19,28 @@ const CUSTOMER_REGISTER = gql`
   }
 `
 
-const RegisterForm = () => {
-  const [firstName, setFirstName] = useState(null)
-  const [lastName, setLastName] = useState(null)
-  const [email, setEmail] = useState(null)
-  const [password, setPassword] = useState(null)
+
+
+const Login = ({}) => {
+  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const [email, setEmail] = useState(``)
+  const [password, setPassword] = useState(``)
+  const [message, setMessage] = useState(``)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
+  const handleCustomerAccessToken = value => {
+    setValue(value)
+  }
+
+
   return (
-    <Mutation mutation={CUSTOMER_REGISTER}>
-      {customerRegister => {
+    <Mutation mutation={LOGIN_USER}>
+      {loginFunc => {
         return (
           <div className="login-form">
             <form
               onSubmit={e => {
                 e.preventDefault()
-                customerRegister({
+                loginFunc({
                   variables: {
                     input: {
                       email: email,
@@ -41,15 +49,16 @@ const RegisterForm = () => {
                   },
                 })
                   .then(result => {
-                    console.log(result.data.customerCreate)
-                    /*
+                    //console.log('login result', result)
                     handleCustomerAccessToken(
-                      result.data.customerCreate.customerAccessToken
+                      result.data.customerAccessTokenCreate.customerAccessToken
                     )
-                    */
-                    if (result.data.customerCreate.customerUserErrors.length) {
+                    if (
+                      result.data.customerAccessTokenCreate.customerUserErrors
+                        .length
+                    ) {
                       setIncorrectCredMsg("Username or Password is incorrect")
-                      alert({incorrectCredMsg})
+                      alert(incorrectCredMsg)
                     }
                   })
                   .catch(err => {
@@ -66,19 +75,12 @@ const RegisterForm = () => {
                 type="password"
                 onChange={e => setPassword(e.target.value)}
               ></input>
-              <button type="submit">Register</button>
+              <button type="submit">Login</button>
             </form>
           </div>
         )
       }}
     </Mutation>
-  )
-}
+  )}
 
-const Register = () => {
-  return (
-      <RegisterForm />
-  )
-}
-
-export default Register
+export default Login

@@ -8,11 +8,11 @@
 
 import React from "react"
 import { Link } from "gatsby"
-import b1 from "../../content/assets/banner1.jpg"
-import b2 from "../../content/assets/banner2.jpg"
-import b3 from "../../content/assets/banner3.jpg"
-import Slider from "./slider"
-import "../styles/hero.css"
+import b1 from "../../../content/assets/banner1.jpg"
+import b2 from "../../../content/assets/banner2.jpg"
+import b3 from "../../../content/assets/banner3.jpg"
+import Slider from "../slider"
+import "../../styles/hero.css"
 
 const Hero = () => {
 

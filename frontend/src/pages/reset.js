@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import PasswordRecoverByURL from "../components/password-recover-by-url"
+import React from "react"
+import PasswordRecoverByURL from "../components/profile-items/password-recover-by-url"
 import Layout from "../components/layout"
 
 

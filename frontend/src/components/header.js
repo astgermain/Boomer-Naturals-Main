@@ -5,13 +5,12 @@
 import React, { useState, useContext } from "react"
 import StoreContext from "../util/store"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import logo from "../../content/assets/bnlogoheader.png"
 import Search from "./search"
 import Hamburger from "./hamburger-menu/hamburger"
 
-const Header = ({ title, data, setUpdatedSearch }) => {
+const Header = ({ title, data }) => {
 
   const [hamMenu, setHamMenu] = useState(false)
   const [clickSearch, setClickedSearch] = useState(false)

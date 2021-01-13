@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from "react"
-import { Query, Mutation } from "react-apollo"
+import React, { useState, useContext } from "react"
+import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
-import StoreContext, { defaultStoreContext } from "../util/store"
+import StoreContext from "../../util/store"
 
 const USER_UPDATE = gql`
   mutation customerUpdate(
@@ -43,8 +43,10 @@ const AccountUpdate = ({ data }) => {
     lastName: lastName,
     password: password,
   }
+  /*
   console.log(data)
   console.log('update token ',customerAccessToken)
+  */
   return (
     <Mutation mutation={USER_UPDATE}>
       {updateFunc => {
@@ -60,7 +62,7 @@ const AccountUpdate = ({ data }) => {
                   },
                 })
                   .then(result => {
-                    console.log("result", result)
+                    //console.log("result", result)
                     if(result.data.customerUpdate.customerAccessToken === null){
                       result.data.customerUpdate.customerUserErrors.map(msg => {
                         alert(msg.message)

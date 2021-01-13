@@ -1,8 +1,8 @@
 import React from "react"
 // import PropTypes from "prop-types"
-import Instafeed from "./instafeed"
-import Infocta from "./infocta"
-import "../styles/insta.css"
+import Instafeed from "../instafeed"
+import Infocta from "../infocta"
+import "../../styles/insta.css"
 
 const Insta = () => {
   let svgIcon = (

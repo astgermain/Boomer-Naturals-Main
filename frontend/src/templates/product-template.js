@@ -1,12 +1,6 @@
 
-import React, { useState, useContext, useEffect } from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-
-
-import Footer from "../components/footer"
-import Header from "../components/header"
+import React, { useState } from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import "../styles/product-template.css"
 import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
 import HeaderTrail from "./template-components/header-trail"
@@ -19,7 +13,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   // const post = data.markdownRemark
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const { previous, next } = pageContext
-  console.log(pageContext)
+  //console.log(pageContext)
   let x = () => {
     try {
       return [
@@ -138,7 +132,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   mainArray.push(tSet)
 
   let generateVariantThumbs = variantData => {
-    console.log("vdata", variantData)
+    //console.log("vdata", variantData)
     return variantData.map(data => {
       try {
         return (
@@ -192,7 +186,7 @@ let oName
       return <div key={ Math.random(2) }></div>
 
     } 
-    console.log("OPTIONS!!!!", option)
+    //console.log("OPTIONS!!!!", option)
     let values = option.values.map(value => {
       return <button key={ Math.random(2)} className="size-options">{value}</button>
     })
@@ -204,7 +198,7 @@ let oName
     )
   })
 
-  console.log("thisone", pageContext.node)
+  //console.log("thisone", pageContext.node)
   
   //size
   

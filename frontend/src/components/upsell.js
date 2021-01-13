@@ -1,16 +1,16 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import { Link } from 'gatsby'
 import StoreContext from '../util/store'
 import "../styles/upsell.css"
 
-const UpSell = ({ selectedVariantId, upsellShow, setupsellShow  }) => {
+const UpSell = ({ upsellShow, setupsellShow  }) => {
     // handle to close upsell window
     const handleUpsellClick = () => {
         setupsellShow(!upsellShow)
       }
     
-    const currentContext = useContext(StoreContext)
-    console.log('hhi',currentContext);
+    //const currentContext = useContext(StoreContext)
+    //console.log('hhi',currentContext);
 
     //getting the last product added to cart 
     // const { lineItems } = currentContext.checkout.lineItems
