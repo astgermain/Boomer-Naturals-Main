@@ -37,7 +37,6 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   const [upsellShow, setupsellShow] = useState(false)
   const [bottomTabs, setbottomTabs] = useState("description")
 
-  console.log(bottomTabs)
 
   
 
