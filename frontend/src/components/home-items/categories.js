@@ -6,7 +6,7 @@
 
 import React from "react"
 import { Link } from "gatsby"
-import "../styles/categories.css"
+import "../../styles/categories.css"
 
 const Categories = () => {
   return (

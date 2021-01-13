@@ -1,8 +1,8 @@
 import React from 'react'
-import Infocta from './infocta'
-import Slider from './slider'
+import Infocta from '../infocta'
+import Slider from '../slider'
 import { Link } from "gatsby"
-import "../styles/news.css"
+import "../../styles/news.css"
 
 const VidIframe = ({ url, title, link }) => (
     <div className="video-slide">

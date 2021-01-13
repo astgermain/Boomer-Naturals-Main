@@ -46,14 +46,15 @@ module.exports = {
          // enableDuringDevelop: true,Optional. Disables Zendesk chat widget when running Gatsby dev server. Defaults to true.
       },
     },
-    {
+    /*{ 
       resolve: 'gatsby-source-yotpo-shopify',
       options: {
       shopName: `boomerfacemasks`,
       shopifyAccessToken: `5060f93e1d5681a9d90371c49cf1a0db`,
       yotpoAppKey: 'aUpUeJHAkrqAgePPIRfUHhDJcbK9nhwSUGHVgrVq',
       },
-    },
+      
+    },*/
     {
       //Easier way to do gatsby-source-graphql for shopify graphql apis
       resolve: "gatsby-source-shopify",

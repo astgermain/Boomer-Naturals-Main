@@ -23,13 +23,24 @@ const ShoppingCart = () => {
     toggleCart
   } = useContext(store)
   useEffect(() => {
-    if (isCartOpen) document.body.style.overflow = "hidden"
-    if (!isCartOpen) document.body.style.overflow = "scroll"
+    console.log('do something')
   }, [isCartOpen])
 
   const PRODUCTS_IN_CART = checkout.lineItems
   const SUBTOTAL_PRICE = checkout.subtotalPrice
   const TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING = (50 - parseFloat(SUBTOTAL_PRICE)).toFixed(2)
+
+  const differenceToDisplay = (currentDifference) => {
+    if (currentDifference > 0) {
+      return (
+        <p>Add <span className="difference-num">{currentDifference}</span> more for <strong>FREE SHIPPING!</strong></p>
+      ) 
+    } else {
+      return (
+        <p>Congratulations!<br></br>You've earned <strong>FREE SHIPPING!</strong></p>
+      )
+    }
+  }
 
   const SHOPPING_CART_ITEMS = (
     <ul>
@@ -61,8 +72,8 @@ const ShoppingCart = () => {
   )
 
   useEffect(() => {
-    console.log('PRODS IN CART', PRODUCTS_IN_CART)
-    console.log('Checkout: ', checkout)
+    //console.log('PRODS IN CART', PRODUCTS_IN_CART)
+    //console.log('Checkout: ', checkout)
 
   }, [PRODUCTS_IN_CART])
   return (
@@ -73,6 +84,7 @@ const ShoppingCart = () => {
       <section className="shopping-cart-wrapper">
         <header>
           <h3>My Cart</h3>
+          <button className="close" onClick={toggleCart}></button>
         </header>
         <div className="shopping-cart-body">
           <div>Already have an account? <a href="/">Login</a></div>
@@ -86,14 +98,25 @@ const ShoppingCart = () => {
         </div>
         <footer>
           <div className="totals-display">
-            <p>Add <span>{TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING}</span> more for <strong>FREE SHIPPING!</strong></p>
-            <p>Subtotal ${SUBTOTAL_PRICE}</p>
-            <p>Tax Calculated at checkout</p>
-            <p>Shipping Calculated at checkout</p>
+            {differenceToDisplay(TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING)}
+            <table className="checkout-details-table">
+              <tr>
+                <td>Subtotal</td>
+                <td className="right-table-data">${SUBTOTAL_PRICE}</td>
+              </tr>
+              <tr>
+                <td>Tax</td>
+                <td className="right-table-data">Calculated at checkout</td>
+              </tr>
+              <tr>
+                <td>Shipping</td>
+                <td className="right-table-data">Calculated at checkout</td>
+              </tr>
+            </table>
           </div>
           <div className="cart-redirect-btns">
-            <a href={'/'}>VIEW MY CART</a>
-            <a href={checkout.webUrl}>CHECK OUT</a>
+            <a className="view-cart" href={'/'}>VIEW MY CART</a>
+            <a className="checkout" href={checkout.webUrl}>CHECK OUT</a>
           </div>
         </footer>
       </section>

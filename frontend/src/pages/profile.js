@@ -1,14 +1,9 @@
 import React, { useState } from "react"
-import { graphql } from "gatsby"
-import { Mutation } from "react-apollo"
-import gql from "graphql-tag"
-import Header from "../components/header"
-import Footer from "../components/footer"
-import Account from "../components/account"
-import Register from "../components/register"
-import Login from "../components/login"
-import StoreContext from "../util/store"
+import Account from "../components/profile-items/account"
+import Register from "../components/profile-items/register"
+import Login from "../components/profile-items/login"
 import Layout from "../components/layout"
+import PasswordRecover from "../components/profile-items/password-recover"
 
 const Profile = ({location}) => {
   const [clickedNavBtn, setClickedNavBtn] = useState("New Arrivals")
@@ -40,6 +35,7 @@ const Profile = ({location}) => {
       <Account />
       <Login />
       <Register />
+      <PasswordRecover />
     </Layout>
   )
 }

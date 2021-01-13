@@ -8,14 +8,12 @@
 import React, { useEffect, useState, useContext } from "react"
 import "../styles/filter.css"
 import Product from "../components/product"
-import Header from "../components/header"
-import Footer from "../components/footer"
 import Checkbox from "../components/checkbox"
-import { useStaticQuery, graphql } from "gatsby"
 import StoreContext from "../util/store"
 import Layout from "../components/layout"
 
 const Filter = ({ location }) => {
+  /*
   const data = useStaticQuery(graphql`
     {
       allShopifyProduct {
@@ -83,6 +81,8 @@ const Filter = ({ location }) => {
     }
   `)
 
+  */
+
   const [setModalShow] = useState("")
   const [ptActive, setPtActive] = useState()
   const [ctActive, setCtActive] = useState()
@@ -93,7 +93,7 @@ const Filter = ({ location }) => {
   // NEEDS USEEFFECT To have props passed if coming from a collection or product type search to set the state
   // for filter options so that they are selected
   useEffect(() => {
-    console.log("updated: ", updatedSearch)
+    //console.log("updated: ", updatedSearch)
   }, [updatedSearch])
 
   // NEEDS CLEAR RESULTS BUTTON

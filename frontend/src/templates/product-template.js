@@ -1,10 +1,5 @@
 import React, { useState, useContext, useEffect } from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-
-import Footer from "../components/footer"
-import Header from "../components/header"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import "../styles/product-template.css"
 import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
 import HeaderTrail from "./template-components/header-trail"
@@ -29,12 +24,10 @@ const ProductTemplate = ({ data, pageContext, location }) => {
     }
   }
   const [quantity, setQuantity] = useState(1)
-  const [selectedSize, setSelectedSize] = useState("")
   const [selectedColor, setSelectedColor] = useState("")
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
   const [selectedVariantId, setSelectedVariantId] = useState("")
-  const [upsellShow, setupsellShow] = useState(false)
   const [bottomTabs, setbottomTabs] = useState("description")
 
 
@@ -137,6 +130,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   mainArray.push(tSet)
 
   let generateVariantThumbs = variantData => {
+    //console.log("vdata", variantData)
     return variantData.map(data => {
       try {
         return (
@@ -204,6 +198,8 @@ const ProductTemplate = ({ data, pageContext, location }) => {
     )
   })
 
+  //console.log("thisone", pageContext.node)
+  
   //size
 
   //quantity

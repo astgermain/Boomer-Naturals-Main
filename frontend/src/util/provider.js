@@ -4,14 +4,14 @@ import StoreContext, { defaultStoreContext } from "./store"
 const isBrowser = typeof window !== "undefined"
 
 const Provider = ({ children }) => {
-  console.log(`Provider: `, defaultStoreContext)
+  //console.log(`Provider: `, defaultStoreContext)
   const [store, updateStore] = useState(defaultStoreContext)
   const [checkout, setCheckout] = useState(defaultStoreContext.checkout)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [loading, setLoading] = useState(defaultStoreContext.loading)
 
   const toggleCart = () => {
-    console.log("cart")
+    //console.log("cart")
     setIsCartOpen(!isCartOpen)
   }
 
@@ -102,21 +102,23 @@ const Provider = ({ children }) => {
 
           navigate(addItem.webUrl)
         },
-        addToCart: async (variantId, quantity, setIsLoading) => {
+        addToCart: async (variantId, quantity, setIsLoading, customAttributes = null) => {
           setIsLoading(true)
-          console.log(variantId, quantity)
+          //console.log(variantId, quantity)
           const lineItem = [
             {
               variantId: variantId,
               quantity: quantity,
+              customAttributes: [customAttributes]
             },
           ]
+          
 
           const newCheckout = await store.client.checkout.addLineItems(
             checkout.id,
             lineItem
           )
-          console.log(newCheckout)
+          //console.log(newCheckout)
           setIsLoading(false)
           setCheckout(newCheckout)
         },
