@@ -1,6 +1,7 @@
 import React from 'react'
+import "../../styles/product-template.css"
 
-const SizingInfo = ({pageContext}) => {
+const SizingInfo = ({pageContext, SizingDisable}) => {
 
     const productType = pageContext.node.productType
 
@@ -12,8 +13,12 @@ const SizingInfo = ({pageContext}) => {
                 )
             case 'Neck Gaiter':
                 return(
-                    <div>Neck Gaiter size</div>
+                    <div className={SizingDisable}>Neck Gaiter size</div>
                 )
+            case 'Shield Cover':
+                    return(
+                        <div>Shield Cover size</div>
+                    )
             case 'Pillow':
                     return(
                         <div>Pillow size</div>
