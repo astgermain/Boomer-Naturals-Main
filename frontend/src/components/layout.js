@@ -19,7 +19,7 @@ import Login from "./profile-items/login"
 import HomeLayout from "./home-layout"
 import Filter from "../pages/filter"
 
-const Layout = ({ location, title, children}) => {
+const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const { isCartOpen, toggleCart } = useContext(StoreContext)
@@ -94,21 +94,21 @@ const Layout = ({ location, title, children}) => {
   let content
   if (isRootPath) {
     content = (
-      
-        
-        <HomeLayout />
-        
-      
+
+
+      <HomeLayout />
+
+
       /*
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
       */
     )
-  } 
+  }
   else {
     content = (
-      
+
       children
       /*
       <Link className="header-link-home" to="/">
@@ -121,22 +121,20 @@ const Layout = ({ location, title, children}) => {
   return (
     <>
       {/* Overlay for when shopping cart is opened */}
-      <div
-        className={`layout-body-wrapper ${isCartOpen && "active"}`}
-        data-is-root-path={isRootPath}
-      >
+      <div style={isCartOpen ? { display: 'flex' } : {}}>
+        <div
+          className={`layout-body-wrapper ${isCartOpen && "active"}`}
+          data-is-root-path={isRootPath}
+        >
+          <Header data={data} />
+          {content}
+          <footer>
+            <Footer />
+          </footer>
+        </div>
         <aside className={`shopping-cart-aside ${!isCartOpen && "inactive"}`}>
           <ShoppingCart />
         </aside>
-        <div
-          className={`screen-overlay ${isCartOpen && "active"}`}
-          onClick={isCartOpen ? toggleCart : undefined}
-        ></div>
-        <Header data={data} />
-        {content}
-        <footer>
-          <Footer />
-        </footer>
       </div>
     </>
   )
