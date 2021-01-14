@@ -67,14 +67,18 @@ const Login = ({}) => {
                   })
               }}
             >
+              <span>Login</span>
+              <br></br>
+              <span>E-Mail</span>
               <input
                 type="email"
                 onChange={e => setEmail(e.target.value)}
-              ></input>
+              ></input><br></br>
+              <span>Password</span>
               <input
                 type="password"
                 onChange={e => setPassword(e.target.value)}
-              ></input>
+              ></input><br></br>
               <button type="submit">Login</button>
             </form>
           </div>

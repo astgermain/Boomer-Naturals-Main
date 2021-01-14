@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
 import StoreContext from "../../util/store"
@@ -28,11 +28,13 @@ const USER_UPDATE = gql`
   }
 `
 
-const AccountUpdate = ({ data }) => {
+const AccountUpdate = ({ data, oFirstName, oLastName, oEmail }) => {
+  console.log("data and fn", data, oFirstName)
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
-  const [firstName, setFirstName] = useState(``)
+  const [password2, setPassword2] = useState(``)
+  const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState(``)
   const handleCustomerAccessToken = value => {
     setValue(value)
@@ -43,10 +45,11 @@ const AccountUpdate = ({ data }) => {
     lastName: lastName,
     password: password,
   }
-  /*
-  console.log(data)
-  console.log('update token ',customerAccessToken)
-  */
+  useEffect(() => {
+    setFirstName(oFirstName)
+    setLastName(oLastName)
+    setEmail(oEmail)
+  }, [data])
   return (
     <Mutation mutation={USER_UPDATE}>
       {updateFunc => {
@@ -63,49 +66,53 @@ const AccountUpdate = ({ data }) => {
                 })
                   .then(result => {
                     //console.log("result", result)
-                    if(result.data.customerUpdate.customerAccessToken === null){
+                    if (
+                      result.data.customerUpdate.customerAccessToken === null
+                    ) {
                       result.data.customerUpdate.customerUserErrors.map(msg => {
                         alert(msg.message)
                       })
-                    }
-                    else{
-                    handleCustomerAccessToken(
-                      result.data.customerUpdate.customerAccessToken
-                    )
-                    alert('Success')
+                    } else {
+                      handleCustomerAccessToken(
+                        result.data.customerUpdate.customerAccessToken
+                      )
+                      alert("Success")
                     }
                   })
                   .catch(err => {
                     alert(err)
                     console.error("error", err)
                   })
-                  data.refetch()
+                data.refetch()
               }}
             >
               {/*p = TtaJL5zi8ZeyXP! */}
               <span>First Name</span>
               <input
+                defaultValue={firstName}
                 type="text"
                 onChange={e => setFirstName(e.target.value)}
-              ></input>
+              ></input><br></br>
               <span>Last Name</span>
               <input
+                defaultValue={lastName}
                 type="text"
                 onChange={e => setLastName(e.target.value)}
-              ></input>
-              <span>E-Mail</span>
-              <input
-                type="email"
-                onChange={e => setEmail(e.target.value)}
-              ></input>
+              ></input><br></br>
+              <span>E-Mail: </span>
+              <span>{email}</span><br></br>
               <span>New Password</span>
               <input
                 type="password"
                 onChange={e => setPassword(e.target.value)}
-              ></input>
+              ></input><br></br>
+              <span>Confirm Password</span>
+              <input
+                type="password"
+                onChange={e => setPassword2(e.target.value)}
+              ></input><br></br>
               <button type="submit">Update Info</button>
             </form>
-            <button type="submit" onClick={() => handleCustomerAccessToken(null)}>Logout</button>
           </div>
         )
       }}

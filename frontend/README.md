@@ -2,6 +2,9 @@
 
 For Gatsby general information see bottom
 
+# Going Live ToDo
+  - Update Shopify Checkout Page Links and Password Recover links in notification templates
+
 # Table of Contents
 
 ## Todo

@@ -18,12 +18,12 @@ import FooterVContent from "./hamburger-footer-v"
 
 const Hamburger = ({ close }) => {
   const [isShown, setIsShown] = useState(false)
-  const [footerMenuTrack, setFooterMenuTrack] = useState(true)
+  const [footerMenuTrack, setFooterMenuTrack] = useState(false)
   const [footerMenuDir, setFooterMenuDir] = useState("up")
   const [shown, setShown] = useState(false)
   const [dir, setDir] = useState("right")
   const [page, setPage] = useState("default")
-  const [showFooter, setShowFooter] = useState(false)
+  const [showFooter, setShowFooter] = useState(true)
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return function cleanup() {
