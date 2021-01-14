@@ -29,5 +29,5 @@ export const defaultStoreContext = {
 }
 
 const StoreContext = React.createContext(defaultStoreContext)
-//console.log('client: ', StoreContext)
+console.log('client: ', StoreContext)
 export default StoreContext

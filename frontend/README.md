@@ -4,6 +4,7 @@ For Gatsby general information see bottom
 
 # Going Live ToDo
   - Update Shopify Checkout Page Links and Password Recover links in notification templates
+  - Prices for custom product builder, and custom product builder products needs too be redone
 
 # Table of Contents
 

@@ -8,12 +8,17 @@ const OrderHistory = ({ data }) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   console.log('ctoken on orderhistory:', customerAccessToken)
   useEffect(() => {}, [data])
+  try{
   return (
     <>
       <div>Order History</div>
       
     </>
   )
+  }
+  catch {
+    return <div><span>No Orders History</span></div>
+  }
 }
 
 export default OrderHistory

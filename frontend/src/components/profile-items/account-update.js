@@ -29,7 +29,7 @@ const USER_UPDATE = gql`
 `
 
 const AccountUpdate = ({ data, oFirstName, oLastName, oEmail }) => {
-  console.log("data and fn", data, oFirstName)
+  //console.log("data and fn", data, oFirstName)
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)

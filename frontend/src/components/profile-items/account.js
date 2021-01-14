@@ -8,6 +8,7 @@ import Login from "../../components/profile-items/login"
 import PasswordRecover from "../../components/profile-items/password-recover"
 import Addresses from "./addresses"
 import OrderHistory from "./order-history"
+import Pagination from "../pagination"
 
 const GET_CUSTOMER_OBJECT = gql`
   query($customerAccessToken: String!) {
@@ -98,6 +99,8 @@ const GET_CUSTOMER_OBJECT = gql`
             name
             zip
             company
+            province
+            provinceCode
             phone
           }
         }
@@ -106,7 +109,7 @@ const GET_CUSTOMER_OBJECT = gql`
   }
 `
 
-const Account = () => {
+const Account = ({pageContext, location}) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
@@ -139,8 +142,16 @@ const Account = () => {
       </li>
     )
   })
-  console.log("current page: ", curPage)
+  //console.log("current page: ", curPage)
   let queryFunc = () => {
+    if(customerAccessToken != null){
+      var firstDate = new Date(Date.now())
+      var secondDate = new Date( customerAccessToken.expiresAt)
+      if(secondDate <= firstDate){
+        alert('Login has expired, please relog')
+        handleCustomerAccessToken(null)
+      }
+    }
     try {
       return (
         <Query
@@ -150,8 +161,9 @@ const Account = () => {
           }}
         >
           {data => {
+            
             //console.log(customerAccessToken.accessToken)
-            console.log("Query data: ", data)
+            //console.log("Query data: ", data)
             let updatedCustomer
             try {
               updatedCustomer = data.data.customer
@@ -168,6 +180,7 @@ const Account = () => {
               defaultAddress,
               orders,
             } = updatedCustomer || ""
+            
             let {
               address1,
               address2,
@@ -186,8 +199,10 @@ const Account = () => {
             } catch {
               phone1 = ""
             }
+            
             return (
               <section>
+                <Pagination alt="My Account" altLink="/profile"/>
                 {/*
                 <button name="info" onClick={() => console.log(data)}>
                   click for data
@@ -197,6 +212,14 @@ const Account = () => {
                 </button>
                 */}
                 {NAV_LIST_ITEMS}
+                <button
+                  type="submit"
+                  onClick={() => handleCustomerAccessToken(null)}
+                >
+                  Logout
+                </button>
+                <br></br>
+                <br></br>
                 {
                   //Start main Account
                 }
@@ -276,17 +299,12 @@ const Account = () => {
                 {
                   //Start Addresses
                 }
-                {curPage == "Addresses" && <Addresses data={data}/>}
+                {curPage == "Addresses" && <Addresses data={data} id={id}/>}
                 {
                   //Start Order History
                 }
                 {curPage == "Order History" && <OrderHistory />}
-                <button
-                  type="submit"
-                  onClick={() => handleCustomerAccessToken(null)}
-                >
-                  Logout
-                </button>
+                
               </section>
             )
           }}
