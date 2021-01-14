@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react"
+import CartPageItem from "../components/cart-page-item"
 import Layout from "../components/layout"
 import store from "../util/store"
 import "../styles/cart-page.css"
@@ -12,8 +13,9 @@ const ShoppingCartPage = ({ location }) => {
         removeFromCart,
         setValue,
         toggleCart,
-      } = useContext(store)
-      
+    } = useContext(store)
+    const PRODUCTS_IN_CART = checkout.lineItems
+
     return (
         <Layout location={location}>
             <section className="shopping-cart-page">
@@ -34,14 +36,29 @@ const ShoppingCartPage = ({ location }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>x</td>
-                                <td>img</td>
-                                <td>product info</td>
-                                <td>$9.99</td>
-                                <td>qty: 1</td>
-                                <td>$9.99</td>
-                            </tr>
+                            {PRODUCTS_IN_CART.map((data) => {
+                                try {
+                                    return (
+                                        <CartPageItem
+                                            productTitle={data.title}
+                                            variantTitle={data.variant.title}
+                                            quantity={data.quantity}
+                                            price={data.variant.price}
+                                            imgSrc={data.variant.image.src}
+                                            imgAltText={data.variant.image.altText}
+                                            extraData={data.variant}
+                                            lineItemId={data.id}
+                                            variantId={data.variant.id}
+                                            removeFromCart={removeFromCart}
+                                            addToCart={addToCart}
+                                            linkToProduct={"/"}
+                                            toggleCart={toggleCart}
+                                        />
+                                    )
+                                } catch (err) {
+                                    removeFromCart()
+                                }
+                            })}
                         </tbody>
                     </table>
                 </div>
