@@ -32,6 +32,7 @@ const Profile = ({location}) => {
   })
   return (
     <Layout location={location}>
+      {NAV_LIST_ITEMS}
       <Account />
       <Login />
       <Register />
