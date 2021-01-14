@@ -35,6 +35,12 @@ const SizingInfo = ({ pageContext, SizingDisable }) => {
             Wmeasured: "left to right (w)",
             Hmeasured: "top to bottom (h)",
             Image: facecoverimage
+},  FaceCoverSpray:{
+            Sizes:["5ml", "8ml"]
+},  EarSavers:{
+            Sizes:["1 ct", "5 ct", "10 ct"],
+            W: ["5.7\""],
+            H: ["3/4\""],
 },  HandSanitizer:{
             Sizes:["2oz", "4oz", "10oz"],
 },  BoomBoom:{
@@ -55,13 +61,19 @@ const SizingInfo = ({ pageContext, SizingDisable }) => {
             Sizes:["2.4 oz", "1.4 oz"],
 },  LipBalm:{
             Sizes:["50 mg"],
-},  BoomerBotanics:{
+},  BoomerBotanicsImmune:{
             Sizes:["1 oz"],
 },  BoomerBotanicsGummies:{
-            Sizes:["5 ct", "30 ct", "60 ct"],
+            Sizes:["5 ct"],
+},  BoomerBotanicsRollOn:{
+            Sizes:["1 oz", "3 oz"],
+},  BoomerBotanicsBody:{
+            Sizes:["4 oz"],
+},  PPEGloves:{
+            Sizes:["Regular/Large", "XL"],
+},  SafetyGlasses:{
+        Sizes:["14 x 5 x 11cm"],
 },
-
-
 }
 
   return (

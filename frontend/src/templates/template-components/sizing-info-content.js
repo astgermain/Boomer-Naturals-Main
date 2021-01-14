@@ -144,8 +144,54 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
           </div>
           </div>
         )
-      case "Socks":
-        return <div>sock size </div>
+      case "Ear Savers":
+        return (
+          <div>
+            <table>
+            <tbody>
+              <tr>
+                <th>Sizes</th>
+                <th>W</th>
+                <th>H</th>
+              </tr>
+            </tbody>
+            </table>
+          <div className="sizing-image-container">
+            <div className="sizes-w-h-flex">
+              <ul>
+                {ProductSizes.EarSavers.Sizes.map(e => {
+                  return <li key={e}>{e}</li>
+                })}
+              </ul>
+              <ul>
+                {ProductSizes.EarSavers.W.map(e => {
+                  return <li key={e}>{e}</li>
+                })}
+              </ul>
+              <ul>
+                {ProductSizes.EarSavers.H.map(e => {
+                  return <li key={e}>{e}</li>
+                })}
+              </ul>
+            </div>
+          </div>
+          </div>
+        )
+        case "Face Cover Spray":
+          return (
+            <div>
+              <span>Sizes</span>
+            <div className="sizing-image-container">
+              <div className="sizes-w-h-flex">
+                <ul>
+                  {ProductSizes.FaceCoverSpray.Sizes.map(e => {
+                    return <li key={e}>{e}</li>
+                  })}
+                </ul>
+              </div>
+            </div>
+            </div>
+          )
 //Beauty
       case "Boom Boom Libido Supplement":
         return (
@@ -282,14 +328,14 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
                         </div>
                         </div>
                       )
-                      case "Boomer Botanics":
+                      case "Boomer Botanics Immune":
                         return (
                           <div>
                             <span>Sizes</span>
                           <div className="sizing-image-container">
                             <div className="sizes-w-h-flex">
                               <ul>
-                                {ProductSizes.BoomerBotanics.Sizes.map(e => {
+                                {ProductSizes.BoomerBotanicsImmune.Sizes.map(e => {
                                   return <li key={e}>{e}</li>
                                 })}
                               </ul>
@@ -312,6 +358,51 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
                             </div>
                             </div>
                           )
+                          case "Boomer Botanics Roll On":
+                            return (
+                              <div>
+                                <span>Sizes</span>
+                              <div className="sizing-image-container">
+                                <div className="sizes-w-h-flex">
+                                  <ul>
+                                    {ProductSizes.BoomerBotanicsRollOn.Sizes.map(e => {
+                                      return <li key={e}>{e}</li>
+                                    })}
+                                  </ul>
+                                </div>
+                              </div>
+                              </div>
+                            )
+                            case "Boomer Botanics InstaFreeze":
+                              return (
+                                <div>
+                                  <span>Sizes</span>
+                                <div className="sizing-image-container">
+                                  <div className="sizes-w-h-flex">
+                                    <ul>
+                                      {ProductSizes.BoomerBotanicsInstaFreeze.Sizes.map(e => {
+                                        return <li key={e}>{e}</li>
+                                      })}
+                                    </ul>
+                                  </div>
+                                </div>
+                                </div>
+                              )
+                              case "Boomer Botanics Body":
+                                return (
+                                  <div>
+                                    <span>Sizes</span>
+                                  <div className="sizing-image-container">
+                                    <div className="sizes-w-h-flex">
+                                      <ul>
+                                        {ProductSizes.BoomerBotanicsBody.Sizes.map(e => {
+                                          return <li key={e}>{e}</li>
+                                        })}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  </div>
+                                )
 //Food
       case "Socks":
         return <div>sock size </div>
@@ -342,6 +433,36 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
           </div>
           </div>
         )
+        case "PPE Gloves":
+          return (
+            <div>
+              <span>Sizes</span>
+            <div className="sizing-image-container">
+              <div className="sizes-w-h-flex">
+                <ul>
+                  {ProductSizes.PPEGloves.Sizes.map(e => {
+                    return <li key={e}>{e}</li>
+                  })}
+                </ul>
+              </div>
+            </div>
+            </div>
+          )
+          case "Safety Glasses":
+            return (
+              <div>
+                <span>Sizes</span>
+              <div className="sizing-image-container">
+                <div className="sizes-w-h-flex">
+                  <ul>
+                    {ProductSizes.SafetyGlasses.Sizes.map(e => {
+                      return <li key={e}>{e}</li>
+                    })}
+                  </ul>
+                </div>
+              </div>
+              </div>
+            )
       default:
         return <div>No Sizing Available</div>
     }
