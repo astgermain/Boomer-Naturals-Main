@@ -218,6 +218,8 @@ const ProductTemplate = ({ data, pageContext, location }) => {
 
 const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
 const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
+console.log(pageContext)
+
 
 
   return (

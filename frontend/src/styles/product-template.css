@@ -220,10 +220,39 @@
     border-top:0px!important;
 }
 .yotpo .write-review .yotpo-header .yotpo-icon {
-    color: orange;
+    color: orange!important;
 }
 
-
+/* sizing info */
 .disable{
     display:none;
 }
+table{
+    width: 50%;
+    margin-bottom: var(--spacing-4);
+}
+tr{
+    display: flex;
+    justify-content: space-between;
+}
+table.inner-table{
+    width:100%;
+}
+th{
+    text-align: left;
+}
+.sizes-w-h-flex{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Eina01-Regular';
+}
+.sizing-image-container{
+    display: flex;
+    justify-content: space-between;
+}
+.image-text-grid{
+    display: grid;
+    justify-items: center;
+}
+
