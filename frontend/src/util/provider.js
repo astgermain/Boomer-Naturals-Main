@@ -9,7 +9,8 @@ const Provider = ({ children }) => {
   const [checkout, setCheckout] = useState(defaultStoreContext.checkout)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [loading, setLoading] = useState(defaultStoreContext.loading)
-
+  const [customerAddress, setCustomerAddress] = useState({})
+  const [customerInfo, setCustomerInfo] = useState({})
   const toggleCart = () => {
     //console.log("cart")
     setIsCartOpen(!isCartOpen)
@@ -72,6 +73,14 @@ const Provider = ({ children }) => {
         loading,
         sortedData: getLocalStorage("sortedData"),
         customerAccessToken: getLocalStorage("customerAccessToken"),
+        customerAddress,
+        customerInfo,
+        updateCustomerAddress: addressObj => {
+          setCustomerAddress(addressObj)
+        },
+        updateCustomerInfo: customerObj => {
+          setCustomerInfo(customerObj)
+        },
         setValue: value => {
           isBrowser &&
             localStorage.setItem("customerAccessToken", JSON.stringify(value))
@@ -112,7 +121,7 @@ const Provider = ({ children }) => {
               customAttributes: [customAttributes]
             },
           ]
-          
+
 
           const newCheckout = await store.client.checkout.addLineItems(
             checkout.id,

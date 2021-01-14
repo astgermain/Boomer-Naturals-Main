@@ -40,6 +40,7 @@ const ShoppingCartPage = ({ location }) => {
                                 try {
                                     return (
                                         <CartPageItem
+                                            key={data.variant.id}
                                             productTitle={data.title}
                                             variantTitle={data.variant.title}
                                             quantity={data.quantity}
