@@ -1,7 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import Layout from "../components/layout"
+import store from "../util/store"
+import "../styles/cart-page.css"
 
 const ShoppingCartPage = ({ location }) => {
+    const {
+        addToCart,
+        isCartOpen,
+        buyNow,
+        checkout,
+        removeFromCart,
+        setValue,
+        toggleCart,
+      } = useContext(store)
+      
     return (
         <Layout location={location}>
             <section className="shopping-cart-page">
