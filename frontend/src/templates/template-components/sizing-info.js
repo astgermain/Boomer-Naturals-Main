@@ -1,49 +1,76 @@
-import React from 'react'
+import React from "react"
 import "../../styles/product-template.css"
-
-const SizingInfo = ({pageContext, SizingDisable}) => {
-
-    const productType = pageContext.node.productType
-
-    const SwitchingSizingInfo = () =>{
-        switch (productType) {
-            case 'Face Cover':
-                return(
-                    <div>Face Cover size</div>
-                )
-            case 'Neck Gaiter':
-                return(
-                    <div className={SizingDisable}>Neck Gaiter size</div>
-                )
-            case 'Shield Cover':
-                    return(
-                        <div>Shield Cover size</div>
-                    )
-            case 'Pillow':
-                    return(
-                        <div>Pillow size</div>
-                    )
-            case 'Sheets':
-                    return(
-                         <div>Sheet size</div>
-                    )
-            case 'Socks':
-                    return(
-                         <div>sock size </div>
-                     )
-                default:
-                    return (
-                      <div>No Sizing Available</div>
-                    )
-        }
-    }
+import facecoverimage from '../../../content/assets/facecoverimage.png'
+import gaiterimage from '../../../content/assets/gaiterimage.png'
+import SizingContent from "./sizing-info-content"
 
 
 
+const SizingInfo = ({ pageContext, SizingDisable }) => {
+//add product data, sizes, images, etc to ProductSizes
+//after add product to switch statement in sizing-info-content
+  const ProductSizes = {
+    Mask:{
+            Name:"Face Covers",
+            Sizes:["Ages 2-7", "Ages 8-12", "Small", "Medium", "Large", "L/XL", "XL" ],
+            W: ["8.3\"", "9.2\"","9.5\"", "10.0\"", "10.3\"", "10.3\"", "10.6\""],
+            H: ["4.5\"", "5\"","5.3\"", "5.8\"", "6.3\"", "6.5\"", "6.8\""],
+            Wmeasured: "left to right (w)",
+            Hmeasured: "top to bottom (h)",
+            Image: facecoverimage
+    },
+    Gaiter:{
+            Name:"Gaiters",
+            Sizes:["Ages 2-7", "Ages 8-12", "S/M","L/XL" ],
+            W: ["7\"", "8\"", "9\"", "10.2\""],
+            H: ["10.5\"", "11.5\"", "14\"", "15\""],
+            Wmeasured: "left to right (w)",
+            Hmeasured: "top to bottom (h)",
+            Image: gaiterimage
+},  Shield:{
+            Name:"Shield Covers",
+            Sizes:["Ages 2-7", "Ages 8-12", "Small", "Medium", "Large", "L/XL", "XL" ],
+            W: ["8.3\"", "9.2\"","9.5\"", "10.0\"", "10.3\"", "10.3\"", "10.6\""],
+            H: ["4.5\"", "5\"","5.3\"", "5.8\"", "6.3\"", "6.5\"", "6.8\""],
+            Wmeasured: "left to right (w)",
+            Hmeasured: "top to bottom (h)",
+            Image: facecoverimage
+},  HandSanitizer:{
+            Sizes:["2oz", "4oz", "10oz"],
+},  BoomBoom:{
+            Sizes:["1 ct", "10 ct"],
+},  BoomLashes:{
+            Sizes:["0.5oz"],
+},  BeautyCreams:{
+            Sizes:["30mL"],
+},  BeautyCleanser:{
+            Sizes:["8oz"],
+},  BeautyFacialPads:{
+            Sizes:["60 ct pads"],
+},  BeautyFacialMask:{
+            Sizes:["1 Mask"],
+},  BeautyEyeMask:{
+            Sizes:["30 ct"],
+},  SunScreen:{
+            Sizes:["2.4 oz", "1.4 oz"],
+},  LipBalm:{
+            Sizes:["50 mg"],
+},  BoomerBotanics:{
+            Sizes:["1 oz"],
+},  BoomerBotanicsGummies:{
+            Sizes:["5 ct", "30 ct", "60 ct"],
+},
 
-    return ( 
-        <SwitchingSizingInfo/>
-     );
+
 }
- 
-export default SizingInfo;
+
+  return (
+   
+
+    <div className={SizingDisable}>
+        <SizingContent pageContext={pageContext} ProductSizes={ProductSizes}/>
+    </div>
+  )
+}
+
+export default SizingInfo
