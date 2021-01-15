@@ -11,11 +11,12 @@ import OrderHistory from "./order-history"
 import Pagination from "../pagination"
 import "../../styles/account.css"
 import Alert from "@material-ui/lab/Alert"
-import Slide from "@material-ui/core/Slide"
+import { Slide } from "react-awesome-reveal"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
 import Grow from "@material-ui/core/Grow"
 import Button from "@material-ui/core/Button"
+import MainButtonEvent from "../main-button-event"
 
 const GET_CUSTOMER_OBJECT = gql`
   query($customerAccessToken: String!) {
@@ -119,17 +120,23 @@ const GET_CUSTOMER_OBJECT = gql`
 const Account = () => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [checked, setChecked] = React.useState(false)
+  const [updatedModal, setUpdateModal] = React.useState(false)
   const [message, setMessage] = React.useState("")
   const [closed, setClosed] = React.useState("")
   const [severity, setSeverity] = React.useState("")
   const handleChange = () => {
     setChecked(prev => !prev)
   }
-  const handleAlert = ({message = "", close = "", severity = ""}) => {
+  const handleEditModal = () => {
+    console.log("MODAL CHECK", updatedModal)
+    setUpdateModal(!updatedModal)
+  }
+  const handleAlert = ({ message = "", close = "", severity = "" }) => {
     setMessage(message)
     setClosed(close)
     setSeverity(severity)
     handleChange()
+    if(severity == "success") handleEditModal()
   }
   const handleCustomerAccessToken = value => {
     setValue(value)
@@ -144,6 +151,7 @@ const Account = () => {
   const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
     const isActive = curPage === title && "active"
     return (
+      <>
       <li key={index} className={`nav-btn-list-items ${isActive.toString()}`}>
         <div>
           <span className={isActive.toString()}></span>
@@ -156,6 +164,8 @@ const Account = () => {
           {title}
         </button>
       </li>
+      <br></br>
+      </>
     )
   })
   //console.log("current page: ", curPage)
@@ -223,7 +233,6 @@ const Account = () => {
                     {checked == true && (
                       <Grow in={checked}>
                         <Alert
-                          
                           severity={severity}
                           action={
                             <Button
@@ -252,12 +261,10 @@ const Account = () => {
                   <div className="account-content">
                     <div className="account-left">
                       {NAV_LIST_ITEMS}
-                      <button
-                        type="submit"
-                        onClick={() => handleCustomerAccessToken(null)}
-                      >
-                        Logout
-                      </button>
+                      <MainButtonEvent
+                                text="Logout"
+                                func={()=>handleCustomerAccessToken(null)}
+                              />
                     </div>
                     <div className="account-right">
                       {
@@ -266,76 +273,107 @@ const Account = () => {
                       {curPage == "My Account" && (
                         <>
                           <h1>My Account</h1>
-                          <AccountUpdate
-                            data={data}
-                            oFirstName={firstName}
-                            oLastName={lastName}
-                            oEmail={email}
-                            oPhone={phone}
-                            handleAlert={handleAlert}
-                          />
-                          <br></br>
-                          <div>
-                            Default Address: <br></br>
-                            {name ? (
-                              <>
-                                {name}
-                                <br></br>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                            {company ? (
-                              <>
-                                {company}
-                                <br></br>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                            {address1 ? (
-                              <>
-                                {address1}
-                                <br></br>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                            {address2 ? (
-                              <>
-                                {address2}
-                                <br></br>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                            {city ? <>{city} </> : ""}
-                            {provinceCode ? <>{provinceCode}, </> : ""}
-                            {zip ? (
-                              <>
-                                {zip}
-                                <br></br>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                            {country ? (
-                              <>
-                                {country}
-                                <br></br>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                            {phone1 ? (
-                              <>
-                                {phone1}
-                                <br></br>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                          </div>
+                          {updatedModal == true && (
+                            <Slide triggerOnce={false} direction="right" duration="500">
+                              <AccountUpdate
+                                data={data}
+                                oFirstName={firstName}
+                                oLastName={lastName}
+                                oEmail={email}
+                                oPhone={phone}
+                                handleAlert={handleAlert}
+                              />
+                              <button
+                                onClick={() => handleEditModal()} className="blue-text-field">
+                                Back To Account
+                                </button>
+                            </Slide>
+                          )}
+                          {updatedModal == false && (
+                            <>
+                              <div className="account-row">
+                                <div className="account-col first">
+                                  <div className="profile-bold">Name</div>
+                                  <div className="profile-reg">
+                                    {firstName} {lastName}
+                                  </div>
+                                </div>
+                                <div className="account-col">
+                                  <div className="profile-bold">E-Mail</div>
+                                  <div className="profile-reg">{email}</div>
+                                </div>
+                              </div>
+                              <br></br>
+                              <div className="profile-bold">
+                                Default Address: <br></br>
+                                {name ? (
+                                  <div className="profile-reg">
+                                    {name}
+                                    <br></br>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                                {company ? (
+                                  <div className="profile-reg">
+                                    {company}
+                                    <br></br>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                                {address1 ? (
+                                  <div className="profile-reg">
+                                    {address1}
+                                    <br></br>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                                {address2 ? (
+                                  <div className="profile-reg">
+                                    {address2}
+                                    <br></br>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                                <div className="profile-reg">
+                                  {city ? <>{city} </> : ""}
+                                  {provinceCode ? provinceCode : ""}
+                                  {zip ? (
+                                    <>
+                                      {zip}
+                                      <br></br>
+                                    </>
+                                  ) : (
+                                    ""
+                                  )}
+                                </div>
+                                {country ? (
+                                  <div className="profile-reg">
+                                    {country}
+                                    <br></br>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                                {phone1 ? (
+                                  <div className="profile-reg">
+                                    {phone1}
+                                    <br></br>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                              </div>
+                              <br></br>
+                              <MainButtonEvent
+                                text="Update Account"
+                                func={handleEditModal}
+                              />
+                            </>
+                          )}
                         </>
                       )}
                       {

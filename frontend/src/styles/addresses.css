@@ -1,0 +1,24 @@
+.address {
+    padding: 15px;
+    border-top: 1px solid black;
+    display: flex;
+}
+
+.default {
+    font-size: 12px;
+    color: var(--color-secondary);
+}
+
+.address-right {
+    text-align-last: justify;
+    width: 100%;
+    display: flex;
+    height: 35px;
+    align-self: flex-start;
+    justify-content: flex-end;
+}
+
+.extra-border {
+    border-top: 1px solid black;
+    padding-top: 15px;
+}

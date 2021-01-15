@@ -3,7 +3,7 @@ import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
 import StoreContext from "../../util/store"
 import "../../styles/account.css"
-
+import MainButtonStyle from "../main-button-style"
 
 
 const USER_UPDATE = gql`
@@ -31,7 +31,13 @@ const USER_UPDATE = gql`
   }
 `
 
-const AccountUpdate = ({ data, oFirstName, oLastName, oEmail, handleAlert }) => {
+const AccountUpdate = ({
+  data,
+  oFirstName,
+  oLastName,
+  oEmail,
+  handleAlert,
+}) => {
   //console.log("data and fn", data, oFirstName)
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
@@ -62,7 +68,6 @@ const AccountUpdate = ({ data, oFirstName, oLastName, oEmail, handleAlert }) => 
       {updateFunc => {
         return (
           <>
-            
             <div className="update-form">
               <form
                 onSubmit={e => {
@@ -80,18 +85,30 @@ const AccountUpdate = ({ data, oFirstName, oLastName, oEmail, handleAlert }) => 
                       ) {
                         result.data.customerUpdate.customerUserErrors.map(
                           msg => {
-                            alert(msg.message)
+                            handleAlert({
+                              message: msg.message,
+                              close: "Close",
+                              severity: "warning",
+                            })
                           }
                         )
                       } else {
                         handleCustomerAccessToken(
                           result.data.customerUpdate.customerAccessToken
                         )
-                        handleAlert({message: "Your Account Has Been Updated", close: "Close", severity: "success"})
+                        handleAlert({
+                          message: "Your Account Has Been Updated",
+                          close: "Close",
+                          severity: "success",
+                        })
                       }
                     })
                     .catch(err => {
-                      alert(err)
+                      handleAlert({
+                        message: "There Was An Error Updating Your Account",
+                        close: "Close",
+                        severity: "error",
+                      })
                       console.error("error", err)
                     })
                   data.refetch()
@@ -101,8 +118,7 @@ const AccountUpdate = ({ data, oFirstName, oLastName, oEmail, handleAlert }) => 
 
                 <div className="account-row">
                   <div className="account-col first">
-                    <span>First Name</span>
-                    <br></br>
+                    <div className="profile-bold">First Name</div>
                     <input
                       defaultValue={firstName}
                       type="text"
@@ -110,8 +126,7 @@ const AccountUpdate = ({ data, oFirstName, oLastName, oEmail, handleAlert }) => 
                     ></input>
                   </div>
                   <div className="account-col">
-                    <span>Last Name</span>
-                    <br></br>
+                    <div className="profile-bold">Last Name</div>
                     <input
                       defaultValue={lastName}
                       type="text"
@@ -120,22 +135,25 @@ const AccountUpdate = ({ data, oFirstName, oLastName, oEmail, handleAlert }) => 
                   </div>
                 </div>
                 <br></br>
-                <span>E-Mail: </span>
-                <span>{email}</span>
+                <div className="account-row">
+                  <div className="account-col first">
+                    <div className="profile-bold">New Password</div>
+                    <input
+                      type="password"
+                      onChange={e => setPassword(e.target.value)}
+                    ></input>
+                  </div>
+                  <div className="account-col">
+                    <div className="profile-bold">Confirm Password</div>
+                    <input
+                      type="password"
+                      onChange={e => setPassword2(e.target.value)}
+                    ></input>
+                  </div>
+                </div>
                 <br></br>
-                <span>New Password</span>
-                <input
-                  type="password"
-                  onChange={e => setPassword(e.target.value)}
-                ></input>
+                <MainButtonStyle text="Save Changes" />
                 <br></br>
-                <span>Confirm Password</span>
-                <input
-                  type="password"
-                  onChange={e => setPassword2(e.target.value)}
-                ></input>
-                <br></br>
-                <button type="submit">Update Info</button>
               </form>
             </div>
           </>

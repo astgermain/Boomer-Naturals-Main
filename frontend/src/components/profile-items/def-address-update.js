@@ -36,7 +36,8 @@ const DefAddressUpdate = ({ defUpdateFunc, id }) => {
             })
         }}
       >       
-        <button type="submit">Set As Default</button>
+      
+        <button type="submit" className="blue-text-field">Set As Default</button>
         
       </form>
     </div>

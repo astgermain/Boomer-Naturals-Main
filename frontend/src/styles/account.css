@@ -1,11 +1,19 @@
 h1{
     margin: 0 0 15px 0;
 }
+input {
+    border-radius: 0 !important;
+    border: 1px solid black;
+    font-family: var(--fontFamily-reg);
+    font-size: 14px;
+    padding: 5px;
+}
+
 .account-section {
-    margin: 0px 12.5vw;
+    margin: 0px 12.5vw 20px 12.5vw;
 }
 .account-left {
-    margin: 15px;
+    margin: 20px 0 15px 0;
     width: 200px;
     border-right: 1px solid gainsboro;
 }
@@ -24,14 +32,15 @@ h1{
 }
 
 .account-col {
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .account-alert-row {
     width: 100%;
-    margin: 15px 0;
+    margin: 15px 0 0 0;
 }
 
 .account-content {
     display: flex;
 }
+
