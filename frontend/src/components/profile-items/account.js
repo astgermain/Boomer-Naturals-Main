@@ -303,7 +303,7 @@ const Account = ({pageContext, location}) => {
                 {
                   //Start Order History
                 }
-                {curPage == "Order History" && <OrderHistory />}
+                {curPage == "Order History" && <OrderHistory data={data}/>}
                 
               </section>
             )
