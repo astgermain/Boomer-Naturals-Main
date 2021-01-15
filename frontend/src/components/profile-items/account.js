@@ -107,7 +107,7 @@ const GET_CUSTOMER_OBJECT = gql`
 `
 
 const Account = () => {
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { customerAccessToken, setValue, updateCustomerAddress, updateCustomerInfo } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
   const [message, setMessage] = useState(``)
@@ -168,6 +168,7 @@ const Account = () => {
               defaultAddress,
               orders,
             } = updatedCustomer || ""
+            updateCustomerInfo(updatedCustomer)
             let {
               address1,
               address2,
@@ -186,6 +187,7 @@ const Account = () => {
             } catch {
               phone1 = ""
             }
+            updateCustomerAddress(defaultAddress)
             return (
               <section>
                 {/*
@@ -218,32 +220,32 @@ const Account = () => {
                           <br></br>
                         </>
                       ) : (
-                        ""
-                      )}
+                          ""
+                        )}
                       {company ? (
                         <>
                           {company}
                           <br></br>
                         </>
                       ) : (
-                        ""
-                      )}
+                          ""
+                        )}
                       {address1 ? (
                         <>
                           {address1}
                           <br></br>
                         </>
                       ) : (
-                        ""
-                      )}
+                          ""
+                        )}
                       {address2 ? (
                         <>
                           {address2}
                           <br></br>
                         </>
                       ) : (
-                        ""
-                      )}
+                          ""
+                        )}
                       {city ? <>{city} </> : ""}
                       {provinceCode ? <>{provinceCode}, </> : ""}
                       {zip ? (
@@ -252,31 +254,31 @@ const Account = () => {
                           <br></br>
                         </>
                       ) : (
-                        ""
-                      )}
+                          ""
+                        )}
                       {country ? (
                         <>
                           {country}
                           <br></br>
                         </>
                       ) : (
-                        ""
-                      )}
+                          ""
+                        )}
                       {phone1 ? (
                         <>
                           {phone1}
                           <br></br>
                         </>
                       ) : (
-                        ""
-                      )}
+                          ""
+                        )}
                     </div>
                   </>
                 )}
                 {
                   //Start Addresses
                 }
-                {curPage == "Addresses" && <Addresses data={data}/>}
+                {curPage == "Addresses" && <Addresses data={data} />}
                 {
                   //Start Order History
                 }
@@ -304,7 +306,7 @@ const Account = () => {
     }
   }
 
-  useEffect(() => {}, [])
+  useEffect(() => { }, [])
 
   return <div>{queryFunc()}</div>
 }

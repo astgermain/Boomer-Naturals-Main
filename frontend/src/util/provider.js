@@ -81,6 +81,20 @@ const Provider = ({ children }) => {
         updateCustomerInfo: customerObj => {
           setCustomerInfo(customerObj)
         },
+        addAddressToCheckout: async (addressObj, customerObj) => {
+          const newAddress = {
+            ...addressObj,
+            email: customerObj.email
+          }
+
+
+          const newCheckout = await store.client.checkout.updateShippingAddress(
+            checkout.id,
+            newAddress
+          )
+          setCheckout(newCheckout)
+
+        },
         setValue: value => {
           isBrowser &&
             localStorage.setItem("customerAccessToken", JSON.stringify(value))

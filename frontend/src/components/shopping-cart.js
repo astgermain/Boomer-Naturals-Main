@@ -21,9 +21,11 @@ const ShoppingCart = () => {
     removeFromCart,
     setValue,
     toggleCart,
+    customerAddress,
+    customerInfo
   } = useContext(store)
   useEffect(() => {
-    console.log("do something")
+    console.log(customerAddress, customerInfo)
   }, [isCartOpen])
 
   const PRODUCTS_IN_CART = checkout.lineItems
