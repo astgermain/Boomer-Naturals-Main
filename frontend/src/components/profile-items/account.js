@@ -107,7 +107,7 @@ const GET_CUSTOMER_OBJECT = gql`
 `
 
 const Account = () => {
-  const { customerAccessToken, setValue, updateCustomerAddress, updateCustomerInfo } = useContext(StoreContext)
+  const { customerAccessToken, setValue, updateCustomerAddress, updateCustomerInfo, addAddressToCheckout } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
   const [message, setMessage] = useState(``)
@@ -188,6 +188,7 @@ const Account = () => {
               phone1 = ""
             }
             updateCustomerAddress(defaultAddress)
+            addAddressToCheckout(defaultAddress, updatedCustomer)
             return (
               <section>
                 {/*

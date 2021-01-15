@@ -81,17 +81,19 @@ const Provider = ({ children }) => {
         updateCustomerInfo: customerObj => {
           setCustomerInfo(customerObj)
         },
-        addAddressToCheckout: async (addressObj, customerObj) => {
+        addAddressToCheckout: async (addressObj = {}, customerObj = {}) => {
           const newAddress = {
             ...addressObj,
             email: customerObj.email
           }
 
+          console.log('we hit address!')
 
           const newCheckout = await store.client.checkout.updateShippingAddress(
             checkout.id,
             newAddress
           )
+          console.log('shipping checkout: ', newCheckout)
           setCheckout(newCheckout)
 
         },
