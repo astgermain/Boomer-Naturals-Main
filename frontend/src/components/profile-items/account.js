@@ -9,6 +9,13 @@ import PasswordRecover from "../../components/profile-items/password-recover"
 import Addresses from "./addresses"
 import OrderHistory from "./order-history"
 import Pagination from "../pagination"
+import "../../styles/account.css"
+import Alert from "@material-ui/lab/Alert"
+import Slide from "@material-ui/core/Slide"
+import FormControlLabel from "@material-ui/core/FormControlLabel"
+import Switch from "@material-ui/core/Switch"
+import Grow from "@material-ui/core/Grow"
+import Button from "@material-ui/core/Button"
 
 const GET_CUSTOMER_OBJECT = gql`
   query($customerAccessToken: String!) {
@@ -109,12 +116,21 @@ const GET_CUSTOMER_OBJECT = gql`
   }
 `
 
-const Account = ({pageContext, location}) => {
+const Account = () => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
-  const [email, setEmail] = useState(``)
-  const [password, setPassword] = useState(``)
-  const [message, setMessage] = useState(``)
-  const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
+  const [checked, setChecked] = React.useState(false)
+  const [message, setMessage] = React.useState("")
+  const [closed, setClosed] = React.useState("")
+  const [severity, setSeverity] = React.useState("")
+  const handleChange = () => {
+    setChecked(prev => !prev)
+  }
+  const handleAlert = ({message = "", close = "", severity = ""}) => {
+    setMessage(message)
+    setClosed(close)
+    setSeverity(severity)
+    handleChange()
+  }
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
@@ -144,11 +160,11 @@ const Account = ({pageContext, location}) => {
   })
   //console.log("current page: ", curPage)
   let queryFunc = () => {
-    if(customerAccessToken != null){
+    if (customerAccessToken != null) {
       var firstDate = new Date(Date.now())
-      var secondDate = new Date( customerAccessToken.expiresAt)
-      if(secondDate <= firstDate){
-        alert('Login has expired, please relog')
+      var secondDate = new Date(customerAccessToken.expiresAt)
+      if (secondDate <= firstDate) {
+        alert("Login has expired, please relog")
         handleCustomerAccessToken(null)
       }
     }
@@ -161,7 +177,6 @@ const Account = ({pageContext, location}) => {
           }}
         >
           {data => {
-            
             //console.log(customerAccessToken.accessToken)
             //console.log("Query data: ", data)
             let updatedCustomer
@@ -180,7 +195,7 @@ const Account = ({pageContext, location}) => {
               defaultAddress,
               orders,
             } = updatedCustomer || ""
-            
+
             let {
               address1,
               address2,
@@ -199,11 +214,34 @@ const Account = ({pageContext, location}) => {
             } catch {
               phone1 = ""
             }
-            
+
             return (
-              <section>
-                <Pagination alt="My Account" altLink="/profile"/>
-                {/*
+              <>
+                <Pagination alt="My Account" altLink="/profile" />
+                <section className="account-section">
+                  <div className="account-alert-row">
+                    {checked == true && (
+                      <Grow in={checked}>
+                        <Alert
+                          
+                          severity={severity}
+                          action={
+                            <Button
+                              color="inherit"
+                              size="small"
+                              onClick={handleChange}
+                            >
+                              {closed}
+                            </Button>
+                          }
+                        >
+                          {message}
+                        </Alert>
+                      </Grow>
+                    )}
+                  </div>
+
+                  {/*
                 <button name="info" onClick={() => console.log(data)}>
                   click for data
                 </button>
@@ -211,101 +249,117 @@ const Account = ({pageContext, location}) => {
                   Refetch
                 </button>
                 */}
-                {NAV_LIST_ITEMS}
-                <button
-                  type="submit"
-                  onClick={() => handleCustomerAccessToken(null)}
-                >
-                  Logout
-                </button>
-                <br></br>
-                <br></br>
-                {
-                  //Start main Account
-                }
-                {curPage == "My Account" && (
-                  <>
-                    <AccountUpdate
-                      data={data}
-                      oFirstName={firstName}
-                      oLastName={lastName}
-                      oEmail={email}
-                      oPhone={phone}
-                    />
-                    <br></br>
-                    <div>
-                      Default Address: <br></br>
-                      {name ? (
+                  <div className="account-content">
+                    <div className="account-left">
+                      {NAV_LIST_ITEMS}
+                      <button
+                        type="submit"
+                        onClick={() => handleCustomerAccessToken(null)}
+                      >
+                        Logout
+                      </button>
+                    </div>
+                    <div className="account-right">
+                      {
+                        //Start main Account
+                      }
+                      {curPage == "My Account" && (
                         <>
-                          {name}
+                          <h1>My Account</h1>
+                          <AccountUpdate
+                            data={data}
+                            oFirstName={firstName}
+                            oLastName={lastName}
+                            oEmail={email}
+                            oPhone={phone}
+                            handleAlert={handleAlert}
+                          />
                           <br></br>
+                          <div>
+                            Default Address: <br></br>
+                            {name ? (
+                              <>
+                                {name}
+                                <br></br>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                            {company ? (
+                              <>
+                                {company}
+                                <br></br>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                            {address1 ? (
+                              <>
+                                {address1}
+                                <br></br>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                            {address2 ? (
+                              <>
+                                {address2}
+                                <br></br>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                            {city ? <>{city} </> : ""}
+                            {provinceCode ? <>{provinceCode}, </> : ""}
+                            {zip ? (
+                              <>
+                                {zip}
+                                <br></br>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                            {country ? (
+                              <>
+                                {country}
+                                <br></br>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                            {phone1 ? (
+                              <>
+                                {phone1}
+                                <br></br>
+                              </>
+                            ) : (
+                              ""
+                            )}
+                          </div>
                         </>
-                      ) : (
-                        ""
                       )}
-                      {company ? (
+                      {
+                        //Start Addresses
+                      }
+                      {curPage == "Addresses" && (
                         <>
-                          {company}
-                          <br></br>
+                          <h1>Addresses</h1>
+                          <Addresses data={data} id={id} />
                         </>
-                      ) : (
-                        ""
                       )}
-                      {address1 ? (
+                      {
+                        //Start Order History
+                      }
+                      {curPage == "Order History" && (
                         <>
-                          {address1}
-                          <br></br>
+                          <h1>Order History</h1>
+                          <OrderHistory data={data} />
                         </>
-                      ) : (
-                        ""
-                      )}
-                      {address2 ? (
-                        <>
-                          {address2}
-                          <br></br>
-                        </>
-                      ) : (
-                        ""
-                      )}
-                      {city ? <>{city} </> : ""}
-                      {provinceCode ? <>{provinceCode}, </> : ""}
-                      {zip ? (
-                        <>
-                          {zip}
-                          <br></br>
-                        </>
-                      ) : (
-                        ""
-                      )}
-                      {country ? (
-                        <>
-                          {country}
-                          <br></br>
-                        </>
-                      ) : (
-                        ""
-                      )}
-                      {phone1 ? (
-                        <>
-                          {phone1}
-                          <br></br>
-                        </>
-                      ) : (
-                        ""
                       )}
                     </div>
-                  </>
-                )}
-                {
-                  //Start Addresses
-                }
-                {curPage == "Addresses" && <Addresses data={data} id={id}/>}
-                {
-                  //Start Order History
-                }
-                {curPage == "Order History" && <OrderHistory data={data}/>}
-                
-              </section>
+                  </div>
+                </section>
+              </>
             )
           }}
         </Query>

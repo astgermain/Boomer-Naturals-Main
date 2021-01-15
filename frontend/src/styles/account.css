@@ -1,0 +1,37 @@
+h1{
+    margin: 0 0 15px 0;
+}
+.account-section {
+    margin: 0px 12.5vw;
+}
+.account-left {
+    margin: 15px;
+    width: 200px;
+    border-right: 1px solid gainsboro;
+}
+
+.account-right {
+    margin: 15px;
+    width: calc(100% - 200px);
+}
+
+.account-row {
+    display: flex;
+}
+
+.first {
+    margin-right: 15px;
+}
+
+.account-col {
+    flex-direction: row;
+}
+
+.account-alert-row {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.account-content {
+    display: flex;
+}

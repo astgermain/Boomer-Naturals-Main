@@ -96,6 +96,7 @@ const Addresses = ({ data, id }) => {
               //Needs to hide or update when changed, probably save the frag in state
               return (
                 <React.Fragment key={edge.node.id}>
+                   {edge.node.id != showEditForm &&
                   <div>
                     Block {index + 1}: 
                     <br></br>
@@ -109,13 +110,11 @@ const Addresses = ({ data, id }) => {
                     {edge.node.country}
                     <br></br>
                     {edge.node.phone}
-                  </div>
-                  
-                  <div>
                     {data.data.customer.defaultAddress.id == edge.node.id && (
                       <div>Is Default: True</div>
                     )}
                   </div>
+                    }
                   {edge.node.id != showEditForm && (
                     <button onClick={() => handleEditClick(edge.node.id)}>
                       Edit
