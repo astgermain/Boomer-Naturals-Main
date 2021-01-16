@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react"
 import StoreContext from "../../util/store"
+import MainButtonStyle from "../main-button-style"
 
-const AddressUpdate = ({ updateFunc, id, address }) => {
+const AddressUpdate = ({ updateFunc, id, address, handleAlert, handleAlert2 }) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [address1, setAddress1] = useState(address.address1)
   const [address2, setAddress2] = useState(address.address2)
@@ -44,48 +45,124 @@ const AddressUpdate = ({ updateFunc, id, address }) => {
               //console.log("edit result", result)
               if (result.data.customerAddressUpdate.customerUserErrors.length) {
                 setIncorrectCredMsg("Issue Updating Address")
-                alert(incorrectCredMsg)
+                handleAlert({
+                    message: result.data.customerAddressUpdate.customerUserErrors[0].message,
+                    close: "Close",
+                    severity: "warning",
+                })
               }
+              handleAlert({
+                message: "Address Has Been Updated",
+                close: "Close",
+                severity: "success",
+            })
+            handleAlert2(null)
             })
             .catch(err => {
-              alert(err)
+                handleAlert({
+                    message: err,
+                    close: "Close",
+                    severity: "error",
+                })
               console.error(err)
             })
         }}
       >
         {/* NEEDS TO HAVE FORM VALIDATIONS AND REQUIRED COMPLETE */}
-        <span>Address Editing</span>
-        <br></br>
-        <span>First Name</span>
-        <input defaultValue={firstName} type="text" onChange={e => setFirstName(e.target.value)}></input>
-        <span>Last Name</span>
-        <input defaultValue={lastName} type="text" onChange={e => setLastName(e.target.value)}></input>
-        <br></br>
-        <span>Company</span>
-        <input defaultValue={company} type="text" onChange={e => setCompany(e.target.value)}></input>
-        <br></br>
-        <span>Address1</span>
-        <input defaultValue={address1} type="text" onChange={e => setAddress1(e.target.value)}></input>
-        <br></br>
-        <span>Address2</span>
-        <input defaultValue={address2} type="text" onChange={e => setAddress2(e.target.value)}></input>
-        <br></br>
-        <span>City</span>
-        <input defaultValue={city} type="text" onChange={e => setCity(e.target.value)}></input>
-        <br></br>
-        <span>Country</span>
-        <input defaultValue={country} type="text" onChange={e => setCountry(e.target.value)}></input>
-        <br></br>
+        <div className="account-row">
+          <div className="account-col first">
+            <div className="profile-bold">First Name</div>
+            <input
+              defaultValue={firstName}
+              type="text"
+              onChange={e => setFirstName(e.target.value)}
+            ></input>
+          </div>
+          <div className="account-col">
+            <div className="profile-bold">Last Name</div>
+            <input
+              defaultValue={lastName}
+              type="text"
+              onChange={e => setLastName(e.target.value)}
+            ></input>
+          </div>
+        </div>
+        <div className="account-row">
+          <div className="account-col first">
+            <div className="profile-bold">Phone</div>
+            <input
+              defaultValue={phone}
+              type="text"
+              onChange={e => setPhone(e.target.value)}
+            ></input>
+          </div>
+          <div className="account-col">
+            <div className="profile-bold">Company</div>
+            <input
+              defaultValue={company}
+              type="text"
+              onChange={e => setCompany(e.target.value)}
+            ></input>
+          </div>
+        </div>
+        <div className="account-row">
+          <div className="account-col first">
+            <div className="profile-bold">Address1</div>
+            <input
+              defaultValue={address1}
+              type="text"
+              onChange={e => setAddress1(e.target.value)}
+            ></input>
+          </div>
+          <div className="account-col">
+            <div className="profile-bold">Address2</div>
+            <input
+              defaultValue={address2}
+              type="text"
+              onChange={e => setAddress2(e.target.value)}
+            ></input>
+          </div>
+        </div>
+        <div className="account-row">
+          <div className="account-col first">
+            <div className="profile-bold">City</div>
+            <input
+              defaultValue={city}
+              type="text"
+              onChange={e => setCity(e.target.value)}
+            ></input>
+          </div>
+          <div className="account-col first">
+            <div className="profile-bold">Province/State</div>
+            <input
+              defaultValue={province}
+              type="text"
+              onChange={e => setProvince(e.target.value)}
+            ></input>
+          </div>
+        </div>
+        <div className="account-row">
+          <div className="account-col first">
+            <div className="profile-bold">Zip</div>
+            <input
+              defaultValue={zip}
+              type="text"
+              onChange={e => setZip(e.target.value)}
+            ></input>
+          </div>
+          <div className="account-col">
+            <div className="profile-bold">Country</div>
+            <input
+              defaultValue={country}
+              type="text"
+              onChange={e => setCountry(e.target.value)}
+            ></input>
+          </div>
+        </div>
         {/*Needs Drop Down*/}
-        <span>Province</span>
-        <input defaultValue={province} type="text" onChange={e => setProvince(e.target.value)}></input>
+
         <br></br>
-        <span>Zip</span>
-        <input defaultValue={zip} type="text" onChange={e => setZip(e.target.value)}></input>
-        <span>Phone</span>
-        <input defaultValue={phone} type="text" onChange={e => setPhone(e.target.value)}></input>
-        <br></br>
-        <button type="submit">Update Address</button>
+        <MainButtonStyle text="Update Address" />
         <br></br>
       </form>
     </div>

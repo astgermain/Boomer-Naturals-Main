@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import StoreContext from "../../util/store"
 
-const DefAddressUpdate = ({ defUpdateFunc, id }) => {
+const DefAddressUpdate = ({ defUpdateFunc, id, handleAlert }) => {
     const { customerAccessToken, setValue } = useContext(StoreContext)
     const [email, setEmail] = useState(``)
     const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
@@ -27,11 +27,24 @@ const DefAddressUpdate = ({ defUpdateFunc, id }) => {
                 result.data.customerDefaultAddressUpdate.customerUserErrors.length
               ) {
                 setIncorrectCredMsg("Username or Password is incorrect")
-                alert(incorrectCredMsg)
+                handleAlert({
+                  message: result.data.customerAddressUpdate.customerUserErrors[0].message,
+                  close: "Close",
+                  severity: "warning",
+              })
               }
+              handleAlert({
+                message: "Your Default Address Was Updated",
+                close: "Close",
+                severity: "success",
+            })
             })
             .catch(err => {
-              alert(err)
+              handleAlert({
+                message: err,
+                close: "Close",
+                severity: "error",
+            })
               console.error(err)
             })
         }}

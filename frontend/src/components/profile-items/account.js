@@ -124,19 +124,31 @@ const Account = () => {
   const [message, setMessage] = React.useState("")
   const [closed, setClosed] = React.useState("")
   const [severity, setSeverity] = React.useState("")
-  const handleChange = () => {
-    setChecked(prev => !prev)
+  const handleChange = (value) => {
+    if(value){
+      setChecked(value)
+    }
+    else{
+      setChecked(prev => !prev)
+    }
   }
-  const handleEditModal = () => {
-    console.log("MODAL CHECK", updatedModal)
-    setUpdateModal(!updatedModal)
+  const handleEditModal = (value) => {
+    if(value){
+      setUpdateModal(value)
+    }
+    else{
+      setUpdateModal(prev => !prev)
+    }
   }
   const handleAlert = ({ message = "", close = "", severity = "" }) => {
+    if(checked == true){
+      handleChange()
+    }
     setMessage(message)
     setClosed(close)
     setSeverity(severity)
     handleChange()
-    if(severity == "success") handleEditModal()
+    if(severity == "success") handleEditModal(false)
   }
   const handleCustomerAccessToken = value => {
     setValue(value)
@@ -382,7 +394,7 @@ const Account = () => {
                       {curPage == "Addresses" && (
                         <>
                           <h1>Addresses</h1>
-                          <Addresses data={data} id={id} />
+                          <Addresses data={data} id={id} handleAlert={handleAlert}/>
                         </>
                       )}
                       {
