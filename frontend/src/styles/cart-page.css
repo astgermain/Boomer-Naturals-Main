@@ -1,6 +1,22 @@
+.shopping-cart-page {
+    padding: 0 7vw;
+}
+.shopping-cart-page header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0; 
+}
+.shopping-cart-page header h2, .shopping-cart-page header div {
+    margin: 0 5px;
+}
+.shopping-cart-page header h2 {
+    padding-bottom: .25rem;
+}
+
 .cart-table-wrapper {
     border: none;
-    width: 85%;
 }
 
 .cart-table-wrapper tr {
