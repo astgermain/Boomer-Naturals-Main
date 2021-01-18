@@ -24,10 +24,9 @@ const ShoppingCartPage = ({ location }) => {
                 </header>
                 <div>
                     {/* Iterate through product map */}
-                    <table>
+                    <table className="cart-table-wrapper">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th></th>
                                 <th>PRODUCT</th>
                                 <th>PRICE</th>

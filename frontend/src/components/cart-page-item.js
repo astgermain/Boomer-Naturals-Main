@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../styles/cart-page.css"
 
 
 const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, imgSrc, imgAltText, linkToProduct, removeFromCart, addToCart, lineItemId, extraData, toggleCart }) => {
@@ -18,10 +19,8 @@ const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, 
 
     return (
         <tr>
-            <td>
-                <button className="close cart-close" onClick={toggleCart}></button>
-            </td>
-            <td>
+            <td className="cart-img-box">
+                <button className="close cart-close" onClick={handleRemove}></button>
                 <div className="variant-icon-wrapper">
                     <a href={linkToProduct}>
                         <img src={imgSrc} alt={imgAltText} />
@@ -39,8 +38,8 @@ const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, 
             </td>
             <td>{price}</td>
             <td>
-                <div className="qty-display-wrapper">
-                    <div className="cart-qty-adjuster">
+                <div className="qty-display-wrapper cart-page-version">
+                    <div className="cart-qty-adjuster cart-page-version">
                         <button onClick={handleMinus}>-</button>
                         <input type="number" value={quantity} readOnly />
                         <button onClick={handlePlus}>+</button>
