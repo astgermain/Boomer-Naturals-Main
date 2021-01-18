@@ -19,7 +19,7 @@ const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, 
 
     return (
         <tr>
-            <td className="cart-img-box">
+            <td className="cart-img-box cart-table-data">
                 <button className="close cart-close" onClick={handleRemove}></button>
                 <div className="variant-icon-wrapper">
                     <a href={linkToProduct}>
@@ -27,8 +27,8 @@ const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, 
                     </a>
                 </div>
             </td>
-            <td>
-                <div>
+            <td className="cart-table-data">
+                <div className="cart-page-item-details">
                     <h6>{productTitle}</h6>
                     <p>Color: {variantColor}</p>
                     <p>Size: {variantSize}</p>
@@ -36,8 +36,8 @@ const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, 
 
                 </div>
             </td>
-            <td>{price}</td>
-            <td>
+            <td className="cart-table-data"><strong>${price}</strong></td>
+            <td className="cart-table-data">
                 <div className="qty-display-wrapper cart-page-version">
                     <div className="cart-qty-adjuster cart-page-version">
                         <button onClick={handleMinus}>-</button>
@@ -46,7 +46,7 @@ const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, 
                     </div>
                 </div>
             </td>
-            <td>{TOTAL_PRICE}</td>
+            <td className="cart-table-data"><strong>${TOTAL_PRICE}</strong></td>
         </tr>
     )
 }
