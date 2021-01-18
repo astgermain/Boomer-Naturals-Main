@@ -98,6 +98,7 @@ body {
 }
 
 footer {
+    border-top: 1px solid gainsboro;
 }
 
 hr {
@@ -606,6 +607,11 @@ a:focus {
 .gatsby-highlight {
     margin-bottom: var(--spacing-8);
 }
+/* Page Template */
+.page-content-container{
+    margin:2% 20%;
+}
+
 
 
 /* Media queries */
@@ -721,4 +727,29 @@ a:focus {
         margin-left: 3%;
         margin-right: 3%;
     }
+}
+
+.blue-text-field {
+    color: var(--color-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+.profile-reg {
+    font-family: var(--fontFamily-reg);
+    font-size: 14px;
+    padding: 0px 0;
+    min-width: 200px;
+}
+.profile-bold{
+    font-family: var(--fontFamily-bold);
+    font-size: 18px;
+    padding: 5px 0;
+    min-width: 200px;
+}
+
+.address-edit-form {
+    display: flex;
+    align-items: center;
 }

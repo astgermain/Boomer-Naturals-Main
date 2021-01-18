@@ -100,7 +100,7 @@ span.links:hover:before{
     color:rgb(60, 60, 60);
 }
 .footerVcontent{
-    border: 1px solid var(--color-secondary);
+    border: 2px solid var(--color-secondary);
     border-right: none;
     border-left: none;
     border-top: none;
@@ -192,7 +192,15 @@ span.links:hover:before{
   .v-iconE2 {
     fill: var(--color-primary);
   }
-  
+
+  .yeet{
+    animation: mymove 1s;
+    position: relative;
+  }
+  @keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+  }
   
   /* all styles social media buttons */
   

@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react"
 import Layout from "../components/layout"
 import "../styles/product-template.css"
 import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
-import HeaderTrail from "./template-components/header-trail"
+import Pagination from "../components/pagination"
 import ImageDisplay from "./template-components/product-image-display"
 import errorImg from "../../content/assets/errorImg.png"
 import SuggestedProducts from "./template-components/suggested-products"
@@ -213,6 +213,8 @@ const ProductTemplate = ({ data, pageContext, location }) => {
 
 const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
 const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
+console.log(pageContext)
+
 
 
   return (
@@ -221,7 +223,7 @@ const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
                 title={post.frontmatter.title}
                 description={post.frontmatter.description || post.excerpt}
             /> */}
-      <HeaderTrail data={data} pageContext={pageContext} location={location} />
+      <Pagination data={data} pageContext={pageContext} location={location} />
 
       <div className="product-container-template">
         <ImageDisplay

@@ -12,7 +12,7 @@ const Slider = ({dotsVal, speed, autoplay, arrowsVal, slide1, slide2, slide3}) =
     const settings = {
         dots: dotsVal,
         fade: 1,
-        arrows: arrowsVal,
+        arrows: true,
         infinite: true,
         autoplay: autoplay,
         lazyLoad: true,
