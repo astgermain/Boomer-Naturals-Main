@@ -13,17 +13,18 @@ const Search = ({ closeSearch, data, setUpdatedSearch }) => {
   const [allProds, setAllProds] = useState({})
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const { sortedData, setSortedValue } = useContext(StoreContext)
+
   useEffect(() => {
     
       let filteredData = data.allShopifyProduct.nodes.filter(product => {
         if (
           product.title.toLowerCase().match(searchValue.toLowerCase()) &&
-          product.images.length
+          product.images.length 
           
         ) {
           return product
         }
-      })
+      }) 
       setAllProds(data.allShopifyProduct.nodes)
       setSortedValue(filteredData)
       return function cleanup() {

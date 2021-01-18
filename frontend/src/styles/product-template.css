@@ -269,8 +269,6 @@ th{
     color:var(--color-primary);
 }
 
-element.style {
-}
 ul, ol {
     margin:0px!important;
 }

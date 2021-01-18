@@ -607,6 +607,11 @@ a:focus {
 .gatsby-highlight {
     margin-bottom: var(--spacing-8);
 }
+/* Page Template */
+.page-content-container{
+    margin:2% 20%;
+}
+
 
 
 /* Media queries */
