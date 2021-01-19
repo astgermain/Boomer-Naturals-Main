@@ -37,7 +37,7 @@ const ShoppingCartPage = ({ location }) => {
         } else {
           return (
             <p>
-              Congratulations!<br></br>You've earned <strong>FREE SHIPPING!</strong>
+              Congratulations! You've earned <strong>FREE SHIPPING!</strong>
             </p>
           )
         }
@@ -189,19 +189,19 @@ const ShoppingCartPage = ({ location }) => {
                         <table className="checkout-details-table">
                             <tbody>
                                 <tr>
-                                    <td>Subtotal</td>
+                                    <td><strong>Subtotal</strong></td>
                                     <td className="right-table-data">${checkout.subtotalPrice}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tax</td>
+                                    <td><strong>Tax</strong></td>
                                     <td className="right-table-data">Calculated at checkout</td>
                                 </tr>
                                 <tr>
-                                    <td>Shipping</td>
+                                    <td><strong>Shipping</strong></td>
                                     <td className="right-table-data">Calculated at checkout</td>
                                 </tr>
                                 <tr>
-                                    <td>Coupons/Rewards</td>
+                                    <td><strong>Coupons/Rewards</strong></td>
                                     <td className="right-table-data">Calculated at checkout</td>
                                 </tr>
                                 <tr className="estimated-total-display">

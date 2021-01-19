@@ -88,6 +88,10 @@
     color: var(--color-text);
 }
 
+.totals-display p {
+    font-size: 1rem;
+}
+
 .checkout-details-table .right-table-data {
     text-align: right;
 }
