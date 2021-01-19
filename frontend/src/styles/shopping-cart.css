@@ -58,7 +58,8 @@
     font-size: 2rem;
     text-align: left;
 }
-.shopping-cart-wrapper header h3{
+
+.shopping-cart-wrapper header h3 {
     display: block;
 }
 
@@ -85,6 +86,10 @@
 
 .totals-display strong {
     color: var(--color-text);
+}
+
+.totals-display p {
+    font-size: 1rem;
 }
 
 .checkout-details-table .right-table-data {
@@ -201,10 +206,10 @@
 .cart-redirect-btns a.view-cart {
     color: var(--color-text);
     border: 1px var(--color-text) solid;
-
 }
 
 .cart-redirect-btns a.checkout {
     color: aliceblue;
     background-color: var(--color-secondary);
+    text-align: center;
 }
