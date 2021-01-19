@@ -23,7 +23,6 @@ const ShoppingCart = () => {
     toggleCart,
   } = useContext(store)
   useEffect(() => {
-    console.log("do something")
   }, [isCartOpen])
 
   const PRODUCTS_IN_CART = checkout.lineItems

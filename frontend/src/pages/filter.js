@@ -13,6 +13,7 @@ import StoreContext from "../util/store"
 import Layout from "../components/layout"
 
 const Filter = ({ location }) => {
+
   /*
   const data = useStaticQuery(graphql`
     {
@@ -116,8 +117,33 @@ const Filter = ({ location }) => {
         </div>
       ))
     }
-  }
+  }  
   let PRODUCT_LIST_ITEMS = productListItemsGenerate(h)
+  //gets tags from products in PRODUCT_LIST_ITEMS
+  const GetEachProductType = PRODUCT_LIST_ITEMS.map(product => {
+    return product.props.children.props.productInfo.productType
+  })
+ console.log(PRODUCT_LIST_ITEMS)
+ console.log(GetEachProductType)
+
+ const IncludesPPE = GetEachProductType.map(str =>{
+  return str.includes("PPE")
+})
+
+console.log(IncludesPPE)
+
+
+//GetEachProductType.filter(name => name.includes('PPE')).map(filteredName =>{
+  //   return <div>{filteredName}</div>
+  // } 
+  
+
+
+
+
+  
+
+
   let handlePtToggle = e => {
     if (ptActive === e.target.value) {
       setPtActive(null)
@@ -155,7 +181,7 @@ const Filter = ({ location }) => {
               onClick={handlePtToggle}
               className="filter-option"
             >
-              Face Mask
+              Face Cover
             </button>
           </div>
           <div className="list-item active">
