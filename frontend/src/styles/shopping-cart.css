@@ -207,4 +207,5 @@
 .cart-redirect-btns a.checkout {
     color: aliceblue;
     background-color: var(--color-secondary);
+    text-align: center;
 }

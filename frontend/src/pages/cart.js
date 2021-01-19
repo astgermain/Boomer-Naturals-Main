@@ -2,9 +2,12 @@ import React, { useState, useContext } from "react"
 import CartPageItem from "../components/cart-page-item"
 import Layout from "../components/layout"
 import store from "../util/store"
+import GUARANTEE_BANNER from "../../content/assets/guarantee_banner.png"
 import "../styles/cart-page.css"
 
 const ShoppingCartPage = ({ location }) => {
+
+    
     const {
         addToCart,
         isCartOpen,
@@ -14,7 +17,35 @@ const ShoppingCartPage = ({ location }) => {
         setValue,
         toggleCart,
     } = useContext(store)
+
+    const [specialInstructions, setSpecialInstructions] = useState("")
+
     const PRODUCTS_IN_CART = checkout.lineItems
+
+    const TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING = (
+        50 - parseFloat(checkout.subtotalPrice)
+      ).toFixed(2)
+
+    const differenceToDisplay = currentDifference => {
+        if (currentDifference > 0) {
+          return (
+            <p>
+              Add <span className="difference-num">{currentDifference}</span> more
+              for <strong>FREE SHIPPING!</strong>
+            </p>
+          )
+        } else {
+          return (
+            <p>
+              Congratulations!<br></br>You've earned <strong>FREE SHIPPING!</strong>
+            </p>
+          )
+        }
+      }
+
+      const handleSpecialInstructionsChange = e => {
+          setSpecialInstructions(e.target.value)
+      }
 
     return (
         <Layout location={location}>
@@ -101,7 +132,6 @@ const ShoppingCartPage = ({ location }) => {
                     <h2>My Cart</h2>
                 </header>
                 <div>
-                    {/* Iterate through product map */}
                     <table className="cart-table-wrapper">
                         <thead>
                             <tr>
@@ -141,8 +171,52 @@ const ShoppingCartPage = ({ location }) => {
                     </table>
                 </div>
                 <footer>
-                    <div></div>
-                    <div></div>
+                    <div className="extra-info-section">
+                        <div className="text-area-wrapper">
+                            {/* <label htmlFor="special-instructions">
+                                Special Instructions For Seller
+                            </label> */}
+                            <h6>Special Instructions For Seller</h6>
+                            <textarea onChange={handleSpecialInstructionsChange} name="special-instructions" id="special-instructions" cols="30" rows="10" placeholder="Type Here ...">
+                            </textarea>
+                        </div>
+                        <div className="guarantee-banner-wrapper">
+                            <img src={GUARANTEE_BANNER} alt="guarantee banner"/>
+                        </div>
+                    </div>
+                    <div className="totals-display">
+                        <h6>CART TOTALS</h6>
+                        <table className="checkout-details-table">
+                            <tbody>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td className="right-table-data">${checkout.subtotalPrice}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td className="right-table-data">Calculated at checkout</td>
+                                </tr>
+                                <tr>
+                                    <td>Shipping</td>
+                                    <td className="right-table-data">Calculated at checkout</td>
+                                </tr>
+                                <tr>
+                                    <td>Coupons/Rewards</td>
+                                    <td className="right-table-data">Calculated at checkout</td>
+                                </tr>
+                                <tr className="estimated-total-display">
+                                    <td>Estimated Total</td>
+                                    <td className="right-table-data">${checkout.subtotalPrice}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {differenceToDisplay(TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING)}
+                        <div className="cart-redirect-btns">
+                            <a className="checkout" href={checkout.webUrl}>
+                                PROCEED TO CHECKOUT
+                            </a>
+                        </div>
+                    </div>
                 </footer>
             </section>
         </Layout>
