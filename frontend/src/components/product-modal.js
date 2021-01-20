@@ -54,11 +54,12 @@ const ProductModal = ({ data, setModalShow }) => {
       setMainImageAlt("error image")
     }
   }
-  useEffect(() => {}, [])
+  useEffect(() => { }, [])
 
   let mainArray = []
   let dataSet = new Set()
   let colorSet = new Set()
+  let sizeSet = new Set()
   let tempHolder = []
   let start = true
   data.variants.forEach(variant => {
@@ -88,10 +89,26 @@ const ProductModal = ({ data, setModalShow }) => {
         } else {
           dataSet.add(option.value)
         }
+        if (option.name === "Size") {
+          sizeSet.add(option.value)
+        }
       })
       tempHolder.push(variant)
     }
   })
+
+  console.log('size set before adjustment: ', sizeSet)
+
+  //Sets array for size display
+  sizeSet = [...sizeSet].map((size) => {
+    if (size.includes("Ages")) return size
+    if (size.includes("/")) return size
+    if (size[0] === "X") return size
+    return size[0]
+  })
+
+
+
   let tSet = []
   tempHolder.forEach(val => {
     tSet.push(val)
@@ -113,12 +130,13 @@ const ProductModal = ({ data, setModalShow }) => {
     setQuantity(quantity + 1)
   }
   let generateVariantThumbs = variantData => {
-    return variantData.map(data => {
+    return variantData.map((data, index) => {
       try {
         return (
           <button
             className="variant-thumb"
             onClick={() => handleVariantSelection(data)}
+            key={index}
           >
             <img
               src={data[0].image.originalSrc}
@@ -140,7 +158,8 @@ const ProductModal = ({ data, setModalShow }) => {
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-  //console.log('main array: ', mainArray)
+  console.log('main array: ', data)
+  console.log('size set: ', sizeSet)
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
@@ -171,18 +190,29 @@ const ProductModal = ({ data, setModalShow }) => {
         <div className="modal-options">
           <div className="modal-price">
             from ${formattedPrice}{" "}
-            <span className="selectsize-text">Select Size</span>
+            {
+              sizeSet.length
+              ?
+              <span className="selectsize-text">Select Size</span>
+              :
+              undefined
+            }
           </div>
 
-          <div className="modal-type">
+          {/* <div className="modal-type">
             <div className="adult-type">Adult</div>
             <div className="kid-type">Children</div>
-          </div>
+          </div> */}
           <div className="modal-size">
-            <div className="product-size-option">S</div>
-            <div className="product-size-option">M</div>
-            <div className="product-size-option">L</div>
-            <div className="product-size-option">XL</div>
+            {
+              sizeSet.length
+              ?
+              sizeSet.map((size, index) => (
+                <div key={index} className="product-size-option">{size}</div>
+              ))
+              :
+              undefined
+            }
           </div>
           <div className="modal-quantity">
             <span>Quantity</span>
