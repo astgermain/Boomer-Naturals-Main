@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import "../styles/cart-page.css"
 
+import ErrImg from "../../content/assets/errorImg.png"
 
-const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, imgSrc, imgAltText, linkToProduct, removeFromCart, addToCart, lineItemId, extraData, toggleCart }) => {
+const CartPageItem = ({ productTitle, variantTitle, variantId, quantity, price, imgSrc = ErrImg, imgAltText = "err image", linkToProduct, removeFromCart, addToCart, lineItemId, extraData, toggleCart }) => {
     const [isLoading, setIsLoading] = useState(false)
     
     const [variantColor, variantSize, variantAdjustable] = variantTitle.split(' / ')
