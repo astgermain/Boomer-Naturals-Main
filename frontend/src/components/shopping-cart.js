@@ -3,6 +3,7 @@ import store from "../util/store"
 import CartItem from "./cart-item"
 import { Slide } from "react-awesome-reveal"
 import "../styles/shopping-cart.css"
+import { Link } from "gatsby"
 
 /**
  * addToCart - variantId, quantity, setIsLoading
@@ -121,10 +122,10 @@ const ShoppingCart = () => {
             </table>
           </div>
           <div className="cart-redirect-btns">
-            <a className="view-cart" href={"/cart"}>
+            <Link className="view-cart" to={"/cart"}>
               VIEW MY CART
-            </a>
-            <a className="checkout" href={checkout.webUrl}>
+            </Link>
+            <a className={`checkout ${PRODUCTS_IN_CART.length ? "" : "disabled"}`} href={checkout.webUrl}>
               CHECK OUT
             </a>
           </div>

@@ -3,7 +3,9 @@ import CartPageItem from "../components/cart-page-item"
 import Layout from "../components/layout"
 import store from "../util/store"
 import GUARANTEE_BANNER from "../../content/assets/guarantee_banner.png"
+import { Link } from "gatsby"
 import "../styles/cart-page.css"
+
 
 const ShoppingCartPage = ({ location }) => {
 
@@ -46,6 +48,15 @@ const ShoppingCartPage = ({ location }) => {
       const handleSpecialInstructionsChange = e => {
           setSpecialInstructions(e.target.value)
       }
+
+      const NO_PRODUCTS_IN_CART = (
+          <div className="no-products-in-cart-page-wrapper">
+              <p className="no-products-title">No Products in the cart</p>
+              <p>Before proceeding to checkout you must add some products to your shopping cart.</p>
+              <p>You will find a lot of interesting products on our "Shop" page.</p>
+              <Link to="/">CONTINUE SHOPPING</Link>
+          </div>
+      )
 
     return (
         <Layout location={location}>
@@ -143,7 +154,10 @@ const ShoppingCartPage = ({ location }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {PRODUCTS_IN_CART.map((data) => {
+                            { 
+                            PRODUCTS_IN_CART.length
+                            ?
+                            PRODUCTS_IN_CART.map((data) => {
                                 try {
                                     return (
                                         <CartPageItem
@@ -166,7 +180,10 @@ const ShoppingCartPage = ({ location }) => {
                                 } catch (err) {
                                     removeFromCart()
                                 }
-                            })}
+                            })
+                            :
+                            NO_PRODUCTS_IN_CART
+                        }
                         </tbody>
                     </table>
                 </div>
@@ -212,7 +229,7 @@ const ShoppingCartPage = ({ location }) => {
                         </table>
                         {differenceToDisplay(TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING)}
                         <div className="cart-redirect-btns">
-                            <a className="checkout" href={checkout.webUrl}>
+                            <a className={`checkout ${PRODUCTS_IN_CART.length ? "" : "disabled"}`} href={checkout.webUrl}>
                                 PROCEED TO CHECKOUT
                             </a>
                         </div>

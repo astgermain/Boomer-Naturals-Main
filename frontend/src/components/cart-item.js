@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from "gatsby"
 
 const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgSrc, imgAltText, linkToProduct, removeFromCart, addToCart, lineItemId, extraData }) => {
     const [isLoading, setIsLoading] = useState(false)
@@ -17,9 +18,9 @@ const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgS
     return (
         <div className="cart-item-wrapper">
             <div className="variant-icon-wrapper">
-                <a href={linkToProduct}>
+                <Link to={linkToProduct}>
                     <img src={imgSrc} alt={imgAltText} />
-                </a>
+                </Link>
             </div>
             <div className="cart-item-content-wrapper">
                 <div style={{ textAlign: 'left', margin: '1rem' }}>
