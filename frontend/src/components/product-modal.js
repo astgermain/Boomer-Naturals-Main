@@ -30,18 +30,18 @@ const ProductModal = ({ data, setModalShow }) => {
   const [selectedColor, setSelectedColor] = useState("")
   const [upsellShow, setupsellShow] = useState(false)
 
-  let handleVariantSelection = data => {
+  const handleVariantSelection = data => {
     try {
       // sets color value to state from what user selects
-      setSelectedColor(data[0].selectedOptions[0].value)
-      //console.log("selected data:", data)
+      const colorToSet = data[0].selectedOptions.find(element => element.name === "Color").value
+      setSelectedColor(colorToSet)
 
       //ToDo: Possible to use shopifyId over id possibly
-      setSelectedVariantId(
-        data[0].id.split("Shopify__ProductVariant__").join("")
-      )
+      // setSelectedVariantId(
+      //   data[0].id.split("Shopify__ProductVariant__").join("")
+      // )
     } catch {
-      //console.log("selection error")
+      console.log("color selection error")
     }
     try {
       setMainImage(data[0].image.originalSrc)
@@ -54,6 +54,16 @@ const ProductModal = ({ data, setModalShow }) => {
       setMainImageAlt("error image")
     }
   }
+
+    const handleSizeSelection = (e, size) => {
+      console.log('this is the size: ', size)
+      try {
+        setSelectedSize(size)
+      } catch {
+        console.log("size selection error")
+      }
+    }
+
   useEffect(() => { }, [])
 
   let mainArray = []
@@ -158,8 +168,8 @@ const ProductModal = ({ data, setModalShow }) => {
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-  console.log('main array: ', data)
-  console.log('size set: ', sizeSet)
+  // console.log('main array: ', data)
+  // console.log('size set: ', sizeSet)
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
@@ -168,13 +178,40 @@ const ProductModal = ({ data, setModalShow }) => {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleAddToCart = e => {
-    // in the future this will use the
-    // values grabbed from state to
-    // update the cart
-    const VARIANT_ID = data.variants[0].id
-      .split("Shopify__ProductVariant__")
-      .join("")
-    addToCart(selectedVariantId, quantity, setIsLoading)
+
+    // const VARIANT_ID = data.variants[0].id
+    //   .split("Shopify__ProductVariant__")
+    //   .join("")
+    const variantIdToAdd = data.variants
+      .find(variant => {
+        const optionsObject = {
+          color: false,
+          size: false
+        }
+        variant.selectedOptions.forEach((option) => {
+          // console.log('color: ', option.value === selectedColor)
+          // console.log('size: ', option.value.includes(selectedSize))
+          if(optionsObject.color && optionsObject.size) {
+            return
+          } else {
+            if(option.name === "Color" && option.value === selectedColor) {
+              optionsObject.color = true
+            }
+            if(option.name === "Size" && option.value.includes(selectedSize)) {
+              optionsObject.size = true
+            }
+          }
+        })
+        // console.log(object)
+        // return optionsObject.color && optionsObject.size
+    })
+    // .split("Shopify__ProductVariant__")
+    // .join("")
+
+
+console.log("added to cart:  ",variantIdToAdd)
+console.log('bruhshfasdlgjasdfjghadklshf')
+    // addToCart(variantIdToAdd, quantity, setIsLoading)
     //upsells products onclick add to cart
     setupsellShow(true)
   }
@@ -208,7 +245,7 @@ const ProductModal = ({ data, setModalShow }) => {
               sizeSet.length
               ?
               sizeSet.map((size, index) => (
-                <div key={index} className="product-size-option">{size}</div>
+                <div onClick={(e) => handleSizeSelection(e, size)} data-color={size} key={index} className="product-size-option">{size}</div>
               ))
               :
               undefined
@@ -238,7 +275,7 @@ const ProductModal = ({ data, setModalShow }) => {
           </div>
           <div className="modal-submit">
             {/* Add to cart button for testing */}
-            <button onClick={handleAddToCart} className="add-to-cart">
+            <button onClick={handleAddToCart} className={`add-to-cart`}>
               Add to Cart
             </button>
             {upsellShow && (
