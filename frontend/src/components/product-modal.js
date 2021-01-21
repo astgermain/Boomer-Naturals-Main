@@ -55,14 +55,14 @@ const ProductModal = ({ data, setModalShow }) => {
     }
   }
 
-    const handleSizeSelection = (e, size) => {
-      console.log('this is the size: ', size)
-      try {
-        setSelectedSize(size)
-      } catch {
-        console.log("size selection error")
-      }
+  const handleSizeSelection = (e, size) => {
+    console.log('this is the size: ', size)
+    try {
+      setSelectedSize(size)
+    } catch {
+      console.log("size selection error")
     }
+  }
 
   useEffect(() => { }, [])
 
@@ -188,29 +188,29 @@ const ProductModal = ({ data, setModalShow }) => {
           color: false,
           size: false
         }
+        // console.log("red boi", variant.selectedOptions, selectedColor)
         variant.selectedOptions.forEach((option) => {
           // console.log('color: ', option.value === selectedColor)
           // console.log('size: ', option.value.includes(selectedSize))
-          if(optionsObject.color && optionsObject.size) {
+          if (optionsObject.color && optionsObject.size) {
             return
           } else {
-            if(option.name === "Color" && option.value === selectedColor) {
+            if (option.name === "Color" && option.value === selectedColor) {
               optionsObject.color = true
+              console.log('reeedddd')
             }
-            if(option.name === "Size" && option.value.includes(selectedSize)) {
+            if (option.name === "Size" && option.value.includes(selectedSize)) {
+              console.log('siiiize')
               optionsObject.size = true
             }
           }
         })
         // console.log(object)
-        // return optionsObject.color && optionsObject.size
-    })
-    // .split("Shopify__ProductVariant__")
-    // .join("")
+        return optionsObject.color && optionsObject.size
+      })
 
-
-console.log("added to cart:  ",variantIdToAdd)
-console.log('bruhshfasdlgjasdfjghadklshf')
+    console.log("added to cart:  ", variantIdToAdd)
+    console.log('doop')
     // addToCart(variantIdToAdd, quantity, setIsLoading)
     //upsells products onclick add to cart
     setupsellShow(true)
@@ -229,10 +229,10 @@ console.log('bruhshfasdlgjasdfjghadklshf')
             from ${formattedPrice}{" "}
             {
               sizeSet.length
-              ?
-              <span className="selectsize-text">Select Size</span>
-              :
-              undefined
+                ?
+                <span className="selectsize-text">Select Size</span>
+                :
+                undefined
             }
           </div>
 
@@ -243,12 +243,12 @@ console.log('bruhshfasdlgjasdfjghadklshf')
           <div className="modal-size">
             {
               sizeSet.length
-              ?
-              sizeSet.map((size, index) => (
-                <div onClick={(e) => handleSizeSelection(e, size)} data-color={size} key={index} className="product-size-option">{size}</div>
-              ))
-              :
-              undefined
+                ?
+                sizeSet.map((size, index) => (
+                  <div onClick={(e) => handleSizeSelection(e, size)} data-color={size} key={index} className="product-size-option">{size}</div>
+                ))
+                :
+                undefined
             }
           </div>
           <div className="modal-quantity">
