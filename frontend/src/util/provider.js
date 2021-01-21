@@ -127,7 +127,7 @@ const Provider = ({ children }) => {
 
           navigate(addItem.webUrl)
         },
-        addToCart: async (variantId, quantity, setIsLoading, customAttributes = null) => {
+        addToCart: async (variantId, quantity, setIsLoading = null, customAttributes = null) => {
           setIsLoading(true)
           //console.log(variantId, quantity)
           const lineItem = [
@@ -144,7 +144,9 @@ const Provider = ({ children }) => {
             lineItem
           )
           //console.log(newCheckout)
-          setIsLoading(false)
+          if (setIsLoading) {
+            setIsLoading(false)
+          }
           setCheckout(newCheckout)
         },
         removeFromCart: async lineItemId => {

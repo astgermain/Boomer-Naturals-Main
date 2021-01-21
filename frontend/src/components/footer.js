@@ -323,7 +323,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="footer-bottom-right">
-          <div role="button" tabIndex={0} className="top-scroll-btn" onClick={handleScroll}
+          <div role="button" tabIndex={0} className="top-scroll-btn" onKeyDown={handleScroll} onClick={handleScroll}
           style={{position: ScrollingDown ? 'fixed' : 'relative',}}>
             Back to Top
           </div>

@@ -17,7 +17,7 @@ import HamburgerSale from "./hamburger-sale"
 import FooterVContent from "./hamburger-footer-v"
 
 const Hamburger = ({ close }) => {
-  const [isShown, setIsShown] = useState(false)
+  // const [isShown, setIsShown] = useState(false)
   // const [footerMenuTrack, setFooterMenuTrack] = useState(false)
   // const [footerMenuDir, setFooterMenuDir] = useState("up")
   const [shown, setShown] = useState(false)
@@ -96,16 +96,20 @@ const Hamburger = ({ close }) => {
     >
       <section className="hamburger-container">
         <div className="hamburger-content">
-          <a
+          <div
             id="hamburgerclose"
             className="close"
+            aria-label="close"
+            role="button"
+            tabIndex={0}
+            onKeyDown={yeetHamburgerMenu}
             onClick={yeetHamburgerMenu}
-          ></a>
+          ></div>
           <div className="hamburger-content-top">
             <div className="link-level1">
               <button>
                 <Link to="/" className="ham-link1">
-                  <span className="links" onClick={close}>
+                  <span className="links" role="button" tabIndex={0} onKeyDown={close} onClick={close}>
                     Home
                   </span>
                 </Link>
@@ -113,37 +117,37 @@ const Hamburger = ({ close }) => {
 
               <button onClick={() => openSideMenu("shop") }>
                 <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("shop") } className="links">Shop</span>
+                  <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("shop") } className="links">Shop</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("botanics") }>
                 <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("botanics") } className="links">Boomer Botanics</span>
+                  <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("botanics") } className="links">Boomer Botanics</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("news") }>
                 <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("news") } className="links">In The News</span>
+                  <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("news") } className="links">In The News</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("locations") }>
                 <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("locations") } className="links">Locations</span>
+                  <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("locations") } className="links">Locations</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("about") }>
                 <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("about")} className="links" >About</span>
+                  <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("about")} className="links" >About</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("sale") }>
                 <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("sale")} className="links">Sale</span>
+                  <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("sale")} className="links">Sale</span>
                 </Link>
               </button>
             </div>
