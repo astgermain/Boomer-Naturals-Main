@@ -66,7 +66,11 @@ const Layout = ({ location, title, children }) => {
               altText
               originalSrc
               localFile {
-                childImageSharp 
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
             }
             priceV2 {
