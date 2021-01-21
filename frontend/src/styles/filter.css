@@ -93,3 +93,41 @@ h4 {
 .checkbox-div {
     display: inline-flex;
 }
+
+
+.filter-sidebar h4{
+    margin: 20px 0px 15px 0px;
+    font-size: 1.6vw;
+}
+/* clear filter button and svg */
+.clearfilter{
+    color:white;
+    margin-top:20px;
+    padding:7px 10px 7px 7px;
+    background-color: var(--color-secondary);
+    border:none;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.svg-icon {
+    width: 1em;
+    height: 1em;
+    margin-top: 2px;
+    margin-right:6px;
+    border-radius: 50px;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill:white;
+    width: 20px;
+  }
+  
+  .svg-icon circle {
+    stroke: white;
+    stroke-width: 1;
+  }

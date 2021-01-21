@@ -66,11 +66,7 @@ const Layout = ({ location, title, children }) => {
               altText
               originalSrc
               localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
+                childImageSharp 
               }
             }
             priceV2 {
@@ -86,6 +82,37 @@ const Layout = ({ location, title, children }) => {
             shopifyId
             title
           }
+        }
+      }
+      allShopifyCollection {
+        nodes {
+          id
+          products {
+            shopifyId
+            id
+            title
+            priceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+            variants {
+              id
+            }
+            images {
+              originalSrc
+              altText
+              id
+              localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+            }
+          }
+          title
         }
       }
     }

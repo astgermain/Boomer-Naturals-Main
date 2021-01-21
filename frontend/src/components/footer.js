@@ -2,7 +2,7 @@
  * Footer Component
  */
 
-import React from "react"
+import React , { useState, useEffect} from "react"
 import { Link } from "gatsby"
 import "../styles/footer.css"
 import logo from "../../content/assets/bnlogoheader.png"
@@ -10,13 +10,57 @@ import payments from "../../content/assets/payments.png"
 
 const Footer = () => {
 
+  const [ScrollingDown, setScrollingDown] = useState(false);
+
+  const handleYScroll = (e) => {
+    if (window.scrollY > 0) {
+      setScrollingDown(true)
+    } else {
+      setScrollingDown(false)
+    }
+    
+}
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleYScroll)
+    return () => window.removeEventListener('scroll', handleYScroll)
+  }, [])
+  
+
+
+
+
+
+
+
+
+
+
+
+
+//    const currentScrollY = window.scrollY;
+
+//   useEffect(() => {
+    
+//   });
+// const handleTheScroll = () => {
+     
+//       if (currentScrollY > 50 ) {
+//         setScrollingDown(true);
+//       }
+//       console.log('current scroll: ',currentScrollY);
+//     };
+
+//     return () => window.addEventListener("scroll", { passive: true });
+
+
   const handleScroll = () => window.scrollTo({
     top: 0,
     behavior: 'smooth'
   })
 
   return (
-    <section className="footer-container">
+    <section className="footer-container" >
       <div className="footer-top">
         <div className="footer-top-left">
           <span className="footer-text-reg">
@@ -246,7 +290,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-top-right">
-          <span>Store Hours <br></br><span className="footer-text-reg"> <b>Daily:</b> 8am - 6pm (PST)</span></span>
+          <span>Store Hours <br></br><span className="footer-text-reg"> <b>Daily:</b> 8am - 5pm (PST)</span></span>
           <img
             src={payments}
             alt="Accepted Payments"
@@ -279,7 +323,8 @@ const Footer = () => {
           </Link>
         </div>
         <div className="footer-bottom-right">
-          <div role="button" tabIndex={0} className="top-scroll-btn" onClick={handleScroll}>
+          <div role="button" tabIndex={0} className="top-scroll-btn" onClick={handleScroll}
+          style={{position: ScrollingDown ? 'fixed' : 'relative',}}>
             Back to Top
           </div>
         </div>
