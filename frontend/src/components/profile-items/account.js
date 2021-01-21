@@ -217,7 +217,6 @@ const Account = () => {
               defaultAddress,
               orders,
             } = updatedCustomer || ""
-
             let {
               address1,
               address2,
@@ -236,7 +235,6 @@ const Account = () => {
             } catch {
               phone1 = ""
             }
-
             return (
               <>
                 <Pagination alt="My Account" altLink="/profile" />
@@ -426,7 +424,7 @@ const Account = () => {
     }
   }
 
-  useEffect(() => {}, [])
+  useEffect(() => { }, [])
 
   return <div>{queryFunc()}</div>
 }

@@ -21,8 +21,11 @@ const ShoppingCart = () => {
     removeFromCart,
     setValue,
     toggleCart,
+    customerAddress,
+    customerInfo
   } = useContext(store)
   useEffect(() => {
+
   }, [isCartOpen])
 
   const PRODUCTS_IN_CART = checkout.lineItems
@@ -51,7 +54,6 @@ const ShoppingCart = () => {
       <ul>
         {PRODUCTS_IN_CART.map((data) => {
           try {
-            console.log("PCCCCC", data)
             return(
             <li key={data.id}>
               <CartItem
@@ -70,7 +72,7 @@ const ShoppingCart = () => {
               />
             </li>
             )
-          } catch {
+          } catch(err) {
             removeFromCart()
           }
         })}
@@ -102,22 +104,24 @@ const ShoppingCart = () => {
           <div className="totals-display">
             {differenceToDisplay(TOTAL_DIFFERENCE_UNTIL_FREE_SHIPPING)}
             <table className="checkout-details-table">
-              <tr>
-                <td>Subtotal</td>
-                <td className="right-table-data">${SUBTOTAL_PRICE}</td>
-              </tr>
-              <tr>
-                <td>Tax</td>
-                <td className="right-table-data">Calculated at checkout</td>
-              </tr>
-              <tr>
-                <td>Shipping</td>
-                <td className="right-table-data">Calculated at checkout</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Subtotal</td>
+                  <td className="right-table-data">${SUBTOTAL_PRICE}</td>
+                </tr>
+                <tr>
+                  <td>Tax</td>
+                  <td className="right-table-data">Calculated at checkout</td>
+                </tr>
+                <tr>
+                  <td>Shipping</td>
+                  <td className="right-table-data">Calculated at checkout</td>
+                </tr>
+              </tbody>
             </table>
           </div>
           <div className="cart-redirect-btns">
-            <a className="view-cart" href={"/"}>
+            <a className="view-cart" href={"/cart"}>
               VIEW MY CART
             </a>
             <a className="checkout" href={checkout.webUrl}>

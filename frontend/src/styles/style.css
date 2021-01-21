@@ -66,8 +66,10 @@
     --color-text: #2e353f;
     --color-text-light: #4f5969;
     --color-heading: #1a202c;
+    --color-off-black: #111;
     --color-heading-black: black;
     --color-accent: #d1dce5;
+    --color-dim: #999;
 }
 
 
