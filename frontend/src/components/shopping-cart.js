@@ -25,7 +25,7 @@ const ShoppingCart = () => {
     customerInfo
   } = useContext(store)
   useEffect(() => {
-    console.log(customerAddress, customerInfo)
+
   }, [isCartOpen])
 
   const PRODUCTS_IN_CART = checkout.lineItems
