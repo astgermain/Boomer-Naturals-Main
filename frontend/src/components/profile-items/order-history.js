@@ -1,11 +1,8 @@
-import React, { useContext, useEffect } from "react"
-import StoreContext from "../../util/store"
+import React, { useEffect } from "react"
 import "../../styles/order-history.css"
 
 const OrderHistory = ({ data }) => {
-  console.log("order history data: ", data)
-  const { customerAccessToken, setValue } = useContext(StoreContext)
-  console.log("ctoken on orderhistory:", customerAccessToken)
+  //console.log("order history data: ", data)
   // Code Snippet taken from the post
   function getSafe(fn, defaultVal) {
     try {

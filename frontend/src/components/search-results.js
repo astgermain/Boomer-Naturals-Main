@@ -4,6 +4,7 @@ import "../styles/search.css"
 import MainButton from "../components/main-button"
 
 const SearchResults = ({ allProducts, productsArray, searchInput }) => {
+
     const [setModalShow] = useState("")
     // Num of products to display
     const ITEMS_TO_SHOW = 12

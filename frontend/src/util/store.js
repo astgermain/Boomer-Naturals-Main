@@ -6,6 +6,8 @@ const client = Client.buildClient({
   domain: `boomerfacemasks.myshopify.com`,
 })
 
+
+
 export const defaultStoreContext = {
   client,
   adding: true,
@@ -16,7 +18,8 @@ export const defaultStoreContext = {
   //shop: {},
   //filteredType: "all",
   //filteredSort: "featured",
-  sortedData: {},
+  sortedData: [],
+  collectionData: [],
   customerAccessToken: null,
   customerAddress: {},
   customerInfo: {},
@@ -24,15 +27,16 @@ export const defaultStoreContext = {
   updateCustomerInfo: () => {},
   addAddressToCheckout: () => {},
   setValue: () => {},
+  setSortedValue: () => {},
+  setCollectionValue: async () => {},
   buyNow: async () => {},
   addToCart: () => {},
   removeFromCart: () => {},
   //addVariantToCartAndBuyNow: () => {},
   //removeLineItem: () => {},
   //updateLineItem: () => {},
-  
 }
 
 const StoreContext = React.createContext(defaultStoreContext)
-console.log('client: ', StoreContext)
+console.log("client: ", StoreContext)
 export default StoreContext

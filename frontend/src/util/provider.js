@@ -10,6 +10,7 @@ const Provider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [loading, setLoading] = useState(defaultStoreContext.loading)
   const [customerAddress, setCustomerAddress] = useState({})
+  const [collectionData, setCollectionData] = useState({})
   const [customerInfo, setCustomerInfo] = useState({})
   const toggleCart = () => {
     //console.log("cart")
@@ -72,6 +73,7 @@ const Provider = ({ children }) => {
         toggleCart,
         loading,
         sortedData: getLocalStorage("sortedData"),
+        collectionData,
         customerAccessToken: getLocalStorage("customerAccessToken"),
         customerAddress,
         customerInfo,
@@ -110,6 +112,9 @@ const Provider = ({ children }) => {
           updateStore(state => {
             return { ...state, sortedData: value }
           })
+        },
+        setCollectionValue: value => {
+          setCollectionData(value)
         },
         buyNow: async (productID, quantity, setIsLoading) => {
           setIsLoading(true)
