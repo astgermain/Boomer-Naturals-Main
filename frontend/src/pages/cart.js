@@ -12,14 +12,15 @@ const ShoppingCartPage = ({ location }) => {
     
     const {
         addToCart,
-        isCartOpen,
-        buyNow,
+        // isCartOpen,
+        // buyNow,
         checkout,
         removeFromCart,
-        setValue,
+        // setValue,
         toggleCart,
     } = useContext(store)
 
+    /* eslint-disable no-unused-vars */
     const [specialInstructions, setSpecialInstructions] = useState("")
 
     const PRODUCTS_IN_CART = checkout.lineItems
@@ -146,7 +147,7 @@ const ShoppingCartPage = ({ location }) => {
                     <table className="cart-table-wrapper">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th aria-label="empty space"></th>
                                 <th>PRODUCT</th>
                                 <th>PRICE</th>
                                 <th>QUANTITY</th>
@@ -157,6 +158,7 @@ const ShoppingCartPage = ({ location }) => {
                             { 
                             PRODUCTS_IN_CART.length
                             ?
+                            /* eslint-disable array-callback-return */
                             PRODUCTS_IN_CART.map((data) => {
                                 try {
                                     return (
