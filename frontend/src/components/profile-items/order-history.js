@@ -4,7 +4,7 @@ import "../../styles/order-history.css"
 
 const OrderHistory = ({ data }) => {
   console.log("order history data: ", data)
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { customerAccessToken } = useContext(StoreContext)
   console.log("ctoken on orderhistory:", customerAccessToken)
   // Code Snippet taken from the post
   function getSafe(fn, defaultVal) {
@@ -26,7 +26,7 @@ const OrderHistory = ({ data }) => {
   }
   useEffect(() => {}, [data])
   let renderVar =
-    orders != undefined ? (
+    orders !== undefined ? (
       orders.map(order => {
         return (
             <tr key={`${order.node.orderNumber}`}>

@@ -9,9 +9,8 @@ import StoreContext from "../util/store"
 const Search = ({ closeSearch, data, setUpdatedSearch }) => {
 
   const [searchValue, setSearchValue] = useState("")
-  const [searchResults, setSearchResults] = useState({})
+  // const [searchResults, setSearchResults] = useState({})
   const [allProds, setAllProds] = useState({})
-  const { customerAccessToken, setValue } = useContext(StoreContext)
   const { sortedData, setSortedValue } = useContext(StoreContext)
 
   useEffect(() => {
