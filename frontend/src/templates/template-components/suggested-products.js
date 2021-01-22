@@ -93,8 +93,8 @@ const SuggestedProducts = () => {
   // Array of shopify nodes is in alphabetical order.  Make sure to destructure array in same order
   const [
     MOST_POPULAR_DATA,
-    NEW_ARRIVALS_DATA,
-    ON_SALE_DATA,
+    // NEW_ARRIVALS_DATA,
+    // ON_SALE_DATA,
   ] = data.allShopifyCollection.nodes
     
     return ( 

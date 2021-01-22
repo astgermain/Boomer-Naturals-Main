@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { navigate } from "gatsby"
 import StoreContext, { defaultStoreContext } from "./store"
 const isBrowser = typeof window !== "undefined"
@@ -8,6 +8,7 @@ const Provider = ({ children }) => {
   const [store, updateStore] = useState(defaultStoreContext)
   const [checkout, setCheckout] = useState(defaultStoreContext.checkout)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  /* eslint-disable no-unused-vars */
   const [loading, setLoading] = useState(defaultStoreContext.loading)
   const [customerAddress, setCustomerAddress] = useState({})
   const [customerInfo, setCustomerInfo] = useState({})
@@ -34,6 +35,8 @@ const Provider = ({ children }) => {
     }
   }
 
+  const memoizedCreateNewCheckout = useCallback(createNewCheckout)
+
   useEffect(() => {
     const initializeCheckout = async () => {
       try {
@@ -49,11 +52,11 @@ const Provider = ({ children }) => {
           // if id exits , fetch id from shopify
           newCheckout = await store.client.checkout.fetch(existingCheckoutId)
           if (newCheckout.completedAt) {
-            newCheckout = await createNewCheckout()
+            newCheckout = await memoizedCreateNewCheckout()
           }
         } else {
           //else create a new checkout id
-          newCheckout = await createNewCheckout()
+          newCheckout = await memoizedCreateNewCheckout()
         }
         // Set id in state
         setCheckout(newCheckout)
@@ -62,7 +65,7 @@ const Provider = ({ children }) => {
       }
     }
     initializeCheckout()
-  }, [])
+  }, [memoizedCreateNewCheckout, store.client.checkout])
   return (
     <StoreContext.Provider
       value={{

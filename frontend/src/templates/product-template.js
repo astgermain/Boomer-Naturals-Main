@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import "../styles/product-template.css"
 import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
@@ -24,14 +24,16 @@ const ProductTemplate = ({ data, pageContext, location }) => {
     }
   }
   const [quantity, setQuantity] = useState(1)
+  /* eslint-disable no-unused-vars */
   const [selectedColor, setSelectedColor] = useState("")
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
+  /* eslint-disable no-unused-vars */
   const [selectedVariantId, setSelectedVariantId] = useState("")
   const [bottomTabs, setbottomTabs] = useState("description")
 
 
-  
+
 
   const { handle, title, description, descriptionHtml } = pageContext.node
 
@@ -153,7 +155,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
             className="variant-thumb"
             onClick={() => handleVariantSelection(data)}
           >
-            <img src={errorImg} className="variant-thumb" alt="error image" />
+            <img src={errorImg} className="variant-thumb" alt="error" />
           </button>
         )
       }
@@ -199,7 +201,7 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   })
 
   //console.log("thisone", pageContext.node)
-  
+
   //size
 
   //quantity
@@ -211,9 +213,9 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   }
   //addtocart
 
-const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
-const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
-console.log(pageContext)
+  const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
+  const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
+  console.log(pageContext)
 
 
 
@@ -253,6 +255,7 @@ console.log(pageContext)
                 tabIndex={0}
                 className="quantityButtonPartR"
                 onClick={handleSub}
+                onKeyDown={handleSub}
               >
                 <span>-</span>
               </div>
@@ -262,6 +265,7 @@ console.log(pageContext)
                 tabIndex={0}
                 className="quantityButtonPartL"
                 onClick={handleAdd}
+                onKeyDown={handleAdd}
               >
                 <span>+</span>
               </div>
@@ -284,29 +288,41 @@ console.log(pageContext)
       <div className="mask-description">
         <div className="bottomtab-container">
           <ul>
-            <li
-              className={`bottomtab-button ${ bottomTabs === "description" ? 'active' : ''}`}
-              onClick={() => setbottomTabs("description")}
-            >
-              <span className="">Description</span>
+            <li>
+              <button
+                className={`bottomtab-button ${bottomTabs === "description" ? 'active' : ''}`}
+                onClick={() => setbottomTabs("description")}
+                onKeyDown={() => setbottomTabs("description")}
+              >
+                <span className="">Description</span>
+              </button>
             </li>
-            <li
-              className={`bottomtab-button ${ bottomTabs === "shipping" ? 'active' : ''}`}
-              onClick={() => setbottomTabs("shipping")}
-            >
-              <span className="">Shipping</span>
+            <li>
+              <button
+                className={`bottomtab-button ${bottomTabs === "shipping" ? 'active' : ''}`}
+                onClick={() => setbottomTabs("shipping")}
+                onKeyDown={() => setbottomTabs("shipping")}
+              >
+                <span className="">Shipping</span>
+              </button>
             </li>
-            <li
-              className={`bottomtab-button ${ bottomTabs === "sizing" ? 'active' : ''}`}
-              onClick={() => setbottomTabs("sizing")}
-            >
-              <span className="">Sizing Info</span>
+            <li>
+              <button
+                className={`bottomtab-button ${bottomTabs === "sizing" ? 'active' : ''}`}
+                onClick={() => setbottomTabs("sizing")}
+                onKeyDown={() => setbottomTabs("sizing")}
+              >
+                <span className="">Sizing Info</span>
+              </button>
             </li>
-            <li
-              className={`bottomtab-button ${ bottomTabs === "review" ? 'active' : ''}`}
-              onClick={() => setbottomTabs("review")}
-            >
-              <span className="">Review</span>
+            <li>
+              <button
+                className={`bottomtab-button ${bottomTabs === "review" ? 'active' : ''}`}
+                onClick={() => setbottomTabs("review")}
+                onKeyDown={() => setbottomTabs("review")}
+              >
+                <span className="">Review</span>
+              </button>
             </li>
           </ul>
           <div className="lineline"></div>
@@ -314,21 +330,21 @@ console.log(pageContext)
       </div>
 
       <div className="bottomtab-content">
-       <section className={`${bottomTabs === "description" ? '' : 'disable'}`}
-            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-            itemProp="articleBody"
-          />
-        
-          <div className={`${bottomTabs === "shipping" ? '' : 'disable'}`}>
-            <p>
-              Most orders ship in 1-3 Business Days. We appreciate your
-              business, and we fulfill and ship orders as quickly as we can.
-              Please be patient and know that we strive to ship your order in a
-              timely manner. Please feel free to contact us to check on your
+        <section className={`${bottomTabs === "description" ? '' : 'disable'}`}
+          dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+          itemProp="articleBody"
+        />
+
+        <div className={`${bottomTabs === "shipping" ? '' : 'disable'}`}>
+          <p>
+            Most orders ship in 1-3 Business Days. We appreciate your
+            business, and we fulfill and ship orders as quickly as we can.
+            Please be patient and know that we strive to ship your order in a
+            timely manner. Please feel free to contact us to check on your
               order.{" "}
-            </p>
-            <p>
-              CONTACT US:
+          </p>
+          <p>
+            CONTACT US:
               <br />
               For questions about an order, information about our privacy
               practices, or if you have a concern or complaint, please contact
@@ -341,12 +357,12 @@ console.log(pageContext)
               <br />
               (702) 960-4843
             </p>
-          </div>
+        </div>
 
-        
-          <SizingInfo SizingDisable={SizingDisable}  pageContext={pageContext} />
-        
-          <Reviews ReviewDisable={ReviewDisable} pageContext={pageContext} data={data} location={location} />
+
+        <SizingInfo SizingDisable={SizingDisable} pageContext={pageContext} />
+
+        <Reviews ReviewDisable={ReviewDisable} pageContext={pageContext} data={data} location={location} />
       </div>
 
       <SuggestedProducts data={data} />
