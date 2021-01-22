@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Link } from 'gatsby'
+import StoreContext from '../util/store'
 import "../styles/upsell.css"
 
 const UpSell = ({ upsellShow, setupsellShow  }) => {

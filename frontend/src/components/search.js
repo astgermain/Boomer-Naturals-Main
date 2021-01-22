@@ -14,7 +14,7 @@ const Search = ({ closeSearch, data, setUpdatedSearch }) => {
   const { sortedData, setSortedValue } = useContext(StoreContext)
 
   useEffect(() => {
-    /* eslint-disable array-callback-return */
+    
       let filteredData = data.allShopifyProduct.nodes.filter(product => {
         if (
           product.title.toLowerCase().match(searchValue.toLowerCase()) &&
@@ -28,7 +28,7 @@ const Search = ({ closeSearch, data, setUpdatedSearch }) => {
       setSortedValue(filteredData)
       return function cleanup() {
       }
-  }, [searchValue, data.allShopifyProduct.nodes, setSortedValue])
+  }, [searchValue])
 
   // prevents reload on form submit
   const handleSubmit = e => {
