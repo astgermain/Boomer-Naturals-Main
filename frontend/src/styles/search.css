@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 75vw;
-  margin: 0 12.5vw;
+  margin: 0 12.5vw!important;
 }
 .results-list .product-image {
   height: auto;
