@@ -10,7 +10,7 @@ import errorImg from "../../content/assets/errorImg.png"
 import UpSell from "./upsell"
 import "../styles/upsell.css"
 
-const ProductModal = ({ data, setModalShow }) => {
+const ProductModal = ({ type1, type2, data, setModalShow }) => {
   const { addToCart } = useContext(store)
 
   let x = () => {
@@ -165,9 +165,9 @@ const ProductModal = ({ data, setModalShow }) => {
       duration={500}
       triggerOnce={true}
       direction="up"
-      className="product-modal"
+      className={type1}
     >
-      <div className="product-modal-inner">
+      <div  className={type2}>
         <div className="modal-options">
           <div className="modal-price">
             from ${formattedPrice}{" "}

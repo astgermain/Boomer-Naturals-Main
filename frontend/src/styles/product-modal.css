@@ -8,9 +8,13 @@
   display: flex;
   margin-left: -24.5vw;
 }
+/* product modal inside search results */
+/* #search-result-modal > div:first-child{
+  margin-left: none!important;
+} */
 
 .product-modal-inner {
-  width: 80vw;
+  width: 74vw;
   max-height: 330px;
   height: 100%;
   z-index: 9;

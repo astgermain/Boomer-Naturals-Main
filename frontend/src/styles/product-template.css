@@ -227,19 +227,21 @@
 .disable{
     display:none;
 }
-table{
-    width: 50%;
+.sizing-table{
+    width: 50%!important;
     margin-bottom: var(--spacing-4);
+    border: none!important;
 }
-tr{
+tr.sizing{
     display: flex;
     justify-content: space-between;
 }
 table.inner-table{
     width:100%;
 }
-th{
+th.sizing{
     text-align: left;
+    border: none!important;
 }
 .sizes-w-h-flex{
     width: 50%;

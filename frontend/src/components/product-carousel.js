@@ -98,10 +98,11 @@ const ProductCarousel = ({whichPage}) => {
 
   // The order of array items is the order the buttons are displayed from top to bottom
   const NAV_TITLE_ARR = [
-    NEW_ARRIVALS_DATA.title,
-    MOST_POPULAR_DATA.title,
-    ON_SALE_DATA.title,
+    NEW_ARRIVALS_DATA?.title,
+    MOST_POPULAR_DATA?.title,
+    ON_SALE_DATA?.title,
   ]
+  
 
   // Products array is updated with array from query data that matches clicked button
   useEffect(() => {

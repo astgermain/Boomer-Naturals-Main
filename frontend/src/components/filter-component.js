@@ -2,13 +2,14 @@ import React, { useEffect, useState, useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import "../styles/filter.css"
 import Product from "../components/product"
+import ProductModal from "./product-modal"
 import Checkbox from "../components/checkbox"
 import StoreContext from "../util/store"
 import Layout from "../components/layout"
 
 const FilterComponent = ({data}) => {
 const ITEMS_TO_SHOW = 100
-const [setModalShow] = useState("")
+const [modalShow, setModalShow] = useState("")
 const [ptActive, setPtActive] = useState()
 const [ctActive, setCtActive] = useState()
 const [updatedSearch, setUpdatedSearch] = useState({})
@@ -353,7 +354,13 @@ return(
           </div>
         </div> */}
         </div>
-        <div className="filter-results">{productsShown}</div>
+        
+        <div className="filter-results">
+          
+                {modalShow.availableForSale && (
+                <ProductModal type1='product-modal-filter' type2='product-modal-inner' data={modalShow} setModalShow={setModalShow} />
+                )}
+            {productsShown}</div>
       </section>
 )
 
