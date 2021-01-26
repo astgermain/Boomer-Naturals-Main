@@ -80,7 +80,7 @@ const Product = ({ productInfo, handleModalShow }) => {
     >
       {areMultipleVariants ? (
         <div className="multiple-varient-product">
-          <Link to={productInfo.onlineStoreUrl}>
+          <a href={productInfo.onlineStoreUrl}>
             <div className="product-header">
               <title  className="product-header-text">{productInfo.title}</title>
               <div className="product-header-price">
@@ -88,7 +88,7 @@ const Product = ({ productInfo, handleModalShow }) => {
                 <span className="price-mini">${formattedPrice}</span>
               </div>
             </div>
-          </Link>
+          </a>
           <Link to="/">
             <div className="product-images">{fluidImage()}</div>
           </Link>
