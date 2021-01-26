@@ -46,7 +46,7 @@ const Search = ( { closeSearch, data, setUpdatedSearch } ) => {
             />
           </label>
         </form>
-        <button className="close" onClick={closeSearch}>
+        <button className="close-search" onClick={closeSearch}>
           {" "}
         </button>
       </div>
