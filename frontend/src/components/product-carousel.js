@@ -4,11 +4,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import "../styles/product-carousel.css"
 import ProductSlider from "./productslider"
 import MainButton from "./main-button"
+import SuggestedProductDisplay from "./template-components/suggested-product-display"
 
-const ProductCarousel = () => {
+const ProductCarousel = ({whichPage}) => {
   const [clickedNavBtn, setClickedNavBtn] = useState("New Arrivals")
   const [renderedProductsArray, setRenderedProductsArray] = useState([])
-
   const data = useStaticQuery(graphql`
     {
       allShopifyCollection(
@@ -41,13 +41,6 @@ const ProductCarousel = () => {
             images {
               altText
               originalSrc
-              localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
             }
             priceRange {
               maxVariantPrice {
@@ -105,10 +98,11 @@ const ProductCarousel = () => {
 
   // The order of array items is the order the buttons are displayed from top to bottom
   const NAV_TITLE_ARR = [
-    NEW_ARRIVALS_DATA.title,
-    MOST_POPULAR_DATA.title,
-    ON_SALE_DATA.title,
+    NEW_ARRIVALS_DATA?.title,
+    MOST_POPULAR_DATA?.title,
+    ON_SALE_DATA?.title,
   ]
+  
 
   // Products array is updated with array from query data that matches clicked button
   useEffect(() => {
@@ -149,6 +143,8 @@ const ProductCarousel = () => {
   // )
 
   return (
+    <>
+    {whichPage == "product-carousel" &&
     <section className="product-carousel-container">
       <div className="carousel-nav-links-container">
         <ul className="carousel-nav-wrapper">
@@ -160,6 +156,14 @@ const ProductCarousel = () => {
       </div>
       <ProductSlider collection={renderedProductsArray} />
     </section>
+    }
+    {whichPage == "suggested-products" &&
+    <div className="suggested-products-container">
+            <span>Suggested Products</span>
+            <SuggestedProductDisplay MOST_POPULAR_DATA={MOST_POPULAR_DATA} />
+        </div>
+  }
+    </>
   )
 }
 

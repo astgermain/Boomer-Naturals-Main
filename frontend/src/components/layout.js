@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import Header from "./header"
 import Footer from "./footer"
 import ShoppingCart from "./shopping-cart"
@@ -6,11 +6,15 @@ import { useStaticQuery, graphql } from "gatsby"
 // import Client from "shopify-buy"
 import StoreContext from "../util/store"
 import HomeLayout from "./home-layout"
+import Filter from "../pages/filter"
+import FilterComponent from "./filter-component"
+
 
 const Layout = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  const { isCartOpen } = useContext(StoreContext)
+  const { isCartOpen, toggleCart } = useContext(StoreContext)
+  const { collectionData, setCollectionValue } = useContext(StoreContext)
 
   const data = useStaticQuery(graphql`
     {
@@ -23,13 +27,6 @@ const Layout = ({ location, children }) => {
           images {
             altText
             originalSrc
-            localFile {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
           onlineStoreUrl
           priceRange {
@@ -76,47 +73,95 @@ const Layout = ({ location, children }) => {
           }
         }
       }
-      allShopifyCollection {
+      allShopifyCollection{
         nodes {
-          id
+          shopifyId
+          title
+          descriptionHtml
+          image {
+            altText
+            src
+            localFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          internal {
+            content
+            description
+            ignoreType
+            mediaType
+          }
           products {
-            shopifyId
-            id
             title
+            shopifyId
+            onlineStoreUrl
+            descriptionHtml
+            availableForSale
+            totalInventory
+            images {
+              altText
+              originalSrc
+            }
             priceRange {
+              maxVariantPrice {
+                amount
+                currencyCode
+              }
               minVariantPrice {
+                currencyCode
                 amount
               }
             }
+            productType
+            tags
             variants {
+              title
               id
-            }
-            images {
-              originalSrc
-              altText
-              id
-              localFile {
+              selectedOptions {
+                name
+                value
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+              image {
+                altText
+                originalSrc
+                localFile {
                   childImageSharp {
                     fluid {
                       ...GatsbyImageSharpFluid
                     }
                   }
                 }
+              }
+              availableForSale
+              quantityAvailable
+              selectedOptions {
+                name
+                value
+              }
             }
           }
-          title
         }
       }
     }
   `)
 
+  useEffect(() => {
+    console.log("Layout Query Data", data)
+    setCollectionValue(data.allShopifyCollection.nodes)
+  }, [])
+  console.log('pathname', location.pathname)
   let content
   if (isRootPath) {
     content = (
-
-
-      <HomeLayout />
-
+      <HomeLayout data={data} />
 
       /*
       <h1 className="main-heading">
@@ -124,23 +169,22 @@ const Layout = ({ location, children }) => {
       </h1>
       */
     )
+  } else if(location.pathname == `/filter`){
+    content = <FilterComponent data={data} />
   }
   else {
-    content = (
-
-      children
-      /*
+    content = children
+    /*
       <Link className="header-link-home" to="/">
         {title}
       </Link>
       */
-    )
   }
 
   return (
     <>
       {/* Overlay for when shopping cart is opened */}
-      <div style={isCartOpen ? { display: 'flex' } : {}}>
+      <div style={isCartOpen ? { display: "flex" } : {}}>
         <div
           className={`layout-body-wrapper ${isCartOpen && "active"}`}
           data-is-root-path={isRootPath}

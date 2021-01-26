@@ -10,13 +10,13 @@ import Insta from "./home-items/insta"
 import News from "./home-items/news"
 
 
-const HomeLayout = () => {
+const HomeLayout = ({data}) => {
   return (
     <main className="main-section">
       <Hero />
-      <Featured />
+      <Featured data={data}/>
       <Categories />
-      <ProductCarousel />
+      <ProductCarousel whichPage={"product-carousel"} />
       <Insta />
       <AboutFaceMask />
       <News />

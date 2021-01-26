@@ -131,3 +131,15 @@ h4 {
     stroke: white;
     stroke-width: 1;
   }
+
+  /* product modal filter page */
+  .product-modal-filter {
+    position: absolute;
+    width: 65.6vw;
+    max-height: 330px;
+    height: 100%;
+    z-index: 10;
+    background: white;
+    display: flex;
+    margin-top:10px;
+  }

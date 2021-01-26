@@ -5,98 +5,8 @@ import ProductSlider from "../productslider"
 import Infocta from "../infocta"
 import "../../styles/featured.css"
 
-const Featured = () => {
-  const data = useStaticQuery(graphql`
-    {
-      allShopifyCollection(
-        filter: { title: { regex: "/Featured Covers/" } }
-        sort: { fields: title }
-      ) {
-        nodes {
-          shopifyId
-          title
-          descriptionHtml
-          image {
-            altText
-            src
-            localFile {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          internal {
-            content
-            description
-            ignoreType
-            mediaType
-          }
-          products {
-            title
-            shopifyId
-            onlineStoreUrl
-            descriptionHtml
-            availableForSale
-            totalInventory
-            images {
-              altText
-              originalSrc
-              localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-            priceRange {
-              maxVariantPrice {
-                amount
-                currencyCode
-              }
-              minVariantPrice {
-                currencyCode
-                amount
-              }
-            }
-            productType
-            tags
-            variants {
-              title
-              id
-              selectedOptions {
-                name
-                value
-              }
-              priceV2 {
-                amount
-                currencyCode
-              }
-              image {
-                altText
-                originalSrc
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              availableForSale
-              quantityAvailable
-              selectedOptions {
-                name
-                value
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+const Featured = ({data}) => {
+  
 
   useEffect(() => {}, [])
 
@@ -131,11 +41,11 @@ const Featured = () => {
       </g>
     </svg>
   )
-
+console.log('featured data', data)
   let pSlide = () => {
     try{
       return(
-      <ProductSlider collection={data.allShopifyCollection.nodes[0].products} />
+      <ProductSlider collection={data.allShopifyCollection.nodes[4].products} />
       )
     }
     catch {
