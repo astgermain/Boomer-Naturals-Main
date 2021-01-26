@@ -96,7 +96,6 @@ const ProductCarousel = ({whichPage}) => {
     ON_SALE_DATA,
   ] = data.allShopifyCollection.nodes
 
-console.log(NEW_ARRIVALS_DATA.title)
   // The order of array items is the order the buttons are displayed from top to bottom
   const NAV_TITLE_ARR = [
     NEW_ARRIVALS_DATA?.title,
