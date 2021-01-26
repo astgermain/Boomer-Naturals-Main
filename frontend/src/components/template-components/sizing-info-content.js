@@ -10,12 +10,12 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
       case "Face Cover":
         return (
           <div>
-            <table>
-            <tbody>
-              <tr>
-                <th>Sizes</th>
-                <th>W</th>
-                <th>H</th>
+            <table className="sizing-table">
+            <tbody className="sizing">
+              <tr className="sizing">
+                <th className="sizing">Sizes</th>
+                <th className="sizing">W</th>
+                <th className="sizing">H</th>
               </tr>
             </tbody>
             </table>
@@ -55,12 +55,12 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
       case "Neck Gaiter":
         return (
           <div>
-            <table>
-            <tbody>
-              <tr>
-                <th>Sizes</th>
-                <th>W</th>
-                <th>H</th>
+            <table className="sizing-table">
+            <tbody className="sizing">
+              <tr className="sizing">
+                <th className="sizing">Sizes</th>
+                <th className="sizing">W</th>
+                <th className="sizing">H</th>
               </tr>
             </tbody>
             </table>
@@ -102,12 +102,12 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
       case "Shield Cover":
         return (
           <div>
-            <table>
-            <tbody>
-              <tr>
-                <th>Sizes</th>
-                <th>W</th>
-                <th>H</th>
+            <table className="sizing-table">
+            <tbody className="sizing">
+              <tr className="sizing">
+                <th className="sizing">Sizes</th>
+                <th className="sizing">W</th>
+                <th className="sizing">H</th>
               </tr>
             </tbody>
             </table>
@@ -147,12 +147,12 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
       case "Ear Savers":
         return (
           <div>
-            <table>
-            <tbody>
-              <tr>
-                <th>Sizes</th>
-                <th>W</th>
-                <th>H</th>
+            <table className="sizing-table">
+            <tbody className="sizing">
+              <tr className="sizing">
+                <th className="sizing">Sizes</th>
+                <th className="sizing">W</th>
+                <th className="sizing">H</th>
               </tr>
             </tbody>
             </table>
@@ -415,7 +415,7 @@ const SizingContent = ({ ProductSizes, pageContext }) => {
       case "Hand Sanitizer":
         return(
           <div>
-            <table>
+            <table className="sizing-table">
             <tbody>
               <tr>
                 <th>Sizes</th>

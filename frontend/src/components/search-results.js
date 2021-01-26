@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import Product from "./product";
+import ProductModal from "./product-modal"
 import "../styles/search.css"
 import MainButton from "../components/main-button"
 
 const SearchResults = ({ allProducts, productsArray, searchInput }) => {
 
-    const [setModalShow] = useState("")
+    const [modalShow, setModalShow] = useState("")
     // Num of products to display
     const ITEMS_TO_SHOW = 12
 
@@ -50,10 +51,19 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
             {createResultsInfo(ITEMS_TO_SHOW, productsArray.length)}
             {0 < productsArray.length && SEE_MORE_BTN}
             
+            
             </div>
-            <ul className="results-list">
-                {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
-            </ul>
+            <div id="search-result-modal">
+                {modalShow.availableForSale && (
+                <ProductModal data={modalShow} setModalShow={setModalShow} />
+                )} 
+            </div>
+
+              <ul className="results-list">  
+               
+            {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
+           </ul>
+           
             
         </div>
     )
