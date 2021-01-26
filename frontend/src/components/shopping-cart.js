@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import store from "../util/store"
 import CartItem from "./cart-item"
 import { Slide } from "react-awesome-reveal"
@@ -17,13 +17,13 @@ const ShoppingCart = () => {
   const {
     addToCart,
     isCartOpen,
-    buyNow,
+    // buyNow,
     checkout,
     removeFromCart,
-    setValue,
+    // setValue,
     toggleCart,
-    customerAddress,
-    customerInfo
+    // customerAddress,
+    // customerInfo
   } = useContext(store)
   useEffect(() => {
 
@@ -53,6 +53,7 @@ const ShoppingCart = () => {
   }
   const SHOPPING_CART_ITEMS = (
       <ul>
+        {/*eslint-disable */}
         {PRODUCTS_IN_CART.map((data) => {
           try {
             return(
@@ -77,6 +78,7 @@ const ShoppingCart = () => {
             removeFromCart()
           }
         })}
+        {/*eslint-disable */}
       </ul>
     )
   
@@ -93,7 +95,7 @@ const ShoppingCart = () => {
       <section className="shopping-cart-wrapper">
         <header>
           <h3>My Cart</h3>
-          <button className="close" onClick={toggleCart}></button>
+          <button className="close" aria-label="close" onClick={toggleCart}></button>
         </header>
         <div className="shopping-cart-body">
           <div>

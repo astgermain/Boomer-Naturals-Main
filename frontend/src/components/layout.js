@@ -6,14 +6,15 @@ import { useStaticQuery, graphql } from "gatsby"
 // import Client from "shopify-buy"
 import StoreContext from "../util/store"
 import HomeLayout from "./home-layout"
-import Filter from "../pages/filter"
 import FilterComponent from "./filter-component"
 
 
 const Layout = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  // eslint-disable-next-line no-unused-vars
   const { isCartOpen, toggleCart } = useContext(StoreContext)
+  // eslint-disable-next-line no-unused-vars
   const { collectionData, setCollectionValue } = useContext(StoreContext)
 
   const data = useStaticQuery(graphql`
@@ -156,7 +157,7 @@ const Layout = ({ location, children }) => {
   useEffect(() => {
     console.log("Layout Query Data", data)
     setCollectionValue(data.allShopifyCollection.nodes)
-  }, [])
+  }, [data, setCollectionValue])
   console.log('pathname', location.pathname)
   let content
   if (isRootPath) {
@@ -169,7 +170,7 @@ const Layout = ({ location, children }) => {
       </h1>
       */
     )
-  } else if(location.pathname == `/filter`){
+  } else if (location.pathname === `/filter`) {
     content = <FilterComponent data={data} />
   }
   else {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
 import StoreContext, { defaultStoreContext } from "./store"
 const isBrowser = typeof window !== "undefined"
@@ -37,7 +37,7 @@ const Provider = ({ children }) => {
   }
 
   // const memoizedCreateNewCheckout = useCallback(createNewCheckout)
-
+/*eslint-disable */
   useEffect(() => {
     const initializeCheckout = async () => {
       try {
@@ -67,6 +67,7 @@ const Provider = ({ children }) => {
     }
     initializeCheckout()
   }, [])
+  /*eslint-enable */
   return (
     <StoreContext.Provider
       value={{
