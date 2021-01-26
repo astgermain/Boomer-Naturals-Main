@@ -354,12 +354,12 @@ return(
           </div>
         </div> */}
         </div>
-        <div id="search-result-modal">
+        
+        <div className="filter-results"><div id="search-result-modal">
                 {modalShow.availableForSale && (
                 <ProductModal data={modalShow} setModalShow={setModalShow} />
                 )} 
-            </div>
-        <div className="filter-results">{productsShown}</div>
+            </div>{productsShown}</div>
       </section>
 )
 
