@@ -36,7 +36,7 @@ const Provider = ({ children }) => {
     }
   }
 
-  const memoizedCreateNewCheckout = useCallback(createNewCheckout)
+  // const memoizedCreateNewCheckout = useCallback(createNewCheckout)
 
   useEffect(() => {
     const initializeCheckout = async () => {
@@ -53,11 +53,11 @@ const Provider = ({ children }) => {
           // if id exits , fetch id from shopify
           newCheckout = await store.client.checkout.fetch(existingCheckoutId)
           if (newCheckout.completedAt) {
-            newCheckout = await memoizedCreateNewCheckout()
+            newCheckout = await createNewCheckout()
           }
         } else {
           //else create a new checkout id
-          newCheckout = await memoizedCreateNewCheckout()
+          newCheckout = await createNewCheckout()
         }
         // Set id in state
         setCheckout(newCheckout)
@@ -66,7 +66,7 @@ const Provider = ({ children }) => {
       }
     }
     initializeCheckout()
-  }, [memoizedCreateNewCheckout, store.client.checkout])
+  }, [])
   return (
     <StoreContext.Provider
       value={{
