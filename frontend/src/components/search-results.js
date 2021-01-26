@@ -13,10 +13,7 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
     const handleModalShow = e => {
         setModalShow(e)
     }
-    //style for product modal on search results page
-    const modalStyle = {
-        marginLeft: 'none !important',
-      }
+        console.log(ProductModal)
 
     useEffect(() => {
         document.body.style.overflow = 'hidden'
@@ -57,14 +54,12 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
             
             
             </div>
-            <div id="search-result-modal">
-                {modalShow.availableForSale && (
-                <ProductModal style={modalStyle} data={modalShow} setModalShow={setModalShow} />
-                )} 
-            </div>
+
 
               <ul className="results-list">  
-               
+                           {modalShow.availableForSale && (
+                <ProductModal type1='product-modal-search' type2='product-modal-inner-search' data={modalShow} setModalShow={setModalShow} />
+                )} 
             {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
            </ul>
            

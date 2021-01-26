@@ -42,6 +42,47 @@
   margin: 0 12.5vw;
 }
 
-.search-section .close {
-  top: 125px;
+.search-section .close-search {
+    top: 125px;
+    position: absolute;
+    right: 32px;
+    width: 45px;
+    height: 45px;
+    opacity: 0.3;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    border: solid 1px #333;
+    border-radius: 100px!important;
+    padding: 5px;
+}
+.close-search:before,.close-search:after{
+  position: absolute;
+    left: 20px;
+    top: 6px;
+    content: " ";
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+.close-search:before{
+  transform: rotate(45deg);
+}
+.close-search:after{
+  transform: rotate(-45deg);
+}
+.close-search:hover{
+  opacity: 1;
+}
+/* for product modal */
+.product-modal-search{
+  margin-top:10px;
+}
+.product-modal-inner-search{
+  width:65.5vw;
+  max-height: 330px;
+    height: 100%;
+    z-index: 9;
+    border: 1px solid gainsboro;
+    display: flex;
 }

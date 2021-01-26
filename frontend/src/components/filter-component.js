@@ -355,11 +355,12 @@ return(
         </div> */}
         </div>
         
-        <div className="filter-results"><div id="search-result-modal">
+        <div className="filter-results">
+          
                 {modalShow.availableForSale && (
-                <ProductModal data={modalShow} setModalShow={setModalShow} />
-                )} 
-            </div>{productsShown}</div>
+                <ProductModal type1='product-modal-filter' type2='product-modal-inner' data={modalShow} setModalShow={setModalShow} />
+                )}
+            {productsShown}</div>
       </section>
 )
 
