@@ -37,7 +37,7 @@ const ACTIVATE_BY_URL = gql`
 const ActivateByURL = ({ activationURL }) => {
   const [password, setPassword] = useState(null)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { setValue } = useContext(StoreContext)
   const handleCustomerAccessToken = value => {
     setValue(value)
   }

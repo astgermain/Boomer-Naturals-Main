@@ -35,6 +35,7 @@ const Header = ({ title, data }) => {
               <div
                 role="button"
                 tabIndex={0}
+                onKeyDown={handleSearchClick}
                 onClick={handleSearchClick}
                 className="header-icon search-icon"
               >
@@ -206,6 +207,8 @@ const Header = ({ title, data }) => {
               <div
                 role="button"
                 onClick={handleShoppingCartClick}
+                onKeyDown={handleShoppingCartClick}
+                tabIndex={0}
                 className="header-icon">
                 <svg
                   width="21px"
@@ -361,7 +364,7 @@ const Header = ({ title, data }) => {
           </div>
           <div className="header-icons">
             {/* Search Icon SVG */}
-            <div role="button" tabIndex={0} onClick={handleSearchClick} className="header-icon">
+            <div role="button" tabIndex={0} onKeyDown={handleShoppingCartClick} onClick={handleSearchClick} className="header-icon">
               <svg
                 width="20px"
                 height="20px"
@@ -442,6 +445,8 @@ const Header = ({ title, data }) => {
             {/* Shopping Icon SVG */}
             <div
               role="button"
+              onKeyDown={handleShoppingCartClick}
+              tabIndex={0}
               onClick={handleShoppingCartClick}
               className="header-icon">
               <svg
@@ -653,7 +658,7 @@ const Header = ({ title, data }) => {
             </div>
           </button>
         </div>
-        {hamMenu == true && <Hamburger close={handleMenuClick} />}
+        {hamMenu === true && <Hamburger close={handleMenuClick} />}
       </section>
       {clickSearch && <Search closeSearch={handleSearchClick} data={data} />}
     </header>

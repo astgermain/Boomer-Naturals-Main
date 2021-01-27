@@ -69,10 +69,11 @@ const DEFAULT_ADDRESS_UPDATE = gql`
 
 const Addresses = ({ data, id, handleAlert }) => {
   //console.log("addresses data: ", data)
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { customerAccessToken } = useContext(StoreContext)
   const [showEditForm, setShowEditForm] = useState("")
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
+<<<<<<< HEAD
   const [updatedModal, setUpdateModal] = React.useState(false)
   const [deleted, setDeleted] = useState([])
   const [rendered, setRendered] = useState([])
@@ -82,6 +83,14 @@ const Addresses = ({ data, id, handleAlert }) => {
   }
   let handleEditClick = id => {
     if (id == null) {
+=======
+  // const handleCustomerAccessToken = value => {
+  //   setValue(value)
+  // }
+  let handleEditClick = id => {
+    console.log("id", id)
+    if (id === null) {
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
       setShowEditForm("")
     } else {
       setShowEditForm(id)
@@ -90,6 +99,7 @@ const Addresses = ({ data, id, handleAlert }) => {
   let handleNewAddress = () => {
     setShowCreateForm(!showCreateForm)
   }
+<<<<<<< HEAD
   let addressRenders = () => {
     try {
       return (
@@ -141,6 +151,71 @@ const Addresses = ({ data, id, handleAlert }) => {
                               {edge.node.phone}
                             </div>
                           </div>
+=======
+
+  useEffect(() => {}, [data])
+  /* eslint-disable no-unused-vars */
+  let addressRenders = []
+  //console.log("VALUES:", data)
+  try {
+    return (
+      <>
+        {
+          // This could really use a refactor in the future
+          /* eslint-disable array-callback-return */
+          (addressRenders = data.data.customer.addresses.edges.map(
+            (edge, index) => {
+              //Needs to hide or update when changed, probably save the frag in state
+              if (!showCreateForm && showEditForm === "") {
+                return (
+                  <React.Fragment key={edge.node.id}>
+                    <div className="address">
+                      {edge.node.id !== showEditForm && (
+                        <div className="address-left">
+                          <div className="default">
+                            {data.data.customer.defaultAddress.id ===
+                              edge.node.id && <>Default Address</>}
+                          </div>
+                          <div className="profile-reg">
+                            {edge.node.firstName} {edge.node.lastName}
+                          </div>
+                          <div className="profile-reg">
+                            {edge.node.company !== "" && (
+                              <>
+                                <span>{edge.node.company}</span>
+                                <br></br>
+                              </>
+                            )}
+                            {edge.node.address1 !== "" && (
+                              <>
+                                <span>{edge.node.address1}</span>
+                                <br></br>
+                              </>
+                            )}
+                            {edge.node.address2 !== "" && (
+                              <>
+                                <span>{edge.node.address2}</span>
+                                <br></br>
+                              </>
+                            )}
+                            {edge.node.city} {edge.node.province},{" "}
+                            {edge.node.zip}
+                            <br></br>
+                            {edge.node.country}
+                            <br></br>
+                            {edge.node.phone}
+                          </div>
+                        </div>
+                      )}
+                      <div className="address-right">
+                        {edge.node.id !== showEditForm && (
+                          <button
+                            className="blue-text-field"
+                            onClick={() => handleEditClick(edge.node.id)}
+                          >
+                            Edit
+                          </button>
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
                         )}
                         <div className="address-right">
                           {edge.node.id != showEditForm && (
@@ -152,6 +227,7 @@ const Addresses = ({ data, id, handleAlert }) => {
                             </button>
                           )}
 
+<<<<<<< HEAD
                           {edge.node.id != showEditForm && (
                             <Mutation mutation={ADDRESS_DELETE}>
                               {deleteFunc => {
@@ -169,6 +245,29 @@ const Addresses = ({ data, id, handleAlert }) => {
                                         .then(result => {
                                           //console.log("delete result", result)
                                           if (
+=======
+                        {edge.node.id !== showEditForm && (
+                          <Mutation mutation={ADDRESS_DELETE}>
+                            {deleteFunc => {
+                              return (
+                                <button
+                                  className="blue-text-field"
+                                  onClick={() =>
+                                    deleteFunc({
+                                      variables: {
+                                        id: edge.node.id,
+                                        customerAccessToken:
+                                          customerAccessToken.accessToken,
+                                      },
+                                    })
+                                      .then(result => {
+                                        console.log("delete result", result)
+                                        if (
+                                          result.data.customerAddressDelete
+                                            .customerUserErrors.length
+                                        ) {
+                                          setIncorrectCredMsg(
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
                                             result.data.customerAddressDelete
                                               .customerUserErrors.length
                                           ) {
@@ -261,6 +360,7 @@ const Addresses = ({ data, id, handleAlert }) => {
                                 >
                                   Back To Addresses
                                 </button>
+<<<<<<< HEAD
 
                                 <br></br>
                               </Slide>
@@ -314,6 +414,101 @@ const Addresses = ({ data, id, handleAlert }) => {
         </div>
       )
     }
+=======
+                              )
+                            }}
+                          </Mutation>
+                        )}
+                        {edge.node.id !== id && (
+                          <Mutation mutation={DEFAULT_ADDRESS_UPDATE}>
+                            {defUpdateFunc => {
+                              return (
+                                <>
+                                  <DefAddressUpdate
+                                    defUpdateFunc={defUpdateFunc}
+                                    id={edge.node.id}
+                                    handleAlert={handleAlert}
+                                  />
+                                </>
+                              )
+                            }}
+                          </Mutation>
+                        )}
+                      </div>
+                    </div>
+                  </React.Fragment>
+                )
+              } else if (edge.node.id === showEditForm) {
+                return (
+                  <>
+                    {edge.node.id === showEditForm && (
+                      <Mutation mutation={ADDRESS_UPDATE}>
+                        {updateFunc => {
+                          return (
+                            <Slide
+                              triggerOnce={false}
+                              direction="right"
+                              duration="500"
+                            >
+                              <AddressUpdate
+                                updateFunc={updateFunc}
+                                id={edge.node.id}
+                                address={edge.node}
+                                handleAlert={handleAlert}
+                                handleAlert2={handleEditClick}
+                              />
+                              <button
+              onClick={() => handleEditClick(null)}
+              className="blue-text-field"
+            >
+              Back To Addresses
+            </button>
+                              
+                              <br></br>
+                            </Slide>
+                          )
+                        }}
+                      </Mutation>
+                    )}
+                  </>
+                )
+              }
+            }
+          ))
+        }
+        {showEditForm === "" && (
+          <div className="extra-border">
+            {!showCreateForm && (
+              <MainButtonEvent
+                text="Add New Address"
+                func={() => handleNewAddress()}
+              >
+                Add New Address
+              </MainButtonEvent>
+            )}
+          </div>
+        )}
+        {showCreateForm && showEditForm === "" && (
+          <>
+            <AddressCreation />
+            <button
+              onClick={() => handleNewAddress()}
+              className="blue-text-field"
+            >
+              Back To Addresses
+            </button>
+          </>
+        )}
+      </>
+    )
+  } catch {
+    //No addresses to return
+    return (
+      <div>
+        <span>No Address To Return, Try Logging Out and Logging Back In</span>
+      </div>
+    )
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
   }
 
   useEffect(() => {

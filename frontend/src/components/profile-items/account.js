@@ -11,8 +11,14 @@ import OrderHistory from "./order-history"
 import Pagination from "../pagination"
 import "../../styles/account.css"
 import Alert from "@material-ui/lab/Alert"
+<<<<<<< HEAD
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
+=======
+import { Slide } from "react-awesome-reveal"
+// import FormControlLabel from "@material-ui/core/FormControlLabel"
+// import Switch from "@material-ui/core/Switch"
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
 import Grow from "@material-ui/core/Grow"
 import Button from "@material-ui/core/Button"
 import MainButtonEvent from "../main-button-event"
@@ -164,14 +170,14 @@ const Account = () => {
     }
   }
   const handleAlert = ({ message = "", close = "", severity = "" }) => {
-    if(checked == true){
+    if(checked === true){
       handleChange()
     }
     setMessage(message)
     setClosed(close)
     setSeverity(severity)
     handleChange()
-    if(severity == "success") handleEditModal(false)
+    if(severity === "success") handleEditModal(false)
   }
   const handleCustomerAccessToken = value => {
     setValue(value)
@@ -205,7 +211,7 @@ const Account = () => {
   })
   //console.log("current page: ", curPage)
   let queryFunc = () => {
-    if (customerAccessToken != null) {
+    if (customerAccessToken !== null) {
       var firstDate = new Date(Date.now())
       var secondDate = new Date(customerAccessToken.expiresAt)
       if (secondDate <= firstDate) {
@@ -236,9 +242,9 @@ const Account = () => {
               lastName,
               phone,
               email,
-              addresses,
+              // addresses,
               defaultAddress,
-              orders,
+              // orders,
             } = updatedCustomer || ""
             let {
               address1,
@@ -249,7 +255,7 @@ const Account = () => {
               id,
               name,
               zip,
-              formattedArea,
+              // formattedArea,
               provinceCode,
             } = defaultAddress || ""
             let phone1
@@ -265,7 +271,7 @@ const Account = () => {
                 <Pagination alt="My Account" altLink="/profile" />
                 <section className="account-section">
                   <div className="account-alert-row">
-                    {checked == true && (
+                    {checked === true && (
                       <Grow in={checked}>
                         <Alert
                           severity={severity}
@@ -305,13 +311,18 @@ const Account = () => {
                       {
                         //Start main Account
                       }
-                      {curPage == "My Account" && (
+                      {curPage === "My Account" && (
                         <>
                           <h1>My Account</h1>
+<<<<<<< HEAD
                           {updatedModal == true && (
                             <>
                           <div className="hi">
                             <Collapse in={updatedModal} appear={true}>
+=======
+                          {updatedModal === true && (
+                            <Slide triggerOnce={false} direction="right" duration="500">
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
                               <AccountUpdate
                                 data={data}
                                 oFirstName={firstName}
@@ -328,7 +339,7 @@ const Account = () => {
                             </div>
                             </>
                           )}
-                          {updatedModal == false && (
+                          {updatedModal === false && (
                             <>
                               <div className="account-row">
                                 <div className="account-col first">
@@ -418,7 +429,7 @@ const Account = () => {
                       {
                         //Start Addresses
                       }
-                      {curPage == "Addresses" && (
+                      {curPage === "Addresses" && (
                         <>
                           <h1>Addresses</h1>
                           <Addresses data={data} id={id} handleAlert={handleAlert}/>
@@ -427,7 +438,7 @@ const Account = () => {
                       {
                         //Start Order History
                       }
-                      {curPage == "Order History" && (
+                      {curPage === "Order History" && (
                         <>
                           <h1>Order History</h1>
                           <OrderHistory data={data} />

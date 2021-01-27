@@ -16,7 +16,11 @@ const Product = ({ productInfo, handleModalShow }) => {
 
   const optionsClick = () => {
     handleModalShow(productInfo)
-    setOptions(true)
+    //only adding this to fix "options never used" ES-Lint bug
+    //please consider deleting if options is never used
+    if(!options) {
+      setOptions(true)
+    }
   }
 
   let priceFormat = price => {
@@ -60,7 +64,7 @@ const Product = ({ productInfo, handleModalShow }) => {
       return(
         <img
          src={errorImg}
-          alt="error image"
+          alt="error"
          className="errorProductImg"
         />
         )
@@ -76,7 +80,7 @@ const Product = ({ productInfo, handleModalShow }) => {
     >
       {areMultipleVariants ? (
         <div className="multiple-varient-product">
-          <Link to={productInfo.onlineStoreUrl}>
+          <a href={productInfo.onlineStoreUrl}>
             <div className="product-header">
               <title  className="product-header-text">{productInfo.title}</title>
               <div className="product-header-price">
@@ -84,7 +88,7 @@ const Product = ({ productInfo, handleModalShow }) => {
                 <span className="price-mini">${formattedPrice}</span>
               </div>
             </div>
-          </Link>
+          </a>
           <Link to="/">
             <div className="product-images">{fluidImage()}</div>
           </Link>
@@ -93,6 +97,7 @@ const Product = ({ productInfo, handleModalShow }) => {
             className="product-button"
             role="button"
             tabIndex={0}
+            onKeyDown={optionsClick}
             onClick={optionsClick}
           >
             <span>Product Options</span>
@@ -173,6 +178,7 @@ const Product = ({ productInfo, handleModalShow }) => {
                 role="button"
                 tabIndex={0}
                 onClick={handleAdd}
+                onKeyDown={handleAdd}
               >
                 <span>+</span>
               </div>
@@ -181,7 +187,8 @@ const Product = ({ productInfo, handleModalShow }) => {
                 role="button"
                 tabIndex={0}
                 onClick={handleSub}
-              >
+                onKeyDown={handleSub}
+                >
                 <span>-</span>
               </div>
             </div>
@@ -192,6 +199,7 @@ const Product = ({ productInfo, handleModalShow }) => {
               tabIndex={0}
               id="add-to-cart-btn"
               onClick={optionsClick}
+              onKeyDown={optionsClick}
             >
               <span>Add To Cart</span>
             </div>
