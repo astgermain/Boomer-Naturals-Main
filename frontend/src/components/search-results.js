@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react"
 import Product from "./product";
+import ProductModal from "./product-modal"
 import "../styles/search.css"
 import MainButton from "../components/main-button"
 
 const SearchResults = ({ allProducts, productsArray, searchInput }) => {
-    const [setModalShow] = useState("")
+
+    const [modalShow, setModalShow] = useState("")
     // Num of products to display
     const ITEMS_TO_SHOW = 12
 
     const handleModalShow = e => {
         setModalShow(e)
     }
+        console.log(ProductModal)
 
     useEffect(() => {
         document.body.style.overflow = 'hidden'
@@ -49,10 +52,17 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
             {createResultsInfo(ITEMS_TO_SHOW, productsArray.length)}
             {0 < productsArray.length && SEE_MORE_BTN}
             
+            
             </div>
-            <ul className="results-list">
-                {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
-            </ul>
+
+
+              <ul className="results-list">  
+                           {modalShow.availableForSale && (
+                <ProductModal type1='product-modal-search' type2='product-modal-inner-search' data={modalShow} setModalShow={setModalShow} />
+                )} 
+            {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
+           </ul>
+           
             
         </div>
     )

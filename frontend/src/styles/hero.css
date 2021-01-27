@@ -208,35 +208,30 @@
       background: transparent;
   }
   .slick-prev:hover,
-  .slick-prev:focus,
-  .slick-next:hover,
-  .slick-next:focus
+  .slick-next:hover
   {
       color: transparent;
       outline: none;
-      background: transparent;
+      opacity: .25;
   }
-  .slick-prev:hover:before,
-  .slick-prev:focus:before,
-  .slick-next:hover:before,
-  .slick-next:focus:before
+  .slick-prev:hover:after,
+  .slick-next:hover:after
   {
-      opacity: 1;
+      opacity: .75;
   }
-  .slick-prev.slick-disabled:before,
-  .slick-next.slick-disabled:before
+  .slick-prev.slick-disabled:after,
+  .slick-next.slick-disabled:after
   {
       opacity: .25;
   }
   
-  .slick-prev:before,
-  .slick-next:before
+  .slick-prev:after,
+  .slick-next:after
   {
       font-family: 'slick';
-      font-size: 20px;
+      font-size: 40px;
       line-height: 1;
   
-      opacity: .75;
       color: #00A1C6;
   
       -webkit-font-smoothing: antialiased;
@@ -246,37 +241,78 @@
   .slick-prev
   {
       left: -25px;
+      content:" ";
+        width: 19px; 
+        height: 3px; 
+        transition: .5s; 
+        float: left; 
+        background:#00A1C6;
+        border-radius:100px;
+        transform: rotate(-135deg);
+        position:absolute;
+        margin-top:5px;
   }
   [dir='rtl'] .slick-prev
   {
       right: -25px;
       left: auto;
   }
-  .slick-prev:before
+  .slick-prev:after
   {
-      content: '←';
+    content:" ";
+    width: 20px; 
+    height: 3px; 
+    transition: .5s; 
+    float: left; 
+    background:#00A1C6;
+    border-radius:100px;
+    transform: rotate(-95deg);
+    position:absolute;
+    margin-top: 7px;
   }
-  [dir='rtl'] .slick-prev:before
+  [dir='rtl'] .slick-prev:after
   {
-      content: '→';
+      content: '';
   }
   
   .slick-next
   {
       right: -25px;
+      width: 20px; 
+      height: 3px; 
+      transition: .5s; 
+      float: left; 
+    background:#00A1C6;
+    border-radius:100px;
+    transform: rotate(-135deg);
+    margin-top:-10px;
+
   }
   [dir='rtl'] .slick-next
   {
       right: auto;
       left: -25px;
+     
   }
-  .slick-next:before
+  .slick-next:after
   {
-      content: '→';
+      content:" ";
+        width: 20px; 
+        height: 3px; 
+        transition: .5s; 
+        float: left; 
+        background:#00A1C6;
+        border-radius:100px;
+        transform: rotate(-95deg);
+        position:absolute;
+        top:-10px;
+        left:-10px;
+        transform: rotate(-95deg);
+      
   }
-  [dir='rtl'] .slick-next:before
+  [dir='rtl'] .slick-next:after
   {
-      content: '←';
+      content: '';
   }
   
   /* Dots */

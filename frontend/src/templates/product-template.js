@@ -3,11 +3,12 @@ import Layout from "../components/layout"
 import "../styles/product-template.css"
 import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
 import Pagination from "../components/pagination"
-import ImageDisplay from "./template-components/product-image-display"
+import ImageDisplay from "../components/template-components/product-image-display"
 import errorImg from "../../content/assets/errorImg.png"
-import SuggestedProducts from "./template-components/suggested-products"
-import SizingInfo from "./template-components/sizing-info"
-import Reviews from "./template-components/reviews"
+import ProductCarousel from "../components/product-carousel"
+import SizingInfo from "../components/template-components/sizing-info"
+import Reviews from "../components/template-components/reviews"
+import "../styles/product-template.css"
 
 const ProductTemplate = ({ data, pageContext, location }) => {
   // const post = data.markdownRemark
@@ -213,7 +214,6 @@ const ProductTemplate = ({ data, pageContext, location }) => {
 
 const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
 const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
-console.log(pageContext)
 
 
 
@@ -349,7 +349,7 @@ console.log(pageContext)
           <Reviews ReviewDisable={ReviewDisable} pageContext={pageContext} data={data} location={location} />
       </div>
 
-      <SuggestedProducts data={data} />
+      <ProductCarousel whichPage={"suggested-products"} data={data}/>
     </Layout>
   )
 }

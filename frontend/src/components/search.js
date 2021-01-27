@@ -2,20 +2,16 @@ import React, { useState, useContext, useEffect } from "react"
 import "../styles/search.css"
 import SearchResults from "./search-results"
 import StoreContext from "../util/store"
-// Needs regex
-// Needs to pass shopifyId to results page to render products
-// Possible to just have a popup and render results same page
 
-const Search = ({ closeSearch, data, setUpdatedSearch }) => {
+
+const Search = ( { closeSearch, data, setUpdatedSearch } ) => {
 
   const [searchValue, setSearchValue] = useState("")
   const [searchResults, setSearchResults] = useState({})
   const [allProds, setAllProds] = useState({})
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const { sortedData, setSortedValue } = useContext(StoreContext)
-
   useEffect(() => {
-    
       let filteredData = data.allShopifyProduct.nodes.filter(product => {
         if (
           product.title.toLowerCase().match(searchValue.toLowerCase()) &&
@@ -50,7 +46,7 @@ const Search = ({ closeSearch, data, setUpdatedSearch }) => {
             />
           </label>
         </form>
-        <button className="close" onClick={closeSearch}>
+        <button className="close-search" onClick={closeSearch}>
           {" "}
         </button>
       </div>
