@@ -15,7 +15,6 @@ const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgS
     }
 
     const TOTAL_PRICE = (parseFloat(price) * parseInt(quantity)).toFixed(2)
-    console.log("Link to Proddddd", linkToProduct)
     return (
         <div className="cart-item-wrapper">
             <div className="variant-icon-wrapper">
