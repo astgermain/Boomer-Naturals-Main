@@ -23,7 +23,7 @@ const OrderHistory = ({ data }) => {
   }
   useEffect(() => {}, [data])
   let renderVar =
-    orders != undefined ? (
+    orders !== undefined ? (
       orders.map(order => {
         return (
             <tr key={`${order.node.orderNumber}`}>

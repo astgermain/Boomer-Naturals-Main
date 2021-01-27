@@ -68,16 +68,16 @@ const DEFAULT_ADDRESS_UPDATE = gql`
 
 const Addresses = ({ data, id, handleAlert }) => {
   //console.log("addresses data: ", data)
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { customerAccessToken } = useContext(StoreContext)
   const [showEditForm, setShowEditForm] = useState("")
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
-  const handleCustomerAccessToken = value => {
-    setValue(value)
-  }
+  // const handleCustomerAccessToken = value => {
+  //   setValue(value)
+  // }
   let handleEditClick = id => {
     console.log("id", id)
-    if (id == null) {
+    if (id === null) {
       setShowEditForm("")
     } else {
       setShowEditForm(id)
@@ -88,42 +88,45 @@ const Addresses = ({ data, id, handleAlert }) => {
   }
 
   useEffect(() => {}, [data])
+  /* eslint-disable no-unused-vars */
   let addressRenders = []
   //console.log("VALUES:", data)
   try {
     return (
       <>
         {
+          // This could really use a refactor in the future
+          /* eslint-disable array-callback-return */
           (addressRenders = data.data.customer.addresses.edges.map(
             (edge, index) => {
               //Needs to hide or update when changed, probably save the frag in state
-              if (!showCreateForm && showEditForm == "") {
+              if (!showCreateForm && showEditForm === "") {
                 return (
                   <React.Fragment key={edge.node.id}>
                     <div className="address">
-                      {edge.node.id != showEditForm && (
+                      {edge.node.id !== showEditForm && (
                         <div className="address-left">
                           <div className="default">
-                            {data.data.customer.defaultAddress.id ==
+                            {data.data.customer.defaultAddress.id ===
                               edge.node.id && <>Default Address</>}
                           </div>
                           <div className="profile-reg">
                             {edge.node.firstName} {edge.node.lastName}
                           </div>
                           <div className="profile-reg">
-                            {edge.node.company != "" && (
+                            {edge.node.company !== "" && (
                               <>
                                 <span>{edge.node.company}</span>
                                 <br></br>
                               </>
                             )}
-                            {edge.node.address1 != "" && (
+                            {edge.node.address1 !== "" && (
                               <>
                                 <span>{edge.node.address1}</span>
                                 <br></br>
                               </>
                             )}
-                            {edge.node.address2 != "" && (
+                            {edge.node.address2 !== "" && (
                               <>
                                 <span>{edge.node.address2}</span>
                                 <br></br>
@@ -139,7 +142,7 @@ const Addresses = ({ data, id, handleAlert }) => {
                         </div>
                       )}
                       <div className="address-right">
-                        {edge.node.id != showEditForm && (
+                        {edge.node.id !== showEditForm && (
                           <button
                             className="blue-text-field"
                             onClick={() => handleEditClick(edge.node.id)}
@@ -148,7 +151,7 @@ const Addresses = ({ data, id, handleAlert }) => {
                           </button>
                         )}
 
-                        {edge.node.id != showEditForm && (
+                        {edge.node.id !== showEditForm && (
                           <Mutation mutation={ADDRESS_DELETE}>
                             {deleteFunc => {
                               return (
@@ -208,7 +211,7 @@ const Addresses = ({ data, id, handleAlert }) => {
                             }}
                           </Mutation>
                         )}
-                        {edge.node.id != id && (
+                        {edge.node.id !== id && (
                           <Mutation mutation={DEFAULT_ADDRESS_UPDATE}>
                             {defUpdateFunc => {
                               return (
@@ -227,10 +230,10 @@ const Addresses = ({ data, id, handleAlert }) => {
                     </div>
                   </React.Fragment>
                 )
-              } else if (edge.node.id == showEditForm) {
+              } else if (edge.node.id === showEditForm) {
                 return (
                   <>
-                    {edge.node.id == showEditForm && (
+                    {edge.node.id === showEditForm && (
                       <Mutation mutation={ADDRESS_UPDATE}>
                         {updateFunc => {
                           return (
@@ -265,7 +268,7 @@ const Addresses = ({ data, id, handleAlert }) => {
             }
           ))
         }
-        {showEditForm == "" && (
+        {showEditForm === "" && (
           <div className="extra-border">
             {!showCreateForm && (
               <MainButtonEvent
@@ -277,7 +280,7 @@ const Addresses = ({ data, id, handleAlert }) => {
             )}
           </div>
         )}
-        {showCreateForm && showEditForm == "" && (
+        {showCreateForm && showEditForm === "" && (
           <>
             <AddressCreation />
             <button

@@ -213,3 +213,8 @@
     background-color: var(--color-secondary);
     text-align: center;
 }
+
+.cart-redirect-btns a.checkout.disabled {
+    pointer-events: none;
+    background-color: var(--color-dim);
+}
