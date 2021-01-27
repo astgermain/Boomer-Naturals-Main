@@ -75,14 +75,21 @@
   opacity: 1;
 }
 /* for product modal */
+.search-modal{
+  display:flex;
+  justify-content: center;
+}
 .product-modal-search{
   margin-top:10px;
-}
-.product-modal-inner-search{
-  width:65.5vw;
+  position: absolute;
+  width: 75vw;
   max-height: 330px;
-    height: 100%;
-    z-index: 9;
-    border: 1px solid gainsboro;
-    display: flex;
+  height: 100%;
+  z-index: 10;
+  background: white;
+  display: flex;
+}
+
+.body{
+  overflow: hidden;
 }
