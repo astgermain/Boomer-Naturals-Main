@@ -27,7 +27,6 @@ const ADDRESS_CREATE = gql`
 
 
 
-<<<<<<< HEAD
 const AddressCreation = ({handleAlert, handleAlert2, back}) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [address1, setAddress1] = useState("")
@@ -40,17 +39,6 @@ const AddressCreation = ({handleAlert, handleAlert2, back}) => {
   const [phone, setPhone] = useState("")
   const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
-=======
-const AddressCreation = () => {
-  const { customerAccessToken } = useContext(StoreContext)
-  // Please consider deleting unused vars
-  /* eslint-disable no-unused-vars */
-  const [email, setEmail] = useState(``)
-  /* eslint-disable no-unused-vars */
-  const [password, setPassword] = useState(``)
-  // const [message, setMessage] = useState(``)
-  /* eslint-disable no-unused-vars */
->>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
   // const handleCustomerAccessToken = value => {
   //   setValue(value)
@@ -66,7 +54,6 @@ const AddressCreation = () => {
               onSubmit={e => {
                 e.preventDefault()
                 address = {
-<<<<<<< HEAD
                   address1: address1,
                   address2: address2,
                   city: city,
@@ -78,38 +65,6 @@ const AddressCreation = () => {
                   province: province,
                   zip: zip,
                 }
-=======
-                  address1: "",
-                  address2: "",
-                  city: "",
-                  company: "",
-                  country: "",
-                  firstName: "",
-                  lastName: "",
-                  phone: "",
-                  province: "",
-                  zip: "",
-                }
-              }}
-            >
-              <span>New Address</span>
-              <br></br>
-              <span>E-Mail</span>
-              <input
-                type="email"
-                onChange={e => setEmail(e.target.value)}
-              ></input><br></br>
-              <span>Password</span>
-              <input
-                type="password"
-                onChange={e => setPassword(e.target.value)}
-              ></input><br></br>
-              <button type="submit">Login</button>
-            </form>
-
-            <button
-              onClick={() =>
->>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
                 createFunc({
                   variables: {
                     customerAccessToken: `${customerAccessToken.accessToken}`,
@@ -140,7 +95,6 @@ const AddressCreation = () => {
                   })
               }}
             >
-<<<<<<< HEAD
               <span>New Address</span>
               <br></br>
               <div className="account-row">
@@ -240,15 +194,6 @@ const AddressCreation = () => {
           )}}
       </Mutation>
         
-=======
-              Create
-            </button>
-          </div>
-        )
-      }}
-    </Mutation>
-
->>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
   )
 }
 
