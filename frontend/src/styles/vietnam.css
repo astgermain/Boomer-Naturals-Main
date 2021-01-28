@@ -132,7 +132,7 @@ body p{
     cursor: pointer;
 
 } 
-iframe{
+.vietnam-video{
   width:23vw;
   height:19vw;
 }
@@ -227,7 +227,7 @@ ul.v-yellowman{
   width:61%;
   margin-top:0px!important;
 }
-iframe{
+.vietnam-video{
   width:60vw;
   height:40vw;
 }
@@ -349,7 +349,7 @@ ul.v-yellowman{
 .v-video-mobile{
   margin-left:14%;
 }
-iframe{
+.vietnam-video{
   width:72vw;
   height:50vw;
 }

@@ -18,3 +18,23 @@
 }
 
 
+/* responsive as seen section */
+
+@media screen and (max-width: 768px){
+  .asseenon-container {
+    display:grid;
+    grid-template-columns: 30% 30% 30%;
+    place-items: center;
+}.asseenon-container img{
+    width:60%;
+}
+}
+@media screen and (max-width: 480px){
+  .asseenon-container {
+    grid-template-columns: 50% 50%;
+
+}.asseenon-container img{
+    width:65%;
+}
+}
+

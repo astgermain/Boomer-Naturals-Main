@@ -38,3 +38,41 @@
 }
 /* Klayvio Email Capture */
 
+/* responsive email */
+
+@media screen and (max-width: 1100px){
+  .csgaMR.csgaMR {
+    padding:0px 0px 10px 0px!important;
+  }
+}
+@media screen and (max-width: 768px){
+  .inner-email-container {
+    display:grid;
+    justify-content: center;
+    grid-template-columns:80%;
+  }
+  .klaviyo-form{
+    width:100%;
+  }
+  .email-text{
+    text-align: center;
+    width:100%;
+  }
+  .email-main-text{
+    font-size: 4vw;
+  }
+  .email-sub-text{
+    font-size: 2.6vw;
+  }
+}
+@media screen and (max-width: 480px){
+  .inner-email-container {
+    grid-template-columns:90%;
+  }
+  .email-main-text{
+    font-size: 5vw;
+  }
+  .email-sub-text{
+    font-size: 3vw;
+  }
+}

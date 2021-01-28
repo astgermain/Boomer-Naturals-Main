@@ -52,7 +52,7 @@
 }
 
 .footer-bottom-left {
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -75,8 +75,8 @@
   color: #fff;
   cursor: pointer;
   padding: 0.5rem;
-  right:10%;
-  bottom:2%;
+  right:25px;
+  bottom:12%;
 }
 
 .footer-bottom-socials {
@@ -327,4 +327,32 @@
     width: 45px;
     height: 45px;
   }
+}
+
+
+
+/* responsive footer */
+@media screen and (max-width: 872px){
+  .header-link {
+    margin:10px 0px;
+}
+}
+@media screen and (max-width: 768px){
+  .footer-bottom-left {
+    display:grid;
+    grid-template-columns: 30% 30% 30%;
+    text-align:center;
+}
+}
+@media screen and (max-width: 500px){
+  .footer-bottom-left {
+    grid-template-columns: 50%;
+    text-align:center;
+    justify-content: center;
+}
+}
+@media screen and (max-width: 400px){
+  .top-scroll-btn {
+    bottom:10%;
+}
 }

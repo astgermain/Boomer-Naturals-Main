@@ -9,7 +9,6 @@ import { Link } from "gatsby"
 import "../../styles/hamburger.css"
 import { Slide } from "react-awesome-reveal"
 import HamburgerShop from "./hamburger-shop"
-import HamburgerBotanics from "./hamburger-botanics"
 import HamburgerNews from "./hamburger-news"
 import HamburgerLocations from "./hamburger-locations"
 import HamburgerAbout from "./hamburger-about"
@@ -117,15 +116,9 @@ const Hamburger = ({ close }) => {
                 </Link>
               </button>
 
-              <button onClick={() => openSideMenu("botanics") }>
-                <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("botanics") } className="links">Boomer Botanics</span>
-                </Link>
-              </button>
-
               <button onClick={() => openSideMenu("news") }>
                 <Link className="ham-link1">
-                  <span onMouseEnter={() => openSideMenu("news") } className="links">In The News</span>
+                  <span onMouseEnter={() => openSideMenu("news") } className="links">News</span>
                 </Link>
               </button>
 
@@ -164,14 +157,6 @@ const Hamburger = ({ close }) => {
             triggerOnce={false}
             direction={"right"}
           ><HamburgerShop/>
-          </Slide>
-         }
-         {page === "botanics" &&   
-            <Slide
-            duration={500}
-            triggerOnce={false}
-            direction={"right"}
-          ><HamburgerBotanics/>
           </Slide>
          }
          {page === "news" &&   

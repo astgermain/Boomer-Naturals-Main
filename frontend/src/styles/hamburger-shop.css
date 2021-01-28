@@ -37,3 +37,18 @@ span.dashed:before{
     background: var(--color-secondary);
     border-radius: 10px;
 }
+
+
+  /* responsive screens */
+  @media screen and (max-width: 1165px) {
+    .shop-c-links{
+      font-size: var(--fontSize-3);
+    }
+    .btm-shop-links{
+      font-size: var(--fontSize-1);
+    }
+    span.dashed:before{
+        width: 20px;
+        margin-top: 8px;
+    }
+  }

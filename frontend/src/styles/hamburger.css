@@ -207,4 +207,29 @@ span.links:hover:before{
   .v-iconBorder {
     fill: transparent;
   }
+
+
+  /* responsive screens */
+  @media screen and (max-width: 1165px) {
+    .ham-link1 {
+      font-size: var(--fontSize-6);
+  }
+    .welcome span{
+      font-size: var(--fontSize-6);
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .ham-link1 {
+      font-size: var(--fontSize-5);
+  }
+    .welcome {
+      width:30vw;
+  }
+    span.links:hover:before {
+      width:15px;
+      margin-bottom: 10px;
+  }
+  }
+
   
