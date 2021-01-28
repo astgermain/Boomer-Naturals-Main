@@ -104,7 +104,7 @@ const Hamburger = ({ close }) => {
             <div className="link-level1">
               <button>
                 <Link to="/" className="ham-link1">
-                  <span className="links" onClick={close}>
+                  <span className="links" onClick={yeetHamburgerMenu}>
                     Home
                   </span>
                 </Link>
