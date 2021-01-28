@@ -300,25 +300,25 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <div className="footer-bottom-left">
-          <Link to="/" className="header-link">
+          <Link to="/contact-us" className="header-link">
             Contact Us
           </Link>
-          <Link to="/" className="header-link">
+          <Link to="/faqs" className="header-link">
             F.A.Q
           </Link>
-          <Link to="/" className="header-link">
+          <Link to="/about-us" className="header-link">
             About
           </Link>
-          <Link to="/" className="header-link">
+          <Link to="/refund-policy" className="header-link">
             Refund Policy
           </Link>
-          <Link to="/" className="header-link">
+          <Link to="/terms-of-service" className="header-link">
             Terms of Service
           </Link>
-          <Link to="/" className="header-link">
+          <Link to="/privacy-policy" className="header-link">
             Privacy Policy
           </Link>
-          <Link to="/" className="header-link">
+          <Link to="/shipping-policy" className="header-link">
             Shipping Policy
           </Link>
         </div>
