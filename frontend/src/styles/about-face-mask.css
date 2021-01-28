@@ -11,6 +11,7 @@
 
 .about-face-mask-section h4 {
   color: var(--color-secondary);
+  margin-bottom: 20px;
 }
 
 .image-container {
@@ -111,4 +112,46 @@
 .extra-info-container .redirect-btns a {
   color: var(--color-secondary);
   margin: 0.5rem 0;
+}
+
+/* responsive about face mask */
+@media screen and (max-width: 975px){
+  .about-face-mask-section h4 {
+      font-size: 3vw;
+  }
+}
+@media screen and (max-width: 768px){
+  .about-face-mask-section .image-container{
+    width:70vw;
+  }
+  .image-container .pulse-btn-2{
+    top:-20vw;
+  }
+  .image-container .pulse-btn-1, .image-container .pulse-btn-3, .image-container .pulse-btn-4{
+    top:-15vw;
+  }
+  .image-container .pulse-btn span{
+    font-size: 2.5vw;
+    height: 4.65vw;
+  }
+  .image-container .pulse-btn{
+    width: 3vw;
+    height: 3vw;
+  }
+}
+@media screen and (max-width: 480px){
+  .about-face-mask-section h4 {
+    font-size: 5vw;
+}
+.about-face-mask-section .image-container{
+  width:80vw;
+}
+.image-container .pulse-btn{
+  width: 4vw;
+  height: 4vw;
+}
+.image-container .pulse-btn span{
+  font-size: 3.5vw;
+  height: 6.65vw;
+}
 }

@@ -18,3 +18,18 @@
 * End Featured Section
 *
 */
+/* responsive Featured Section */
+@media screen and (max-width: 975px){
+    .featured-container {
+      display:grid;
+      grid-template-columns: 100%;
+      place-items: center;
+    }
+    .featured-container .infocta-container{
+        padding:0;
+        width:60%;
+    }
+    .infocta-container{
+        grid-row-start: 2;
+    }
+  }

@@ -89,7 +89,7 @@ h3{
 	text-align: center;
     line-height:1.2;
 }  
-body p{
+.southvietnamwrapper p{
     font-size: 1.2vw;
     font-family:var(--fontFamily-reg);
 }
@@ -182,7 +182,7 @@ ul.v-yellowman{
 h4, h3{
 	font-size: 3vw;
 }
-body p{
+body.southvietnamwrapper p{
 	font-size: 2vw
 }
 .v-shopnow-btn.v-absolute{
@@ -285,7 +285,7 @@ ul.v-yellowman{
 h4, h3{
 	font-size: 5vw;
 }
-body p{
+.southvietnamwrapper p{
 	font-size: 3.5vw;
 }
 .v-desktoptop-text{
