@@ -1,6 +1,5 @@
 td,
 th {
-    border: 1px solid rgb(190, 190, 190);
     padding: 10px;
 }
 
@@ -13,13 +12,11 @@ tr:nth-child(even) {
 }
 
 th[scope="col"] {
-    background-color: #696969;
-    color: #fff;
+    color: black;
     width: 20%;
 }
 
 th[scope="row"] {
-    background-color: #d7d9f2;
     width: 20%;
 }
 

@@ -2,8 +2,7 @@
  * Modal component for quick buy feature
  */
 
-import React, { useState, useEffect, useContext } from "react"
-import store from "../util/store"
+import React, { useState, useEffect } from "react"
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
@@ -11,7 +10,6 @@ import UpSell from "./upsell"
 import "../styles/upsell.css"
 
 const ProductModal = ({ type1, type2, data, setModalShow }) => {
-  const { addToCart } = useContext(store)
 
   let x = () => {
     try {
@@ -23,10 +21,10 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
   const [quantity, setQuantity] = useState(1)
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
-  const [selectedVariantId, setSelectedVariantId] = useState("")
+  // const [selectedVariantId, setSelectedVariantId] = useState("")
 
   const [selectedSize, setSelectedSize] = useState("")
-  const [selectedType, setSelectedType] = useState("")
+  // const [selectedType, setSelectedType] = useState("")
   const [selectedColor, setSelectedColor] = useState("")
   const [upsellShow, setupsellShow] = useState(false)
 
@@ -60,7 +58,7 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
     try {
       setSelectedSize(size)
     } catch {
-      console.log("size selection error")
+      console.error("size selection error")
     }
   }
 
@@ -161,7 +159,7 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
             className="variant-thumb"
             onClick={() => handleVariantSelection(data)}
           >
-            <img src={errorImg} className="variant-thumb" alt="error image" />
+            <img src={errorImg} className="variant-thumb" alt="error" />
           </button>
         )
       }
@@ -173,9 +171,6 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
-
-  // Temporary for testing
-  const [isLoading, setIsLoading] = useState(false)
 
   const handleAddToCart = e => {
 
@@ -245,7 +240,7 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
               sizeSet.length
                 ?
                 sizeSet.map((size, index) => (
-                  <div onClick={(e) => handleSizeSelection(e, size)} data-color={size} key={index} className="product-size-option">{size}</div>
+                  <div role="button" onKeyDown={(e) => handleSizeSelection(e, size)} tabIndex={0} onClick={(e) => handleSizeSelection(e, size)} data-color={size} key={index} className="product-size-option">{size}</div>
                 ))
                 :
                 undefined
@@ -258,6 +253,7 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
                 role="button"
                 tabIndex={0}
                 className="quantityButtonPartL"
+                onKeyDown={handleAdd}
                 onClick={handleAdd}
               >
                 <span>+</span>
@@ -267,6 +263,7 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
                 role="button"
                 tabIndex={0}
                 className="quantityButtonPartR"
+                onKeyDown={handleSub}
                 onClick={handleSub}
               >
                 <span>-</span>

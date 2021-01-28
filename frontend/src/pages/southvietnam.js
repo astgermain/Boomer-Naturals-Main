@@ -20,7 +20,7 @@ const Vietnam = () => {
           <div className="v-main-banner">
               <img className='vietnam-banner v-banner' src={vietnamheader} alt="Boomer Naturals brings better face covers to market"/>
               <img className='vietnam-mobile-banner v-banner' style={{display: "none"}} src={vietnamheadermobile} alt="Boomer Naturals brings better face covers to market"/>                                                                                                                         
-              <a><button className="v-shopnow-btn v-absolute">Shop Now</button></a>
+              <a href="/"><button className="v-shopnow-btn v-absolute">Shop Now</button></a>
           </div> 
 
           {/* content */}
@@ -61,7 +61,7 @@ const Vietnam = () => {
                 </div>
       
             {/* why vietnam face cover section island */}
-            <a id="why-face-masks-from-vietnam">
+            <a href="/" id="why-face-masks-from-vietnam">
                  <div style={{margintop:"70px"}}></div>
             </a>
 
@@ -78,7 +78,7 @@ const Vietnam = () => {
             </div>
 
             {/* why few cases section */}
-                <a id="why-few-cases">
+                <a href="/" id="why-few-cases">
                 <div style={{margintop:"50px"}}></div>
                 </a>	
                 <h3 className="v-text-center" style={{paddingtop:"5%"}}>Why Has Vietnam<br/> Had So Few Cases?</h3>
@@ -94,7 +94,7 @@ const Vietnam = () => {
 
             {/* video section */}
 
-                <a id="science-behind">
+                <a href="/" id="science-behind">
                 <div style={{margintop:"60px"}}></div>
                 </a>
             <h3 className="v-text-center">The Science Behind the Covers-<br/> What Is Silver-Infused?</h3>
@@ -104,7 +104,7 @@ const Vietnam = () => {
             </div>
 
                 <div className="v-flex-me v-video-mobile" style={{gap:"30px"}}>
-                    <iframe width="300" height="280" src="https://www.youtube.com/embed/7Y6ti2GZBQs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe title="videos" width="300" height="280" src="https://www.youtube.com/embed/7Y6ti2GZBQs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <p className="v-desktop-p">The Silver-Infused fibers in our<br/> 30-Day Face Covers are<br/> engineered to help fight<br/> bacteria and provide better,<br/> more effective protection<br/> than regular cloth covers.<br/> Silver particles have a<br/> relatively large surface area,<br/> which increases their contact<br/> with bacteria or fungi - and<br/> therefore increases their<br/> antibacterial effect.</p>
                     <p className="v-mobile-p" style={{display:"none"}}>The Silver-Infused fibers in our 30-Day Face Covers are engineered to help fight bacteria and provide better, more effective protection regular cloth covers. Silver particles have a relatively large surface area, which increases their contact with bacteria or fungi - and therefore increases their antibacterial effect.</p>
                 </div>
@@ -116,7 +116,7 @@ const Vietnam = () => {
                 </div>
 
             {/* Men Walking Section */}
-            <a id="no-filter-needed">
+            <a href="/" id="no-filter-needed">
             <div style={{margintop:"70px"}}></div>
             </a>    
             <div className="v-flex-me v-walkingmen-container">
@@ -133,7 +133,7 @@ const Vietnam = () => {
 
 
             {/* Graph Section */}
-            <a id="more-protection">
+            <a href="/" id="more-protection">
             <div style={{margintop:"60px"}}></div>
             </a>    
             <h3 className="v-text-center">Boomer Naturals’ Silver-Infused Reusable<br/> Face Covers Offer More Protection</h3>
@@ -159,7 +159,7 @@ const Vietnam = () => {
         </div>
           {/* bottom shop now */}
           <div className="container-btn-shop-now">
-                <a><button className="v-shopnow-btn">Shop Now</button></a>
+                <a href="/"><button className="v-shopnow-btn">Shop Now</button></a>
           </div>
 
             

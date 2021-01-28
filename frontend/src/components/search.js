@@ -4,28 +4,29 @@ import SearchResults from "./search-results"
 import StoreContext from "../util/store"
 
 
-const Search = ( { closeSearch, data, setUpdatedSearch } ) => {
+const Search = ({ closeSearch, data, setUpdatedSearch }) => {
 
   const [searchValue, setSearchValue] = useState("")
-  const [searchResults, setSearchResults] = useState({})
+  // const [searchResults, setSearchResults] = useState({})
   const [allProds, setAllProds] = useState({})
-  const { customerAccessToken, setValue } = useContext(StoreContext)
   const { sortedData, setSortedValue } = useContext(StoreContext)
   useEffect(() => {
-      let filteredData = data.allShopifyProduct.nodes.filter(product => {
-        if (
-          product.title.toLowerCase().match(searchValue.toLowerCase()) &&
-          product.images.length 
-          
-        ) {
-          return product
-        }
-      }) 
-      setAllProds(data.allShopifyProduct.nodes)
-      setSortedValue(filteredData)
-      return function cleanup() {
+    /*eslint-disable */
+    let filteredData = data.allShopifyProduct.nodes.filter(product => {
+      if (
+        product.title.toLowerCase().match(searchValue.toLowerCase()) &&
+        product.images.length
+
+      ) {
+        return product
       }
-  }, [searchValue])
+    })
+    /*eslint-enable */
+    setAllProds(data.allShopifyProduct.nodes)
+    setSortedValue(filteredData)
+    return function cleanup() {
+    }
+  }, [searchValue, data.allShopifyProduct.nodes, setSortedValue])
 
   // prevents reload on form submit
   const handleSubmit = e => {

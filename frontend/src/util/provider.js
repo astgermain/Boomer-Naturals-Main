@@ -8,6 +8,7 @@ const Provider = ({ children }) => {
   const [store, updateStore] = useState(defaultStoreContext)
   const [checkout, setCheckout] = useState(defaultStoreContext.checkout)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  /* eslint-disable no-unused-vars */
   const [loading, setLoading] = useState(defaultStoreContext.loading)
   const [customerAddress, setCustomerAddress] = useState({})
   const [collectionData, setCollectionData] = useState({})
@@ -35,6 +36,8 @@ const Provider = ({ children }) => {
     }
   }
 
+  // const memoizedCreateNewCheckout = useCallback(createNewCheckout)
+/*eslint-disable */
   useEffect(() => {
     const initializeCheckout = async () => {
       try {
@@ -64,6 +67,7 @@ const Provider = ({ children }) => {
     }
     initializeCheckout()
   }, [])
+  /*eslint-enable */
   return (
     <StoreContext.Provider
       value={{
@@ -132,7 +136,7 @@ const Provider = ({ children }) => {
 
           navigate(addItem.webUrl)
         },
-        addToCart: async (variantId, quantity, setIsLoading, customAttributes = null) => {
+        addToCart: async (variantId, quantity, setIsLoading = null, customAttributes = null) => {
           setIsLoading(true)
           //console.log(variantId, quantity)
           const lineItem = [
@@ -149,7 +153,9 @@ const Provider = ({ children }) => {
             lineItem
           )
           //console.log(newCheckout)
-          setIsLoading(false)
+          if (setIsLoading) {
+            setIsLoading(false)
+          }
           setCheckout(newCheckout)
         },
         removeFromCart: async lineItemId => {

@@ -45,13 +45,16 @@ const AccountUpdate = ({
   const [password2, setPassword2] = useState(``)
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState(``)
-  const [checked, setChecked] = React.useState(false)
+  // const [checked, setChecked] = React.useState(false)
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
-  const handleChange = () => {
-    setChecked(prev => !prev)
-  }
+  //Commented the below code out because it doesn't look like it's needed
+  //Please consider deleting if you wrote this and no longer need it
+
+  // const handleChange = () => {
+  //   setChecked(prev => !prev)
+  // }
   let newCustomerData = {
     email: email,
     firstName: firstName,
@@ -62,7 +65,7 @@ const AccountUpdate = ({
     setFirstName(oFirstName)
     setLastName(oLastName)
     setEmail(oEmail)
-  }, [data])
+  }, [data, oFirstName, oLastName, oEmail])
   return (
     <Mutation mutation={USER_UPDATE}>
       {updateFunc => {
@@ -72,18 +75,21 @@ const AccountUpdate = ({
               <form
                 onSubmit={e => {
                   e.preventDefault()
-                  updateFunc({
-                    variables: {
-                      customerAccessToken: customerAccessToken.accessToken,
-                      customer: newCustomerData,
-                    },
-                  })
+                  // We weren't using password2 to check for accuracy
+                  // Could use refactoring if we want to do something else
+                  if(password === password2) {
+                    updateFunc({
+                      variables: {
+                        customerAccessToken: customerAccessToken.accessToken,
+                        customer: newCustomerData,
+                      },
+                    })
                     .then(result => {
                       //console.log("result", result)
                       if (
                         result.data.customerUpdate.customerAccessToken === null
                       ) {
-                        result.data.customerUpdate.customerUserErrors.map(
+                        result.data.customerUpdate.customerUserErrors.forEach(
                           msg => {
                             handleAlert({
                               message: msg.message,
@@ -111,7 +117,10 @@ const AccountUpdate = ({
                       })
                       console.error("error", err)
                     })
-                  data.refetch()
+                    data.refetch()
+                  }
+                  // would be useful to add a block that
+                  // notifies user that their passwords don't match
                 }}
               >
                 {/*p = TtaJL5zi8ZeyXP! */}

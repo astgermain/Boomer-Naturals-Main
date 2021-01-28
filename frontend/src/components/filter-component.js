@@ -1,32 +1,33 @@
 import React, { useEffect, useState, useContext } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import "../styles/filter.css"
 import Product from "../components/product"
 import ProductModal from "./product-modal"
 import Checkbox from "../components/checkbox"
 import StoreContext from "../util/store"
-import Layout from "../components/layout"
 
 const FilterComponent = ({data}) => {
 const ITEMS_TO_SHOW = 100
 const [modalShow, setModalShow] = useState("")
 const [ptActive, setPtActive] = useState()
 const [ctActive, setCtActive] = useState()
-const [updatedSearch, setUpdatedSearch] = useState({})
+// const [updatedSearch, setUpdatedSearch] = useState({})
+// eslint-disable-next-line no-unused-vars
 const { sortedData, setSortedValue } = useContext(StoreContext)
+// eslint-disable-next-line no-unused-vars
 const [collectionData, setCollectionData] = useState(data.allShopifyCollection.nodes)
 const [productsShown, setProductsShown] = useState([])
 const [productTypeFilter, setProductTypeFilter] = useState("")
 const [collectionTypeFilter, setCollectionTypeFilter] = useState("")
 // NEEDS USEEFFECT To have props passed if coming from a collection or product type search to set the state
 // for filter options so that they are selected
+/*eslint-disable */
 useEffect(() => {
   setProductsShown(PRODUCT_LIST_ITEMS)
   if (handleCollectionTypeButton) {
     return setProductsShown(COLLECTION_LIST_ITEMS)
   }
 }, [])
-
+/*eslint-enable */
 // NEEDS CLEAR RESULTS BUTTON
 
 // NEEDS Search Button to work on filter page

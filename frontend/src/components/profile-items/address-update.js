@@ -3,7 +3,7 @@ import StoreContext from "../../util/store"
 import MainButtonStyle from "../main-button-style"
 
 const AddressUpdate = ({ updateFunc, id, address, handleAlert, handleAlert2 }) => {
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { customerAccessToken } = useContext(StoreContext)
   const [address1, setAddress1] = useState(address.address1)
   const [address2, setAddress2] = useState(address.address2)
   const [city, setCity] = useState(address.city)
@@ -14,10 +14,11 @@ const AddressUpdate = ({ updateFunc, id, address, handleAlert, handleAlert2 }) =
   const [phone, setPhone] = useState(address.phone)
   const [province, setProvince] = useState(address.province)
   const [zip, setZip] = useState(address.zip)
+  /* eslint-disable no-unused-vars */
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
-  const handleCustomerAccessToken = value => {
-    setValue(value)
-  }
+  // const handleCustomerAccessToken = value => {
+  //   setValue(value)
+  // }
   return (
     <div className="address-edit-form">
       <form
@@ -46,24 +47,24 @@ const AddressUpdate = ({ updateFunc, id, address, handleAlert, handleAlert2 }) =
               if (result.data.customerAddressUpdate.customerUserErrors.length) {
                 setIncorrectCredMsg("Issue Updating Address")
                 handleAlert({
-                    message: result.data.customerAddressUpdate.customerUserErrors[0].message,
-                    close: "Close",
-                    severity: "warning",
+                  message: result.data.customerAddressUpdate.customerUserErrors[0].message,
+                  close: "Close",
+                  severity: "warning",
                 })
               }
               handleAlert({
                 message: "Address Has Been Updated",
                 close: "Close",
                 severity: "success",
-            })
-            handleAlert2(null)
+              })
+              handleAlert2(null)
             })
             .catch(err => {
-                handleAlert({
-                    message: err,
-                    close: "Close",
-                    severity: "error",
-                })
+              handleAlert({
+                message: err,
+                close: "Close",
+                severity: "error",
+              })
               console.error(err)
             })
         }}

@@ -40,7 +40,7 @@ const PasswordRecoverByURL = (location) => {
   const [password, setPassword] = useState(null)
   const [password2, setPassword2] = useState(null)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { setValue } = useContext(StoreContext)
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
@@ -53,7 +53,7 @@ const PasswordRecoverByURL = (location) => {
             <form
               onSubmit={e => {
                 e.preventDefault()
-                if(password == password2){
+                if(password === password2){
                   passwordRecoverByUrl({
                   variables: {
                     resetUrl: url,

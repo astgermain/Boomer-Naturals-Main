@@ -1,26 +1,26 @@
-import React, { useState } from 'react'
-import { Link } from "gatsby"
+import React from 'react'
+// import { Link } from "gatsby"
 
 const CartItem = ({ productTitle, variantTitle, variantId, quantity, price, imgSrc, imgAltText, linkToProduct, removeFromCart, addToCart, lineItemId, extraData }) => {
-    const [isLoading, setIsLoading] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false)
 
     const handleRemove = () => removeFromCart(lineItemId)
 
-    const handlePlus = () => addToCart(variantId, 1, setIsLoading)
+    const handlePlus = () => addToCart(variantId, 1)
 
     const handleMinus = () => {
         // removes from cart if qty will equal zero
         if (quantity - 1 === 0) handleRemove()
-        addToCart(variantId, -1, setIsLoading)
+        addToCart(variantId, -1)
     }
 
     const TOTAL_PRICE = (parseFloat(price) * parseInt(quantity)).toFixed(2)
     return (
         <div className="cart-item-wrapper">
             <div className="variant-icon-wrapper">
-                <Link to={linkToProduct}>
+                <a href={linkToProduct}>
                     <img src={imgSrc} alt={imgAltText} />
-                </Link>
+                </a>
             </div>
             <div className="cart-item-content-wrapper">
                 <div style={{ textAlign: 'left', margin: '1rem' }}>

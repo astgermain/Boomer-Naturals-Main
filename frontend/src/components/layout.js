@@ -1,30 +1,20 @@
 import React, { useContext, useEffect } from "react"
 import Header from "./header"
-import Hero from "./home-items/hero"
-import Categories from "./home-items/categories"
-import AsSeenOn from "./home-items/as-seen-on"
-import Email from "./home-items/email"
-import ProductCarousel from "./product-carousel"
-import Featured from "./home-items/featured"
-import AboutFaceMask from "./home-items/about-face-mask"
-import Insta from "./home-items/insta"
 import Footer from "./footer"
-import News from "./home-items/news"
 import ShoppingCart from "./shopping-cart"
 import { useStaticQuery, graphql } from "gatsby"
 // import Client from "shopify-buy"
-import Register from "./profile-items/register"
 import StoreContext from "../util/store"
-import Login from "./profile-items/login"
 import HomeLayout from "./home-layout"
-import Filter from "../pages/filter"
 import FilterComponent from "./filter-component"
 
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  // eslint-disable-next-line no-unused-vars
   const { isCartOpen, toggleCart } = useContext(StoreContext)
+  // eslint-disable-next-line no-unused-vars
   const { collectionData, setCollectionValue } = useContext(StoreContext)
 
   const data = useStaticQuery(graphql`
@@ -167,7 +157,7 @@ const Layout = ({ location, title, children }) => {
   useEffect(() => {
     console.log("Layout Query Data", data)
     setCollectionValue(data.allShopifyCollection.nodes)
-  }, [])
+  }, [data, setCollectionValue])
   console.log('pathname', location.pathname)
   let content
   if (isRootPath) {
@@ -180,7 +170,7 @@ const Layout = ({ location, title, children }) => {
       </h1>
       */
     )
-  } else if(location.pathname == `/filter`){
+  } else if (location.pathname === `/filter`) {
     content = <FilterComponent data={data} />
   }
   else {

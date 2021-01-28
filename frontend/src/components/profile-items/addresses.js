@@ -8,6 +8,7 @@ import DefAddressUpdate from "./def-address-update"
 import "../../styles/addresses.css"
 import MainButtonEvent from "../main-button-event"
 import { Slide } from "react-awesome-reveal"
+import Collapse from "@material-ui/core/Collapse"
 
 const ADDRESS_DELETE = gql`
   mutation customerAddressDelete($id: ID!, $customerAccessToken: String!) {
@@ -68,16 +69,28 @@ const DEFAULT_ADDRESS_UPDATE = gql`
 
 const Addresses = ({ data, id, handleAlert }) => {
   //console.log("addresses data: ", data)
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+  const { customerAccessToken } = useContext(StoreContext)
   const [showEditForm, setShowEditForm] = useState("")
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
+<<<<<<< HEAD
+  const [updatedModal, setUpdateModal] = React.useState(false)
+  const [deleted, setDeleted] = useState([])
+  const [rendered, setRendered] = useState([])
+
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
   let handleEditClick = id => {
-    console.log("id", id)
     if (id == null) {
+=======
+  // const handleCustomerAccessToken = value => {
+  //   setValue(value)
+  // }
+  let handleEditClick = id => {
+    console.log("id", id)
+    if (id === null) {
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
       setShowEditForm("")
     } else {
       setShowEditForm(id)
@@ -86,44 +99,100 @@ const Addresses = ({ data, id, handleAlert }) => {
   let handleNewAddress = () => {
     setShowCreateForm(!showCreateForm)
   }
+<<<<<<< HEAD
+  let addressRenders = () => {
+    try {
+      return (
+        <>
+          {
+            (addressRenders = data.data.customer.addresses.edges.map(
+              (edge, index) => {
+                if(deleted.includes(index)){
+                  
+                }
+                //Needs to hide or update when changed, probably save the frag in state
+                else if (!showCreateForm && showEditForm == "") {
+                  return (
+                    <React.Fragment key={edge.node.id}>
+                      <div className="address">
+                        {edge.node.id != showEditForm && (
+                          <div className="address-left">
+                            <div className="default">
+                              {data.data.customer.defaultAddress.id ==
+                                edge.node.id && <>Default Address</>}
+                            </div>
+                            <div className="profile-reg">
+                              {edge.node.firstName} {edge.node.lastName}
+                            </div>
+                            <div className="profile-reg">
+                              {edge.node.company != "" && (
+                                <>
+                                  <span>{edge.node.company}</span>
+                                  <br></br>
+                                </>
+                              )}
+                              {edge.node.address1 != "" && (
+                                <>
+                                  <span>{edge.node.address1}</span>
+                                  <br></br>
+                                </>
+                              )}
+                              {edge.node.address2 != "" && (
+                                <>
+                                  <span>{edge.node.address2}</span>
+                                  <br></br>
+                                </>
+                              )}
+                              {edge.node.city} {edge.node.province},{" "}
+                              {edge.node.zip}
+                              <br></br>
+                              {edge.node.country}
+                              <br></br>
+                              {edge.node.phone}
+                            </div>
+                          </div>
+=======
 
   useEffect(() => {}, [data])
+  /* eslint-disable no-unused-vars */
   let addressRenders = []
   //console.log("VALUES:", data)
   try {
     return (
       <>
         {
+          // This could really use a refactor in the future
+          /* eslint-disable array-callback-return */
           (addressRenders = data.data.customer.addresses.edges.map(
             (edge, index) => {
               //Needs to hide or update when changed, probably save the frag in state
-              if (!showCreateForm && showEditForm == "") {
+              if (!showCreateForm && showEditForm === "") {
                 return (
                   <React.Fragment key={edge.node.id}>
                     <div className="address">
-                      {edge.node.id != showEditForm && (
+                      {edge.node.id !== showEditForm && (
                         <div className="address-left">
                           <div className="default">
-                            {data.data.customer.defaultAddress.id ==
+                            {data.data.customer.defaultAddress.id ===
                               edge.node.id && <>Default Address</>}
                           </div>
                           <div className="profile-reg">
                             {edge.node.firstName} {edge.node.lastName}
                           </div>
                           <div className="profile-reg">
-                            {edge.node.company != "" && (
+                            {edge.node.company !== "" && (
                               <>
                                 <span>{edge.node.company}</span>
                                 <br></br>
                               </>
                             )}
-                            {edge.node.address1 != "" && (
+                            {edge.node.address1 !== "" && (
                               <>
                                 <span>{edge.node.address1}</span>
                                 <br></br>
                               </>
                             )}
-                            {edge.node.address2 != "" && (
+                            {edge.node.address2 !== "" && (
                               <>
                                 <span>{edge.node.address2}</span>
                                 <br></br>
@@ -139,16 +208,45 @@ const Addresses = ({ data, id, handleAlert }) => {
                         </div>
                       )}
                       <div className="address-right">
-                        {edge.node.id != showEditForm && (
+                        {edge.node.id !== showEditForm && (
                           <button
                             className="blue-text-field"
                             onClick={() => handleEditClick(edge.node.id)}
                           >
                             Edit
                           </button>
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
                         )}
+                        <div className="address-right">
+                          {edge.node.id != showEditForm && (
+                            <button
+                              className="blue-text-field"
+                              onClick={() => handleEditClick(edge.node.id)}
+                            >
+                              Edit
+                            </button>
+                          )}
 
-                        {edge.node.id != showEditForm && (
+<<<<<<< HEAD
+                          {edge.node.id != showEditForm && (
+                            <Mutation mutation={ADDRESS_DELETE}>
+                              {deleteFunc => {
+                                return (
+                                  <button
+                                    className="blue-text-field"
+                                    onClick={() =>
+                                      deleteFunc({
+                                        variables: {
+                                          id: edge.node.id,
+                                          customerAccessToken:
+                                            customerAccessToken.accessToken,
+                                        },
+                                      })
+                                        .then(result => {
+                                          //console.log("delete result", result)
+                                          if (
+=======
+                        {edge.node.id !== showEditForm && (
                           <Mutation mutation={ADDRESS_DELETE}>
                             {deleteFunc => {
                               return (
@@ -169,46 +267,159 @@ const Addresses = ({ data, id, handleAlert }) => {
                                             .customerUserErrors.length
                                         ) {
                                           setIncorrectCredMsg(
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
                                             result.data.customerAddressDelete
-                                              .customerUserErrors[0].message
-                                          )
-                                          //message gets set but not in time for the alert maybe just display
-                                          handleAlert({
-                                            message: result.data.customerAddressDelete
-                                            .customerUserErrors[0].message,
-                                            close: "Close",
-                                            severity: "warning",
-                                          })
-                                          console.error(
-                                            "Error:",
-                                            incorrectCredMsg
-                                          )
-                                        } else {
-                                          handleAlert({
-                                            message: "Address has been deleted",
-                                            close: "Close",
-                                            severity: "success",
-                                          })
-                                        }
-                                      })
-                                      .catch(err => {
-                                        handleAlert({
-                                          message:
-                                            "There was an error trying to delete this address",
-                                          close: "Close",
-                                          severity: "error",
+                                              .customerUserErrors.length
+                                          ) {
+                                            setIncorrectCredMsg(
+                                              result.data.customerAddressDelete
+                                                .customerUserErrors[0].message
+                                            )
+                                            //message gets set but not in time for the alert maybe just display
+                                            handleAlert({
+                                              message:
+                                                result.data
+                                                  .customerAddressDelete
+                                                  .customerUserErrors[0]
+                                                  .message,
+                                              close: "Close",
+                                              severity: "warning",
+                                            })
+                                            console.error(
+                                              "Error:",
+                                              incorrectCredMsg
+                                            )
+                                          } else {
+                                            handleAlert({
+                                              message:
+                                                "Address has been deleted",
+                                              close: "Close",
+                                              severity: "success",
+                                            })
+                                            setDeleted([...deleted, index])
+                                          }
                                         })
-                                        console.error("Error:", err)
-                                      })
-                                  }
+                                        .catch(err => {
+                                          handleAlert({
+                                            message:
+                                              "There was an error trying to delete this address",
+                                            close: "Close",
+                                            severity: "error",
+                                          })
+                                          console.error("Error:", err)
+                                        })
+                                    }
+                                  >
+                                    Delete
+                                  </button>
+                                )
+                              }}
+                            </Mutation>
+                          )}
+                          {edge.node.id != id && (
+                            <Mutation mutation={DEFAULT_ADDRESS_UPDATE}>
+                              {defUpdateFunc => {
+                                return (
+                                  <>
+                                    <DefAddressUpdate
+                                      defUpdateFunc={defUpdateFunc}
+                                      id={edge.node.id}
+                                      handleAlert={handleAlert}
+                                    />
+                                  </>
+                                )
+                              }}
+                            </Mutation>
+                          )}
+                        </div>
+                      </div>
+                    </React.Fragment>
+                  )
+                } else if (edge.node.id == showEditForm) {
+                  return (
+                    <>
+                      {edge.node.id == showEditForm && (
+                        <Mutation mutation={ADDRESS_UPDATE}>
+                          {updateFunc => {
+                            return (
+                              <Slide
+                                triggerOnce={false}
+                                direction="right"
+                                duration="500"
+                              >
+                                <AddressUpdate
+                                  updateFunc={updateFunc}
+                                  id={edge.node.id}
+                                  address={edge.node}
+                                  handleAlert={handleAlert}
+                                  handleAlert2={handleEditClick}
+                                />
+                                <button
+                                  onClick={() => handleEditClick(null)}
+                                  className="blue-text-field"
                                 >
-                                  Delete
+                                  Back To Addresses
                                 </button>
+<<<<<<< HEAD
+
+                                <br></br>
+                              </Slide>
+                            )
+                          }}
+                        </Mutation>
+                      )}
+                    </>
+                  )
+                }
+              }
+            ))
+          }
+          {showEditForm == "" && (
+            <div className="extra-border">
+              {!showCreateForm && (
+                <MainButtonEvent
+                  text="Add New Address"
+                  func={() => handleNewAddress()}
+                >
+                  Add New Address
+                </MainButtonEvent>
+              )}
+            </div>
+          )}
+          {showCreateForm && showEditForm == "" && (
+            <>
+              <Collapse in={showCreateForm} appear={true}>
+                <AddressCreation
+                  handleAlert={handleAlert}
+                  handleAlert2={handleEditClick}
+                  back={handleNewAddress}
+                />
+                <br></br>
+                <button
+                  onClick={() => handleNewAddress()}
+                  className="blue-text-field"
+                >
+                  Back To Addresses
+                </button>
+              </Collapse>
+            </>
+          )}
+        </>
+      )
+    } catch {
+      //No addresses to return
+      return (
+        <div>
+          <span>No Address To Return, Try Logging Out and Logging Back In</span>
+        </div>
+      )
+    }
+=======
                               )
                             }}
                           </Mutation>
                         )}
-                        {edge.node.id != id && (
+                        {edge.node.id !== id && (
                           <Mutation mutation={DEFAULT_ADDRESS_UPDATE}>
                             {defUpdateFunc => {
                               return (
@@ -227,10 +438,10 @@ const Addresses = ({ data, id, handleAlert }) => {
                     </div>
                   </React.Fragment>
                 )
-              } else if (edge.node.id == showEditForm) {
+              } else if (edge.node.id === showEditForm) {
                 return (
                   <>
-                    {edge.node.id == showEditForm && (
+                    {edge.node.id === showEditForm && (
                       <Mutation mutation={ADDRESS_UPDATE}>
                         {updateFunc => {
                           return (
@@ -265,7 +476,7 @@ const Addresses = ({ data, id, handleAlert }) => {
             }
           ))
         }
-        {showEditForm == "" && (
+        {showEditForm === "" && (
           <div className="extra-border">
             {!showCreateForm && (
               <MainButtonEvent
@@ -277,7 +488,7 @@ const Addresses = ({ data, id, handleAlert }) => {
             )}
           </div>
         )}
-        {showCreateForm && showEditForm == "" && (
+        {showCreateForm && showEditForm === "" && (
           <>
             <AddressCreation />
             <button
@@ -297,7 +508,20 @@ const Addresses = ({ data, id, handleAlert }) => {
         <span>No Address To Return, Try Logging Out and Logging Back In</span>
       </div>
     )
+>>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
   }
+
+  useEffect(() => {
+    console.log("Deleted", deleted)
+    if (deleted.length > 0) {
+      setRendered(addressRenders())
+    }
+    return function cleanup() {
+    }
+  }, [deleted])
+
+  //console.log("VALUES:", data)
+  return <>{deleted.length == 0 ? <>{addressRenders()}</> : <>{rendered}</>}</>
 }
 
 export default Addresses
