@@ -12,6 +12,7 @@ import StoreContext from "../util/store"
 
 const ProductModal = ({ type1, type2, data, setModalShow }) => {
 
+
   let x = () => {
     try {
       return [data.images[0].originalSrc, data.images[0].altText]
@@ -189,7 +190,6 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
     const variantIdToAddToCart = findVariantsBySelection?.id.split("Shopify__ProductVariant__").join("")
 
     console.log('filtered items: ', variantIdToAddToCart)
-
     addToCart(variantIdToAddToCart, quantity, setIsLoading)
     //upsells products onclick add to cart
     setupsellShow(true)
