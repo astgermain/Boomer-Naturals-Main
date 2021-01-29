@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Header from "../components/header"
 import Footer from "../components/footer"
+import "../styles/style.css"
 
 const NotFoundPage = (props) => {
   console.log("404 Props", props)
@@ -17,7 +18,13 @@ const NotFoundPage = (props) => {
   return (
     <div>
       <Header />
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <section className="error-404">
+      <div id="content-wrapper-404">
+      <div className="text-404">404</div>
+			<h2 className="page-title-404">This page cannot be found.</h2>
+			<a className="backhome404-btn" href="/" rel="home">Back to Home</a>
+      </div>
+    </section>
       <Footer />
     </div>
   )
