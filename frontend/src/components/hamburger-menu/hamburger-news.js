@@ -21,6 +21,9 @@ const HamburgerNews = () =>{
               <Link to="/investorrelations" className="btm-shop-links">
                 <span className="btm-shop-links">On Business Wire</span>
               </Link>
+              <Link to="https://ir.boomernaturals.com/" className="btm-shop-links">
+                <span className="btm-shop-links">Investor Relations</span>
+              </Link>
               <Link to="/donations" className="btm-shop-links">
                 <span className="btm-shop-links" >Donations</span>
               </Link>

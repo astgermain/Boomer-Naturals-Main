@@ -462,3 +462,20 @@
   * End Hero Section
   *
   */
+
+  /* hero responsive */
+
+  @media (max-width: 975px) {
+    .hero-right .slick-arrow {
+      display:none!important;
+    }
+    .hero-right .slider-container{
+        margin-top: 0!important;
+    }
+    .hero-right{
+        width: 100%;
+    }
+    .slick-slide img{
+        width:100%;
+    }
+  }
