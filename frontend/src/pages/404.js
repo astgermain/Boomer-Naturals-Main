@@ -21,7 +21,7 @@ const NotFoundPage = (props) => {
       <section className="error-404">
       <div id="content-wrapper-404">
       <div className="text-404">404</div>
-			<h2 className="page-title-404">This page cannot be found.</h2>
+			<div className="page-title-404">This page cannot be found.</div>
 			<button className="backhome404-btn"><a href="/" rel="home">Back to Home</a>
         </button>
       </div>

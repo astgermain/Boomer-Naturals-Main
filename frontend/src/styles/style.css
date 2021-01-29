@@ -770,6 +770,7 @@ a:focus {
 .page-title-404{
     margin-top: 0!important;
     color: #002f42;
+    font-size: 2vw;
 }
 .backhome404-btn{
     background: #00a1c6;
@@ -780,4 +781,20 @@ a:focus {
 }
 .backhome404-btn a{
     color: white!important;
+}
+@media only screen and (max-width: 975px){
+    .text-404{
+        font-size: 14vw;
+    }
+    .page-title-404{
+        font-size: 3vw;
+    }
+}
+@media only screen and (max-width: 480px){
+    .text-404{
+        font-size: 22vw;
+    }
+    .page-title-404{
+        font-size: 5vw;
+    }
 }
