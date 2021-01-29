@@ -308,15 +308,10 @@ const Account = () => {
                       {curPage === "My Account" && (
                         <>
                           <h1>My Account</h1>
-<<<<<<< HEAD
                           {updatedModal == true && (
                             <>
                           <div className="hi">
                             <Collapse in={updatedModal} appear={true}>
-=======
-                          {updatedModal === true && (
-                            <Slide triggerOnce={false} direction="right" duration="500">
->>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
                               <AccountUpdate
                                 data={data}
                                 oFirstName={firstName}
