@@ -11,14 +11,8 @@ import OrderHistory from "./order-history"
 import Pagination from "../pagination"
 import "../../styles/account.css"
 import Alert from "@material-ui/lab/Alert"
-<<<<<<< HEAD
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
-=======
-import { Slide } from "react-awesome-reveal"
-// import FormControlLabel from "@material-ui/core/FormControlLabel"
-// import Switch from "@material-ui/core/Switch"
->>>>>>> 9f137aca43320b7baaf5f798e8da870b4d744800
 import Grow from "@material-ui/core/Grow"
 import Button from "@material-ui/core/Button"
 import MainButtonEvent from "../main-button-event"
