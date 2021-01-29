@@ -9,7 +9,7 @@ const Reviews = ({ data, pageContext, location, ReviewDisable}) => {
 
   
   const ShopifyId = pageContext.node.shopifyId
-  const DataId = atob(ShopifyId).split('/')[4]
+  const DataId = Buffer.from(ShopifyId, 'base64').toString().split('/')[4]
   const DataTitle = pageContext.node.title
   const DataUrl = pageContext.node.onlineStoreUrl
   const DataImage = pageContext.node.images[0]
