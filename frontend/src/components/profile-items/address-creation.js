@@ -40,16 +40,15 @@ const AddressCreation = ({handleAlert, handleAlert2, back}) => {
   const [province, setProvince] = useState("")
   const [zip, setZip] = useState("")
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
-  // const handleCustomerAccessToken = value => {
-  //   setValue(value)
-  // }
-  return (
-    <Mutation mutation={ADDRESS_CREATE}>
-      {createFunc => {
-        /* eslint-disable no-unused-vars */
-        let address = {}
-        return (
-          <div className="address-create-form">
+  const handleCustomerAccessToken = value => {
+    setValue(value)
+  }
+  let address = {}
+return(
+<Mutation mutation={ADDRESS_CREATE}>
+        {createFunc => {
+          return (
+            <div className="address-create-form">
             <form
               onSubmit={e => {
                 e.preventDefault()
@@ -195,6 +194,6 @@ const AddressCreation = ({handleAlert, handleAlert2, back}) => {
       </Mutation>
         
   )
-}
+            }
 
-export default AddressCreation
+            export default AddressCreation

@@ -11,9 +11,8 @@ import OrderHistory from "./order-history"
 import Pagination from "../pagination"
 import "../../styles/account.css"
 import Alert from "@material-ui/lab/Alert"
-import { Slide } from "react-awesome-reveal"
-// import FormControlLabel from "@material-ui/core/FormControlLabel"
-// import Switch from "@material-ui/core/Switch"
+import FormControlLabel from "@material-ui/core/FormControlLabel"
+import Switch from "@material-ui/core/Switch"
 import Grow from "@material-ui/core/Grow"
 import Button from "@material-ui/core/Button"
 import MainButtonEvent from "../main-button-event"
@@ -309,8 +308,10 @@ const Account = () => {
                       {curPage === "My Account" && (
                         <>
                           <h1>My Account</h1>
-                          {updatedModal === true && (
-                            <Slide triggerOnce={false} direction="right" duration="500">
+                          {updatedModal == true && (
+                            <>
+                          <div className="hi">
+                            <Collapse in={updatedModal} appear={true}>
                               <AccountUpdate
                                 data={data}
                                 oFirstName={firstName}
@@ -323,7 +324,9 @@ const Account = () => {
                                 onClick={() => handleEditModal()} className="blue-text-field">
                                 Back To Account
                                 </button>
-                            </Slide>
+                            </Collapse>
+                            </div>
+                            </>
                           )}
                           {updatedModal === false && (
                             <>
