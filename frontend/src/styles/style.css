@@ -755,3 +755,29 @@ a:focus {
     display: flex;
     align-items: center;
 }
+
+
+/* 404 page style  */
+#content-wrapper-404{
+    text-align:center;
+    margin: 50px;
+}
+.text-404{
+    font-family: var(--fontFamily-bold);
+    font-size: 12vw;
+    color: #00a1c6;
+}
+.page-title-404{
+    margin-top: 0!important;
+    color: #002f42;
+}
+.backhome404-btn{
+    background: #00a1c6;
+    padding: 10px 30px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 40px;
+}
+.backhome404-btn a{
+    color: white!important;
+}
