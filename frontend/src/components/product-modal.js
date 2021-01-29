@@ -40,7 +40,6 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
       //   data[0].id.split("Shopify__ProductVariant__").join("")
       // )
     } catch {
-      console.log("color selection error")
     }
     try {
       setMainImage(data[0].image.originalSrc)
@@ -55,11 +54,9 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
   }
 
   const handleSizeSelection = (e, size) => {
-    console.log('this is the size: ', size)
     try {
       setSelectedSize(size)
     } catch {
-      console.error("size selection error")
     }
   }
 
@@ -106,7 +103,6 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
     }
   })
 
-  console.log('size set before adjustment: ', sizeSet)
 
   //Sets array for size display
   sizeSet = [...sizeSet].map((size) => {
@@ -167,8 +163,6 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-  // console.log('main array: ', data)
-  // console.log('size set: ', sizeSet)
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
@@ -179,17 +173,9 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
       &&
       variant.selectedOptions.some((option) => option.value.includes(selectedSize))
     ))
-    // .filter((variant) => {
-    //   console.log('in filter',variant.selectedOptions.some((option) => {
-    //     console.log('in Option', selectedSize, option.value)
-    //     return option.value.includes(selectedSize)
-    //   }))
-    //   return variant
-    // })
-    //   data[0].id.split("Shopify__ProductVariant__").join("")
+
     const variantIdToAddToCart = findVariantsBySelection?.id.split("Shopify__ProductVariant__").join("")
 
-    console.log('filtered items: ', variantIdToAddToCart)
     addToCart(variantIdToAddToCart, quantity, setIsLoading)
     //upsells products onclick add to cart
     setupsellShow(true)

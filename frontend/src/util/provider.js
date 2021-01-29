@@ -4,7 +4,6 @@ import StoreContext, { defaultStoreContext } from "./store"
 const isBrowser = typeof window !== "undefined"
 
 const Provider = ({ children }) => {
-  //console.log(`Provider: `, defaultStoreContext)
   const [store, updateStore] = useState(defaultStoreContext)
   const [checkout, setCheckout] = useState(defaultStoreContext.checkout)
   const [isCartOpen, setIsCartOpen] = useState(false)
@@ -14,7 +13,6 @@ const Provider = ({ children }) => {
   const [collectionData, setCollectionData] = useState({})
   const [customerInfo, setCustomerInfo] = useState({})
   const toggleCart = () => {
-    //console.log("cart")
     setIsCartOpen(!isCartOpen)
   }
 
@@ -93,13 +91,11 @@ const Provider = ({ children }) => {
             email: customerObj.email
           }
 
-          console.log('we hit address!')
 
           const newCheckout = await store.client.checkout.updateShippingAddress(
             checkout.id,
             newAddress
           )
-          console.log('shipping checkout: ', newCheckout)
           setCheckout(newCheckout)
 
         },
@@ -138,7 +134,6 @@ const Provider = ({ children }) => {
         },
         addToCart: async (variantId, quantity, setIsLoading = null, customAttributes = null) => {
           setIsLoading(true)
-          //console.log(variantId, quantity)
           const lineItem = [
             {
               variantId: variantId,
@@ -152,7 +147,6 @@ const Provider = ({ children }) => {
             checkout.id,
             lineItem
           )
-          //console.log(newCheckout)
           if (setIsLoading) {
             setIsLoading(false)
           }

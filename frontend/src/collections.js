@@ -13,7 +13,6 @@ const Collections = () => {
     `
   );
 
-  console.log('data:', JSON.stringify(data));
 
   return (
     <div className="collections">

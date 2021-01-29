@@ -8,7 +8,6 @@ import { Zoom } from "react-awesome-reveal"
 export const ProductSliderContext = createContext(null)
 
 const ProductSlider = ({ collection }) => {
-   console.log('product slider collection', collection)
 
   let slideData = []
   let slider = undefined

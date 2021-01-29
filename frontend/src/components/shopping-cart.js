@@ -87,8 +87,6 @@ const ShoppingCart = () => {
   const NO_CART_ITEMS = <p>No Products in your cart.</p>
 
   useEffect(() => {
-    //console.log("PRODS IN CART", PRODUCTS_IN_CART)
-    //Fconsole.log("Checkout: ", checkout)
   }, [PRODUCTS_IN_CART])
   return (
     <Slide triggerOnce={true} direction="right">

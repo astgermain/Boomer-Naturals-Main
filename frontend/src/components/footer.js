@@ -48,7 +48,6 @@ const Footer = () => {
 //       if (currentScrollY > 50 ) {
 //         setScrollingDown(true);
 //       }
-//       console.log('current scroll: ',currentScrollY);
 //     };
 
 //     return () => window.addEventListener("scroll", { passive: true });

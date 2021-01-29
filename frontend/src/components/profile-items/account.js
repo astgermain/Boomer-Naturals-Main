@@ -203,7 +203,6 @@ const Account = () => {
       </>
     )
   })
-  //console.log("current page: ", curPage)
   let queryFunc = () => {
     if (customerAccessToken !== null) {
       var firstDate = new Date(Date.now())
@@ -222,8 +221,6 @@ const Account = () => {
           }}
         >
           {data => {
-            //console.log(customerAccessToken.accessToken)
-            //console.log("Query data: ", data)
             let updatedCustomer
             try {
               updatedCustomer = data.data.customer
@@ -285,14 +282,6 @@ const Account = () => {
                     )}
                   </div>
 
-                  {/*
-                <button name="info" onClick={() => console.log(data)}>
-                  click for data
-                </button>
-                <button name="info" onClick={() => data.refetch()}>
-                  Refetch
-                </button>
-                */}
                   <div className="account-content">
                     <div className="account-left">
                       {NAV_LIST_ITEMS}

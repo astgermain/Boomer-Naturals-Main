@@ -133,7 +133,6 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   mainArray.push(tSet)
 
   let generateVariantThumbs = variantData => {
-    //console.log("vdata", variantData)
     return variantData.map(data => {
       try {
         return (
@@ -201,7 +200,6 @@ const ProductTemplate = ({ data, pageContext, location }) => {
     )
   })
 
-  //console.log("thisone", pageContext.node)
 
   //size
 

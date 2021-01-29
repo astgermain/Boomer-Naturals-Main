@@ -3,9 +3,7 @@ import StoreContext from "../../util/store"
 import "../../styles/order-history.css"
 
 const OrderHistory = ({ data }) => {
-  //console.log("order history data: ", data)
   const { customerAccessToken, setValue } = useContext(StoreContext)
-  //console.log("ctoken on orderhistory:", customerAccessToken)
   // Code Snippet taken from the post
   function getSafe(fn, defaultVal) {
     try {
@@ -16,7 +14,6 @@ const OrderHistory = ({ data }) => {
   }
   // or add an optional default value
   let orders = getSafe(() => data.data.customer.orders.edges, undefined)
-  //console.log("Orders: ", orders)
   let makeDate = (date) => {
     let d = date.getUTCDate()
     let m = date.getUTCMonth() + 1

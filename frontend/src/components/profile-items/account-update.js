@@ -38,7 +38,6 @@ const AccountUpdate = ({
   oEmail,
   handleAlert,
 }) => {
-  //console.log("data and fn", data, oFirstName)
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
@@ -85,7 +84,6 @@ const AccountUpdate = ({
                       },
                     })
                     .then(result => {
-                      //console.log("result", result)
                       if (
                         result.data.customerUpdate.customerAccessToken === null
                       ) {
@@ -115,7 +113,6 @@ const AccountUpdate = ({
                         close: "Close",
                         severity: "error",
                       })
-                      console.error("error", err)
                     })
                     data.refetch()
                   }

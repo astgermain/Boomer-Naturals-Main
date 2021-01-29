@@ -68,7 +68,6 @@ const DEFAULT_ADDRESS_UPDATE = gql`
 `
 
 const Addresses = ({ data, id, handleAlert }) => {
-  //console.log("addresses data: ", data)
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [showEditForm, setShowEditForm] = useState("")
   const [showCreateForm, setShowCreateForm] = useState(false)
@@ -167,7 +166,6 @@ const Addresses = ({ data, id, handleAlert }) => {
                                         },
                                       })
                                         .then(result => {
-                                          //console.log("delete result", result)
                                           if (
                                             result.data.customerAddressDelete
                                               .customerUserErrors.length
@@ -317,7 +315,6 @@ const Addresses = ({ data, id, handleAlert }) => {
   }
 
   useEffect(() => {
-    console.log("Deleted", deleted)
     if (deleted.length > 0) {
       setRendered(addressRenders())
     }
@@ -325,7 +322,6 @@ const Addresses = ({ data, id, handleAlert }) => {
     }
   }, [deleted])
 
-  //console.log("VALUES:", data)
   return <>{deleted.length == 0 ? <>{addressRenders()}</> : <>{rendered}</>}</>
 }
 

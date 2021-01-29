@@ -40,7 +40,6 @@ const Featured = ({data}) => {
       </g>
     </svg>
   )
-console.log('featured data', data)
   let pSlide = () => {
     try{
       return(

@@ -58,7 +58,6 @@ const ActivateByURL = ({ activationURL }) => {
                   },
                 })
                   .then(result => {
-                    //console.log("result", result.data)
                     if (
                       result.data.customerActivateByUrl.customerUserErrors.length
                     ) {

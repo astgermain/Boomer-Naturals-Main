@@ -13,7 +13,6 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
     const handleModalShow = e => {
         setModalShow(e)
     }
-        console.log(ProductModal)
 
     useEffect(() => {
         document.body.style.overflow = 'hidden'
