@@ -15,7 +15,9 @@ const Filter = ({ location }) => {
  
   return (
     <Layout location={location}>
+      {/*
       <FilterComponent />
+      */}
     </Layout>
   )
 }

@@ -4,30 +4,109 @@ import Product from "../components/product"
 import ProductModal from "./product-modal"
 import Checkbox from "../components/checkbox"
 import StoreContext from "../util/store"
+import { useStaticQuery, graphql } from "gatsby"
 
-const FilterComponent = ({data}) => {
+const FilterComponent = () => {
+  /*
+  const data = useStaticQuery(graphql`
+    {
+      allShopifyCollection{
+        nodes {
+          shopifyId
+          title
+          descriptionHtml
+          image {
+            altText
+            src
+            localFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          internal {
+            content
+            description
+            ignoreType
+            mediaType
+          }
+          products {
+            title
+            shopifyId
+            onlineStoreUrl
+            descriptionHtml
+            availableForSale
+            totalInventory
+            images {
+              altText
+              originalSrc
+            }
+            priceRange {
+              maxVariantPrice {
+                amount
+                currencyCode
+              }
+              minVariantPrice {
+                currencyCode
+                amount
+              }
+            }
+            productType
+            tags
+            variants {
+              title
+              id
+              selectedOptions {
+                name
+                value
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+              image {
+                altText
+                originalSrc
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              availableForSale
+              quantityAvailable
+              selectedOptions {
+                name
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  
+
 const ITEMS_TO_SHOW = 100
 const [modalShow, setModalShow] = useState("")
 const [ptActive, setPtActive] = useState()
 const [ctActive, setCtActive] = useState()
-// const [updatedSearch, setUpdatedSearch] = useState({})
-// eslint-disable-next-line no-unused-vars
 const { sortedData, setSortedValue } = useContext(StoreContext)
-// eslint-disable-next-line no-unused-vars
 const [collectionData, setCollectionData] = useState(data.allShopifyCollection.nodes)
 const [productsShown, setProductsShown] = useState([])
 const [productTypeFilter, setProductTypeFilter] = useState("")
 const [collectionTypeFilter, setCollectionTypeFilter] = useState("")
-// NEEDS USEEFFECT To have props passed if coming from a collection or product type search to set the state
-// for filter options so that they are selected
-/*eslint-disable */
+
 useEffect(() => {
   setProductsShown(PRODUCT_LIST_ITEMS)
   if (handleCollectionTypeButton) {
     return setProductsShown(COLLECTION_LIST_ITEMS)
   }
 }, [])
-/*eslint-enable */
 // NEEDS CLEAR RESULTS BUTTON
 
 // NEEDS Search Button to work on filter page
@@ -312,7 +391,6 @@ return(
           <div className="filter-size">
             <h4>Size</h4>
             <span className="filter-option">Adult</span>
-            {/*Checkbox needs Clear Check prop for clear filters button*/}
             <div className="check-option">
               <Checkbox value="sm" handleCheck={handleCheck} />
               <span className="filter-option">Small</span>
@@ -343,7 +421,7 @@ return(
             <h4>Colors</h4>
             <span className="filter-option">Color Boxes</span>
           </div>
-          {/* <div className="filter-mask-type">
+           <div className="filter-mask-type">
           <h4>Face Cover</h4>
           <div className="check-option">
             <Checkbox value="ad" handleCheck={handleCheck} />
@@ -353,7 +431,7 @@ return(
             <Checkbox value="na" handleCheck={handleCheck} />
             <span className="filter-option">Non-Adjustable</span>
           </div>
-        </div> */}
+        </div> 
         </div>
         
         <div className="filter-results">
@@ -370,5 +448,5 @@ return(
 FilterComponent.defaultProps = {}
 
 FilterComponent.propTypes = {}
-
+*/}
 export default FilterComponent
