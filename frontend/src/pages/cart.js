@@ -10,29 +10,6 @@ import gql from "graphql-tag"
 
 const ShoppingCartPage = ({ location }) => {
 
-    const GET_CUSTOMER_ADDRESS = gql`
-    query($customerAccessToken: String!) {
-      customer(customerAccessToken: $customerAccessToken) {
-        email
-        defaultAddress {
-          id
-          address1
-          address2
-          city
-          lastName
-          firstName
-          country
-          countryCodeV2
-          name
-          zip
-          company
-          phone
-          provinceCode
-          province
-          formattedArea
-        }
-    `
-
     const {
         addToCart,
         // isCartOpen,
@@ -43,7 +20,6 @@ const ShoppingCartPage = ({ location }) => {
         toggleCart,
     } = useContext(store)
     
-// eslint-disable-next-line no-unused-vars
 const [specialInstructions, setSpecialInstructions] = useState("")
 
     const PRODUCTS_IN_CART = checkout.lineItems
