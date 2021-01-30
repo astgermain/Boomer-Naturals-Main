@@ -286,6 +286,7 @@
     margin-bottom: 5%;
   }
 }
+
 @media (max-width: 750px) {
   .review-text-container {
     padding: 0% 0% 10% 0%;
@@ -303,38 +304,26 @@
 }
 @media (max-width: 480px) {
   .review-text-container {
-    padding: 10% 10% 15% 10%;
+    padding: 0% 10% 0% 10%;
   }
   .review-text {
     font-size: 16px;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
+  }
+  .insta-slider .slider-container{
+    margin-top: 0!important;
   }
 }
-@media (max-width: 465px) {
-  .review-text-container {
-    padding: 10% 8% 15% 8%;
-  }
-}
-@media (max-width: 440px) {
-  .review-text-container {
-    padding: 10% 6% 6% 6%;
-  }
-}
+
 @media (max-width: 420px) {
-  .review-text-container {
-    padding: 10% 5% 15% 5%;
-  }
+
   .review-text {
     font-size: 14px;
   }
 }
-@media (max-width: 410px) {
-  .review-text-container {
-    padding: 0% 5% 20% 5%;
+@media (max-width: 375px){
+  .review-text {
+    margin-bottom: 0;
   }
 }
-@media (max-width: 376px) {
-  .review-text-container {
-    padding: 0% 5% 10% 5%;
-  }
-}
+
