@@ -2,14 +2,16 @@
  * Modal component for quick buy feature
  */
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import "../styles/product-modal.css"
 import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
 import UpSell from "./upsell"
 import "../styles/upsell.css"
+import StoreContext from "../util/store"
 
 const ProductModal = ({ type1, type2, data, setModalShow }) => {
+
 
   let x = () => {
     try {
@@ -21,13 +23,12 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
   const [quantity, setQuantity] = useState(1)
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
-  // const [selectedVariantId, setSelectedVariantId] = useState("")
 
+  const [isLoading, setIsLoading] = useState(false)
   const [selectedSize, setSelectedSize] = useState("")
-  // const [selectedType, setSelectedType] = useState("")
   const [selectedColor, setSelectedColor] = useState("")
   const [upsellShow, setupsellShow] = useState(false)
-
+  const { addToCart } = useContext(StoreContext)
   const handleVariantSelection = data => {
     try {
       // sets color value to state from what user selects
@@ -173,40 +174,23 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
   }
 
   const handleAddToCart = e => {
+    const findVariantsBySelection = data.variants.find((variant) => (
+      variant.selectedOptions.some((option) => option.value.includes(selectedColor))
+      &&
+      variant.selectedOptions.some((option) => option.value.includes(selectedSize))
+    ))
+    // .filter((variant) => {
+    //   console.log('in filter',variant.selectedOptions.some((option) => {
+    //     console.log('in Option', selectedSize, option.value)
+    //     return option.value.includes(selectedSize)
+    //   }))
+    //   return variant
+    // })
+    //   data[0].id.split("Shopify__ProductVariant__").join("")
+    const variantIdToAddToCart = findVariantsBySelection?.id.split("Shopify__ProductVariant__").join("")
 
-    // const VARIANT_ID = data.variants[0].id
-    //   .split("Shopify__ProductVariant__")
-    //   .join("")
-    const variantIdToAdd = data.variants
-      .find(variant => {
-        const optionsObject = {
-          color: false,
-          size: false
-        }
-        // console.log("red boi", variant.selectedOptions, selectedColor)
-        variant.selectedOptions.forEach((option) => {
-          // console.log('color: ', option.value === selectedColor)
-          // console.log('size: ', option.value.includes(selectedSize))
-          if (optionsObject.color && optionsObject.size) {
-            return
-          } else {
-            if (option.name === "Color" && option.value === selectedColor) {
-              optionsObject.color = true
-              console.log('reeedddd')
-            }
-            if (option.name === "Size" && option.value.includes(selectedSize)) {
-              console.log('siiiize')
-              optionsObject.size = true
-            }
-          }
-        })
-        // console.log(object)
-        return optionsObject.color && optionsObject.size
-      })
-
-    console.log("added to cart:  ", variantIdToAdd)
-    console.log('doop')
-    // addToCart(variantIdToAdd, quantity, setIsLoading)
+    console.log('filtered items: ', variantIdToAddToCart)
+    addToCart(variantIdToAddToCart, quantity, setIsLoading)
     //upsells products onclick add to cart
     setupsellShow(true)
   }
@@ -218,7 +202,7 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
       direction="up"
       className={type1}
     >
-      <div  className={type2}>
+      <div className={type2}>
         <div className="modal-options">
           <div className="modal-price">
             from ${formattedPrice}{" "}
