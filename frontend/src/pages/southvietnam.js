@@ -16,6 +16,7 @@ const Vietnam = () => {
     return ( 
         <section>
         <Header/>
+        <div className="southvietnamwrapper">
             {/* banners */}
           <div className="v-main-banner">
               <img className='vietnam-banner v-banner' src={vietnamheader} alt="Boomer Naturals brings better face covers to market"/>
@@ -103,11 +104,12 @@ const Vietnam = () => {
                 <p className="v-videop-mobile" style={{display: "none"}}>Another contributing factor may be that Vietnam has perfected Silver-Infused Technology, white uses specially-charged fibers that hold  properties and are engineered to block the spread of small particles.</p>
             </div>
 
-                <div className="v-flex-me v-video-mobile" style={{gap:"30px"}}>
-                    <iframe title="videos" width="300" height="280" src="https://www.youtube.com/embed/7Y6ti2GZBQs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {/* <div className="v-flex-me v-video-mobile" style={{gap:"30px"}}>
+                    <iframe className="vietnam-video" width="300" height="280" src="https://www.youtube.com/embed/7Y6ti2GZBQs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                     <p className="v-desktop-p">The Silver-Infused fibers in our<br/> 30-Day Face Covers are<br/> engineered to help fight<br/> bacteria and provide better,<br/> more effective protection<br/> than regular cloth covers.<br/> Silver particles have a<br/> relatively large surface area,<br/> which increases their contact<br/> with bacteria or fungi - and<br/> therefore increases their<br/> antibacterial effect.</p>
                     <p className="v-mobile-p" style={{display:"none"}}>The Silver-Infused fibers in our 30-Day Face Covers are engineered to help fight bacteria and provide better, more effective protection regular cloth covers. Silver particles have a relatively large surface area, which increases their contact with bacteria or fungi - and therefore increases their antibacterial effect.</p>
-                </div>
+                </div> */}
                 <div className="v-center-me" style={{margintop:"20px"}}>
                     <p className="v-videop-last-desktop">Silvered medical textiles used in hospital settings have<br/> also shown promise in reducing bacterial transmission and<br/> contamination.
                     </p>
@@ -163,7 +165,7 @@ const Vietnam = () => {
           </div>
 
             
-
+          </div>
           <Footer/>  
           </section>
      );

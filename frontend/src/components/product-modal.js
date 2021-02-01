@@ -10,7 +10,8 @@ import UpSell from "./upsell"
 import "../styles/upsell.css"
 import StoreContext from "../util/store"
 
-const ProductModal = ({ type1, type2, data, setModalShow }) => {
+const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
+  const { addToCart } = useContext(store)
 
 
   let x = () => {
@@ -181,6 +182,8 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
     setupsellShow(true)
   }
 
+ 
+
   return (
     <Slide
       duration={500}
@@ -249,7 +252,9 @@ const ProductModal = ({ type1, type2, data, setModalShow }) => {
               <UpSell setupsellShow={setupsellShow} upsellShow={upsellShow} />
             )}
           </div>
-          <button className="close" onClick={hideModal}>
+          <button className="close" onClick={() => {
+          hideModal()
+          setProductShow(true)}}>
             {" "}
           </button>
         </div>

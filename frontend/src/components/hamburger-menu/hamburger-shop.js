@@ -14,43 +14,49 @@ const HamburgerShop = () =>{
             <span className="dashed"></span>
             <div className="shop-links">
               <Link to="/allcollections" className="shop-collection-link">
-                <span className="shop-c-links">Shop Collection</span>
+                <span className="shop-c-links">Shop Collections</span>
+              </Link>
+              <Link to="/all" className="btm-shop-links">
+                <span className="btm-shop-links">All Products</span>
               </Link>
               <Link to="/newarrivals" className="btm-shop-links">
                 <span className="btm-shop-links">New Arrivals</span>
               </Link>
-              <Link to="/bestsellers" className="btm-shop-links">
-                <span className="btm-shop-links" >Face Covers & Best Sellers</span>
+              <Link to="/facecovers" className="btm-shop-links">
+                <span className="btm-shop-links" >Face Coverings</span>
               </Link>
-              <Link to="/adultfacecovers" className="btm-shop-links">
-                <span className="btm-shop-links" >Adult Face Covers</span>
+              <Link to="/coming-soon" className="btm-shop-links">
+                <span className="btm-shop-links" >Apparel (Coming Soon)</span>
               </Link>
-              <Link to="/childfacecovers" className="btm-shop-links">
-                <span className="btm-shop-links" >Child Face Covers</span>
+              <Link to="/coming-soon" className="btm-shop-links">
+                <span className="btm-shop-links" >Silver Bed & Bath (Coming Soon)</span>
               </Link>
-              <Link to="/customfacecovers" className="btm-shop-links">
-                <span className="btm-shop-links" >Custom Face Covers</span>
+              <Link to="/coming-soon" className="btm-shop-links">
+                <span className="btm-shop-links" >Silver Accessories (Coming Soon)</span>
+              </Link>
+              <Link to="/coming-soon" className="btm-shop-links">
+                <span className="btm-shop-links" >Vietnamese Coffee (Coming Soon)</span>
               </Link>
               <Link to="/boomerbotanics" className="btm-shop-links">
                 <span className="btm-shop-links" >Boomer Botanics</span>
               </Link>
+              <Link to="/supplements" className="btm-shop-links">
+                <span className="btm-shop-links" >Supplements</span>
+              </Link>
+              <Link to="/skin" className="btm-shop-links">
+                <span className="btm-shop-links" >Skin</span>
+              </Link>
               <Link to="/pets" className="btm-shop-links">
-                <span className="btm-shop-links" >Pet Products</span>
+                <span className="btm-shop-links">Pets</span>
               </Link>
-              <Link to="/skincarewellness" className="btm-shop-links">
-                <span className="btm-shop-links" >Skin Care & Wellness Supplements</span>
+              <Link to="/giftcard" className="btm-shop-links">
+                <span className="btm-shop-links" >Gift Card</span>
               </Link>
-              <Link to="/bundles" className="btm-shop-links">
-                <span className="btm-shop-links">Shop Bundles</span>
-              </Link>
-              <Link to="/allproducts" className="btm-shop-links">
-                <span className="btm-shop-links" >Shop All Products</span>
-              </Link>
-              <Link to="/giftcards" className="btm-shop-links">
-                <span className="btm-shop-links" >Gift Cards</span>
-              </Link>
-              <Link to="/wholesale" className="btm-shop-links">
+              <Link to="https://boomernaturalswholesale.com/" className="btm-shop-links">
                 <span className="btm-shop-links" >Wholesale</span>
+              </Link>
+              <Link to="/loyaltyrewards" className="btm-shop-links">
+                <span className="btm-shop-links" >Loyalty & Rewards</span>
               </Link>
             </div>
         </div>

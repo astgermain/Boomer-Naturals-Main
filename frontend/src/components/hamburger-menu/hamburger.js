@@ -9,7 +9,6 @@ import { Link } from "gatsby"
 import "../../styles/hamburger.css"
 import { Slide } from "react-awesome-reveal"
 import HamburgerShop from "./hamburger-shop"
-import HamburgerBotanics from "./hamburger-botanics"
 import HamburgerNews from "./hamburger-news"
 import HamburgerLocations from "./hamburger-locations"
 import HamburgerAbout from "./hamburger-about"
@@ -109,7 +108,7 @@ const Hamburger = ({ close }) => {
             <div className="link-level1">
               <button>
                 <Link to="/" className="ham-link1">
-                  <span className="links" role="button" tabIndex={0} onKeyDown={close} onClick={close}>
+                  <span className="links" role="button" tabIndex={0} onClick={yeetHamburgerMenu} onKeyDown={yeetHamburgerMenu}>
                     Home
                   </span>
                 </Link>
@@ -121,17 +120,18 @@ const Hamburger = ({ close }) => {
                 </Link>
               </button>
 
+              <button onClick={() => openSideMenu("news") }>
+                <Link className="ham-link1">
+                  <span  role="button" tabIndex={0} onMouseEnter={() => openSideMenu("news") } className="links">News</span>
+                </Link>
+              </button>
               <button onClick={() => openSideMenu("botanics") }>
                 <Link className="ham-link1">
                   <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("botanics") } className="links">Boomer Botanics</span>
                 </Link>
               </button>
 
-              <button onClick={() => openSideMenu("news") }>
-                <Link className="ham-link1">
-                  <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("news") } className="links">In The News</span>
-                </Link>
-              </button>
+    
 
               <button onClick={() => openSideMenu("locations") }>
                 <Link className="ham-link1">
@@ -168,14 +168,6 @@ const Hamburger = ({ close }) => {
             triggerOnce={false}
             direction={"right"}
           ><HamburgerShop/>
-          </Slide>
-         }
-         {page === "botanics" &&   
-            <Slide
-            duration={500}
-            triggerOnce={false}
-            direction={"right"}
-          ><HamburgerBotanics/>
           </Slide>
          }
          {page === "news" &&   

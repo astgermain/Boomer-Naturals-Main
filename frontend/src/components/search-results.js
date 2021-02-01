@@ -7,14 +7,18 @@ import MainButton from "../components/main-button"
 const SearchResults = ({ allProducts, productsArray, searchInput }) => {
 
     const [modalShow, setModalShow] = useState("")
+    const [productShow, setProductShow] = useState(true);
     // Num of products to display
     const ITEMS_TO_SHOW = 12
 
     const handleModalShow = e => {
         setModalShow(e)
+        setProductShow(false)
+        
     }
-
+  
     useEffect(() => {
+        
         document.body.style.overflow = 'hidden'
         return function cleanup() {
             document.body.style.overflow = 'scroll'
@@ -53,12 +57,14 @@ const SearchResults = ({ allProducts, productsArray, searchInput }) => {
             
             
             </div>
+            <div className="search-modal" >
+                {modalShow.availableForSale && (
+                <ProductModal  type1='product-modal-search' type2='product-modal-inner' data={modalShow} setModalShow={setModalShow} setProductShow={setProductShow}/>
+                )}  
+            </div>
 
 
-              <ul className="results-list">  
-                           {modalShow.availableForSale && (
-                <ProductModal type1='product-modal-search' type2='product-modal-inner-search' data={modalShow} setModalShow={setModalShow} />
-                )} 
+              <ul style={{ display: (productShow ? '' : 'none') }} className="results-list">  
             {productsArray.length ? PRODUCT_LIST_ITEMS : NO_RESULTS_MSG}
            </ul>
            

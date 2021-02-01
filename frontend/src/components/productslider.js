@@ -14,9 +14,11 @@ const ProductSlider = ({ collection }) => {
   let collectionSize = 0
   let prodData = []
   const [modalShow, setModalShow] = useState("")
+  const [productShow, setProductShow] = useState(true);
 
   const handleModalShow = e => {
     setModalShow(e)
+    setProductShow(false)
   }
   // Uses the product stack to generate product components
   let populateProductSliderData = products => {
@@ -114,7 +116,7 @@ const ProductSlider = ({ collection }) => {
     <Zoom style={{ display: "flex" }} triggerOnce={true} fraction={.75}  className="product-slider">
       <div className="product-slider-inner">
         {modalShow.availableForSale && (
-          <ProductModal type1="product-modal" type2="product-modal-inner" data={modalShow} setModalShow={setModalShow} />
+          <ProductModal type1="product-modal" type2="product-modal-inner" data={modalShow} setModalShow={setModalShow} setProductShow={setProductShow} />
         )}
         {/* Script is for structured data and SEO purposes            */}
         <script type="application/ld+json">{strucDataJson}</script>
