@@ -19,13 +19,19 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
       return [errorImg, "error image"]
     }
   }
+  // Will check current product type so when the component renders, 
+  // we'll know what kind of default message to render in the thumbnail section of modal
+  const checkIfHasPattern = ({ productType }) => {
+    if (productType.includes("Neck Gaiter") || productType.includes("Face Cover") || productType.includes("Shield Cover")) return "Select a pattern"
+    return ""
+  }
   const [quantity, setQuantity] = useState(1)
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
 
   const [isLoading, setIsLoading] = useState(false)
-  const [selectedSize, setSelectedSize] = useState("")
-  const [selectedColor, setSelectedColor] = useState("")
+  const [selectedSize, setSelectedSize] = useState(checkIfHasPattern(data))
+  const [selectedColor, setSelectedColor] = useState("Select a pattern")
   const [upsellShow, setupsellShow] = useState(false)
   const { addToCart } = useContext(StoreContext)
   const handleVariantSelection = data => {
@@ -34,10 +40,6 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
       const colorToSet = data[0].selectedOptions.find(element => element.name === "Color").value
       setSelectedColor(colorToSet)
 
-      //ToDo: Possible to use shopifyId over id possibly
-      // setSelectedVariantId(
-      //   data[0].id.split("Shopify__ProductVariant__").join("")
-      // )
     } catch {
     }
     try {
@@ -262,6 +264,10 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
           <div className="variants-thumbnails">{variantThumbs}</div>
         </div>
         <div className="modal-image">
+          <div>
+            <h4>{data.title}</h4>
+            <p>{selectedColor}</p>
+          </div>
           <img src={mainImage} alt={mainImageAlt} />
         </div>
       </div>
