@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 // import PropTypes from "prop-types"
 import ProductSlider from "../productslider"
+import { FEATURED_CSS } from "../../util/imports"
 import Infocta from "../infocta"
 import "../../styles/featured.css"
 

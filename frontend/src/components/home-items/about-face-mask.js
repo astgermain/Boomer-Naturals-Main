@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import { ABOUT_FACE_MASK_CSS } from "../../util/imports"
 import MainButton from "../main-button"
 import MaskImg from "../../../content/assets/mask.png"
 import { Slide } from "react-awesome-reveal"
-import "../../styles/about-face-mask.css"
 
 const AboutFaceMask = () => {
 
