@@ -6,7 +6,7 @@
 
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
-import "../../styles/hamburger.css"
+import { HAMBURGER_CSS } from "../../util/imports"
 import { Slide } from "react-awesome-reveal"
 import HamburgerShop from "./hamburger-shop"
 import HamburgerNews from "./hamburger-news"

@@ -3,15 +3,13 @@
  */
 
 import React, { useState, useEffect, useContext } from "react"
-import "../styles/product-modal.css"
+import { PRODUCT_MODAL_CSS, UPSELL_CSS } from "../util/imports"
 import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
 import UpSell from "./upsell"
-import "../styles/upsell.css"
 import StoreContext from "../util/store"
 
 const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
-  const { addToCart } = useContext(store)
 
 
   let x = () => {
@@ -41,7 +39,6 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
       //   data[0].id.split("Shopify__ProductVariant__").join("")
       // )
     } catch {
-      console.log("color selection error")
     }
     try {
       setMainImage(data[0].image.originalSrc)
@@ -56,11 +53,9 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
   }
 
   const handleSizeSelection = (e, size) => {
-    console.log('this is the size: ', size)
     try {
       setSelectedSize(size)
     } catch {
-      console.error("size selection error")
     }
   }
 
@@ -107,7 +102,6 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
     }
   })
 
-  console.log('size set before adjustment: ', sizeSet)
 
   //Sets array for size display
   sizeSet = [...sizeSet].map((size) => {
@@ -168,8 +162,6 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
     })
   }
   let variantThumbs = generateVariantThumbs(mainArray)
-  // console.log('main array: ', data)
-  // console.log('size set: ', sizeSet)
   let handleSub = () => {
     if (quantity > 1) return setQuantity(quantity - 1)
   }
@@ -180,23 +172,15 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
       &&
       variant.selectedOptions.some((option) => option.value.includes(selectedSize))
     ))
-    // .filter((variant) => {
-    //   console.log('in filter',variant.selectedOptions.some((option) => {
-    //     console.log('in Option', selectedSize, option.value)
-    //     return option.value.includes(selectedSize)
-    //   }))
-    //   return variant
-    // })
-    //   data[0].id.split("Shopify__ProductVariant__").join("")
+
     const variantIdToAddToCart = findVariantsBySelection?.id.split("Shopify__ProductVariant__").join("")
 
-    console.log('filtered items: ', variantIdToAddToCart)
     addToCart(variantIdToAddToCart, quantity, setIsLoading)
     //upsells products onclick add to cart
     setupsellShow(true)
   }
 
- 
+
 
   return (
     <Slide
@@ -267,8 +251,9 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
             )}
           </div>
           <button className="close" onClick={() => {
-          hideModal()
-          setProductShow(true)}}>
+            hideModal()
+            setProductShow(true)
+          }}>
             {" "}
           </button>
         </div>

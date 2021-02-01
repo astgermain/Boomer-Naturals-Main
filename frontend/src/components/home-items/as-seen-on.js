@@ -2,6 +2,7 @@
  * As Seen On Logo Component
  */
 import React from "react"
+import { AS_SEEN_ON_CSS } from "../../util/imports"
 import "../../styles/as-seen-on.css"
 import logo1 from "../../../content/assets/pgalogo.jpg"
 import logo2 from "../../../content/assets/espnlogo.jpg"

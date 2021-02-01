@@ -1,8 +1,8 @@
 import React from "react"
-import "../../styles/product-template.css"
 import facecoverimage from '../../../content/assets/facecoverimage.png'
 import gaiterimage from '../../../content/assets/gaiterimage.png'
 import SizingContent from "./sizing-info-content"
+import { PRODUCT_TEMPLATE_CSS } from "../../util/imports"
 
 
 

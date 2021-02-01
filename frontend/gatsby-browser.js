@@ -2,9 +2,7 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 // normalize CSS across browsers
-import "./src/styles/normalize.css"
-// custom CSS styles
-import "./src/styles/style.css"
+import { NORMALIZE_CSS, STYLE_CSS } from "./src/util/imports"
 
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
@@ -15,9 +13,6 @@ export const wrapRootElement = Provider;
 
 // Logs when the client route changes
 export const onRouteUpdate = ({ location, prevLocation }) => {
-  /*
-  console.log("new pathname", location.pathname)
-  console.log("old pathname", prevLocation ? prevLocation.pathname : null)
-  */
+
 }
 

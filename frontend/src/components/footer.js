@@ -4,7 +4,7 @@
 
 import React , { useState, useEffect} from "react"
 import { Link } from "gatsby"
-import "../styles/footer.css"
+import { FOOTER_CSS } from "../util/imports"
 import logo from "../../content/assets/bnlogoheader.png"
 import payments from "../../content/assets/payments.png"
 
@@ -48,7 +48,6 @@ const Footer = () => {
 //       if (currentScrollY > 50 ) {
 //         setScrollingDown(true);
 //       }
-//       console.log('current scroll: ',currentScrollY);
 //     };
 
 //     return () => window.addEventListener("scroll", { passive: true });

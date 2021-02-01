@@ -1,5 +1,5 @@
 import React from 'react'
-import "../styles/cart-page.css"
+import { CART_PAGE_CSS } from "../util/imports"
 
 import ErrImg from "../../content/assets/errorImg.png"
 

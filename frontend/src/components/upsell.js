@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import "../styles/upsell.css"
+import { UPSELL_CSS } from "../util/imports"
 
 const UpSell = ({ upsellShow, setupsellShow  }) => {
     // handle to close upsell window
@@ -9,12 +9,10 @@ const UpSell = ({ upsellShow, setupsellShow  }) => {
       }
     
     //const currentContext = useContext(StoreContext)
-    //console.log('hhi',currentContext);
 
     //getting the last product added to cart 
     // const { lineItems } = currentContext.checkout.lineItems
     // const LAST_ITEM_IN_CART = lineItems.filter( (product) => { return product.variant.id == selectedVariantId  })
-    //   console.log(LAST_ITEM_IN_CART);
 
     // const ProdTitle = LAST_ITEM_IN_CART.title
     // const ProdQuantity = LAST_ITEM_IN_CART.quantity

@@ -22,7 +22,6 @@ const DefAddressUpdate = ({ defUpdateFunc, id, handleAlert }) => {
             },
           })
             .then(result => {
-              //console.log('def up result', result)
               
               if (
                 result.data.customerDefaultAddressUpdate.customerUserErrors.length

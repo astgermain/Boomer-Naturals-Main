@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react"
-import "../styles/filter.css"
+import { FILTER_CSS } from "../util/imports"
 import Product from "../components/product"
 import ProductModal from "./product-modal"
 import Checkbox from "../components/checkbox"

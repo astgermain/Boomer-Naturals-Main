@@ -61,7 +61,6 @@ const PasswordRecoverByURL = (location) => {
                   },
                   })
                   .then(result => {
-                    //console.log("result", result.data)
                     if (result.data.customerResetByUrl.customerUserErrors.length) {
                       setIncorrectCredMsg("E-Mail doesn't exist")
                       alert({ incorrectCredMsg })

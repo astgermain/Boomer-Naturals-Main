@@ -40,7 +40,6 @@ const RegisterForm = () => {
                   },
                 })
                   .then(result => {
-                    //console.log(result.data.customerCreate)
                     /*
                     handleCustomerAccessToken(
                       result.data.customerCreate.customerAccessToken

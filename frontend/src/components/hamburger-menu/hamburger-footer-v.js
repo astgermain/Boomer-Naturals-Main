@@ -5,7 +5,8 @@
  */
 import React from "react"
 import { Link } from "gatsby"
-import "../../styles/hamburger.css"
+import { HAMBURGER_CSS } from "../../util/imports"
+
 import payments from "../../../content/assets/payments.png"
 
 const FooterVContent = () =>{

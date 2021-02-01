@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react"
-// import PropTypes from "prop-types"
+import { PRODUCT_CAROUSEL_CSS } from "../util/imports"
 import { useStaticQuery, graphql } from "gatsby"
-import "../styles/product-carousel.css"
 import ProductSlider from "./productslider"
 import MainButton from "./main-button"
 import SuggestedProductDisplay from "./template-components/suggested-product-display"
 
-const ProductCarousel = ({whichPage}) => {
+const ProductCarousel = ({ whichPage }) => {
   const [clickedNavBtn, setClickedNavBtn] = useState("New Arrivals")
   const [renderedProductsArray, setRenderedProductsArray] = useState([])
   const data = useStaticQuery(graphql`
@@ -102,7 +101,7 @@ const ProductCarousel = ({whichPage}) => {
     MOST_POPULAR_DATA?.title,
     ON_SALE_DATA?.title,
   ]
-  
+
 
   // Products array is updated with array from query data that matches clicked button
   useEffect(() => {
@@ -144,25 +143,25 @@ const ProductCarousel = ({whichPage}) => {
 
   return (
     <>
-    {whichPage === "product-carousel" &&
-    <section className="product-carousel-container">
-      <div className="carousel-nav-links-container">
-        <ul className="carousel-nav-wrapper">
-          {NAV_LIST_ITEMS}
-          <li className="product-car-viewall-btn" style={{ paddingLeft: "3vw" }}>
-            {<MainButton text="View All" />}
-          </li>
-        </ul>
-      </div>
-      <ProductSlider collection={renderedProductsArray} />
-    </section>
-    }
-    {whichPage === "suggested-products" &&
-    <div className="suggested-products-container">
-            <span>Suggested Products</span>
-            <SuggestedProductDisplay MOST_POPULAR_DATA={MOST_POPULAR_DATA} />
+      {whichPage === "product-carousel" &&
+        <section className="product-carousel-container">
+          <div className="carousel-nav-links-container">
+            <ul className="carousel-nav-wrapper">
+              {NAV_LIST_ITEMS}
+              <li className="product-car-viewall-btn" style={{ paddingLeft: "3vw" }}>
+                {<MainButton text="View All" />}
+              </li>
+            </ul>
+          </div>
+          <ProductSlider collection={renderedProductsArray} />
+        </section>
+      }
+      {whichPage === "suggested-products" &&
+        <div className="suggested-products-container">
+          <span>Suggested Products</span>
+          <SuggestedProductDisplay MOST_POPULAR_DATA={MOST_POPULAR_DATA} />
         </div>
-  }
+      }
     </>
   )
 }

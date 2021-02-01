@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
+import { INSTAFEED_CSS } from "../util/imports"
 import Slider from "./slider"
-import "../styles/instafeed.css"
 import bottomleftimg from "../../content/assets/instagramgreenmask.png"
 import toprightimg from "../../content/assets/instagramkids.png"
 import bottomrightimg from "../../content/assets/instagramman.png"

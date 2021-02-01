@@ -71,7 +71,6 @@ return(
                   },
                 })
                   .then(result => {
-                    console.log("create address result", result)
 
                     if (
                       result.data.customerAddressCreate.customerUserErrors

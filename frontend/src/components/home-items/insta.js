@@ -3,6 +3,7 @@ import React from "react"
 import Instafeed from "../instafeed"
 import Infocta from "../infocta"
 import "../../styles/insta.css"
+import { INSTA_CSS } from "../../util/imports"
 
 const Insta = () => {
   let svgIcon = (

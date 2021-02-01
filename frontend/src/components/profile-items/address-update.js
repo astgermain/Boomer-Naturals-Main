@@ -43,7 +43,6 @@ const AddressUpdate = ({ updateFunc, id, address, handleAlert, handleAlert2 }) =
             },
           })
             .then(result => {
-              //console.log("edit result", result)
               if (result.data.customerAddressUpdate.customerUserErrors.length) {
                 setIncorrectCredMsg("Issue Updating Address")
                 handleAlert({

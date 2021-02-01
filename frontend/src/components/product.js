@@ -70,7 +70,6 @@ const Product = ({ productInfo, handleModalShow }) => {
         )
     }
   }
-  //console.log(productInfo)
 
   return (
     <div

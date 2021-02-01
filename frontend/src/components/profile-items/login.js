@@ -50,7 +50,6 @@ const Login = () => {
                   },
                 })
                   .then(result => {
-                    //console.log('login result', result)
                     handleCustomerAccessToken(
                       result.data.customerAccessTokenCreate.customerAccessToken
                     )

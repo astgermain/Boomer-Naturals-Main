@@ -3,7 +3,7 @@
  */
 import React, { useState, useEffect } from "react"
 import propTypes from 'prop-types'
-import "../styles/infocta.css"
+import { INFOCTA_CSS } from "../util/imports"
 import MainButton from "./main-button"
 
 const Infocta = ({ svgProp, maintextProp, subtextProp, buttontextProp }) => {

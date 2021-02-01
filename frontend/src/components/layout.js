@@ -155,10 +155,8 @@ const Layout = ({ location, children }) => {
   `)
 
   useEffect(() => {
-    console.log("Layout Query Data", data)
     setCollectionValue(data.allShopifyCollection.nodes)
   }, [data, setCollectionValue])
-  console.log('pathname', location.pathname)
   let content
   if (isRootPath) {
     content = (

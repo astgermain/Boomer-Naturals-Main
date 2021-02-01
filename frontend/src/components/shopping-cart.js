@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from "react"
 import store from "../util/store"
 import CartItem from "./cart-item"
 import { Slide } from "react-awesome-reveal"
-import "../styles/shopping-cart.css"
 import { Link } from "gatsby"
+import { SHOPPING_CART_CSS } from "../util/imports"
 
 /**
  * addToCart - variantId, quantity, setIsLoading
@@ -87,8 +87,6 @@ const ShoppingCart = () => {
   const NO_CART_ITEMS = <p>No Products in your cart.</p>
 
   useEffect(() => {
-    //console.log("PRODS IN CART", PRODUCTS_IN_CART)
-    //Fconsole.log("Checkout: ", checkout)
   }, [PRODUCTS_IN_CART])
   return (
     <Slide triggerOnce={true} direction="right">
