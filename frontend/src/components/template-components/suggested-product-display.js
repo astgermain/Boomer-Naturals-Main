@@ -8,9 +8,9 @@ const SuggestedProductDisplay = ({ MOST_POPULAR_DATA }) => {
         const ProductImg = product.images[0].originalSrc
         const ProductUrl = product.onlineStoreUrl
         return (
-            <a key={Math.random(2)} href={ProductUrl} className="suggest-holder">
+            <a key={Math.random()} href={ProductUrl} className="suggest-holder">
                 <img className="suggestimage" src={ProductImg} alt="suggested" />
-                <div>
+                <div className="suggested-product-titles">
                     <span className="suggesttitle">{ProductTitle}</span>
                     <span className="suggestprice">${ProductPrice}</span>
                 </div>
