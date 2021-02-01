@@ -37,7 +37,7 @@
 .image-container .pulse-btn span {
   position: absolute;
   font-size: 1.5vw;
-  height: 2.65vw;
+  height: 2.15vw;
 }
 
 .image-container .pulse-btn:hover {
@@ -132,7 +132,7 @@
   }
   .image-container .pulse-btn span{
     font-size: 2.5vw;
-    height: 4.65vw;
+    height: 3.35vw;
   }
   .image-container .pulse-btn{
     width: 3vw;
@@ -152,6 +152,6 @@
 }
 .image-container .pulse-btn span{
   font-size: 3.5vw;
-  height: 6.65vw;
+  height: 5.55vw;
 }
 }
