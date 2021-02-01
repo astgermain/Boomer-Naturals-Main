@@ -21,11 +21,12 @@ const LOGIN_USER = gql`
 
 
 
-const Login = ({}) => {
-  const { customerAccessToken, setValue } = useContext(StoreContext)
+const Login = () => {
+  /* eslint-disable no-unused-vars */
+  const { setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
-  const [message, setMessage] = useState(``)
+  // const [message, setMessage] = useState(``)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
   const handleCustomerAccessToken = value => {
     setValue(value)

@@ -2,12 +2,13 @@ import React, { useState, useContext } from "react"
 import StoreContext from "../../util/store"
 
 const DefAddressUpdate = ({ defUpdateFunc, id, handleAlert }) => {
-    const { customerAccessToken, setValue } = useContext(StoreContext)
-    const [email, setEmail] = useState(``)
+    const { customerAccessToken } = useContext(StoreContext)
+    // const [email, setEmail] = useState(``)
+    /* eslint-disable no-unused-vars */
     const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
-    const handleCustomerAccessToken = value => {
-      setValue(value)
-    }
+    // const handleCustomerAccessToken = value => {
+    //   setValue(value)
+    // }
 
   return (
     <div className="address-edit-form">
@@ -21,7 +22,7 @@ const DefAddressUpdate = ({ defUpdateFunc, id, handleAlert }) => {
             },
           })
             .then(result => {
-              console.log('def up result', result)
+              //console.log('def up result', result)
               
               if (
                 result.data.customerDefaultAddressUpdate.customerUserErrors.length

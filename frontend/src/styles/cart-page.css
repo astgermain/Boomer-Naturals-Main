@@ -76,7 +76,7 @@
 }
 
 .cart-redirect-btns a {
-    width: auto;
+    /* width: auto; */
     padding: 5px 15px;
 }
 
@@ -165,4 +165,18 @@
 
 .cart-qty-adjuster.cart-page-version {
     margin: 0;
+}
+
+.no-products-in-cart-page-wrapper {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.no-products-in-cart-page-wrapper a {
+    color: var(--color-secondary);
+}
+
+.no-products-title {
+    font-size: 3rem;
+    font-weight: bold;
 }

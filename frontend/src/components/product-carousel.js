@@ -144,7 +144,7 @@ const ProductCarousel = ({whichPage}) => {
 
   return (
     <>
-    {whichPage == "product-carousel" &&
+    {whichPage === "product-carousel" &&
     <section className="product-carousel-container">
       <div className="carousel-nav-links-container">
         <ul className="carousel-nav-wrapper">
@@ -157,7 +157,7 @@ const ProductCarousel = ({whichPage}) => {
       <ProductSlider collection={renderedProductsArray} />
     </section>
     }
-    {whichPage == "suggested-products" &&
+    {whichPage === "suggested-products" &&
     <div className="suggested-products-container">
             <span>Suggested Products</span>
             <SuggestedProductDisplay MOST_POPULAR_DATA={MOST_POPULAR_DATA} />

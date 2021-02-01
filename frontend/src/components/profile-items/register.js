@@ -18,8 +18,8 @@ const CUSTOMER_REGISTER = gql`
 `
 
 const RegisterForm = () => {
-  const [firstName, setFirstName] = useState(null)
-  const [lastName, setLastName] = useState(null)
+  // const [firstName, setFirstName] = useState(null)
+  // const [lastName, setLastName] = useState(null)
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
   const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)

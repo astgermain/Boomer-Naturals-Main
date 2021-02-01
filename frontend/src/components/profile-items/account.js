@@ -11,12 +11,14 @@ import OrderHistory from "./order-history"
 import Pagination from "../pagination"
 import "../../styles/account.css"
 import Alert from "@material-ui/lab/Alert"
-import { Slide } from "react-awesome-reveal"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
 import Grow from "@material-ui/core/Grow"
 import Button from "@material-ui/core/Button"
 import MainButtonEvent from "../main-button-event"
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Collapse from '@material-ui/core/Collapse';
 
 const GET_CUSTOMER_OBJECT = gql`
   query($customerAccessToken: String!) {
@@ -120,6 +122,7 @@ const GET_CUSTOMER_OBJECT = gql`
 const Account = () => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [checked, setChecked] = React.useState(false)
+  const [checked2, setChecked2] = React.useState(false);
   const [updatedModal, setUpdateModal] = React.useState(false)
   const [message, setMessage] = React.useState("")
   const [closed, setClosed] = React.useState("")
@@ -132,6 +135,26 @@ const Account = () => {
       setChecked(prev => !prev)
     }
   }
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      height: 180,
+    },
+    container: {
+      display: 'flex',
+    },
+    paper: {
+      margin: theme.spacing(1),
+    },
+    svg: {
+      width: 100,
+      height: 100,
+    },
+    polygon: {
+      fill: theme.palette.common.white,
+      stroke: theme.palette.divider,
+      strokeWidth: 1,
+    },
+  }));
   const handleEditModal = (value) => {
     if(value){
       setUpdateModal(value)
@@ -141,14 +164,14 @@ const Account = () => {
     }
   }
   const handleAlert = ({ message = "", close = "", severity = "" }) => {
-    if(checked == true){
+    if(checked === true){
       handleChange()
     }
     setMessage(message)
     setClosed(close)
     setSeverity(severity)
     handleChange()
-    if(severity == "success") handleEditModal(false)
+    if(severity === "success") handleEditModal(false)
   }
   const handleCustomerAccessToken = value => {
     setValue(value)
@@ -182,7 +205,7 @@ const Account = () => {
   })
   //console.log("current page: ", curPage)
   let queryFunc = () => {
-    if (customerAccessToken != null) {
+    if (customerAccessToken !== null) {
       var firstDate = new Date(Date.now())
       var secondDate = new Date(customerAccessToken.expiresAt)
       if (secondDate <= firstDate) {
@@ -213,9 +236,9 @@ const Account = () => {
               lastName,
               phone,
               email,
-              addresses,
+              // addresses,
               defaultAddress,
-              orders,
+              // orders,
             } = updatedCustomer || ""
             let {
               address1,
@@ -226,7 +249,7 @@ const Account = () => {
               id,
               name,
               zip,
-              formattedArea,
+              // formattedArea,
               provinceCode,
             } = defaultAddress || ""
             let phone1
@@ -236,11 +259,13 @@ const Account = () => {
               phone1 = ""
             }
             return (
+
               <>
+              
                 <Pagination alt="My Account" altLink="/profile" />
                 <section className="account-section">
                   <div className="account-alert-row">
-                    {checked == true && (
+                    {checked === true && (
                       <Grow in={checked}>
                         <Alert
                           severity={severity}
@@ -280,11 +305,13 @@ const Account = () => {
                       {
                         //Start main Account
                       }
-                      {curPage == "My Account" && (
+                      {curPage === "My Account" && (
                         <>
                           <h1>My Account</h1>
                           {updatedModal == true && (
-                            <Slide triggerOnce={false} direction="right" duration="500">
+                            <>
+                          <div className="hi">
+                            <Collapse in={updatedModal} appear={true}>
                               <AccountUpdate
                                 data={data}
                                 oFirstName={firstName}
@@ -297,9 +324,11 @@ const Account = () => {
                                 onClick={() => handleEditModal()} className="blue-text-field">
                                 Back To Account
                                 </button>
-                            </Slide>
+                            </Collapse>
+                            </div>
+                            </>
                           )}
-                          {updatedModal == false && (
+                          {updatedModal === false && (
                             <>
                               <div className="account-row">
                                 <div className="account-col first">
@@ -389,7 +418,7 @@ const Account = () => {
                       {
                         //Start Addresses
                       }
-                      {curPage == "Addresses" && (
+                      {curPage === "Addresses" && (
                         <>
                           <h1>Addresses</h1>
                           <Addresses data={data} id={id} handleAlert={handleAlert}/>
@@ -398,7 +427,7 @@ const Account = () => {
                       {
                         //Start Order History
                       }
-                      {curPage == "Order History" && (
+                      {curPage === "Order History" && (
                         <>
                           <h1>Order History</h1>
                           <OrderHistory data={data} />
