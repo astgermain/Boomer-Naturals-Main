@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../styles/product-template.css"
+import { PRODUCT_TEMPLATE_CSS } from "../../util/imports"
 
 
 const ImageDisplay = ({mainImage, mainImageAlt}) => {

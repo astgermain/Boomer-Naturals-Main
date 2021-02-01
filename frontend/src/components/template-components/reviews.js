@@ -3,7 +3,7 @@
  */
 import React from "react"
 import { Helmet } from "react-helmet"
-import "../../styles/product-template.css"
+import { PRODUCT_TEMPLATE_CSS } from "../../util/imports"
 
 const Reviews = ({ data, pageContext, location, ReviewDisable}) => {
 
