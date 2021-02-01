@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react"
 import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
 import StoreContext from "../../util/store"
-import "../../styles/account.css"
+import { ACCOUNT_CSS } from "../../util/imports"
 import MainButtonStyle from "../main-button-style"
 
 

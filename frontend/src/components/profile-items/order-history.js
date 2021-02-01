@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react"
 import StoreContext from "../../util/store"
-import "../../styles/order-history.css"
+import { ORDER_HISTORY_CSS } from "../../util/imports"
 
 const OrderHistory = ({ data }) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
