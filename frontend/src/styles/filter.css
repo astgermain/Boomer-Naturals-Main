@@ -135,11 +135,12 @@ h4 {
   /* product modal filter page */
   .product-modal-filter {
     position: absolute;
-    width: 65.6vw;
+    width: 68vw;
     max-height: 330px;
     height: 100%;
     z-index: 10;
     background: white;
     display: flex;
     margin-top:10px;
+    margin-left:20px;
   }

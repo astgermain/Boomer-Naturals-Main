@@ -149,7 +149,7 @@ const ProductCarousel = ({whichPage}) => {
       <div className="carousel-nav-links-container">
         <ul className="carousel-nav-wrapper">
           {NAV_LIST_ITEMS}
-          <li style={{ paddingLeft: "3vw" }}>
+          <li className="product-car-viewall-btn" style={{ paddingLeft: "3vw" }}>
             {<MainButton text="View All" />}
           </li>
         </ul>

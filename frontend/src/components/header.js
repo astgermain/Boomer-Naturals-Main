@@ -352,10 +352,10 @@ const Header = ({ title, data }) => {
             <Link to="/" className="header-link">
               Shop
             </Link>
-            <Link to="/" className="header-link">
+            <Link to="/cvs-locations" className="header-link">
               Location
             </Link>
-            <Link to="/" className="header-link">
+            <Link to="/contact-us" className="header-link">
               Contact
             </Link>
             <Link to="/" className="header-link">

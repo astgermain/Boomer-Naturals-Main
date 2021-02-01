@@ -12,6 +12,7 @@ const VidIframe = ({ url, title, link }) => (
             title="Boomer News Video"
             style={{ border: 'none' }}
             src={url}
+            className="homepage-video"
         ></iframe>
         <div className="video-details">
             <p>{title}</p>

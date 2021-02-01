@@ -16,3 +16,19 @@
 .insta-margin .infocta-container {
     width: 25vw;
 }
+/* respsonsive insta section */
+@media screen and (max-width: 768px){
+    .insta-margin {
+      display:grid;
+      justify-content: center;
+      grid-template-columns:100%;
+      width:100%;
+    }
+    .insta-margin .infocta-container{
+        width:100%;
+        margin-bottom: 30px;
+    }
+    .insta-container{
+        justify-content:center;
+    }
+}

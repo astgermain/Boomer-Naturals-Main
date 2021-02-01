@@ -100,7 +100,9 @@ const [collectionData, setCollectionData] = useState(data.allShopifyCollection.n
 const [productsShown, setProductsShown] = useState([])
 const [productTypeFilter, setProductTypeFilter] = useState("")
 const [collectionTypeFilter, setCollectionTypeFilter] = useState("")
-
+const [productShow, setProductShow] = useState(true);
+// NEEDS USEEFFECT To have props passed if coming from a collection or product type search to set the state
+// for filter options so that they are selected
 useEffect(() => {
   setProductsShown(PRODUCT_LIST_ITEMS)
   if (handleCollectionTypeButton) {
@@ -114,6 +116,7 @@ let filterParams = new Set()
 
 const handleModalShow = e => {
   setModalShow(e)
+  setProductShow(false)
 }
 let sortedDataArray = []
 if (sortedData != null) {
@@ -433,12 +436,13 @@ return(
           </div>
         </div> 
         </div>
-        
-        <div className="filter-results">
-          
-                {modalShow.availableForSale && (
-                <ProductModal type1='product-modal-filter' type2='product-modal-inner' data={modalShow} setModalShow={setModalShow} />
+        <div>
+          {modalShow.availableForSale && (
+                <ProductModal type1='product-modal-filter' type2='product-modal-inner' data={modalShow} setModalShow={setModalShow} setProductShow={setProductShow} />
                 )}
+        </div>
+        
+        <div className="filter-results" style={{ display: (productShow ? '' : 'none') }}>    
             {productsShown}</div>
       </section>
 )
