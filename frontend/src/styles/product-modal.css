@@ -118,13 +118,18 @@
 }
 
 .product-size-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid gainsboro;
   padding: 10px;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  min-width: 3rem;
+  min-height: 3rem;
+  margin: .25rem;
   text-align: center;
   cursor: pointer;
+  
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -227,6 +232,7 @@
 .quantityButtonPartL {
   padding: 0 20px 0 10px;
   font-size: 15px;
+  cursor: pointer;
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -241,6 +247,7 @@
 }
 
 .quantityButtonPartR {
+  cursor: pointer;
   padding: 0 10px 0 20px;
   font-size: 15px;
   -webkit-touch-callout: none;
