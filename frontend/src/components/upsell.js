@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import "../styles/upsell.css"
+import { UPSELL_CSS } from "../util/imports"
 
 const UpSell = ({ upsellShow, setupsellShow  }) => {
     // handle to close upsell window

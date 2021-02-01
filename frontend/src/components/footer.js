@@ -4,7 +4,7 @@
 
 import React , { useState, useEffect} from "react"
 import { Link } from "gatsby"
-import "../styles/footer.css"
+import { FOOTER_CSS } from "../util/imports"
 import logo from "../../content/assets/bnlogoheader.png"
 import payments from "../../content/assets/payments.png"
 

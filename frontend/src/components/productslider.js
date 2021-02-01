@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react"
 import Slider from "./slider"
 import Product from "./product"
 import ProductModal from "./product-modal"
-import "../styles/product.css"
+import { PRODUCT_CSS } from "../util/imports"
 import { Zoom } from "react-awesome-reveal"
 
 export const ProductSliderContext = createContext(null)

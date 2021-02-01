@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Product from "./product";
 import ProductModal from "./product-modal"
-import "../styles/search.css"
+import { SEARCH_CSS } from "../util/imports"
 import MainButton from "../components/main-button"
 
 const SearchResults = ({ allProducts, productsArray, searchInput }) => {

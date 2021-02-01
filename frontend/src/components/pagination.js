@@ -1,5 +1,5 @@
 import React from "react"
-import ".././styles/product-template.css"
+import { PRODUCT_TEMPLATE_CSS } from "../util/imports"
 
 const Pagination = ({ data, pageContext, location, alt, altLink, alt2, alt2Link, alt3, alt3Link }) => {
   if (alt != null) {

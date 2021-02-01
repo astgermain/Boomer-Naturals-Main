@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from "react"
 import store from "../util/store"
 import CartItem from "./cart-item"
 import { Slide } from "react-awesome-reveal"
-import "../styles/shopping-cart.css"
 import { Link } from "gatsby"
+import { SHOPPING_CART_CSS } from "../util/imports"
 
 /**
  * addToCart - variantId, quantity, setIsLoading

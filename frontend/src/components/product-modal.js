@@ -3,15 +3,13 @@
  */
 
 import React, { useState, useEffect, useContext } from "react"
-import "../styles/product-modal.css"
+import { PRODUCT_MODAL_CSS, UPSELL_CSS } from "../util/imports"
 import { Slide } from "react-awesome-reveal"
 import errorImg from "../../content/assets/errorImg.png"
 import UpSell from "./upsell"
-import "../styles/upsell.css"
 import StoreContext from "../util/store"
 
 const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
-  const { addToCart } = useContext(store)
 
 
   let x = () => {
@@ -182,7 +180,7 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
     setupsellShow(true)
   }
 
- 
+
 
   return (
     <Slide
@@ -253,8 +251,9 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
             )}
           </div>
           <button className="close" onClick={() => {
-          hideModal()
-          setProductShow(true)}}>
+            hideModal()
+            setProductShow(true)
+          }}>
             {" "}
           </button>
         </div>
