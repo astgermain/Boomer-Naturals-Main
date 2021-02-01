@@ -5,7 +5,7 @@
  */
 import React from "react"
 import { Link } from "gatsby"
-import "../../styles/hamburger-shop.css"
+import { HAMBURGER_SHOP_CSS } from "../../util/imports"
 
 const HamburgerShop = () =>{
 
