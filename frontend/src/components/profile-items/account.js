@@ -432,12 +432,18 @@ const Account = () => {
       )
     } catch {
       return (
-        <>
-          <div>No account data, not logged in</div>
+        <div className="login-wrapper">
+          <div className="left-side-login">
+            <div>No account data, not logged in</div>
           <Login />
-          <Register />
+          </div>
+          
+          <div className="right-side-login">
+            <Register />
           <PasswordRecover />
-        </>
+          </div>
+          
+        </div>
       )
     }
   }

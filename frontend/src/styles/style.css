@@ -614,7 +614,111 @@ a:focus {
     margin:2% 20%;
 }
 
+/* login profile page */
+.login-wrapper{
+    text-align: center;
+    margin: 4%;
+    display:grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+}
+.login-wrapper button{
+    border: none;
+    width: 30%;
+    height: 35px;
+}
+.login-form{
+    margin: 30px 0 30px 0;
+}
+.login-form div{
+    margin-bottom: 10px;
+}
+.login-text, .register-text1{
+    font-size: 2vw;
+    color: var(--color-primary);
+    margin-bottom: 30px!important;
+}
+.wrap-input-login div:nth-of-type(2){
+    margin-top: 15px;
+}
+.login-form button{
+    border-radius: 20px;
+    margin-top: 20px;
+    color:white;
+    background: var(--color-primary);
+}
+.login-wrapper input{
+    border: solid 1px gainsboro;
+    border-radius: 5px!important;
+}
+.login-wrapper button:hover{
+    opacity: .90;
+}
+.register-form button{
+    background: var(--color-secondary);
+    border: none;
+    border-radius: 20px;
+    color:white;
+    margin: 20px 0 20px 0;
+}
+.register-text2, .forgot-password-text{
+    font-size: 12px;
+    margin-bottom: 10px;;
+}
+.register-input{
+    display: grid;
+    justify-content: center;
+    gap: 15px;
+}
+.recover-form button{
+    background:var(--color-primary);
+    color:white;
+    width: 60%;
+    place-self: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    height: auto;
+}
+.recover-form input{
+    border-radius: 5px!important ;
+    width: 60%;
+}
+.recover-form{
+    margin-top: 30px;
+    text-align: -webkit-center;
+}
+.recover-form form{
+    display:grid;
+    width: 50%;
+}
+.right-side-login{
+    margin: 30px 0;
+}
+@media screen and (max-width: 975px){
+    .login-wrapper{
+        display:block;
+    }
+    .login-text, .register-text1{
+        font-size: 4vw;
+    }
 
+    
+}
+@media screen and (max-width: 480px){
+    .recover-form form{
+        width:100%;
+    }    
+    .login-wrapper button{
+        width:50%;
+    }
+    .recover-form button{
+        width:60%;
+    }
+    .login-text, .register-text1{
+        font-size:6vw;
+    }
+}
 
 /* Media queries */
 

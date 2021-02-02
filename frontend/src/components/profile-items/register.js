@@ -27,7 +27,7 @@ const RegisterForm = () => {
     <Mutation mutation={CUSTOMER_REGISTER}>
       {customerRegister => {
         return (
-          <div className="login-form">
+          <div className="login-form, register-form">
             <form
               onSubmit={e => {
                 e.preventDefault()
@@ -56,15 +56,22 @@ const RegisterForm = () => {
                   })
               }}
             >
-              <input
+              <div className="register-text1">Sign Up</div>
+              <div className="register-text2">Don't Have An Account? Register Below.</div>
+              <div className="register-input">
+                <input
+                placeholder="Email"
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               ></input>
               <input
+                placeholder="Password"
                 type="password"
                 onChange={e => setPassword(e.target.value)}
               ></input>
-              <button type="submit">Register</button>
+              </div>
+
+              <button type="submit">Sign Up</button>
             </form>
           </div>
         )
