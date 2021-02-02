@@ -46,8 +46,9 @@ const PasswordRecover = () => {
                   })
               }}
             >
-                <span>E-Mail</span>
+              <div className="forgot-password-text">Forgot Password?</div>
               <input
+              placeholder="Email"
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               ></input>

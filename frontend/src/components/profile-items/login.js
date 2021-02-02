@@ -67,18 +67,21 @@ const Login = () => {
                   })
               }}
             >
-              <span>Login</span>
-              <br></br>
-              <span>E-Mail</span>
-              <input
-                type="email"
-                onChange={e => setEmail(e.target.value)}
-              ></input><br></br>
-              <span>Password</span>
-              <input
-                type="password"
-                onChange={e => setPassword(e.target.value)}
-              ></input><br></br>
+              <div className="login-text">Login</div>
+              
+              <div className="wrap-input-login">
+                  <div>E-Mail</div>
+                    <input
+                      type="email"
+                      onChange={e => setEmail(e.target.value)}
+                    ></input>
+                    <div>Password</div>
+                    <input
+                      type="password"
+                      onChange={e => setPassword(e.target.value)}
+                    ></input>
+              </div>
+              
               <button type="submit">Login</button>
             </form>
           </div>
