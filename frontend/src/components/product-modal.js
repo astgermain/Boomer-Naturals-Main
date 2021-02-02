@@ -19,13 +19,19 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
       return [errorImg, "error image"]
     }
   }
+  // Will check current product type so when the component renders, 
+  // we'll know what kind of default message to render in the thumbnail section of modal
+  const checkIfHasPattern = ({ productType }) => {
+    if (productType.includes("Neck Gaiter") || productType.includes("Face Cover") || productType.includes("Shield Cover")) return "Select a pattern"
+    return ""
+  }
   const [quantity, setQuantity] = useState(1)
   const [mainImage, setMainImage] = useState(x()[0])
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
 
   const [isLoading, setIsLoading] = useState(false)
   const [selectedSize, setSelectedSize] = useState("")
-  const [selectedColor, setSelectedColor] = useState("")
+  const [selectedColor, setSelectedColor] = useState(checkIfHasPattern(data))
   const [upsellShow, setupsellShow] = useState(false)
   const { addToCart } = useContext(StoreContext)
   const handleVariantSelection = data => {
@@ -34,10 +40,6 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
       const colorToSet = data[0].selectedOptions.find(element => element.name === "Color").value
       setSelectedColor(colorToSet)
 
-      //ToDo: Possible to use shopifyId over id possibly
-      // setSelectedVariantId(
-      //   data[0].id.split("Shopify__ProductVariant__").join("")
-      // )
     } catch {
     }
     try {
@@ -102,9 +104,18 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
     }
   })
 
-
+  sizeSet = [...sizeSet]
+  // If there is a pattern/color selected,
+  // the size display will only show sizes
+  // that are available for that color/pattern
+  if(selectedColor !== "Select a pattern") {
+    const selectedVariantArray = data.variants.filter((variant)=> variant.title.includes(selectedColor))
+    sizeSet = sizeSet.filter((size) => {
+      return selectedVariantArray.some((variant)=> variant.title.includes(size))
+    })
+  }
   //Sets array for size display
-  sizeSet = [...sizeSet].map((size) => {
+  sizeSet.map((size) => {
     if (size.includes("Ages")) return size
     if (size.includes("/")) return size
     if (size[0] === "X") return size
@@ -211,7 +222,15 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
               sizeSet.length
                 ?
                 sizeSet.map((size, index) => (
-                  <div role="button" onKeyDown={(e) => handleSizeSelection(e, size)} tabIndex={0} onClick={(e) => handleSizeSelection(e, size)} data-color={size} key={index} className="product-size-option">{size}</div>
+                  <div
+                    role="button"
+                    onKeyDown={(e) => handleSizeSelection(e, size)}
+                    tabIndex={0}
+                    onClick={(e) => handleSizeSelection(e, size)}
+                    data-color={size}
+                    key={index}
+                    className={`product-size-option ${size === selectedSize && 'active'}`}
+                  >{size}</div>
                 ))
                 :
                 undefined
@@ -243,7 +262,10 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
           </div>
           <div className="modal-submit">
             {/* Add to cart button for testing */}
-            <button onClick={handleAddToCart} className={`add-to-cart`}>
+            <button 
+            onClick={handleAddToCart} 
+            className={`add-to-cart ${(!selectedSize || selectedColor === "Select a pattern") ? "disabled" : ""}`}
+            >
               Add to Cart
             </button>
             {upsellShow && (
@@ -262,6 +284,10 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
           <div className="variants-thumbnails">{variantThumbs}</div>
         </div>
         <div className="modal-image">
+          <div>
+            <h4>{data.title}</h4>
+            <p>{selectedColor}</p>
+          </div>
           <img src={mainImage} alt={mainImageAlt} />
         </div>
       </div>
