@@ -33,3 +33,17 @@
         grid-row-start: 2;
     }
   }
+  @media screen and (max-width: 630px){
+      .featured-container .product-slider-inner{
+          height: 1000px;
+      }
+      .infocta-container{
+          margin-top: 100px;
+      }
+      .featured-container, .product-slider{
+          margin-top: 0px!important;
+      }
+      .featured-container{
+        margin:0 18vw;
+      }
+  }

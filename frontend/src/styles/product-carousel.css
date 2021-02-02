@@ -82,7 +82,8 @@
         justify-content:center;
     }
     .carousel-nav-wrapper{
-        display: flex;
+        display: grid;
+        justify-content:center;
     }
     .product-car-viewall-btn{
         padding-left:0;
