@@ -30,8 +30,8 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
   const [mainImageAlt, setMainImageAlt] = useState(x()[1])
 
   const [isLoading, setIsLoading] = useState(false)
-  const [selectedSize, setSelectedSize] = useState(checkIfHasPattern(data))
-  const [selectedColor, setSelectedColor] = useState("Select a pattern")
+  const [selectedSize, setSelectedSize] = useState("")
+  const [selectedColor, setSelectedColor] = useState(checkIfHasPattern(data))
   const [upsellShow, setupsellShow] = useState(false)
   const { addToCart } = useContext(StoreContext)
   const handleVariantSelection = data => {
@@ -253,7 +253,10 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
           </div>
           <div className="modal-submit">
             {/* Add to cart button for testing */}
-            <button onClick={handleAddToCart} className={`add-to-cart`}>
+            <button 
+            onClick={handleAddToCart} 
+            className={`add-to-cart ${(!selectedSize || selectedColor === "Select a pattern") ? "disabled" : ""}`}
+            >
               Add to Cart
             </button>
             {upsellShow && (

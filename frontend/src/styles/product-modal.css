@@ -310,6 +310,11 @@
   cursor: pointer;
 }
 
+.add-to-cart.disabled {
+  pointer-events: none;
+  background-color: var(--color-dim);
+}
+
 .selectsize-text {
   font-family: var(--fontFamily-bold)!important;
   font-size: var(--fontSize-1)!important;
