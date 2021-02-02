@@ -183,18 +183,18 @@ const ProductTemplate = ({ data, pageContext, location }) => {
       return <></>
     } else if (option.name === "Color" || option.name === "color") {
       oName = option.name
-      return <div key={Math.random(2)}></div>
+      return <div key={Math.random()}></div>
     }
     let values = option.values.map(value => {
       return (
-        <button key={Math.random(2)} className="size-options">
+        <button key={Math.random()} className="size-options">
           {value}
         </button>
       )
     })
     return (
-      <div key={Math.random(2)}>
-        <div>{option.name}</div>
+      <div className="product-options-container" key={Math.random()}>
+        <div className="product-option-name">{option.name}</div>
         {values}
       </div>
     )
