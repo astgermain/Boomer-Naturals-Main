@@ -104,9 +104,18 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
     }
   })
 
-
+  sizeSet = [...sizeSet]
+  // If there is a pattern/color selected,
+  // the size display will only show sizes
+  // that are available for that color/pattern
+  if(selectedColor !== "Select a pattern") {
+    const selectedVariantArray = data.variants.filter((variant)=> variant.title.includes(selectedColor))
+    sizeSet = sizeSet.filter((size) => {
+      return selectedVariantArray.some((variant)=> variant.title.includes(size))
+    })
+  }
   //Sets array for size display
-  sizeSet = [...sizeSet].map((size) => {
+  sizeSet.map((size) => {
     if (size.includes("Ages")) return size
     if (size.includes("/")) return size
     if (size[0] === "X") return size
