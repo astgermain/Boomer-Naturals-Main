@@ -4,16 +4,18 @@
  *
  */
 
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import propTypes from "prop-types"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import errorImg from "../../content/assets/errorImg.png"
+import StoreContext from "../util/store"
 
 const Product = ({ productInfo, handleModalShow }) => {
   const [options, setOptions] = useState(false)
   const [quantity, setQuantity] = useState(1)
-
+  const { addToCart } = useContext(StoreContext)
+  
   const optionsClick = () => {
     handleModalShow(productInfo)
     //only adding this to fix "options never used" ES-Lint bug
@@ -21,6 +23,10 @@ const Product = ({ productInfo, handleModalShow }) => {
     if(!options) {
       setOptions(true)
     }
+  }
+  const handleAddSingleVariantToCart = (product) => {
+    const variantId = product.variants[0].id.split("Shopify__ProductVariant__").join("")
+    addToCart(variantId, quantity)
   }
 
   let priceFormat = price => {
@@ -38,7 +44,6 @@ const Product = ({ productInfo, handleModalShow }) => {
   let formattedPrice = priceFormat(
     productInfo.priceRange.minVariantPrice.amount
   )
-
   const areMultipleVariants = productInfo.variants.length > 1
 
   let handleAdd = () => {
@@ -197,8 +202,9 @@ const Product = ({ productInfo, handleModalShow }) => {
               role="button"
               tabIndex={0}
               id="add-to-cart-btn"
-              onClick={optionsClick}
-              onKeyDown={optionsClick}
+              // 
+              onClick={() => handleAddSingleVariantToCart(productInfo)}
+              onKeyDown={() => handleAddSingleVariantToCart(productInfo)}
             >
               <span>Add To Cart</span>
             </div>

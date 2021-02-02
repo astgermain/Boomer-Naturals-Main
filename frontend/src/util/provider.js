@@ -35,7 +35,7 @@ const Provider = ({ children }) => {
   }
 
   // const memoizedCreateNewCheckout = useCallback(createNewCheckout)
-/*eslint-disable */
+  /*eslint-disable */
   useEffect(() => {
     const initializeCheckout = async () => {
       try {
@@ -133,7 +133,7 @@ const Provider = ({ children }) => {
           navigate(addItem.webUrl)
         },
         addToCart: async (variantId, quantity, setIsLoading = null, customAttributes = null) => {
-          setIsLoading(true)
+          if (setIsLoading) { setIsLoading(true) }
           const lineItem = [
             {
               variantId: variantId,
