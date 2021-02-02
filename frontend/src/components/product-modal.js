@@ -213,7 +213,15 @@ const ProductModal = ({ type1, type2, data, setModalShow, setProductShow }) => {
               sizeSet.length
                 ?
                 sizeSet.map((size, index) => (
-                  <div role="button" onKeyDown={(e) => handleSizeSelection(e, size)} tabIndex={0} onClick={(e) => handleSizeSelection(e, size)} data-color={size} key={index} className="product-size-option">{size}</div>
+                  <div
+                    role="button"
+                    onKeyDown={(e) => handleSizeSelection(e, size)}
+                    tabIndex={0}
+                    onClick={(e) => handleSizeSelection(e, size)}
+                    data-color={size}
+                    key={index}
+                    className={`product-size-option ${size === selectedSize && 'active'}`}
+                  >{size}</div>
                 ))
                 :
                 undefined

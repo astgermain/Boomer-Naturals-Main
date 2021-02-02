@@ -129,7 +129,7 @@
   margin: .25rem;
   text-align: center;
   cursor: pointer;
-  
+  transition: all .25s;
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -142,7 +142,10 @@
   /* Internet Explorer/Edge */
   user-select: none;
 }
-
+.product-size-option.active {
+  color: #fff;
+  background-color: var(--color-secondary);
+}
 .modal-variants {
   width: 20%;
   height: 100%;
