@@ -5,7 +5,7 @@
 */
 .featured-container {
     display: flex;
-    margin: 20px 12.5vw;
+    margin: 20px 12.5vw 40px 12.5vw;
     justify-content: space-between;
 }
 
