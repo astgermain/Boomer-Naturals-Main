@@ -72,12 +72,9 @@
     --color-dim: #999;
 }
 
-
 /* HTML elements */
 
-*,
-:after,
-:before {
+*, :after, :before {
     box-sizing: border-box;
 }
 
@@ -96,7 +93,7 @@ body {
     font-family: var(--fontFamily-bold);
     font-size: var(--fontSize-1);
     color: var(--color-text);
-    overflow-y: scroll ;
+    overflow-y: scroll;
 }
 
 footer {
@@ -109,15 +106,9 @@ hr {
     border: 0;
 }
 
-
 /* Heading */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     margin-top: var(--spacing-12);
     margin-bottom: var(--spacing-6);
@@ -125,11 +116,7 @@ h6 {
     letter-spacing: -0.025em;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2, h3, h4, h5, h6 {
     font-weight: var(--fontWeight-bold);
     color: var(--color-heading);
 }
@@ -165,15 +152,10 @@ h1>a {
     text-decoration: none;
 }
 
-h2>a,
-h3>a,
-h4>a,
-h5>a,
-h6>a {
+h2>a, h3>a, h4>a, h5>a, h6>a {
     text-decoration: none;
     color: inherit;
 }
-
 
 /* Prose */
 
@@ -185,8 +167,7 @@ p {
     padding: var(--spacing-0);
 }
 
-ul,
-ol {
+ul, ol {
     margin-left: var(--spacing-0);
     margin-right: var(--spacing-0);
     padding: var(--spacing-0);
@@ -196,8 +177,7 @@ ol {
     list-style-type: none;
 }
 
-ul li,
-ol li {
+ul li, ol li {
     padding-left: var(--spacing-0);
     margin-bottom: calc(var(--spacing-8) / 2);
 }
@@ -230,8 +210,7 @@ blockquote> :last-child {
     margin-bottom: var(--spacing-0);
 }
 
-blockquote>ul,
-blockquote>ol {
+blockquote>ul, blockquote>ol {
     list-style-position: inside;
 }
 
@@ -246,7 +225,6 @@ table thead tr th {
     border-bottom: 1px solid var(--color-accent);
 }
 
-
 /* Link */
 
 a {
@@ -254,8 +232,7 @@ a {
     text-decoration: none;
 }
 
-a:hover,
-a:focus {
+a:hover, a:focus {
     text-decoration: none;
 }
 
@@ -263,12 +240,13 @@ a:focus {
     color: var(--color-secondary)
 }
 
-
 /* Custom classes */
+
 .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
 }
+
 .global-wrapper {
     margin: var(--spacing-0) auto;
     max-width: var(--maxWidth-wrapper);
@@ -329,13 +307,11 @@ a:focus {
     line-height: 100%;
 }
 
-
 /*
 *
 * End Global Section
 *
 */
-
 
 /*
 *
@@ -354,7 +330,7 @@ a:focus {
 }
 
 .hamburger-menu {
-  display: none;
+    display: none;
 }
 
 .header-container {
@@ -393,6 +369,31 @@ a:focus {
     margin: 10px;
     display: flex;
     cursor: pointer;
+}
+/* 
+.header-icon.cart {
+    color: green;
+    border: 1px solid black;
+} */
+
+.qty-bubble {
+    position: relative;
+    font-size: .5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -6px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+}
+
+.qty-bubble.no-display {
+    display: none;
 }
 
 .header-icon-link {
@@ -538,7 +539,6 @@ a:focus {
     transform: scale(1.15)
 }
 
-
 /*
 *
 * End Header Section
@@ -609,70 +609,86 @@ a:focus {
 .gatsby-highlight {
     margin-bottom: var(--spacing-8);
 }
+
 /* Page Template */
-.page-content-container{
-    margin:2% 20%;
+
+.page-content-container {
+    margin: 2% 20%;
 }
 
 /* login profile page */
-.login-wrapper{
+
+.login-wrapper {
     text-align: center;
     margin: 4%;
-    display:grid;
+    display: grid;
     grid-template-columns: 40% 40%;
     justify-content: center;
 }
-.login-wrapper button{
+
+.login-wrapper button {
     border: none;
     width: 30%;
     height: 35px;
 }
-.login-form{
+
+.login-form {
     margin: 30px 0 30px 0;
 }
-.login-form div{
+
+.login-form div {
     margin-bottom: 10px;
 }
-.login-text, .register-text1{
+
+.login-text, .register-text1 {
     font-size: 2vw;
     color: var(--color-primary);
     margin-bottom: 30px!important;
 }
-.wrap-input-login div:nth-of-type(2){
+
+.wrap-input-login div:nth-of-type(2) {
     margin-top: 15px;
 }
-.login-form button{
+
+.login-form button {
     border-radius: 20px;
     margin-top: 20px;
-    color:white;
+    color: white;
     background: var(--color-primary);
 }
-.login-wrapper input{
+
+.login-wrapper input {
     border: solid 1px gainsboro;
     border-radius: 5px!important;
 }
-.login-wrapper button:hover{
+
+.login-wrapper button:hover {
     opacity: .90;
 }
-.register-form button{
+
+.register-form button {
     background: var(--color-secondary);
     border: none;
     border-radius: 20px;
-    color:white;
+    color: white;
     margin: 20px 0 20px 0;
 }
-.register-text2, .forgot-password-text{
+
+.register-text2, .forgot-password-text {
     font-size: 12px;
-    margin-bottom: 10px;;
+    margin-bottom: 10px;
+    ;
 }
-.register-input{
+
+.register-input {
     display: grid;
     justify-content: center;
     gap: 15px;
 }
-.recover-form button{
-    background:var(--color-primary);
-    color:white;
+
+.recover-form button {
+    background: var(--color-primary);
+    color: white;
     width: 60%;
     place-self: center;
     margin-top: 20px;
@@ -680,43 +696,47 @@ a:focus {
     padding: 10px;
     height: auto;
 }
-.recover-form input{
-    border-radius: 5px!important ;
+
+.recover-form input {
+    border-radius: 5px!important;
     width: 60%;
 }
-.recover-form{
+
+.recover-form {
     margin-top: 30px;
     text-align: -webkit-center;
 }
-.recover-form form{
-    display:grid;
+
+.recover-form form {
+    display: grid;
     width: 50%;
 }
-.right-side-login{
+
+.right-side-login {
     margin: 30px 0;
 }
-@media screen and (max-width: 975px){
-    .login-wrapper{
-        display:block;
+
+@media screen and (max-width: 975px) {
+    .login-wrapper {
+        display: block;
     }
-    .login-text, .register-text1{
+    .login-text, .register-text1 {
         font-size: 4vw;
     }
-
-    
 }
-@media screen and (max-width: 480px){
-    .recover-form form{
-        width:100%;
-    }    
-    .login-wrapper button{
-        width:50%;
+
+@media screen and (max-width: 480px) {
+    .recover-form form {
+        width: 100%;
     }
-    .recover-form button{
-        width:60%;
+    .login-wrapper button {
+        width: 50%;
     }
-    .login-text, .register-text1{
-        font-size:6vw;
+    .recover-form button {
+        width: 60%;
+    }
+    .login-text, .register-text1 {
+        font-size: 6vw;
     }
 }
 
@@ -727,8 +747,7 @@ a:focus {
         padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
         margin-left: var(--spacing-0);
     }
-    ul,
-    ol {
+    ul, ol {
         list-style-position: inside;
     }
 }
@@ -766,8 +785,7 @@ a:focus {
             left: 0px;
         }
     }
-    .account-icon,
-    .search-icon {
+    .account-icon, .search-icon {
         position: relative;
         animation-name: rightin;
         animation-duration: 1s;
@@ -842,13 +860,15 @@ a:focus {
     cursor: pointer;
     border-radius: 0;
 }
+
 .profile-reg {
     font-family: var(--fontFamily-reg);
     font-size: 14px;
     padding: 0px 0;
     min-width: 200px;
 }
-.profile-bold{
+
+.profile-bold {
     font-family: var(--fontFamily-bold);
     font-size: 18px;
     padding: 5px 0;
@@ -860,45 +880,51 @@ a:focus {
     align-items: center;
 }
 
-
 /* 404 page style  */
-#content-wrapper-404{
-    text-align:center;
+
+#content-wrapper-404 {
+    text-align: center;
     margin: 50px;
 }
-.text-404{
+
+.text-404 {
     font-family: var(--fontFamily-bold);
     font-size: 12vw;
     color: #00a1c6;
 }
-.page-title-404{
+
+.page-title-404 {
     margin-top: 0!important;
     color: #002f42;
     font-size: 2vw;
 }
-.backhome404-btn{
+
+.backhome404-btn {
     background: #00a1c6;
     padding: 10px 30px;
     border-radius: 6px;
     border: none;
     margin-top: 40px;
 }
-.backhome404-btn a{
+
+.backhome404-btn a {
     color: white!important;
 }
-@media only screen and (max-width: 975px){
-    .text-404{
+
+@media only screen and (max-width: 975px) {
+    .text-404 {
         font-size: 14vw;
     }
-    .page-title-404{
+    .page-title-404 {
         font-size: 3vw;
     }
 }
-@media only screen and (max-width: 480px){
-    .text-404{
+
+@media only screen and (max-width: 480px) {
+    .text-404 {
         font-size: 22vw;
     }
-    .page-title-404{
+    .page-title-404 {
         font-size: 5vw;
     }
 }
