@@ -10,10 +10,12 @@ import { HAMBURGER_CSS } from "../../util/imports"
 import { Slide } from "react-awesome-reveal"
 import HamburgerShop from "./hamburger-shop"
 import HamburgerNews from "./hamburger-news"
+import HamburgerBotanic from "./hamburger-botanic"
 import HamburgerLocations from "./hamburger-locations"
 import HamburgerAbout from "./hamburger-about"
 import HamburgerSale from "./hamburger-sale"
 import FooterVContent from "./hamburger-footer-v"
+
 
 const Hamburger = ({ close }) => {
   // const [isShown, setIsShown] = useState(false)
@@ -212,6 +214,14 @@ const Hamburger = ({ close }) => {
             triggerOnce={false}
             direction={"right"}
           ><HamburgerNews/>
+          </Slide>
+         }
+         {page === "botanics" &&   
+            <Slide
+            duration={300}
+            triggerOnce={false}
+            direction={"right"}
+          ><HamburgerBotanic/>
           </Slide>
          }
          {page === "locations" &&   
