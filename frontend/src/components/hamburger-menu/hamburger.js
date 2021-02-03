@@ -23,18 +23,30 @@ const Hamburger = ({ close }) => {
   const [dir, setDir] = useState("right")
   const [page, setPage] = useState("default")
   const [showFooter, setShowFooter] = useState(false)
+  const [displayNoneOpenVFooter, setDisplayNoneOpenVFooter] = useState(false);
+  const [displayNoneMobileSlide, setDisplayNoneMobileSlide] = useState(false);
+  const [displayShowMobileSlide, setDisplayShowMobileSlide] = useState(true);
+  const [backbuttonShow, setBackbuttonShow] = useState(false);
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return function cleanup() {
       document.body.style.overflowY = "scroll"
     }
   }, [page])
+  
+  const HideShowInnerMenu = () =>{
+    if (displayNoneOpenVFooter)
+    return "right-side-hambrg"
+    if(displayNoneMobileSlide)
+    return "hide-on-mobile-hambrg"
+  }
 
   const yeetFooterMenu = (page) => {
     // setFooterMenuDir("down")
     // setFooterMenuTrack(!footerMenuTrack)
     setTimeout(() => {
       setPage(page)
+      setDisplayNoneOpenVFooter(false)
       setShowFooter(!showFooter)
     }, 100)
   }
@@ -44,6 +56,7 @@ const Hamburger = ({ close }) => {
     // setFooterMenuDir("up")
     setShowFooter(!showFooter)
     // setFooterMenuTrack(!footerMenuTrack)
+    setDisplayNoneOpenVFooter(true)
   }
   
 
@@ -77,6 +90,12 @@ const Hamburger = ({ close }) => {
   }
 
   const openSideMenu = (page) =>{
+    setDisplayNoneMobileSlide(true)
+    setBackbuttonShow(true)
+    setTimeout(() => {
+      setDisplayShowMobileSlide(false)
+      
+    },300)
       if(showFooter){
         yeetFooterMenu(page)
       }
@@ -84,6 +103,12 @@ const Hamburger = ({ close }) => {
         setPage(page)
       }
   }
+  const handleBackButton = () =>{
+    setDisplayNoneMobileSlide(false)
+    setBackbuttonShow(false)
+    setDisplayShowMobileSlide(true)
+  }
+
 
   return (
     <Slide
@@ -104,7 +129,16 @@ const Hamburger = ({ close }) => {
             onKeyDown={yeetHamburgerMenu}
             onClick={yeetHamburgerMenu}
           ></div>
-          <div className="hamburger-content-top">
+          <div
+            id="hamburger-back"
+            className={backbuttonShow ? 'back-btn' : ''}
+            aria-label="back"
+            role="button"
+            tabIndex={0}
+            onClick={handleBackButton}
+            
+          ></div>
+          <div className={`hamburger-content-top ${HideShowInnerMenu()}`} >
             <div className="link-level1">
               <button>
                 <Link to="/" className="ham-link1">
@@ -153,7 +187,7 @@ const Hamburger = ({ close }) => {
             </div>
           </div>
 
-          <div className="hamburger-content-right">
+          <div className={`hamburger-content-right-width ${displayShowMobileSlide ? 'hamburger-content-right' : ''}`}>
             {page === "default" && (
               <div className="welcome">
                 <span>
@@ -164,15 +198,17 @@ const Hamburger = ({ close }) => {
 
             {page === "shop" &&   
             <Slide
-            duration={500}
+            duration={300}
             triggerOnce={false}
-            direction={"right"}
+            
+            direction={dir}
+            
           ><HamburgerShop/>
           </Slide>
          }
          {page === "news" &&   
             <Slide
-            duration={500}
+            duration={300}
             triggerOnce={false}
             direction={"right"}
           ><HamburgerNews/>
@@ -180,7 +216,7 @@ const Hamburger = ({ close }) => {
          }
          {page === "locations" &&   
             <Slide
-            duration={500}
+            duration={300}
             triggerOnce={false}
             direction={"right"}
           ><HamburgerLocations/>
@@ -188,7 +224,7 @@ const Hamburger = ({ close }) => {
          }
          {page === "about" &&   
             <Slide
-            duration={500}
+            duration={300}
             triggerOnce={false}
             direction={"right"}
           ><HamburgerAbout/>
@@ -196,7 +232,7 @@ const Hamburger = ({ close }) => {
          }
          {page === "sale" &&   
             <Slide
-            duration={500}
+            duration={300}
             triggerOnce={false}
             direction={"right"}
           ><HamburgerSale/>

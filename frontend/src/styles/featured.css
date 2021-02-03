@@ -24,6 +24,7 @@
       display:grid;
       grid-template-columns: 100%;
       place-items: center;
+      margin: 0 5vw;
     }
     .featured-container .infocta-container{
         padding:0;
