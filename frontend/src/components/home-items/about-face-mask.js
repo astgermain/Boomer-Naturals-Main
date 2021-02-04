@@ -13,16 +13,17 @@ const AboutFaceMask = () => {
         
         switch (hoveredBtn) {
             case 1:
-                setBtnState(<Slide triggerOnce={true} direction="right">"1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis"</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="right">Our soft, safe material is a 65% cotton/35% polyester blend.
+                </Slide>)
                 break;
             case 2:
-                setBtnState(<Slide triggerOnce={true} direction="up">"Perspiciatis voluptatibus corporis 2 Lorem ipsum dolor sit amet consectetur adipisicing elit."</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="up">Structured nose bridge to prevent slipping and glasses fogging.</Slide>)
                 break;
             case 3:
-                setBtnState(<Slide triggerOnce={true} direction="left">"sit amet consectetur adipisicing elit. Perspiciatis voluptatibus corporis 3 Lorem ipsum dolor"</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="left">Three layers of silver-infused fabric to prevent droplets from spreading.</Slide>)
                 break;
             case 4:
-                setBtnState(<Slide triggerOnce={true} direction="down">"amet consectetur adipisicing elit. 3 Lorem ipsum dolor sit  Perspiciatis voluptatibus corporis"</Slide>)
+                setBtnState(<Slide triggerOnce={true} direction="down">Comfortable, adjustable earloops provide a custom fit and stay in place.</Slide>)
                 break;
             default:
                 break;
@@ -31,7 +32,7 @@ const AboutFaceMask = () => {
 
     return (
         <section className="about-face-mask-section">
-            <h4>About Our Face Cover</h4>
+            <h4>Find Your Perfect Fit</h4>
             <div className="image-container">
                 <img src={MaskImg} alt="Boomer Naturals Mask Information" width="100%" height="auto" />
                 <div

@@ -45,7 +45,8 @@ const Infocta = ({ svgProp, maintextProp, subtextProp, buttontextProp }) => {
 Infocta.defaultProps = {
     svgProp: `svg image`,
     maintextProp: `Share Your Story`,
-    subtextProp: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
+    subtextProp: `We’d love to hear from the people that matter most, our customers. Feel free to share your favorite pictures of you and your family on social media.
+    `,
     buttontextProp: `Learn More`
 
 }
