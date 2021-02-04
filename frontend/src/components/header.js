@@ -349,7 +349,7 @@ const Header = ({ title, data }) => {
             <Link to="/" className="header-link">
               Home
             </Link>
-            <Link to="/" className="header-link">
+            <Link to="/collections" className="header-link">
               Shop
             </Link>
             <Link to="/cvs-locations" className="header-link">

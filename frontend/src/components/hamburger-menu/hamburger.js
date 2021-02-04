@@ -151,18 +151,18 @@ const Hamburger = ({ close }) => {
               </button>
 
               <button onClick={() => openSideMenu("shop") }>
-                <Link className="ham-link1">
+                <Link to="/" className="ham-link1">
                   <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("shop") } className="links">Shop</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("news") }>
-                <Link className="ham-link1">
+                <Link to="/southvietnam" className="ham-link1">
                   <span  role="button" tabIndex={0} onMouseEnter={() => openSideMenu("news") } className="links">News</span>
                 </Link>
               </button>
               <button onClick={() => openSideMenu("botanics") }>
-                <Link className="ham-link1">
+                <Link to="/collections/all-boomer-botanics" className="ham-link1">
                   <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("botanics") } className="links">Boomer Botanics</span>
                 </Link>
               </button>
@@ -170,19 +170,19 @@ const Hamburger = ({ close }) => {
     
 
               <button onClick={() => openSideMenu("locations") }>
-                <Link className="ham-link1">
+                <Link to="/cvs-locations" className="ham-link1">
                   <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("locations") } className="links">Locations</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("about") }>
-                <Link className="ham-link1">
+                <Link to="/about-us" className="ham-link1">
                   <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("about")} className="links" >About</span>
                 </Link>
               </button>
 
               <button onClick={() => openSideMenu("sale") }>
-                <Link className="ham-link1">
+                <Link to="/sale" className="ham-link1">
                   <span role="button" tabIndex={0} onMouseEnter={() => openSideMenu("sale")} className="links">Sale</span>
                 </Link>
               </button>

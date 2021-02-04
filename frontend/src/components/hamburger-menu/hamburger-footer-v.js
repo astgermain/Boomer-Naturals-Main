@@ -218,19 +218,19 @@ const FooterVContent = () =>{
             <div className="v-programs">
                <span className="footerHead">PROGRAMS</span> 
                <ul>
-               <li><Link to="/" className="v-header-link">
+               <li><Link to="https://ir.boomernaturals.com/" className="v-header-link">
                     Invester Relations
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/influencer-program" className="v-header-link">
                     Influencer Program
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/boomer-naturals-affiliate-program" className="v-header-link">
                     Join our Affiliate Program
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/refer-a-friend" className="v-header-link">
                     Refer a Friend and Save
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/ambassador" className="v-header-link">
                     Ambassador Program
                 </Link></li>
                 </ul>
@@ -239,14 +239,14 @@ const FooterVContent = () =>{
             <div className="v-Wholesale">
                <span className="footerHead">WHOLESALE</span> 
                <ul>
-               <li><Link to="/" className="v-header-link">
+               <li><Link to="https://boomernaturalswholesale.com/" className="v-header-link">
                     BoomerNaturalsWholesale.com
                 </Link></li>
                 <li><Link to="/" className="v-header-link">
-                    (702) 996-1312
+                    <a href="tel:+17029961312">(702) 996-1312</a>
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
-                    Wholesale@BoomerNaturals.com
+                <li><Link to="https://boomernaturalswholesale.com/" className="v-header-link">
+                    <a href="mailto:Wholesale@boomernaturals.com">Wholesale@BoomerNaturals.com</a>
                 </Link></li>
                 </ul>
             </div>
@@ -256,16 +256,16 @@ const FooterVContent = () =>{
             <div className="v-policy">
                <span className="footerHead">POLICIES</span> 
                <ul>
-               <li><Link to="/" className="v-header-link">
+               <li><Link to="/refund-policy" className="v-header-link">
                     Refund Policy
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/terms-of-service" className="v-header-link">
                     Terms of Service
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/privacy-policy" className="v-header-link">
                     Privacy Policy
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/shipping-policy" className="v-header-link">
                     Shipping Policy
                 </Link></li>
                 </ul>
@@ -273,19 +273,19 @@ const FooterVContent = () =>{
             <div className="v-about">
             <span className="footerHead">ABOUT US</span> 
             <ul>
-               <li><Link to="/" className="v-header-link">
+               <li><Link to="/about-us" className="v-header-link">
                     About Boomer Naturals
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/wellness-advisory-board" className="v-header-link">
                     Wellness Advisory Board
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/face-cover-donation" className="v-header-link">
                     Donations
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/blogs/news" className="v-header-link">
                     Blog
                 </Link></li>
-                <li><Link to="/" className="v-header-link">
+                <li><Link to="/faqs" className="v-header-link">
                     FAQ
                 </Link></li>
             </ul>
@@ -296,16 +296,16 @@ const FooterVContent = () =>{
             <span className="footerHead">STORE</span> 
             <ul>
                <li className="v-header-link">
-                    Open Daily 8am - 6pm (PST)
+                    Open Daily 8am - 5pm (PST)
                 </li>
                 <li><Link to="/" className="v-header-link">
-                    8670 W Cheyenne Ave. #120 • Las Vegas, NV 89129
+                <a href="http://maps.google.com/?q=8670 W Cheyenne Ave. #120, Las Vegas, NV 89129">8670 W Cheyenne Ave. #120 • Las Vegas, NV 89129</a>
                 </Link></li>
                 <li><Link to="/" className="v-header-link">
                     (702 960-4843) •
                 </Link>
                 <Link to="/" className="v-header-link">
-                    Info@BoomerNaturals.com
+                <a href="mailto:Info@BoomerNaturals.com">Info@BoomerNaturals.com</a>
                 </Link></li>
             </ul>
             <img

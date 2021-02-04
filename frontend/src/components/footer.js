@@ -66,7 +66,7 @@ const Footer = () => {
             8670 W Cheyenne Ave. #120<br></br>Las Vegas, NV 89129
           </span>
           <span className="footer-text-reg"><b>Phone:</b> (702) 960-4843</span>
-          <span className="footer-text-reg"><b>E-Mail:</b> Info@BoomerNaturals.com</span>
+          <span className="footer-text-reg"><b>E-Mail:</b><a href="mailto:Info@BoomerNaturals.com"> Info@BoomerNaturals.com</a></span>
         </div>
         <div className="footer-top-middle">
           <Link to="/" className="footer-top-logo">
@@ -77,7 +77,7 @@ const Footer = () => {
             />
           </Link>
           <div className="footer-bottom-socials">
-            <Link to="/">
+            <Link to="https://www.instagram.com/boomernaturals/">
               <svg
                 width="36px"
                 height="36px"
@@ -140,7 +140,7 @@ const Footer = () => {
                 </g>
               </svg>
             </Link>
-            <Link to="/">
+            <Link to="https://www.facebook.com/boomernaturals/">
               <svg
                 width="36px"
                 height="36px"
@@ -182,7 +182,7 @@ const Footer = () => {
                 </g>
               </svg>
             </Link>
-            <Link to="/">
+            <Link to="https://www.youtube.com/channel/UCiGRPRAzsn8PpJYtbYVZubQ">
               <svg
                 width="36px"
                 height="36px"
@@ -230,7 +230,7 @@ const Footer = () => {
                 </g>
               </svg>
             </Link>
-            <Link to="/">
+            <Link to="https://twitter.com/boomernaturals">
               <svg
                 width="36px"
                 height="36px"
@@ -274,16 +274,16 @@ const Footer = () => {
             </Link>
           </div>
           <div className="footer-top-links">
-            <Link to="/" className="header-link">
+            <Link to="/refer-a-friend" className="header-link">
               Programs
             </Link>
-            <Link to="/" className="header-link">
+            <Link to="https://boomernaturalswholesale.com/" className="header-link">
               Wholesale
             </Link>
-            <Link to="/" className="header-link">
+            <Link to="/faqs" className="header-link">
               FAQ
             </Link>
-            <Link to="/" className="header-link">
+            <Link to="/contact-us" className="header-link">
               Contact Us
             </Link>
           </div>

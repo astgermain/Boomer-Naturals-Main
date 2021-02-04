@@ -9,7 +9,7 @@
 
 import React from "react"
 import { Link } from "gatsby"
-import b1 from "../../../content/assets/banner1.jpg"
+import b1 from "../../../content/assets/new.jpg"
 import b2 from "../../../content/assets/banner2.jpg"
 import b3 from "../../../content/assets/banner3.jpg"
 import Slider from "../slider"
@@ -24,20 +24,20 @@ const HeroMobile = () => {
       </Link>
     </div>
   )
-  let rightMobileSlide2 = (
-    <div>
-      <Link to="/">
-        <img src={b2} alt="banner2" className="" />
-      </Link>
-    </div>
-  )
-  let rightMobileSlide3 = (
-    <div>
-      <Link to="/">
-        <img src={b3} alt="banner3" className="" />
-      </Link>
-    </div>
-  )
+//   let rightMobileSlide2 = (
+//     <div>
+//       <Link to="/">
+//         <img src={b2} alt="banner2" className="" />
+//       </Link>
+//     </div>
+//   )
+//   let rightMobileSlide3 = (
+//     <div>
+//       <Link to="/">
+//         <img src={b3} alt="banner3" className="" />
+//       </Link>
+//     </div>
+//   )
 
   return (
     <section className="hero-mobile-container">
@@ -54,8 +54,8 @@ const HeroMobile = () => {
           autoplaySpeed={1500}
           arrowsVal={false}
           slide1={rightMobileSlide1}
-          slide2={rightMobileSlide2}
-          slide3={rightMobileSlide3}
+        //   slide2={rightMobileSlide2}
+        //   slide3={rightMobileSlide3}
         />
       </div>
     </section>

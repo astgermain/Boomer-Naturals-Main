@@ -693,7 +693,7 @@ a:focus {
     width: 50%;
 }
 .right-side-login{
-    margin: 30px 0;
+    margin:  0;
 }
 @media screen and (max-width: 975px){
     .login-wrapper{
