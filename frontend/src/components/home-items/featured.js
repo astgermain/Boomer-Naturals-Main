@@ -59,6 +59,7 @@ const Featured = ({data}) => {
       <Infocta
         svgProp={shopIcon}
         maintextProp="Let's Shop"
+        subtextProp="We’ve got everything you need to elevate your lifestyle to be the healthiest you can be. From face covers to supplements and all sorts in between, you’re sure to find the product that’s right for you."
         buttontextProp="View All"
       />
       {pSlide()}

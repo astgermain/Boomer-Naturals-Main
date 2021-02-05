@@ -47,6 +47,7 @@ const News = () => {
             <Infocta
                 maintextProp="In The News"
                 svgProp={videoSVG}
+                subtextProp="Take a look at what everyone is saying about us, but don’t just take their word for it; try out our face covers for yourself!"
             />
 
         </section >

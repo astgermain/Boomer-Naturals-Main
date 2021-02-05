@@ -1,0 +1,36 @@
+.info-banner-container{
+    width:100%;
+    background-color: var(--color-primary);
+    padding:10px 12%;
+    color:white;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.heart{
+    color: red;
+}
+.info-banner-container a{
+    color: white;
+}
+.info-banner-container a:hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 975px){
+    .info-banner-container{
+        justify-content:center;
+    }
+}
+@media screen and (max-width: 530px){
+    .info-banner-container{
+        padding:10px 5%;
+    }
+}
+@media screen and (max-width: 480px){
+    .info-banner-container{
+        padding:8px 5%;
+        gap:10px;
+        display: grid;
+    }
+}

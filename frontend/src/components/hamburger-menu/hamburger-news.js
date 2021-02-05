@@ -19,7 +19,7 @@ const HamburgerNews = () =>{
               <Link to="/southvietnam" className="btm-shop-links">
                 <span className="btm-shop-links">Boomer Silver & S.Vietnam</span>
               </Link>
-              <Link to="/investorrelations" className="btm-shop-links">
+              <Link to="https://www.businesswire.com/news/home/20201222005155/en/%C2%A0Boomer-Naturals-Announces-Uplist-to-OTCQB-Venture-Markets" className="btm-shop-links">
                 <span className="btm-shop-links">On Business Wire</span>
               </Link>
               <Link to="https://ir.boomernaturals.com/" className="btm-shop-links">

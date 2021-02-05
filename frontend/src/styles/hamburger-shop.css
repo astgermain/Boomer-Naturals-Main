@@ -8,7 +8,7 @@
     flex-flow: column;
 }
 .dashed{
-    margin-top: 10px;
+    margin-top: 4px;
 }
 .shop-c-links{
     color: var(--color-secondary);
@@ -24,7 +24,7 @@
 .btm-shop-links{
     font-family: var(--fontFamily-reg);
     font-size: var(--fontSize-2);
-    margin-bottom:2px;
+    margin-bottom:5px;
 }
 span.dashed:before{
     content: "";

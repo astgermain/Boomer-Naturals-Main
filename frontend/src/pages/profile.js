@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 const Profile = ({location}) => {
   
   return (
-    <Layout className="Hello" location={location}>
+    <Layout location={location}>
       <Account />
     </Layout>
   )

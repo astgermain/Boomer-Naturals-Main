@@ -5,7 +5,7 @@
 */
 .featured-container {
     display: flex;
-    margin: 20px 12.5vw;
+    margin: 20px 12.5vw 40px 12.5vw;
     justify-content: space-between;
 }
 
@@ -24,6 +24,7 @@
       display:grid;
       grid-template-columns: 100%;
       place-items: center;
+      margin: 0 5vw;
     }
     .featured-container .infocta-container{
         padding:0;

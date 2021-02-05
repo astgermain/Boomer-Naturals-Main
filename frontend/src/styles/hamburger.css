@@ -9,7 +9,7 @@
 }
 
 .hamburger-content {
-    margin: 50px 14.5vw 50px 14.5vw;
+    margin: 50px 14.5vw 0px 14.5vw;
     display: flex;
     flex-flow: row;
 }
@@ -25,10 +25,13 @@
     display: flex;
     justify-content: center;
 }
+.hamburger-content-right-width{
+  width:100%;
+}
 
 .link-level1, .link-level2 {
     width: calc(75vw/3);
-    height: 60vh;
+    height: auto;
     display: flex;
     flex-flow: column;
 }
@@ -201,6 +204,9 @@ span.links:hover:before{
     from {top: 0px;}
     to {top: 200px;}
   }
+  .shop-collection-link{
+    margin-bottom: 10px;
+  }
   
   /* all styles social media buttons */
   
@@ -218,7 +224,14 @@ span.links:hover:before{
       font-size: var(--fontSize-6);
     }
   }
-
+  @media screen and (max-width: 940px){
+    .right-side-hambrg{
+      display:none;
+    }
+    .hamburger-content-right-width{
+    width: 100%;
+  }
+  }
   @media screen and (max-width: 900px) {
     .ham-link1 {
       font-size: var(--fontSize-5);
@@ -230,6 +243,50 @@ span.links:hover:before{
       width:15px;
       margin-bottom: 10px;
   }
+  
   }
+  @media screen and (max-width: 768px) {
+    span.links:hover:before{
+      display:none;
+    }
+  }
+  @media screen and (max-width: 600px){
+    .welcome, .footerV{
+      display:none;
+    }
+    .hamburger-content-right{
+      margin-left: 30px;
+      visibility: hidden;
+      display: none;
+    }
+    .hide-on-mobile-hambrg{
+      display:none;
+    }
+    .back-btn{
+      display: block;
+      position: absolute;
+      left: 32px;
+      top:20px;
+      width:45px;
+      height: 45px;
+      border: solid 1px #333;
+      border-radius: 100px!important;
+      padding: 5px;
+      text-align-last: center;
+      transform: rotate(180deg);
+    }
+    .back-btn:before{
+      content: "➜";
+      color: var(--color-secondary);
+      font-family: auto;
+      font-size: 32px;
+    }
+  }
+  @media screen and (max-width: 480px){
+    .hamburger-content{
+      margin: 50px 10vw 0px 10vw;
+    }
+  }
+  
 
   
