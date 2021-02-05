@@ -93,10 +93,9 @@ const Instafeed = () => {
       </div>
       <div className="review-text-container">
         <div className="review-text">
-          Finally, I found a cover that is comfortable and doesn't fall off my
-          face.
+        Definitely impressed me with everything from their selections to the fit to their customer service.
         </div>
-        <div className="reviewer-name">Joe</div>
+        <div className="reviewer-name">Juan O</div>
       </div>
     </div>
   )
@@ -187,9 +186,9 @@ const Instafeed = () => {
       </div>
       <div className="review-text-container">
         <div className="review-text">
-        Visible, non-interactive elements with click handlers must have at
+        Great masks! Versatile and multi-patterned. Use them everyday. Handwash and wearing well!
         </div>
-        <div className="reviewer-name">Mama</div>
+        <div className="reviewer-name">Linda H</div>
       </div>
     </div>
   )
@@ -280,9 +279,9 @@ const Instafeed = () => {
       </div>
       <div className="review-text-container">
         <div className="review-text">
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        Boomer Naturals makes truly quality masks (3 layers) in many designs for both children & adult!
         </div>
-        <div className="reviewer-name">Bobby</div>
+        <div className="reviewer-name">Jackie K</div>
       </div>
     </div>
   )
