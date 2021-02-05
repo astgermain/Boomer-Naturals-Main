@@ -13,6 +13,7 @@ import HeroMobile from "./home-items/hero-mobile"
 
 
 const HomeLayout = ({data}) => {
+  console.log(data)
   return (
     <main className="main-section">
       <InfoBanner/>

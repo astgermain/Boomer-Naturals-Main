@@ -609,6 +609,30 @@ a:focus {
 .gatsby-highlight {
     margin-bottom: var(--spacing-8);
 }
+/* contact page */
+.contact-form .row{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 25% 25%;
+    gap:10px;
+}
+.contact-form .row div{
+    display: grid;
+}
+.contact-form .row div:nth-of-type(3n) {
+    grid-column-end: 3;
+    grid-column-start: 1;
+}
+.contact-form p{
+    text-align: center;
+    margin-top: 20px;
+}
+input[value^="Send"]{
+    color:white;
+    padding:10px 10%;
+    border-radius:5px!important;
+}
+
 /* Page Template */
 .page-content-container{
     margin:2% 20%;

@@ -16,7 +16,7 @@ const FooterVContent = () =>{
             <span className="footerHead">FOLLOW US</span>
             <div className="footerv-social">
             <div className="v-footer-bottom-socials">
-            <Link to="/">
+            <Link to="https://www.instagram.com/boomernaturals/">
               <svg
                 width="36px"
                 height="36px"
@@ -79,7 +79,7 @@ const FooterVContent = () =>{
                 </g>
               </svg>
             </Link>
-            <Link to="/">
+            <Link to="https://www.facebook.com/boomernaturals/">
               <svg
                 width="36px"
                 height="36px"
@@ -121,7 +121,7 @@ const FooterVContent = () =>{
                 </g>
               </svg>
             </Link>
-            <Link to="/">
+            <Link to="https://www.youtube.com/channel/UCiGRPRAzsn8PpJYtbYVZubQ">
               <svg
                 width="36px"
                 height="36px"
@@ -169,7 +169,7 @@ const FooterVContent = () =>{
                 </g>
               </svg>
             </Link>
-            <Link to="/">
+            <Link to="https://twitter.com/boomernaturals">
               <svg
                 width="36px"
                 height="36px"
