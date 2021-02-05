@@ -14,11 +14,11 @@ const Header = ({ title, data }) => {
 
   const [hamMenu, setHamMenu] = useState(false)
   const [clickSearch, setClickedSearch] = useState(false)
-  const { toggleCart } = useContext(StoreContext)
+  const { toggleCart, checkout } = useContext(StoreContext)
 
   const logoAlt = title
 
-
+  const ITEMS_IN_CART = checkout.lineItems.length
 
   const handleMenuClick = () => setHamMenu(!hamMenu)
   const handleSearchClick = () => setClickedSearch(!clickSearch)
@@ -364,7 +364,13 @@ const Header = ({ title, data }) => {
           </div>
           <div className="header-icons">
             {/* Search Icon SVG */}
-            <div role="button" tabIndex={0} onKeyDown={handleShoppingCartClick} onClick={handleSearchClick} className="header-icon">
+            <div
+              role="button"
+              tabIndex={0}
+              onKeyDown={handleShoppingCartClick}
+              onClick={handleSearchClick}
+              className="header-icon"
+            >
               <svg
                 width="20px"
                 height="20px"
@@ -448,7 +454,7 @@ const Header = ({ title, data }) => {
               onKeyDown={handleShoppingCartClick}
               tabIndex={0}
               onClick={handleShoppingCartClick}
-              className="header-icon">
+              className="header-icon cart">
               <svg
                 width="21px"
                 height="20px"
@@ -523,6 +529,7 @@ const Header = ({ title, data }) => {
                   </g>
                 </g>
               </svg>
+              <div className={`${!ITEMS_IN_CART && 'no-display'} qty-bubble`}>{ITEMS_IN_CART}</div>
             </div>
             {/* End Shopping Icon SVG */}
 
