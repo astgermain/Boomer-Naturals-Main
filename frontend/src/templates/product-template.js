@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import Layout from "../components/layout"
 import "../styles/product-template.css"
 import safecheckoutlogo from "../../content/assets/safecheckoutlogo.png"
@@ -8,6 +8,8 @@ import errorImg from "../../content/assets/errorImg.png"
 import ProductCarousel from "../components/product-carousel"
 import SizingInfo from "../components/template-components/sizing-info"
 import Reviews from "../components/template-components/reviews"
+import store from "../util/store"
+
 import "../styles/product-template.css"
 
 const ProductTemplate = ({ data, pageContext, location }) => {
@@ -33,10 +35,15 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   const [selectedVariantId, setSelectedVariantId] = useState("")
   const [bottomTabs, setbottomTabs] = useState("description")
 
+  const { addToCart } = useContext(store)
 
-
+  const variantShopifyId = pageContext.node.variants[0].id.split("Shopify__ProductVariant__").join("")
 
   const { handle, title, description, descriptionHtml } = pageContext.node
+
+  const handleAddToCart = () => {
+    addToCart(variantShopifyId, quantity)
+  }
 
   //price
   let priceFormat = price => {
@@ -212,8 +219,8 @@ const ProductTemplate = ({ data, pageContext, location }) => {
   }
   //addtocart
 
-const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
-const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
+  const SizingDisable = bottomTabs === "sizing" ? '' : 'disable'
+  const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
 
 
 
@@ -268,7 +275,7 @@ const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
                 <span>+</span>
               </div>
             </div>
-            <button className="add-to-cart add-cart-template">
+            <button onClick={handleAddToCart} className="add-to-cart add-cart-template">
               Add to Cart
             </button>
           </div>
@@ -363,7 +370,7 @@ const ReviewDisable = bottomTabs === "review" ? '' : 'disable'
         <Reviews ReviewDisable={ReviewDisable} pageContext={pageContext} data={data} location={location} />
       </div>
 
-      <ProductCarousel whichPage={"suggested-products"} data={data}/>
+      <ProductCarousel whichPage={"suggested-products"} data={data} />
     </Layout>
   )
 }
